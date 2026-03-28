@@ -55,6 +55,13 @@ conventional_explanation: Best possible mundane explanation
 conventional_explanation_fit: "strong" / "possible" / "strained" / "implausible"
 anomalous_details: List the specific details that resist conventional explanation
 
+light_anomalies: Any unusual light phenomena reported — before, during, or after the encounter.
+  orb_timing: "before" / "during" / "after" / "before_and_during" etc.
+  orb_behaviour: how it moved — stationary, drifting, erratic, following witness, disappearing
+  light_preceded_encounter: true if a light anomaly appeared BEFORE the creature was seen
+  creature_associated_with_light: true if the light seemed connected to or emitted by the creature
+  ambient_light_change: unexplained brightening, darkening, or colour shift in the environment
+
 Transcript:
 {transcript}
 
@@ -165,6 +172,19 @@ Return a JSON object with this exact structure. Fill every field you can from th
     "uncertainty_admissions": [],
     "non_linear_structure": null,
     "spontaneous_detail_count": null
+  }},
+  "light_anomalies": {{
+    "any_light_anomaly": null,
+    "orbs_reported": null,
+    "orb_colour": null,
+    "orb_behaviour": null,
+    "orb_timing": null,
+    "light_preceded_encounter": null,
+    "light_followed_encounter": null,
+    "ambient_light_change": null,
+    "creature_associated_with_light": null,
+    "light_description_quote": null,
+    "light_anomaly_notes": null
   }},
   "anomaly_assessment": {{
     "anomaly_score": null,
