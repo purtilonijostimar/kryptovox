@@ -7,6 +7,7 @@ Saves audio as mp3 + metadata JSON alongside each file.
 """
 
 import os
+import sys
 import json
 import subprocess
 import argparse
@@ -69,7 +70,7 @@ def download_channel(channel_key: str, limit: int = None, skip_existing: bool = 
     print(f"{'='*60}\n")
 
     cmd = [
-        "yt-dlp",
+        sys.executable, "-m", "yt_dlp",
         "--extract-audio",
         "--audio-format",     "mp3",
         "--audio-quality",    "0",
