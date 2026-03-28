@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Kryptovox — Download Pipeline
+Pulls audio from YouTube channels/playlists using yt-dlp.
+Saves audio as mp3 + metadata JSON alongside each file.
+"""
+
+import os
+import json
+import subprocess
+import argparse
+from pathlib import Path
+from datetime import datetime
+
+# ── Paths ──────────────────────────────────────────────────────────────────────
+ROOT      = Path(__file__).parent.parent
+AUDIO_DIR = ROOT / "data" / "audio"
+
+# ── Channel Registry ───────────────────────────────────────────────────────────
+CHANNELS = {
+    "dogman_encounters": {
+        "url":      "https://www.youtube.com/@DogmanEncounters",
+        "subject":  "dogman",
+        "priority": 1,
+    },
+    "sasquatch_chronicles": {
+        "url":      "https://www.youtube.com/@SasquatchChronicles",
+        "subject":  "bigfoot",
+        "priority": 2,
+    },
+    "bfro": {
+        "url":      "https://www.youtube.com/@BFROofficial",
+        "subject":  "bigfoot",
+        "priority": 2,
+    },
+    "bigfoot_society": {
+        "url":      "https://www.youtube.com/@TheBigfootSociety",
+        "subject":  "bigfoot",
+        "priority": 3,
+    },
+}
+
+
+def download_channel(channel_key: str, limit: int = None, skip_existing: bool = True):
+    """
+    Download audio from a channel.
+    
+    Args:
+        channel_key:    Key from CHANNELS dict
+        limit:          Max episodes to download (None = all)
+        skip_existing:  Skip if mp3 already exists
+    """
+    if channel_key not in CHANNELS:
+        print(f"Unknown channel: {channel_key}. Available: {list(CHANNELS.keys())}")
+        return
+
+    ch      = CHANNELS[channel_key]
+    out_dir = AUDIO_DIR / channel_key
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    print(f"\n{'='*60}")
+    print(f"Downloading: {channel_key}")
+    print(f"URL:         {ch['url']}")
+    print(f"Subject:     {ch['subject']}")
+    print(f"Output:      {out_dir}")
+    if limit:
+        print(f"Limit:       {limit} episodes")
+    print(f"{'='*60}\n")
+
+    cmd = [
+        "yt-dlp",
+        "--extract-audio",
+        "--audio-format",     "mp3",
+        "--audio-quality",    "0",
+        "--output",           str(out_dir / "%(upload_date)s_%(id)s_%(title).80s.%(ext)s"),
+        "--write-info-json",
+        "--write-description",
+        "--no-overwrites",
+        "--ignore-errors",
+        "--sleep-interval",   "2",     # be polite
+        "--max-sleep-interval","5",
+    ]
+
+    if limit:
+        cmd += ["--playlist-end", str(limit)]
+
+    cmd.append(ch["url"])
+
+    print(f"Running: {' '.join(cmd[:6])} ... {ch['url']}\n")
+    result = subprocess.run(cmd, capture_output=False)
+
+    if result.returncode == 0:
+        print(f"\n✅ Download complete: {channel_key}")
+    else:
+        print(f"\n⚠️  Download finished with warnings (some episodes may have failed)")
+
+    # Count what we have
+    mp3_files = list(out_dir.glob("*.mp3"))
+    print(f"   Audio files in directory: {len(mp3_files)}")
+    return mp3_files
+
+
+def list_downloaded():
+    """Show a summary of what's been downloaded."""
+    print("\n📁 Downloaded audio:\n")
+    total = 0
+    for ch_key in CHANNELS:
+        ch_dir = AUDIO_DIR / ch_key
+        if ch_dir.exists():
+            files = list(ch_dir.glob("*.mp3"))
+            size_mb = sum(f.stat().st_size for f in files) / 1_000_000
+            print(f"  {ch_key:30s} {len(files):4d} files  ({size_mb:.0f} MB)")
+            total += len(files)
+    print(f"\n  Total: {total} files")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Kryptovox audio downloader")
+    parser.add_argument("channel",  nargs="?", help="Channel key (or 'all' or 'list')")
+    parser.add_argument("--limit",  type=int,  help="Max episodes per channel")
+    parser.add_argument("--list",   action="store_true", help="Show downloaded files")
+    args = parser.parse_args()
+
+    if args.list or args.channel == "list":
+        list_downloaded()
+    elif args.channel == "all":
+        for key in sorted(CHANNELS, key=lambda k: CHANNELS[k]["priority"]):
+            download_channel(key, limit=args.limit)
+    elif args.channel:
+        download_channel(args.channel, limit=args.limit)
+    else:
+        parser.print_help()
+        print("\nAvailable channels:")
+        for k, v in CHANNELS.items():
+            print(f"  {k:30s} {v['subject']}")

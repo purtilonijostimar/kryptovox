@@ -1,0 +1,15 @@
+.env
+data/audio/
+data/transcripts/
+data/extracted/
+data/scored/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
