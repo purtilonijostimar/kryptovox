@@ -32,6 +32,29 @@ Be conservative and precise:
 - Use exact witness language in quote fields where specified
 - confidence fields are YOUR confidence in the extraction (0.0–1.0), not the witness's credibility
 
+Special fields:
+
+career_risk_score (0–3): How much would this person lose by going public?
+  0 = anonymous/retired/nothing to lose
+  1 = minor social risk
+  2 = professional reputation at stake (police, nurse, teacher, military)
+  3 = high-profile, career-ending risk if associated with this claim
+
+narrator_profile: Your assessment of the narrator type based on HOW they tell the story:
+  "genuine" — non-linear, self-corrects, admits uncertainty, downplays, sensory-rich
+  "fantasy_prone" — enjoys the telling, vivid but generic, seeks validation
+  "fabricator" — too clean, too linear, no uncertainty, performed emotion
+  "confabulator" — inconsistent in ways suggesting false memory not lying
+  "indeterminate" — insufficient data
+
+anomaly_score (0–10): How well do conventional explanations fit?
+  0 = easily explained (bear, large dog, misidentification)
+  5 = conventional explanation possible but strained
+  10 = no conventional explanation accounts for all described details
+conventional_explanation: Best possible mundane explanation
+conventional_explanation_fit: "strong" / "possible" / "strained" / "implausible"
+anomalous_details: List the specific details that resist conventional explanation
+
 Transcript:
 {transcript}
 
@@ -46,12 +69,16 @@ Return a JSON object with this exact structure. Fill every field you can from th
   "witness": {{
     "approximate_age": null,
     "profession_category": null,
+    "profession_detail": null,
     "group_size": null,
     "context": null,
     "prior_outdoor_experience": null,
     "stated_skeptic_before": null,
     "disclosure_delay_years": null,
-    "told_before_this_interview": null
+    "told_before_this_interview": null,
+    "career_risk_score": null,
+    "narrator_profile": null,
+    "career_risk_notes": null
   }},
   "encounter": {{
     "location_country": null,
@@ -99,7 +126,10 @@ Return a JSON object with this exact structure. Fill every field you can from th
     "reaction_to_witness": null,
     "eye_contact_made": null,
     "departure_type": null,
-    "departure_description_quote": null
+    "departure_description_quote": null,
+    "watches_then_leaves": null,
+    "silent_departure": null,
+    "felt_known_by_creature": null
   }},
   "witness_response": {{
     "immediate_reaction": null,
@@ -109,7 +139,11 @@ Return a JSON object with this exact structure. Fill every field you can from th
     "vehicle_nearby": null,
     "called_for_help": null,
     "physiological_responses": [],
-    "physiological_quote": null
+    "physiological_quote": null,
+    "paralysis_or_freeze": null,
+    "time_distortion": null,
+    "infrasound_felt": null,
+    "tunnel_vision": null
   }},
   "post_encounter": {{
     "returned_to_location": null,
@@ -131,6 +165,12 @@ Return a JSON object with this exact structure. Fill every field you can from th
     "uncertainty_admissions": [],
     "non_linear_structure": null,
     "spontaneous_detail_count": null
+  }},
+  "anomaly_assessment": {{
+    "anomaly_score": null,
+    "conventional_explanation": null,
+    "conventional_explanation_fit": null,
+    "anomalous_details": []
   }},
   "extraction_meta": {{
     "extracted_at": "{now}",
