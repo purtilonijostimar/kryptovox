@@ -72,7 +72,7 @@ def download_channel(channel_key: str, limit: int = None, skip_existing: bool = 
     cmd = [
         sys.executable, "-m", "yt_dlp",
         "--extract-audio",
-        "--audio-format",     "mp3",
+        "--audio-format",     "best",
         "--audio-quality",    "0",
         "--output",           str(out_dir / "%(upload_date)s_%(id)s_%(title).80s.%(ext)s"),
         "--write-info-json",
@@ -97,9 +97,9 @@ def download_channel(channel_key: str, limit: int = None, skip_existing: bool = 
         print(f"\n⚠️  Download finished with warnings (some episodes may have failed)")
 
     # Count what we have
-    mp3_files = list(out_dir.glob("*.mp3"))
-    print(f"   Audio files in directory: {len(mp3_files)}")
-    return mp3_files
+    audio_files = [f for f in out_dir.iterdir() if f.suffix in ('.mp3', '.webm', '.m4a', '.opus', '.ogg')]
+    print(f"   Audio files in directory: {len(audio_files)}")
+    return audio_files
 
 
 def list_downloaded():

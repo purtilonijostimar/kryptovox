@@ -128,7 +128,7 @@ def transcribe_channel(channel_key: str, limit: int = None, force: bool = False)
         print(f"No audio found for channel: {channel_key}")
         return
 
-    files = sorted(audio_dir.glob("*.mp3"))
+    files = [f for f in sorted(audio_dir.iterdir()) if f.suffix in ('.mp3', '.webm', '.m4a', '.opus', '.ogg') and not f.name.endswith('.info.json')]
     if limit:
         files = files[:limit]
 
