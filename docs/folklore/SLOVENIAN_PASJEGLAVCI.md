@@ -252,3 +252,33 @@ However:
 ---
 
 *File created: 2026-03-28 | Next action: Retrieve Studia mythologica Slavica 2015 article; check Valvasor; identify other Bolhar collection tales*
+
+---
+
+## Access Status — Paywalled Sources
+
+### Studia mythologica Slavica (ZRC SAZU) — 2015 article on psoglavec
+- **Status**: Confirmed exists (1 result on journal search). Full text paywalled.
+- **Publisher**: Institut za slovensko narodopisje, ZRC SAZU
+- **Journal OJS**: https://ojs.zrc-sazu.si/sms/ — requires institutional login
+- **Route to access**:
+  1. Email `isn@zrc-sazu.si` directly — explain it's for academic research on Slovenian folklore
+  2. University of Ljubljana library card (free to obtain as Slovenian resident)
+  3. Find the author name in the Drnovšek bibliography (SMS vols 11–20) and email them via Academia.edu
+
+### Monika Kropej Telban — *Supernatural Beings from Slovenian Myth and Folktales* (2012)
+- **Publisher**: ZRC SAZU / Studia mythologica Slavica Supplementa
+- **Google Books ID**: kSKrWkIBB0IC (preview only, no full text)
+- **COBISS**: Available in Slovenian library system
+- **This book is the single most important secondary source for this project**
+- Contains systematic catalogue of all Slovenian supernatural beings with primary source citations
+- Will have psoglavec/pasjeglavci entry with full source history
+- **Route to access**: Buy from Založba ZRC online bookshop, or borrow via NUK
+
+### Contact for both
+**Inštitut za slovensko narodopisje (ISN), ZRC SAZU**
+Email: `isn@zrc-sazu.si`
+Address: Novi trg 2, SI-1000 Ljubljana
+
+Kropej Telban is current editor-in-chief of Studia mythologica Slavica and active researcher at ISN.
+A direct research inquiry to the institute will get both sources.
