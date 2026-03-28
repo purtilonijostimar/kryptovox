@@ -114,9 +114,29 @@ CREATE TABLE IF NOT EXISTS kv_accounts (
     post_encounter_change   BOOLEAN,
     minimisation_present    BOOLEAN,
 
+    -- Acoustic features
+    acoustic_flagged_pct    NUMERIC,        -- % of segments with emotional flags
+    acoustic_top_moments    JSONB,          -- top 10 emotional moments with timestamps
+    acoustic_flag_summary   JSONB,          -- {pitch_drop: N, volume_drop: N, ...}
+    acoustic_baseline       JSONB,          -- global pitch/volume baseline
+    light_anomaly           BOOLEAN,
+    light_orbs              BOOLEAN,
+    light_preceded_encounter BOOLEAN,
+    anomaly_score           NUMERIC,        -- 0-10: how well conventional explanation fits
+    conventional_explanation TEXT,
+    narrator_profile        TEXT,           -- genuine/fantasy_prone/fabricator/indeterminate
+    career_risk_score       INTEGER,        -- 0-3
+    paralysis_reported      BOOLEAN,
+    time_distortion         BOOLEAN,
+    infrasound_felt         BOOLEAN,
+    watches_then_leaves     BOOLEAN,
+    silent_departure        BOOLEAN,
+    felt_known_by_creature  BOOLEAN,
+
     -- Raw data
     raw_extracted           JSONB,
     raw_wcs                 JSONB,
+    raw_acoustic            JSONB,
     notes                   TEXT
 );
 
