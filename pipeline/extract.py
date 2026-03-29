@@ -34,6 +34,15 @@ Be conservative and precise:
 
 Special fields:
 
+referral_source: How did witness find this platform? Extract verbatim if stated.
+referral_type: "peer" (friend/family referred them) / "professional" (ranger, police, employer) / "self" (found it themselves) / "unknown"
+hesitation_to_disclose: true if witness describes reluctance, fear, or delay before coming forward
+hesitation_description: what specifically held them back (ridicule, career, family, disbelief)
+relationship_impact: true if witness describes relationships damaged by their experience or disclosure
+relationship_impact_description: who, how, what changed
+sought_explanation_before_disclosing: true if witness tried to find a rational explanation before accepting what they saw
+witness_demeanour: your assessment of their overall demeanour during the interview — "calm" / "distressed" / "relieved" / "reluctant" / "eager" / "matter_of_fact"
+
 career_risk_score (0–3): How much would this person lose by going public?
   0 = anonymous/retired/nothing to lose
   1 = minor social risk
@@ -85,7 +94,15 @@ Return a JSON object with this exact structure. Fill every field you can from th
     "told_before_this_interview": null,
     "career_risk_score": null,
     "narrator_profile": null,
-    "career_risk_notes": null
+    "career_risk_notes": null,
+    "referral_source": null,
+    "referral_type": null,
+    "hesitation_to_disclose": null,
+    "hesitation_description": null,
+    "relationship_impact": null,
+    "relationship_impact_description": null,
+    "sought_explanation_before_disclosing": null,
+    "witness_demeanour": null
   }},
   "encounter": {{
     "location_country": null,
