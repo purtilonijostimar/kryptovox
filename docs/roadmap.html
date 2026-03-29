@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Roadmap</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .roadmap-hero {
+    padding: 5rem 2rem 3.5rem;
+    border-bottom: 1px solid var(--rule);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .roadmap-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+  .phase-block {
+    display: flex;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    position: relative;
+  }
+  .phase-block:last-child { border-bottom: none; }
+  .phase-left {
+    width: 80px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 4px;
+  }
+  .phase-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--rule);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink-faint);
+    flex-shrink: 0;
+  }
+  .phase-circle.active {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    color: var(--accent);
+  }
+  .phase-circle.done {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+  }
+  .phase-line {
+    width: 1px;
+    flex: 1;
+    background: var(--rule);
+    min-height: 40px;
+  }
+  .phase-right { flex: 1; }
+  .phase-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .phase-title {
+    font-family: var(--serif-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.25;
+  }
+  .phase-desc {
+    color: var(--ink-mid);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .phase-deliverables {
+    list-style: none;
+    margin: 0;
+  }
+  .phase-deliverables li {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    padding: 0.25rem 0;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .phase-deliverables li::before {
+    content: '—';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .status-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .status-active { background: var(--accent-bg); color: var(--accent); border: 1px solid #b8d4c0; }
+  .status-next   { background: var(--amber-bg);  color: var(--amber);  border: 1px solid #e8d090; }
+  .status-future { background: var(--paper-deep); color: var(--ink-faint); border: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="paper.html">Research</a>
+    <a href="index.html">Dashboard</a>
+    <a href="submit.html">Submit</a>
+    <a href="roadmap.html" class="active">Roadmap</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<div class="roadmap-hero">
+  <div class="section-label">Research roadmap</div>
+  <div class="display-title mt-2">Where this is going</div>
+  <p class="display-subtitle mt-2">Milestone-driven. No artificial deadlines. Each phase unlocks when the previous one is complete and validated.</p>
+</div>
+
+<div class="roadmap-body">
+
+  <div class="phase-block">
+    <div class="phase-left">
+      <div class="phase-circle active">1</div>
+      <div class="phase-line"></div>
+    </div>
+    <div class="phase-right">
+      <div class="status-tag status-active">In Progress</div>
+      <div class="phase-label">Phase 1</div>
+      <div class="phase-title">Foundation</div>
+      <p class="phase-desc">
+        Complete analysis of the Dogman Encounters corpus. Prove the methodology. Publish the first working paper.
+        Establish the public research dashboard. This phase validates every analytical tool before we scale.
+      </p>
+      <ul class="phase-deliverables">
+        <li>600+ Dogman Encounters episodes transcribed and analysed</li>
+        <li>100-account milestone review — schema refinement, methodology validation</li>
+        <li>Full statistical analysis: descriptor frequencies, WCS distribution, pre/post-internet stability</li>
+        <li>Acoustic emotional timeline — cross-account pattern analysis</li>
+        <li>Working paper v1.0 submitted to peer-reviewed journal</li>
+        <li>Public dashboard live with full corpus</li>
+        <li>Cross-cultural folklore research documented</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-left">
+      <div class="phase-circle">2</div>
+      <div class="phase-line"></div>
+    </div>
+    <div class="phase-right">
+      <div class="status-tag status-next">Next</div>
+      <div class="phase-label">Phase 2</div>
+      <div class="phase-title">Platform</div>
+      <p class="phase-desc">
+        Open the submission portal. Move beyond a single channel. Build the infrastructure for a self-sustaining,
+        growing corpus of vetted witness accounts from around the world.
+      </p>
+      <ul class="phase-deliverables">
+        <li>Public submission portal — audio, video, or written accounts</li>
+        <li>Documented vetting process — transparent criteria, consistent application</li>
+        <li>First externally submitted accounts added to corpus</li>
+        <li>Non-English account support — transcription and extraction in multiple languages</li>
+        <li>Community structure analysis — referral patterns, disclosure dynamics</li>
+        <li>Dashboard updated to show source pool (Dogman Encounters vs Submitted)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-left">
+      <div class="phase-circle">3</div>
+      <div class="phase-line"></div>
+    </div>
+    <div class="phase-right">
+      <div class="status-tag status-future">Future</div>
+      <div class="phase-label">Phase 3</div>
+      <div class="phase-title">Expansion</div>
+      <p class="phase-desc">
+        Add three additional high-quality witness interview channels to the corpus.
+        Cross-channel analysis. Does the same methodology produce consistent findings across different interviewers and audiences?
+      </p>
+      <ul class="phase-deliverables">
+        <li>1,000+ total accounts across multiple channels</li>
+        <li>Cross-channel WCS comparison — does interviewer style affect scoring?</li>
+        <li>Descriptor frequency stability across channels</li>
+        <li>Second peer-reviewed paper — expanded corpus findings</li>
+        <li>Academic consultants — ethnographer, forensic psychologist review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-left">
+      <div class="phase-circle">4</div>
+      <div class="phase-line"></div>
+    </div>
+    <div class="phase-right">
+      <div class="status-tag status-future">Future</div>
+      <div class="phase-label">Phase 4</div>
+      <div class="phase-title">Bigfoot Chapter</div>
+      <p class="phase-desc">
+        Apply the same methodology to Sasquatch/Bigfoot testimony. Are the WCS distributions similar?
+        Do the unusual descriptors overlap or diverge? Is this one phenomenon or two?
+        The comparative analysis is where the research gets genuinely interesting.
+      </p>
+      <ul class="phase-deliverables">
+        <li>Sasquatch Chronicles and BFRO corpus added</li>
+        <li>Side-by-side WCS comparison — dogman vs bigfoot credibility profiles</li>
+        <li>Descriptor overlap analysis — what do they share, what diverges</li>
+        <li>Slovenian <em>Divji mož</em> (Wild Man) folklore — Bigfoot parallel documented</li>
+        <li>Third peer-reviewed paper — comparative analysis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-left">
+      <div class="phase-circle">5</div>
+    </div>
+    <div class="phase-right">
+      <div class="status-tag status-future">Future</div>
+      <div class="phase-label">Phase 5</div>
+      <div class="phase-title">Open Science</div>
+      <p class="phase-desc">
+        Release everything. Full dataset. Full pipeline. Full methodology.
+        This research belongs to anyone who wants to use it, challenge it, or build on it.
+      </p>
+      <ul class="phase-deliverables">
+        <li>Full anonymised dataset released under open licence</li>
+        <li>Pipeline open-sourced and documented for external use</li>
+        <li>Conference presentation</li>
+        <li>Book proposal — narrative account of the research and its findings</li>
+        <li>Collaboration with independent researchers applying the methodology to other corpora</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

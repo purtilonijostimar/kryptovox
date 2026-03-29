@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — About</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .about-hero {
+    padding: 5rem 2rem 3.5rem;
+    border-bottom: 1px solid var(--rule);
+    max-width: var(--max-prose);
+    margin: 0 auto;
+  }
+  .about-body {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+  .about-body h2 {
+    font-family: var(--serif-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2.5rem 0 0.75rem;
+  }
+  .about-body p {
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+  }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .principle-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .principle-card h3 {
+    font-family: var(--serif-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .principle-card p {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pipeline-steps {
+    margin: 1.5rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .pipeline-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: flex-start;
+  }
+  .pipeline-step:last-child { border-bottom: none; }
+  .pipeline-step-num {
+    font-family: var(--serif-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--rule);
+    flex-shrink: 0;
+    width: 28px;
+    padding-top: 1px;
+  }
+  .pipeline-step-title {
+    font-family: var(--sans);
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .pipeline-step-desc {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="paper.html">Research</a>
+    <a href="index.html">Dashboard</a>
+    <a href="submit.html">Submit</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="about.html" class="active">About</a>
+  </nav>
+</header>
+
+<div class="about-hero">
+  <div class="section-label">About the project</div>
+  <div class="display-title mt-2">Rigorous research into a phenomenon that deserves it</div>
+</div>
+
+<div class="about-body">
+
+  <h2>The researcher</h2>
+  <p>
+    Purtilonij Ostimar is a creative professional with nearly a decade of independent research into anomalous phenomena.
+    His work began with pattern recognition — noticing, across vast bodies of witness testimony now accessible through
+    decades of internet archives, that something consistent was being described by people with no connection to each other.
+  </p>
+  <p>
+    He approaches the subject empirically, without predetermined conclusions. After years of observation he arrived at
+    a position he describes simply: something is going on. What that something is remains the question.
+  </p>
+  <p>
+    The official acknowledgement of UAP — unidentified aerial phenomena — by governments and military agencies in
+    recent years matters here. If one category of phenomenon long dismissed as impossible has proven real,
+    the framework for confidently dismissing all others deserves scrutiny. The door, once opened, opens onto a great deal.
+  </p>
+  <p>
+    Kryptovox is his attempt to find out what else might be on the other side — rigorously, transparently,
+    and at a scale that has not been attempted before.
+  </p>
+
+  <h2>The project</h2>
+  <p>
+    Kryptovox is a long-term independent research initiative applying forensic credibility analysis to anomalous
+    encounter testimony at corpus scale. We do not assert that the described phenomena exist. We assert that the
+    testimony deserves serious analytical attention — and that the tools to give it that attention now exist.
+  </p>
+  <p>
+    The primary corpus is the <em>Dogman Encounters</em> podcast archive — over 600 long-form witness interviews
+    conducted by a single interviewer over more than a decade. We transcribe, extract, score, and analyse each account
+    using a fully documented, replicable pipeline.
+  </p>
+
+  <h2>Core principles</h2>
+  <div class="principles-grid">
+    <div class="principle-card">
+      <h3>No predetermined conclusions</h3>
+      <p>We do not set out to prove or disprove. We set out to measure. The data leads.</p>
+    </div>
+    <div class="principle-card">
+      <h3>Full transparency</h3>
+      <p>All methodology, prompts, and scoring rubrics are documented and open-source. Replicate us. Challenge us.</p>
+    </div>
+    <div class="principle-card">
+      <h3>Witness dignity</h3>
+      <p>Every account represents a real person describing a real experience. We treat it accordingly.</p>
+    </div>
+    <div class="principle-card">
+      <h3>Measured claims</h3>
+      <p>We report what the data shows. Nothing more. The reader draws their own conclusions.</p>
+    </div>
+  </div>
+
+  <h2>The pipeline</h2>
+  <p>Every account in the corpus passes through the same analytical process:</p>
+  <div class="pipeline-steps">
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">1</div>
+      <div>
+        <div class="pipeline-step-title">Transcription</div>
+        <div class="pipeline-step-desc">Whisper large-v3 via Groq API — segment-level timestamps, ~100× realtime processing speed.</div>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">2</div>
+      <div>
+        <div class="pipeline-step-title">Structured extraction</div>
+        <div class="pipeline-step-desc">80+ fields per account extracted by Claude — morphology, behaviour, witness background, community dynamics, anomaly assessment.</div>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">3</div>
+      <div>
+        <div class="pipeline-step-title">Credibility scoring (WCS)</div>
+        <div class="pipeline-step-desc">Six-dimension score derived from CBCA and SVA forensic frameworks. Each score includes rationale and evidence quotes.</div>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">4</div>
+      <div>
+        <div class="pipeline-step-title">Acoustic analysis</div>
+        <div class="pipeline-step-desc">Prosodic features extracted with librosa — pitch, volume, pace, pauses, tremor mapped to transcript timestamps.</div>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">5</div>
+      <div>
+        <div class="pipeline-step-title">Pattern analysis &amp; publication</div>
+        <div class="pipeline-step-desc">Descriptor frequencies, temporal stability, credibility correlation. Results published in the dashboard and working paper.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Open source</h2>
+  <p>
+    The full pipeline — download, transcription, extraction, scoring, acoustic analysis, and dashboard export —
+    is available on GitHub. We encourage researchers to fork it, apply it to other corpora, and improve it.
+  </p>
+  <p>
+    <a href="https://github.com/purtilonijostimar/kryptovox" style="color:var(--accent)">github.com/purtilonijostimar/kryptovox →</a>
+  </p>
+
+</div>
+</body>
+</html>

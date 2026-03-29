@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Anomalous Encounter Research</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 2rem 4rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 1.75rem;
+  }
+  .hero-headline {
+    font-family: var(--serif-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .hero-sub {
+    font-family: var(--serif-body);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.7rem 1.75rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent-light); }
+  .btn-secondary {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.7rem 1.75rem;
+    background: transparent;
+    color: var(--ink-mid);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: var(--rule);
+    display: block;
+  }
+
+  /* ── Numbers strip ──────────────────────────────────────────── */
+  .numbers-strip {
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 2rem;
+  }
+  .numbers-inner {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+  .number-item { text-align: center; }
+  .number-item .num {
+    font-family: var(--serif-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .number-item .num-label {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+  }
+  .number-item .num-sub {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    margin-top: 0.2rem;
+    font-style: italic;
+  }
+
+  /* ── Section wrapper ────────────────────────────────────────── */
+  .section {
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-inner {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+  }
+  .section-inner.prose {
+    max-width: var(--max-prose);
+  }
+
+  /* ── Findings ───────────────────────────────────────────────── */
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .finding-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.75rem;
+  }
+  .finding-number {
+    font-family: var(--serif-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .finding-title {
+    font-family: var(--serif-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+  .finding-body {
+    font-family: var(--sans);
+    font-size: 0.83rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  /* ── Big quote ──────────────────────────────────────────────── */
+  .big-quote-section {
+    background: var(--paper-deep);
+    padding: 6rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  .big-quote-text {
+    font-family: var(--serif-display);
+    font-size: clamp(1.2rem, 2.8vw, 1.9rem);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 760px;
+    margin: 0 auto 1.5rem;
+  }
+  .big-quote-attr {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Map section ────────────────────────────────────────────── */
+  .map-section {
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .map-section-inner {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+  }
+  #world-map {
+    height: 480px;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    margin-top: 2rem;
+    background: var(--paper-warm);
+  }
+  .map-legend {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── How it works ───────────────────────────────────────────── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+  .step-card {
+    padding: 1.5rem;
+  }
+  .step-num {
+    font-family: var(--serif-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .step-title {
+    font-family: var(--serif-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .step-body {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ── Submit CTA ─────────────────────────────────────────────── */
+  .submit-cta {
+    background: var(--accent);
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .submit-cta h2 {
+    font-family: var(--serif-display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: white;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .submit-cta p {
+    font-family: var(--serif-body);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.65;
+  }
+  .btn-white {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.7rem 1.75rem;
+    background: white;
+    color: var(--accent);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .btn-white:hover { opacity: 0.9; }
+
+  /* ── Roadmap preview ────────────────────────────────────────── */
+  .roadmap-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+  .roadmap-preview::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--rule);
+  }
+  .roadmap-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    position: relative;
+  }
+  .roadmap-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--rule);
+    background: var(--paper);
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .roadmap-dot.active {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+  }
+  .roadmap-dot.active::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .roadmap-content {}
+  .roadmap-phase {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+  .roadmap-title {
+    font-family: var(--serif-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .roadmap-desc {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ── Recent accounts ────────────────────────────────────────── */
+  .recent-accounts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .recent-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    display: block;
+  }
+  .recent-card:hover {
+    border-color: var(--accent-light);
+    box-shadow: 0 2px 12px rgba(45,90,61,0.08);
+  }
+  .recent-card-title {
+    font-family: var(--serif-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────── */
+  footer {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+    padding: 3rem 2rem;
+  }
+  .footer-inner {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .footer-brand .wordmark { font-size: 1.1rem; }
+  .footer-brand p {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    margin-top: 0.4rem;
+    max-width: 260px;
+    line-height: 1.5;
+  }
+  .footer-links {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .footer-col h4 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+  .footer-col a {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    margin-bottom: 0.4rem;
+    transition: color 0.15s;
+  }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom {
+    max-width: var(--max-wide);
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="paper.html">Research</a>
+    <a href="index.html">Dashboard</a>
+    <a href="submit.html">Submit</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Kryptovox — Anomalous Encounter Research</div>
+    <h1 class="hero-headline">Something is being seen.<br>We built the tools to find out<br>what the testimony actually says.</h1>
+    <p class="hero-sub">
+      A systematic forensic credibility analysis of thousands of witness accounts.
+      Not belief. Not dismissal. Methodology.
+    </p>
+    <div class="hero-ctas">
+      <a href="paper.html" class="btn-primary">Read the research</a>
+      <a href="index.html" class="btn-secondary">Explore the data</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ── NUMBERS ───────────────────────────────────────────────────── -->
+<div class="numbers-strip">
+  <div class="numbers-inner">
+    <div class="number-item">
+      <div class="num" id="n-accounts">—</div>
+      <div class="num-label">Accounts analysed</div>
+      <div class="num-sub">and growing</div>
+    </div>
+    <div class="number-item">
+      <div class="num" id="n-strong">—</div>
+      <div class="num-label">Score Strong or higher</div>
+      <div class="num-sub">forensic credibility threshold</div>
+    </div>
+    <div class="number-item">
+      <div class="num">600+</div>
+      <div class="num-label">Hours of testimony</div>
+      <div class="num-sub">primary corpus</div>
+    </div>
+    <div class="number-item">
+      <div class="num">10</div>
+      <div class="num-label">Traditions matched</div>
+      <div class="num-sub">across centuries and continents</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FINDINGS ──────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">What we found</div>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <div class="finding-number">01</div>
+        <div class="finding-title">The accounts hold up under scrutiny</div>
+        <div class="finding-body">
+          Applying six-dimension forensic credibility scoring derived from criminal testimony analysis,
+          the majority of accounts show structural markers consistent with genuine traumatic memory —
+          not fabricated narrative.
+        </div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-number">02</div>
+        <div class="finding-title">The unusual details are stable across time</div>
+        <div class="finding-body">
+          Specific anatomical and behavioural descriptors appear at consistent rates in accounts
+          predating widespread internet discussion of the phenomenon. Social contagion does not
+          explain their distribution.
+        </div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-number">03</div>
+        <div class="finding-title">History has been describing this for centuries</div>
+        <div class="finding-body">
+          The same behavioural markers appear in Slovenian folklore, Mayan tradition, Navajo oral
+          history, and Siberian shamanic accounts — independently, with no plausible transmission
+          route between them and modern witnesses.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BIG QUOTE ─────────────────────────────────────────────────── -->
+<div class="big-quote-section">
+  <div class="big-quote-text">
+    "Either this represents an extraordinary concentration of skilled fabricators with nothing to gain —
+    or the descriptors reflect genuine perceptual experience of something not yet catalogued by mainstream science.
+    We make no claim as to which. We note only that the data presents a problem for both."
+  </div>
+  <div class="big-quote-attr">— From the working paper</div>
+</div>
+
+<!-- ── MAP ───────────────────────────────────────────────────────── -->
+<section class="map-section">
+  <div class="map-section-inner">
+    <div class="section-label">Cross-cultural convergence</div>
+    <h2 style="font-family:var(--serif-display);font-size:1.6rem;font-weight:700;color:var(--ink);margin-top:0.4rem;margin-bottom:0.5rem">The same thing, independently, across the world</h2>
+    <p style="font-family:var(--sans);font-size:0.85rem;color:var(--ink-soft);max-width:560px">
+      Modern encounter accounts share specific behavioural descriptors with historical traditions
+      from cultures that had no contact with each other. The map shows where these traditions have been documented.
+    </p>
+    <div id="world-map"></div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#2d5a3d"></div> Modern encounter accounts (USA)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8a6420"></div> Historical traditions</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7a2020"></div> Folklore primary sources</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ──────────────────────────────────────────────── -->
+<section class="section" style="background:var(--paper-warm)">
+  <div class="section-inner">
+    <div class="section-label">The methodology</div>
+    <h2 style="font-family:var(--serif-display);font-size:1.6rem;font-weight:700;color:var(--ink);margin-top:0.4rem">How we analyse testimony</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Transcription</div>
+        <div class="step-body">Every interview is transcribed with word-level timestamps using Whisper large-v3, producing a searchable, analysable text record of the spoken account.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Structured extraction</div>
+        <div class="step-body">80+ fields extracted per account — creature morphology, witness background, behavioural markers, physiological responses, light anomalies, and community dynamics.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Credibility scoring</div>
+        <div class="step-body">Six-dimension Witness Credibility Score derived from forensic psychology tools used in criminal testimony analysis. Each score includes rationale and evidence quotes.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Acoustic analysis</div>
+        <div class="step-body">Prosodic features — pitch, volume, pace, pauses, tremor — extracted at the segment level. Emotional response mapped to specific moments in the narrative.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">05</div>
+        <div class="step-title">Pattern analysis</div>
+        <div class="step-body">Descriptor frequencies tested for statistical significance, temporal stability, and correlation with credibility scores. Cross-referenced against historical and folklore records.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">06</div>
+        <div class="step-title">Open science</div>
+        <div class="step-body">Full pipeline documented and open-source. All prompts, scoring rubrics, and methodology available for replication, challenge, and refinement by other researchers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUBMIT CTA ─────────────────────────────────────────────────── -->
+<div class="submit-cta">
+  <h2>Have you had an encounter?</h2>
+  <p>
+    We are building the largest systematically analysed corpus of anomalous encounter testimony ever assembled.
+    Your account — vetted, analysed, and published — contributes to research that takes the phenomenon seriously.
+  </p>
+  <a href="submit.html" class="btn-white">Submit your account</a>
+</div>
+
+<!-- ── ROADMAP PREVIEW ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="section-inner" style="max-width:680px">
+    <div class="section-label">Where this is going</div>
+    <h2 style="font-family:var(--serif-display);font-size:1.6rem;font-weight:700;color:var(--ink);margin-top:0.4rem;margin-bottom:0.25rem">The research roadmap</h2>
+    <p style="font-family:var(--sans);font-size:0.83rem;color:var(--ink-soft);margin-bottom:0">
+      Milestone-driven. No artificial deadlines. Each phase unlocks when the previous one is complete.
+      <a href="roadmap.html" style="color:var(--accent);text-decoration:none;margin-left:0.25rem">Full roadmap →</a>
+    </p>
+
+    <div class="roadmap-preview">
+      <div class="roadmap-item">
+        <div class="roadmap-dot active"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 1 — In Progress</div>
+          <div class="roadmap-title">Foundation</div>
+          <div class="roadmap-desc">Complete Dogman Encounters corpus (600+ episodes). Methodology proven. Working paper published. Public dashboard live.</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 2</div>
+          <div class="roadmap-title">Platform</div>
+          <div class="roadmap-desc">Submission portal opens. External accounts added. Community vetting process. Corpus expands beyond a single channel.</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 3</div>
+          <div class="roadmap-title">Expansion</div>
+          <div class="roadmap-desc">Three additional high-quality witness interview channels. 1,000+ accounts. Cross-channel comparative analysis. Second paper.</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 4</div>
+          <div class="roadmap-title">Bigfoot Chapter</div>
+          <div class="roadmap-desc">Sasquatch testimony corpus added. Comparative analysis between dogman and bigfoot account structures. Third paper.</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 5</div>
+          <div class="roadmap-title">Open Science</div>
+          <div class="roadmap-desc">Full dataset released. Pipeline open-sourced. Journal submission. Conference. Book proposal.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RECENT ACCOUNTS ───────────────────────────────────────────── -->
+<section class="section" style="background:var(--paper-warm)">
+  <div class="section-inner">
+    <div class="section-label">From the corpus</div>
+    <h2 style="font-family:var(--serif-display);font-size:1.6rem;font-weight:700;color:var(--ink);margin-top:0.4rem;margin-bottom:0.25rem">Recent high-credibility accounts</h2>
+    <p style="font-family:var(--sans);font-size:0.83rem;color:var(--ink-soft);margin-bottom:0">
+      Accounts scoring Strong or Exceptional on the Witness Credibility Scale.
+      <a href="index.html" style="color:var(--accent);text-decoration:none;margin-left:0.25rem">View all accounts →</a>
+    </p>
+    <div class="recent-accounts" id="recent-accounts">
+      <div class="loading-msg" style="font-family:var(--sans);font-size:0.83rem;color:var(--ink-faint)">Loading...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+      <p>Anomalous Encounter Research.<br>Rigorous. Transparent. Open.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="paper.html">Working Paper</a>
+        <a href="index.html">Dashboard</a>
+        <a href="roadmap.html">Roadmap</a>
+      </div>
+      <div class="footer-col">
+        <h4>Participate</h4>
+        <a href="submit.html">Submit Account</a>
+        <a href="about.html">About</a>
+        <a href="https://github.com/purtilonijostimar/kryptovox">GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Purtilonij Ostimar — Kryptovox Research Project</span>
+    <span>Pipeline v1.0 — Data updated continuously</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── Load dashboard stats ──────────────────────────────────────────
+async function loadStats() {
+  try {
+    const resp = await fetch('dashboard.json?t=' + Date.now());
+    const data = await resp.json();
+    const accounts = data.accounts || [];
+    const n = accounts.length;
+    const strong = accounts.filter(a => (a.WCS_raw||0) >= 7).length;
+    const pct = n ? Math.round(strong/n*100) : 0;
+
+    document.getElementById('n-accounts').textContent = n;
+    document.getElementById('n-strong').textContent   = pct + '%';
+
+    // Recent high-WCS accounts
+    const top = accounts
+      .filter(a => (a.WCS_raw||0) >= 7)
+      .sort((a,b) => (b.WCS_raw||0) - (a.WCS_raw||0))
+      .slice(0, 3);
+
+    const container = document.getElementById('recent-accounts');
+    if (top.length) {
+      container.innerHTML = top.map(a => {
+        const title = (a.audio_file||'')
+          .replace(/^\d{8}_[\w-]+_/,'')
+          .replace(/_wcs$/,'')
+          .replace(/_/g,' ');
+        const flags = [
+          a.paralysis_or_freeze && '🧊 Paralysis',
+          a.self_illuminated_eyes && '✨ Glow Eyes',
+          a.disclosure_delay_indicated && '⏳ Delay',
+        ].filter(Boolean);
+        return `<a href="index.html" class="recent-card">
+          <div class="recent-card-title">${title}</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem">
+            <span class="wcs-badge band-${a.WCS_band}">${(a.WCS_raw||0).toFixed(1)} ${a.WCS_band}</span>
+            <span style="font-family:var(--sans);font-size:0.7rem;color:var(--ink-faint)">${flags.join(' · ')}</span>
+          </div>
+        </a>`;
+      }).join('');
+    } else {
+      container.innerHTML = '<div style="font-family:var(--sans);font-size:0.83rem;color:var(--ink-faint)">No accounts loaded yet.</div>';
+    }
+  } catch(e) {
+    console.warn('Could not load dashboard.json', e);
+  }
+}
+
+// ── Map ───────────────────────────────────────────────────────────
+function initMap() {
+  const map = L.map('world-map', {
+    center:     [30, -20],
+    zoom:       2,
+    scrollWheelZoom: false,
+    zoomControl: true,
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap © CARTO',
+    subdomains:  'abcd',
+    maxZoom:     19,
+  }).addTo(map);
+
+  const modernStyle  = { color: '#2d5a3d', fillColor: '#2d5a3d', fillOpacity: 0.8, radius: 7, weight: 1 };
+  const historicStyle = { color: '#8a6420', fillColor: '#8a6420', fillOpacity: 0.8, radius: 7, weight: 1 };
+  const folkloreStyle = { color: '#7a2020', fillColor: '#7a2020', fillOpacity: 0.8, radius: 7, weight: 1 };
+
+  // Modern accounts — US regions
+  const modern = [
+    [47.5, -121.5, 'Pacific Northwest — highest density of accounts'],
+    [37.0, -85.0,  'Appalachia — consistent multi-decade reporting'],
+    [33.5, -84.0,  'Georgia — multiple high-credibility accounts'],
+    [40.0, -105.0, 'Colorado Rockies — documented encounters'],
+    [44.0, -89.0,  'Great Lakes region — extensive corpus'],
+    [35.5, -97.0,  'Oklahoma — multiple accounts including law enforcement'],
+    [30.5, -92.0,  'Louisiana/Mississippi — swamp terrain accounts'],
+    [46.0, -93.0,  'Minnesota/Wisconsin — northern forest accounts'],
+  ];
+
+  // Historic traditions
+  const historic = [
+    [46.1, 14.9,   'Slovenia — Pasjeglavci: eyes turned toward ground (oči obrnjene v tla)'],
+    [44.0, 21.0,   'Serbia — Psoglav: iron teeth, cyclopean eye, cave-dwelling'],
+    [20.0, 102.0,  'Southeast Asia — Cynocephali described in classical Chinese texts (Shanhaijing)'],
+    [20.5, -88.0,  'Yucatan — Huay Chivo: glowing eyes, nocturnal, shape-shifting'],
+    [36.5, -108.5, 'Navajo Nation — Skin-walker: watches-then-leaves, felt-known, disclosure taboo'],
+    [60.0, 90.0,   'Siberia — Shamanic encounter accounts: paralysis, watches-then-withdraws'],
+    [13.0, 122.0,  'Philippines — Aswang (weredog variant): nocturnal, forest-dwelling, documented 1589'],
+    [30.0, 75.0,   'India — Cynocephali: described by Ctesias (4th century BCE) and Megasthenes'],
+    [9.0,  7.0,    'West Africa (Nigeria) — Yoruba: iron-dog association (Ogun); structural parallel to Slavic iron connection'],
+  ];
+
+  // Folklore primary sources
+  const folklore = [
+    [41.9, 12.5,   'Rome — Pliny the Elder, Naturalis Historia (77 CE): cynocephali as real species'],
+    [37.9, 23.7,   'Greece — Ctesias of Cnidus, Indika (4th century BCE): first systematic description'],
+    [51.5, 10.5,   'Germany — Nuremberg Chronicle (1493): illustrated cynocephalus'],
+    [29.5, 31.2,   'Egypt — Anubis: jackal-headed psychopomp; boundary between living and dead'],
+    [19.4, -99.1,  'Mexico — Xolotl: dog-headed man, reversed feet, guides dead (Aztec)'],
+  ];
+
+  modern.forEach(([lat, lng, text]) =>
+    L.circleMarker([lat,lng], modernStyle).bindPopup(text).addTo(map));
+  historic.forEach(([lat, lng, text]) =>
+    L.circleMarker([lat,lng], historicStyle).bindPopup(text).addTo(map));
+  folklore.forEach(([lat, lng, text]) =>
+    L.circleMarker([lat,lng], folkloreStyle).bindPopup(text).addTo(map));
+}
+
+loadStats();
+initMap();
+</script>
+</body>
+</html>

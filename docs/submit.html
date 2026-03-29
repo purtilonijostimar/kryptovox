@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Submit Your Account</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .submit-hero {
+    padding: 5rem 2rem 3.5rem;
+    border-bottom: 1px solid var(--rule);
+    max-width: var(--max-prose);
+    margin: 0 auto;
+  }
+  .submit-body {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+  .what-happens {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .what-happens h3 {
+    font-family: var(--serif-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .what-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .what-steps li {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .what-steps li span.step-n {
+    background: var(--accent-bg);
+    color: var(--accent);
+    border: 1px solid #b8d4c0;
+    border-radius: 999px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  .form-label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink-mid);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  .form-label span {
+    color: var(--ink-faint);
+    font-weight: 400;
+    margin-left: 0.25rem;
+  }
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    font-family: var(--serif-body);
+    font-size: 0.92rem;
+    color: var(--ink);
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.65rem 0.875rem;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.5;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--accent-light);
+    box-shadow: 0 0 0 3px rgba(45,90,61,0.06);
+  }
+  .form-textarea { resize: vertical; min-height: 160px; }
+  .form-hint {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+  .consent-block {
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .consent-label {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+  .consent-label input[type=checkbox] {
+    margin-top: 3px;
+    accent-color: var(--accent);
+    flex-shrink: 0;
+  }
+  .consent-text {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .submit-btn {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .submit-btn:hover { background: var(--accent-light); }
+  .vetting-note {
+    border-left: 3px solid var(--amber);
+    padding: 0.75rem 1rem;
+    background: var(--amber-bg);
+    border-radius: 0 6px 6px 0;
+    margin: 2rem 0;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--amber);
+    line-height: 1.55;
+  }
+  .coming-soon-overlay {
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  .coming-soon-overlay h3 {
+    font-family: var(--serif-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .coming-soon-overlay p {
+    font-family: var(--sans);
+    font-size: 0.83rem;
+    color: var(--ink-soft);
+    max-width: 420px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="paper.html">Research</a>
+    <a href="index.html">Dashboard</a>
+    <a href="submit.html" class="active">Submit</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<div class="submit-hero">
+  <div class="section-label">Submit your account</div>
+  <div class="display-title mt-2">Your experience matters to the research</div>
+  <p class="display-subtitle mt-2">
+    We are building the largest systematically analysed corpus of anomalous encounter testimony ever assembled.
+    Every vetted account adds to the statistical picture.
+  </p>
+</div>
+
+<div class="submit-body">
+
+  <div class="what-happens">
+    <h3>What happens to your submission</h3>
+    <ul class="what-steps">
+      <li><span class="step-n">1</span> We review your submission for completeness and basic consistency</li>
+      <li><span class="step-n">2</span> Approved accounts are transcribed, extracted, and scored through our full analytical pipeline</li>
+      <li><span class="step-n">3</span> Your account is published on the public dashboard with your WCS score and findings</li>
+      <li><span class="step-n">4</span> Your data contributes to the statistical analysis in the working paper</li>
+      <li><span class="step-n">5</span> You can remain fully anonymous — we publish the account, not your identity</li>
+    </ul>
+  </div>
+
+  <div class="vetting-note">
+    All submissions are reviewed before entering the pipeline. We are looking for genuine accounts — not perfect ones.
+    Uncertainty, fragmented memory, and emotional difficulty are signs of authentic recall, not reasons for rejection.
+    Accounts that appear deliberately fabricated or that contain demonstrable inconsistencies will not be published.
+  </div>
+
+  <div class="coming-soon-overlay">
+    <h3>Submission portal opening soon</h3>
+    <p>
+      The submission system is under development and will open during Phase 2 of the research roadmap.
+      If you have an account you'd like to submit now, reach out directly.
+    </p>
+    <a href="mailto:research@kryptovox.com" style="font-family:var(--sans);font-size:0.83rem;color:var(--accent);text-decoration:none;font-weight:600">research@kryptovox.com →</a>
+  </div>
+
+  <h2 style="font-family:var(--serif-display);font-size:1.2rem;font-weight:700;color:var(--ink);margin:2.5rem 0 0.75rem">What makes a strong submission</h2>
+  <p style="color:var(--ink-mid)">
+    You don't need to have had a dramatic encounter. Partial encounters, ambiguous sightings, and accounts where
+    you're not sure what you saw are all valuable. What matters is honest, detailed recall.
+  </p>
+  <p style="color:var(--ink-mid)">Accounts that score well tend to include:</p>
+  <ul style="list-style:none;margin:0 0 1.5rem">
+    <li style="font-family:var(--sans);font-size:0.82rem;color:var(--ink-soft);padding:0.3rem 0;border-bottom:1px solid var(--rule-soft)">→ Specific sensory detail across multiple channels (what you saw, heard, smelled, felt)</li>
+    <li style="font-family:var(--sans);font-size:0.82rem;color:var(--ink-soft);padding:0.3rem 0;border-bottom:1px solid var(--rule-soft)">→ Context before the encounter — what you were doing, why you were there</li>
+    <li style="font-family:var(--sans);font-size:0.82rem;color:var(--ink-soft);padding:0.3rem 0;border-bottom:1px solid var(--rule-soft)">→ Uncertainty and self-correction — "I think it was..." or "I'm not sure but..."</li>
+    <li style="font-family:var(--sans);font-size:0.82rem;color:var(--ink-soft);padding:0.3rem 0;border-bottom:1px solid var(--rule-soft)">→ How it affected you afterwards — did you tell anyone? Did it change your behaviour?</li>
+    <li style="font-family:var(--sans);font-size:0.82rem;color:var(--ink-soft);padding:0.3rem 0">→ Why you're coming forward now — the disclosure story matters as much as the encounter</li>
+  </ul>
+
+</div>
+</body>
+</html>
