@@ -460,7 +460,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="0 0 280 500" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="0 0 280 510" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Pencil sketch filter — very subtle, just roughens edges slightly -->
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
@@ -490,55 +490,66 @@ input[type=range] {
       <!-- ── FIGURE — redrawn with correct proportions ─────────── -->
       <g filter="url(#pencil)" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
 
-        <!-- ── HEAD — large canine skull, forward-set ── -->
-        <!-- Main skull — wide, slightly flattened on top -->
-        <path d="M 108 66 C 106 44 120 32 140 30 C 160 28 176 42 175 64 C 174 80 165 92 152 97 C 146 99 134 99 128 96 C 115 91 109 80 108 66 Z" stroke-width="1.7"/>
+        <!-- ── HEAD — wolf/German Shepherd anatomy ── -->
+        <!-- Skull — broad across cheeks, slightly domed -->
+        <path d="M 110 75 C 108 52 118 36 140 32 C 162 28 174 46 173 70 C 172 86 162 96 148 100 C 144 102 136 102 132 100 C 118 94 112 86 110 75 Z" stroke-width="1.7"/>
 
-        <!-- Muzzle — protruding forward, canine, lower jaw visible -->
-        <path d="M 128 92 C 128 96 132 105 140 108 C 148 111 162 108 168 100 C 174 92 174 84 172 80" stroke-width="1.4"/>
-        <!-- Upper muzzle bridge -->
-        <path d="M 134 78 C 140 76 156 76 164 80" stroke-width="1.1"/>
-        <!-- Jaw line -->
-        <path d="M 126 94 C 124 100 126 108 132 112 C 138 116 152 116 160 110 C 166 105 168 100 168 100" stroke-width="1.2"/>
-        <!-- Nostril -->
-        <path d="M 158 86 C 162 84 166 85 167 88" stroke-width="0.9"/>
-        <circle cx="162" cy="86" r="1.5" fill="var(--ink)" opacity="0.6" stroke="none"/>
+        <!-- EARS — tall narrow triangles, German Shepherd style, close set on crown -->
+        <!-- Left ear outer -->
+        <path d="M 124 46 L 114 2 L 138 42" stroke-width="1.8"/>
+        <!-- Left ear inner line -->
+        <path d="M 126 44 L 120 12 L 136 42" stroke-width="0.75" opacity="0.55"/>
+        <!-- Right ear outer -->
+        <path d="M 156 42 L 166 2 L 142 44" stroke-width="1.8"/>
+        <!-- Right ear inner line -->
+        <path d="M 154 42 L 160 12 L 144 44" stroke-width="0.75" opacity="0.55"/>
 
-        <!-- Left ear — large, triangular, slightly forward-angled -->
-        <path d="M 113 50 C 108 36 112 18 118 14 C 122 10 128 18 128 38 C 128 48 122 56 116 58" stroke-width="1.6"/>
-        <!-- Left ear inner -->
-        <path d="M 116 50 C 114 40 116 26 120 22 C 122 30 122 44 118 52" stroke-width="0.7" opacity="0.6"/>
+        <!-- SNOUT — rectangular wolf muzzle, visible from front as a mass -->
+        <!-- Stop (indent where forehead meets muzzle) -->
+        <path d="M 128 72 C 132 68 148 68 152 72" stroke-width="1.0" opacity="0.5"/>
+        <!-- Upper muzzle sides — comes forward and slightly narrows -->
+        <path d="M 126 74 C 124 80 126 90 130 94" stroke-width="1.3"/>
+        <path d="M 154 74 C 156 80 154 90 150 94" stroke-width="1.3"/>
+        <!-- Nose bridge — top of muzzle, fairly flat -->
+        <path d="M 126 74 C 132 71 148 71 154 74" stroke-width="1.2"/>
+        <!-- Nose tip — wide dog nose -->
+        <path d="M 128 94 C 132 98 148 98 152 94" stroke-width="1.4"/>
+        <path d="M 128 94 C 130 91 150 91 152 94" stroke-width="1.0"/>
+        <!-- Nostrils -->
+        <ellipse cx="134" cy="94" rx="3.5" ry="2" stroke-width="1.1"/>
+        <ellipse cx="146" cy="94" rx="3.5" ry="2" stroke-width="1.1"/>
+        <!-- Lower jaw — hangs below nose, slightly wider -->
+        <path d="M 122 82 C 120 90 122 100 130 106 C 136 110 144 110 150 106 C 158 100 160 90 158 82" stroke-width="1.4"/>
+        <!-- Chin fur tuft -->
+        <path d="M 135 108 C 138 112 142 112 145 108" stroke-width="0.8" opacity="0.5"/>
 
-        <!-- Right ear -->
-        <path d="M 165 48 C 170 34 168 16 162 12 C 158 8 152 16 152 36 C 152 46 158 54 164 56" stroke-width="1.6"/>
-        <!-- Right ear inner -->
-        <path d="M 162 48 C 164 38 162 24 158 20 C 156 28 156 42 160 50" stroke-width="0.7" opacity="0.6"/>
-
-        <!-- Eyes — large, forward-facing, slightly angled, predator set -->
-        <!-- Left eye -->
-        <path d="M 118 62 C 121 57 130 56 135 60 C 138 63 137 70 133 73 C 128 76 120 74 118 70 C 116 67 117 64 118 62 Z" stroke-width="1.4"/>
-        <circle cx="127" cy="65" r="4.5" stroke-width="1.0"/>
-        <circle cx="128" cy="65" r="2" fill="var(--ink)" opacity="0.7" stroke="none"/>
-        <!-- Highlight -->
-        <circle cx="130" cy="63" r="1" fill="white" opacity="0.9" stroke="none"/>
-
+        <!-- EYES — small, almond-shaped, predator set, under heavy brow -->
+        <!-- Left eye — almond, slightly angled (outer corner higher) -->
+        <path d="M 116 68 C 120 63 130 63 133 67 C 131 72 122 72 116 68 Z" stroke-width="1.4"/>
+        <ellipse cx="125" cy="67" rx="3" ry="3" stroke-width="0.9"/>
+        <circle cx="126" cy="67" r="1.8" fill="var(--ink)" opacity="0.75" stroke="none"/>
+        <circle cx="128" cy="65" r="0.9" fill="white" opacity="0.85" stroke="none"/>
         <!-- Right eye -->
-        <path d="M 148 60 C 152 56 161 56 164 61 C 166 65 164 72 159 74 C 154 77 147 74 146 69 C 145 65 146 62 148 60 Z" stroke-width="1.4"/>
-        <circle cx="156" cy="65" r="4.5" stroke-width="1.0"/>
-        <circle cx="157" cy="65" r="2" fill="var(--ink)" opacity="0.7" stroke="none"/>
-        <circle cx="159" cy="63" r="1" fill="white" opacity="0.9" stroke="none"/>
+        <path d="M 147 67 C 150 63 160 63 164 68 C 158 72 149 72 147 67 Z" stroke-width="1.4"/>
+        <ellipse cx="155" cy="67" rx="3" ry="3" stroke-width="0.9"/>
+        <circle cx="156" cy="67" r="1.8" fill="var(--ink)" opacity="0.75" stroke="none"/>
+        <circle cx="158" cy="65" r="0.9" fill="white" opacity="0.85" stroke="none"/>
 
-        <!-- Brow ridge — prominent, heavy -->
-        <path d="M 112 58 C 118 52 128 50 136 54" stroke-width="1.4"/>
-        <path d="M 146 53 C 154 50 164 52 168 57" stroke-width="1.4"/>
+        <!-- BROW RIDGE — very heavy, overhanging, gives predatory look -->
+        <path d="M 108 64 C 114 56 122 53 132 56" stroke-width="2.2"/>
+        <path d="M 148 56 C 158 53 166 56 172 64" stroke-width="2.2"/>
+        <!-- Forehead crease between brows — furrowed -->
+        <path d="M 132 56 C 136 52 144 52 148 56" stroke-width="1.1"/>
+        <line x1="138" y1="54" x2="138" y2="60" stroke-width="0.8" opacity="0.4"/>
+        <line x1="142" y1="54" x2="142" y2="60" stroke-width="0.8" opacity="0.4"/>
 
-        <!-- ── NECK — thick, muscular ── -->
-        <path d="M 126 102 C 122 114 118 124 114 138" stroke-width="1.7"/>
-        <path d="M 154 100 C 158 112 162 122 166 136" stroke-width="1.7"/>
-        <!-- Neck shadow hatching -->
-        <line x1="124" y1="108" x2="130" y2="126" stroke-width="0.5" opacity="0.3"/>
-        <line x1="128" y1="106" x2="134" y2="124" stroke-width="0.5" opacity="0.3"/>
-        <line x1="132" y1="104" x2="138" y2="122" stroke-width="0.5" opacity="0.3"/>
+        <!-- ── NECK — very thick, almost as wide as jaw ── -->
+        <path d="M 124 104 C 118 116 112 128 108 142" stroke-width="2.0"/>
+        <path d="M 156 102 C 162 114 168 126 172 140" stroke-width="2.0"/>
+        <!-- Neck musculature shadow -->
+        <line x1="120" y1="110" x2="126" y2="130" stroke-width="0.5" opacity="0.3"/>
+        <line x1="125" y1="108" x2="131" y2="128" stroke-width="0.5" opacity="0.3"/>
+        <line x1="130" y1="107" x2="136" y2="127" stroke-width="0.5" opacity="0.3"/>
 
         <!-- ── TORSO — broad shouldered, tapers to waist, muscular ── -->
         <!-- Left body outline: shoulder → armpit → waist → hip -->
@@ -610,35 +621,37 @@ input[type=range] {
         <!-- ── LEGS — digitigrade, powerful thighs ── -->
         <!-- Left thigh — forward-angled, powerful -->
         <path d="M 84 358 C 80 380 76 400 80 422" stroke-width="1.7"/>
-        <!-- Left knee — prominent joint -->
-        <path d="M 78 420 C 74 428 76 434 82 432" stroke-width="1.2"/>
-        <!-- Left shin — angled back slightly (digitigrade) -->
-        <path d="M 80 430 C 78 446 72 462 66 476" stroke-width="1.6"/>
-        <!-- Left foot — forward, grounded -->
-        <path d="M 64 474 C 60 478 58 482 74 484 C 82 484 86 480 84 476" stroke-width="1.4"/>
-        <!-- Left foot claws -->
-        <line x1="64" y1="482" x2="60" y2="490" stroke-width="1.0"/>
-        <line x1="70" y1="484" x2="68" y2="492" stroke-width="1.0"/>
-        <line x1="76" y1="484" x2="76" y2="492" stroke-width="1.0"/>
-        <!-- Leg shadow -->
-        <line x1="76" y1="364" x2="70" y2="394" stroke-width="0.5" opacity="0.3"/>
-        <line x1="72" y1="372" x2="66" y2="402" stroke-width="0.5" opacity="0.3"/>
+        <!-- Left knee — sharp backward angle, digitigrade -->
+        <path d="M 76 418 C 70 426 72 436 80 434" stroke-width="1.3"/>
+        <!-- Left shin — angles back and down, no ankle ring -->
+        <path d="M 80 432 C 76 450 70 466 64 480" stroke-width="1.6"/>
+        <!-- Left foot — broad, forward-planted -->
+        <path d="M 62 478 C 56 482 56 488 76 490 C 86 490 90 484 86 480 C 80 478 70 478 64 478" stroke-width="1.4"/>
+        <!-- Left foot claws — three toes forward -->
+        <line x1="60" y1="488" x2="55" y2="497" stroke-width="1.1"/>
+        <line x1="68" y1="490" x2="66" y2="499" stroke-width="1.1"/>
+        <line x1="76" y1="490" x2="76" y2="499" stroke-width="1.1"/>
+        <line x1="83" y1="489" x2="84" y2="498" stroke-width="1.1"/>
+        <!-- Left leg shadow -->
+        <line x1="76" y1="364" x2="70" y2="396" stroke-width="0.5" opacity="0.3"/>
+        <line x1="72" y1="374" x2="66" y2="406" stroke-width="0.5" opacity="0.3"/>
 
         <!-- Right thigh -->
-        <path d="M 196 358 C 200 380 204 400 200 422" stroke-width="1.7"/>
+        <path d="M 196 358 C 200 382 204 402 202 420" stroke-width="1.7"/>
         <!-- Right knee -->
-        <path d="M 202 420 C 206 428 204 434 198 432" stroke-width="1.2"/>
-        <!-- Right shin -->
-        <path d="M 200 430 C 202 446 208 462 214 476" stroke-width="1.6"/>
+        <path d="M 204 418 C 210 426 208 436 200 434" stroke-width="1.3"/>
+        <!-- Right shin — no ankle ring -->
+        <path d="M 200 432 C 204 450 210 466 216 480" stroke-width="1.6"/>
         <!-- Right foot -->
-        <path d="M 216 474 C 220 478 222 482 206 484 C 198 484 194 480 196 476" stroke-width="1.4"/>
+        <path d="M 218 478 C 224 482 224 488 204 490 C 194 490 190 484 194 480 C 200 478 210 478 216 478" stroke-width="1.4"/>
         <!-- Right foot claws -->
-        <line x1="216" y1="482" x2="220" y2="490" stroke-width="1.0"/>
-        <line x1="210" y1="484" x2="212" y2="492" stroke-width="1.0"/>
-        <line x1="204" y1="484" x2="204" y2="492" stroke-width="1.0"/>
+        <line x1="220" y1="488" x2="225" y2="497" stroke-width="1.1"/>
+        <line x1="212" y1="490" x2="214" y2="499" stroke-width="1.1"/>
+        <line x1="204" y1="490" x2="204" y2="499" stroke-width="1.1"/>
+        <line x1="197" y1="489" x2="196" y2="498" stroke-width="1.1"/>
         <!-- Right leg shadow -->
-        <line x1="204" y1="364" x2="210" y2="394" stroke-width="0.5" opacity="0.3"/>
-        <line x1="208" y1="372" x2="214" y2="402" stroke-width="0.5" opacity="0.3"/>
+        <line x1="204" y1="364" x2="210" y2="396" stroke-width="0.5" opacity="0.3"/>
+        <line x1="208" y1="374" x2="214" y2="406" stroke-width="0.5" opacity="0.3"/>
 
       </g><!-- /pencil group -->
 
