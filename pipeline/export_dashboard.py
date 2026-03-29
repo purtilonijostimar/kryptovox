@@ -10,9 +10,10 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-ROOT       = Path(__file__).parent.parent
-SCORED_DIR = ROOT / "data" / "scored"
-OUT_PATH   = ROOT / "docs" / "dashboard.json"
+ROOT          = Path(__file__).parent.parent
+SCORED_DIR    = ROOT / "data" / "scored"
+EXTRACTED_DIR = ROOT / "data" / "extracted"
+OUT_PATH      = ROOT / "docs" / "dashboard.json"
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
@@ -52,6 +53,41 @@ def is_valid_interview(data: dict) -> bool:
     return True
 
 
+def merge_account(scored_path: Path, channel_key: str) -> dict:
+    """
+    Merge extracted fields + scored fields into one record.
+    Extracted fields are the base; scored fields overwrite on conflict.
+    This ensures all 80+ extraction fields are present in the dashboard.
+    """
+    with open(scored_path, encoding="utf-8") as f:
+        scored = json.load(f)
+
+    # Corresponding extracted file: strip _wcs suffix
+    stem = scored_path.stem.replace("_wcs", "")
+    extracted_path = EXTRACTED_DIR / channel_key / (stem + ".json")
+
+    if extracted_path.exists():
+        with open(extracted_path, encoding="utf-8") as f:
+            extracted = json.load(f)
+        # Merge: extracted as base, scored fields overwrite
+        merged = {**extracted, **scored}
+    else:
+        merged = scored
+
+    # Strip fields that are too heavy for the dashboard
+    merged.pop("segments", None)
+    merged.pop("full_transcript", None)
+    merged.pop("raw_text", None)
+    # Strip verbose WCS rationale text to keep file size down
+    # but keep the score numbers and evidence quotes
+    for dim in ("EA", "SA", "IC", "SS", "DC", "CO", "CP", "NC"):
+        if dim in merged and isinstance(merged[dim], dict):
+            merged[dim].pop("rationale", None)
+
+    merged["channel_key"] = channel_key
+    return merged
+
+
 def export():
     accounts  = []
     excluded  = []
@@ -60,11 +96,7 @@ def export():
         if not channel_dir.is_dir():
             continue
         for f in sorted(channel_dir.glob("*_wcs.json")):
-            with open(f, encoding="utf-8") as fh:
-                data = json.load(fh)
-            # Strip heavy fields to keep file small
-            data.pop("segments", None)
-            data["channel_key"] = channel_dir.name
+            data = merge_account(f, channel_dir.name)
 
             if is_valid_interview(data):
                 accounts.append(data)

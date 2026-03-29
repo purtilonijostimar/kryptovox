@@ -33,6 +33,7 @@ NON_INTERVIEW_FRAGMENTS = [
     "hunting grounds", "dogman files",
     # Misc confirmed non-witness episodes
     "dogman encounters q",          # Q&A series
+    # NOTE: do NOT add "part 2" — genuine witnesses often have multi-part interviews
 ]
 
 def is_interview_title(title: str) -> bool:
