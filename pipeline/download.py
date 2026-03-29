@@ -84,7 +84,9 @@ def download_channel(channel_key: str, limit: int = None, skip_existing: bool = 
     ]
 
     if limit:
-        cmd += ["--playlist-end", str(limit)]
+        # --max-downloads is global cap across all tabs/playlists
+        # --playlist-end only caps per playlist tab (causes double-downloading)
+        cmd += ["--max-downloads", str(limit)]
 
     cmd.append(ch["url"])
 
