@@ -263,6 +263,7 @@ def extract_transcript(transcript_path: Path, channel_key: str, force: bool = Fa
             messages   = [{"role": "user", "content": prompt}],
         )
 
+        import re
         raw = message.content[0].text.strip()
 
         # Extract JSON from response (Claude sometimes adds preamble)
@@ -270,8 +271,16 @@ def extract_transcript(transcript_path: Path, channel_key: str, force: bool = Fa
             raw = raw.split("```json")[1].split("```")[0].strip()
         elif "```" in raw:
             raw = raw.split("```")[1].split("```")[0].strip()
+        else:
+            match = re.search(r'\{[\s\S]*\}', raw)
+            if match:
+                raw = match.group(0)
 
-        extracted = json.loads(raw)
+        try:
+            extracted = json.loads(raw)
+        except json.JSONDecodeError:
+            from json_repair import repair_json
+            extracted = json.loads(repair_json(raw))
         extracted["_source_transcript"] = str(transcript_path)
         extracted["_extract_time_s"]    = round(time.time() - start, 1)
 
