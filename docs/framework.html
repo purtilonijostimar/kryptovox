@@ -230,6 +230,199 @@
   .pipeline-row-content { grid-template-columns: 1fr; }
 }
 
+/* ── PIPELINE FLOW (new) ────────────────────────────────────────── */
+.pipeline-flow-section {
+  padding: 5rem 2rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-warm);
+}
+.pipeline-flow-inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+}
+.pipeline-flow-intro {
+  max-width: 600px;
+  margin-bottom: 3.5rem;
+}
+.pipeline-flow-intro h2 {
+  font-family: var(--serif-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0.4rem 0 0.75rem;
+}
+.pipeline-flow-intro p {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+/* Step flow */
+.step-flow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+/* connector line */
+.step-flow::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(100% / 14);
+  right: calc(100% / 14);
+  height: 2px;
+  background: var(--rule);
+  z-index: 0;
+}
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+.step-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.step-item:hover .step-icon-wrap {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+.step-icon-wrap svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--ink-soft);
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.2s;
+}
+.step-item:hover .step-icon-wrap svg { stroke: var(--accent); }
+/* highlight first (submit) and last (publish) */
+.step-item.highlight .step-icon-wrap {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+.step-item.highlight .step-icon-wrap svg { stroke: var(--accent); }
+.step-num {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.2rem;
+}
+.step-name {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+.step-desc {
+  font-family: var(--sans);
+  font-size: 0.71rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+@media (max-width: 860px) {
+  .step-flow { grid-template-columns: repeat(4, 1fr); gap: 1rem 0; }
+  .step-flow::before { display: none; }
+}
+@media (max-width: 500px) {
+  .step-flow { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Output stats row */
+.output-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.output-stat {
+  background: var(--paper);
+  padding: 1.5rem 1.75rem;
+}
+.output-stat-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.5rem;
+}
+.output-stat-value {
+  font-family: var(--serif-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.output-stat-sub {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+/* Observations strip */
+.obs-strip {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.obs-strip-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+.obs-strip-item.green  { background: var(--accent-bg); border-color: #b8d4c0; }
+.obs-strip-item.amber  { background: var(--amber-bg);  border-color: #e8d090; }
+.obs-strip-item.red    { background: var(--flag-bg);   border-color: #f0a0a0; }
+.obs-strip-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.obs-strip-body {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+.obs-strip-item.green .obs-strip-body { color: var(--accent); }
+.obs-strip-item.amber .obs-strip-body { color: var(--amber); }
+.obs-strip-item.red   .obs-strip-body { color: var(--flag); }
+.obs-strip-body strong { font-weight: 700; }
+
 /* ── WCS DETAIL ─────────────────────────────────────────────────── */
 .wcs-section {
   padding: 5rem 2rem;
@@ -481,154 +674,136 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 2 — PIPELINE INFOGRAPHIC + CRITICAL OBSERVATIONS       -->
+<!-- SECTION 2 — PIPELINE FLOW INFOGRAPHIC                          -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<section class="observations-section">
-  <div class="observations-inner">
-    <div class="obs-intro">
-      <div class="section-label">How the data is processed</div>
-      <h2>From raw audio to scored, structured evidence</h2>
-      <p>Every account passes through the same five-stage pipeline, in the same order, with no human intervention
-      between stages. Critical observations from the pilot corpus (N=50) are shown inline.</p>
+<section class="pipeline-flow-section">
+  <div class="pipeline-flow-inner">
+
+    <div class="pipeline-flow-intro">
+      <div class="section-label">How it works</div>
+      <h2>From your account to published, scored evidence</h2>
+      <p>Every account — whether submitted directly or sourced from our primary corpus — passes through the same seven-stage pipeline. Identical process. No exceptions. No cherry-picking.</p>
     </div>
 
-    <div class="pipeline-infographic">
+    <!-- Step flow -->
+    <div class="step-flow">
 
-      <!-- Stage 1: Download -->
-      <div class="pipeline-row">
-        <div class="pipeline-row-stage">
-          <div class="stage-number">01</div>
-          <div class="stage-name">Download</div>
-          <div class="stage-tool">yt-dlp · mp3</div>
+      <!-- 00 Submit -->
+      <div class="step-item highlight">
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         </div>
-        <div class="pipeline-row-content">
-          <div class="content-block">
-            <div class="content-block-label">What happens</div>
-            <div class="content-block-text">Audio extracted from YouTube interview at 128kbps mono mp3. Segment metadata (duration, episode number, title) stored alongside audio.</div>
-          </div>
-          <div class="content-block">
-            <div class="content-block-label">What we preserve</div>
-            <div class="content-block-text">Full unedited interview audio. No trimming, no selection of "good" moments. The pipeline processes the entire episode including host questions.</div>
-          </div>
-          <div class="observation-callout obs-amber">
-            <span class="obs-icon">📌</span>
-            <span class="obs-text"><strong>Observation:</strong> ~8% of episodes are documentary or compilation format, not first-person witness interviews. These score <span class="inline-highlight">IC=1</span> (interview count) and are correctly filtered as Unreliable regardless of content. Format integrity matters.</span>
-          </div>
-        </div>
+        <div class="step-num">Submit</div>
+        <div class="step-name">Your Account</div>
+        <div class="step-desc">Witness submits audio, video, or written account via the portal</div>
       </div>
 
-      <!-- Stage 2: Transcription -->
-      <div class="pipeline-row">
-        <div class="pipeline-row-stage">
-          <div class="stage-number">02</div>
-          <div class="stage-name">Transcription</div>
-          <div class="stage-tool">Whisper large-v3 · Groq API</div>
+      <!-- 01 Download -->
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </div>
-        <div class="pipeline-row-content">
-          <div class="content-block">
-            <div class="content-block-label">What happens</div>
-            <div class="content-block-text">Audio split into chunks ≤24MB, transcribed with Whisper large-v3 at ~100× realtime. Segment-level word timestamps preserved. Chunks reassembled with offset correction.</div>
-          </div>
-          <div class="content-block">
-            <div class="content-block-label">Output</div>
-            <div class="content-block-text">JSON with full text + array of <strong>timed segments</strong> (start/end/text). These timestamps are used later to align acoustic features with the spoken narrative.</div>
-          </div>
-          <div class="observation-callout">
-            <span class="obs-icon">🔬</span>
-            <span class="obs-text"><strong>Critical observation:</strong> Word-level timestamps enable acoustic-emotional alignment — we can pinpoint exactly which words trigger vocal stress markers. This is what makes our methodology publishable: emotional authenticity is not impressionistic, it has timestamps and spectral evidence.</span>
-          </div>
-        </div>
+        <div class="step-num">Stage 01</div>
+        <div class="step-name">Audio Capture</div>
+        <div class="step-desc">Full unedited audio extracted and stored — nothing trimmed or selected</div>
       </div>
 
-      <!-- Stage 3: Extraction -->
-      <div class="pipeline-row">
-        <div class="pipeline-row-stage">
-          <div class="stage-number">03</div>
-          <div class="stage-name">Extraction</div>
-          <div class="stage-tool">Claude Haiku · 80+ fields</div>
+      <!-- 02 Transcribe -->
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         </div>
-        <div class="pipeline-row-content">
-          <div class="content-block">
-            <div class="content-block-label">What happens</div>
-            <div class="content-block-text">Full transcript passed to Claude Haiku with a structured prompt requesting JSON extraction across 80+ fields covering: creature morphology, witness background, encounter dynamics, anomaly markers, community structure, and narrator profile assessment.</div>
-          </div>
-          <div class="content-block">
-            <div class="content-block-label">Key fields</div>
-            <div class="content-block-text">
-              <strong>Creature:</strong> height, build, head type, eyes, locomotion, vocalisation<br>
-              <strong>Behaviour:</strong> watches_then_leaves, silent_departure, felt_known_by_creature, aggression<br>
-              <strong>Witness:</strong> career_risk_score, hesitation_to_disclose, relationship_impact<br>
-              <strong>Anomalies:</strong> paralysis_or_freeze, infrasound_felt, light_anomalies, time_distortion
-            </div>
-          </div>
-          <div class="observation-callout">
-            <span class="obs-icon">🔬</span>
-            <span class="obs-text"><strong>Critical observation:</strong> In the pilot N=50, <strong>watches_then_leaves</strong> appears in 68% of accounts, <strong>silent_departure</strong> in 72%, <strong>paralysis_or_freeze</strong> in 44%. These rates are consistent across pre-2010 and post-2015 accounts — ruling out social contagion via online discussion as the propagation mechanism.</span>
-          </div>
-          <div class="observation-callout obs-amber">
-            <span class="obs-icon">📌</span>
-            <span class="obs-text"><strong>Reliability note:</strong> Claude Haiku occasionally returns malformed JSON (~5% of runs). A <span class="inline-highlight">json-repair</span> fallback handles this automatically. All outputs are validated against schema before scoring.</span>
-          </div>
-        </div>
+        <div class="step-num">Stage 02</div>
+        <div class="step-name">Transcription</div>
+        <div class="step-desc">Every word converted to text with precise timestamps using AI speech recognition</div>
       </div>
 
-      <!-- Stage 4: Credibility Scoring -->
-      <div class="pipeline-row">
-        <div class="pipeline-row-stage">
-          <div class="stage-number">04</div>
-          <div class="stage-name">Scoring</div>
-          <div class="stage-tool">WCS · 6 dimensions</div>
+      <!-- 03 Extract -->
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
         </div>
-        <div class="pipeline-row-content">
-          <div class="content-block">
-            <div class="content-block-label">What happens</div>
-            <div class="content-block-text">Extracted data passed to a separate scoring prompt. Claude Haiku scores each of six WCS dimensions on 0–10, provides a rationale for each score, and quotes specific evidence from the transcript.</div>
-          </div>
-          <div class="content-block">
-            <div class="content-block-label">WCS score bands</div>
-            <div class="content-block-text">
-              <strong>Exceptional ≥8.5</strong> — rare, extremely coherent<br>
-              <strong>Strong ≥7.0</strong> — meets forensic credibility threshold<br>
-              <strong>Moderate ≥5.5</strong> — credible with caveats<br>
-              <strong>Weak ≥4.0</strong> — significant reliability concerns<br>
-              <strong>Unreliable &lt;4.0</strong> — fabrication/fantasy indicators
-            </div>
-          </div>
-          <div class="observation-callout">
-            <span class="obs-icon">🔬</span>
-            <span class="obs-text"><strong>Critical observation:</strong> N=50 distribution: <strong>60% Strong</strong>, 28% Moderate, 2% Weak, 10% Unreliable. The proportion of Strong+ accounts is higher than in criminal witness populations studied by Vrij (2008) — suggesting this corpus is not drawn from a fabrication-prone pool.</span>
-          </div>
-          <div class="observation-callout obs-flag">
-            <span class="obs-icon">⚠️</span>
-            <span class="obs-text"><strong>Limitation:</strong> WCS is scored by an LLM, not a trained forensic psychologist. We treat this as a scalable approximation of expert scoring, not a replacement for it. Calibration against expert-scored cases is planned for Phase 2. The methodology is documented and replicable.</span>
-          </div>
-        </div>
+        <div class="step-num">Stage 03</div>
+        <div class="step-name">Extraction</div>
+        <div class="step-desc">80+ structured fields pulled from the transcript — creature, behaviour, witness profile, anomalies</div>
       </div>
 
-      <!-- Stage 5: Acoustic Analysis -->
-      <div class="pipeline-row">
-        <div class="pipeline-row-stage">
-          <div class="stage-number">05</div>
-          <div class="stage-name">Acoustic Analysis</div>
-          <div class="stage-tool">librosa · prosodics</div>
+      <!-- 04 Score -->
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <div class="pipeline-row-content">
-          <div class="content-block">
-            <div class="content-block-label">What happens</div>
-            <div class="content-block-text">Prosodic features extracted per Whisper segment using librosa: fundamental pitch (F0), RMS energy, speaking rate, pause frequency, spectral centroid. Six emotional flags assessed per segment.</div>
-          </div>
-          <div class="content-block">
-            <div class="content-block-label">Output</div>
-            <div class="content-block-text">Per-account emotional timeline: which segments show voice tremor, pitch drops, speech slowdown, or long pauses. Top emotional moments identified with exact timestamps and triggering text.</div>
-          </div>
-          <div class="observation-callout">
-            <span class="obs-icon">🔬</span>
-            <span class="obs-text"><strong>Critical observation:</strong> Vocal stress peaks consistently occur on <em>morphological description segments</em> — "it had a dog's head," "it was standing upright," "the eyes were glowing" — and not on narrative connective tissue. This pattern is inconsistent with rehearsed fabrication, where stress is typically distributed differently (Ekman, 1997).</span>
-          </div>
-        </div>
+        <div class="step-num">Stage 04</div>
+        <div class="step-name">Credibility Score</div>
+        <div class="step-desc">Six-dimension forensic score — the same method used to evaluate criminal witness testimony</div>
       </div>
 
-    </div><!-- /pipeline-infographic -->
+      <!-- 05 Acoustic -->
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="step-num">Stage 05</div>
+        <div class="step-name">Voice Analysis</div>
+        <div class="step-desc">Stress, pitch, and pauses mapped to the exact moment in the story — emotion as evidence</div>
+      </div>
+
+      <!-- 06 Publish -->
+      <div class="step-item highlight">
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <div class="step-num">Published</div>
+        <div class="step-name">Live Dashboard</div>
+        <div class="step-desc">Scored account added to the public corpus — transparent, searchable, permanent</div>
+      </div>
+
+    </div><!-- /step-flow -->
+
+    <!-- Output stats -->
+    <div class="output-stats">
+      <div class="output-stat">
+        <div class="output-stat-label">Accounts in corpus</div>
+        <div class="output-stat-value" id="os-n">—</div>
+        <div class="output-stat-sub">All processed through the identical pipeline. No exceptions.</div>
+      </div>
+      <div class="output-stat">
+        <div class="output-stat-label">Score Strong or higher</div>
+        <div class="output-stat-value" id="os-strong">—</div>
+        <div class="output-stat-sub">WCS ≥ 7.0 — meets the forensic credibility threshold used in criminal proceedings.</div>
+      </div>
+      <div class="output-stat">
+        <div class="output-stat-label">Avg. disclosure delay</div>
+        <div class="output-stat-value" id="os-delay">—</div>
+        <div class="output-stat-sub">Years between encounter and first disclosure. Inconsistent with fabrication for attention.</div>
+      </div>
+      <div class="output-stat">
+        <div class="output-stat-label">Fields per account</div>
+        <div class="output-stat-value">80+</div>
+        <div class="output-stat-sub">Morphology, behaviour, physiology, community dynamics, anomaly markers.</div>
+      </div>
+    </div>
+
+    <!-- Key observations -->
+    <div class="obs-strip" style="margin-top:2.5rem">
+      <div class="obs-strip-item green">
+        <span class="obs-strip-icon">🔬</span>
+        <span class="obs-strip-body"><strong>Temporal stability finding:</strong> "Watches then leaves," silent departure, and paralysis appear at consistent rates in accounts from before 2010 and after 2015 — the period of peak online exposure to dogman content. Social contagion does not explain the distribution.</span>
+      </div>
+      <div class="obs-strip-item green">
+        <span class="obs-strip-icon">🔬</span>
+        <span class="obs-strip-body"><strong>Acoustic-emotional alignment:</strong> Voice stress peaks cluster on morphological description moments — "it had a dog's head," "the eyes were glowing" — not on narrative connective tissue. Inconsistent with rehearsed fabrication.</span>
+      </div>
+      <div class="obs-strip-item amber">
+        <span class="obs-strip-icon">📌</span>
+        <span class="obs-strip-body"><strong>Format filter:</strong> ~8% of episodes are documentary or compilation format, not first-person witness interviews. These are correctly identified and scored Unreliable at Stage 04 regardless of content. The pipeline filters itself.</span>
+      </div>
+      <div class="obs-strip-item red">
+        <span class="obs-strip-icon">⚠️</span>
+        <span class="obs-strip-body"><strong>Known limitation:</strong> Credibility scoring is performed by an AI model, not a trained forensic psychologist. We treat this as a scalable approximation. Calibration against expert-scored cases is planned. The full scoring rubric is published and open to challenge.</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -903,6 +1078,9 @@ async function loadStats() {
     document.getElementById('ex-n').textContent = n || '—';
     document.getElementById('ex-strong').textContent = n ? pct + '%' : '—';
     document.getElementById('ex-delay').textContent = avgDelay ? avgDelay + ' yrs' : '—';
+    document.getElementById('os-n').textContent = n || '—';
+    document.getElementById('os-strong').textContent = n ? pct + '%' : '—';
+    document.getElementById('os-delay').textContent = avgDelay ? avgDelay + ' yrs' : '—';
   } catch(e) {}
 }
 loadStats();
