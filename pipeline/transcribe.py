@@ -64,10 +64,14 @@ def transcribe_groq(audio_path: Path) -> dict:
                 response_format = "verbose_json",
                 language        = "en",
             )
+        def _seg(s):
+            if isinstance(s, dict):
+                return {"start": s.get("start", 0), "end": s.get("end", 0), "text": s.get("text", "")}
+            return {"start": s.start, "end": s.end, "text": s.text}
+
         return {
             "text":     response.text,
-            "segments": [{"start": s.start, "end": s.end, "text": s.text}
-                         for s in (response.segments or [])],
+            "segments": [_seg(s) for s in (response.segments or [])],
             "language": getattr(response, "language", "en"),
         }
     else:
@@ -99,11 +103,19 @@ def transcribe_groq(audio_path: Path) -> dict:
                     )
                 all_text.append(resp.text)
                 for s in (resp.segments or []):
-                    all_segments.append({
-                        "start": round(s.start + offset_s, 2),
-                        "end":   round(s.end   + offset_s, 2),
-                        "text":  s.text,
-                    })
+                    # Groq returns dicts or objects depending on version
+                    if isinstance(s, dict):
+                        all_segments.append({
+                            "start": round(s.get("start", 0) + offset_s, 2),
+                            "end":   round(s.get("end",   0) + offset_s, 2),
+                            "text":  s.get("text", ""),
+                        })
+                    else:
+                        all_segments.append({
+                            "start": round(s.start + offset_s, 2),
+                            "end":   round(s.end   + offset_s, 2),
+                            "text":  s.text,
+                        })
                 offset_s += chunk_duration
 
             return {
