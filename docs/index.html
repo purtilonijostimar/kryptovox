@@ -173,27 +173,33 @@
   <div class="stats-grid">
     <div class="stat-card">
       <div class="stat-value" id="s-total">—</div>
-      <div class="stat-label">Accounts scored</div>
+      <div class="stat-label">Witness accounts</div>
+      <div class="stat-sub">in the research corpus</div>
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-wcs">—</div>
-      <div class="stat-label">Average WCS</div>
+      <div class="stat-label">Average credibility score</div>
+      <div class="stat-sub">out of 10 — forensic WCS scale</div>
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-strong">—</div>
-      <div class="stat-label">Strong or better</div>
+      <div class="stat-label">Score Strong or higher</div>
+      <div class="stat-sub">meet the forensic credibility threshold</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value" id="s-paralysis">—</div>
-      <div class="stat-label">Paralysis reported</div>
+      <div class="stat-value" id="s-hours">—</div>
+      <div class="stat-label">Hours of testimony</div>
+      <div class="stat-sub">examined and transcribed</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value" id="s-delay">—</div>
-      <div class="stat-label">Disclosure delay</div>
+      <div class="stat-value" id="s-minimise">—</div>
+      <div class="stat-label">Said "who would believe me"</div>
+      <div class="stat-sub">used phrases anticipating disbelief</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value" id="s-change">—</div>
-      <div class="stat-label">Life changed after</div>
+      <div class="stat-value" id="s-eyes">—</div>
+      <div class="stat-label">Reported glowing eyes</div>
+      <div class="stat-sub">self-illuminated — no light source</div>
     </div>
   </div>
 
@@ -263,16 +269,16 @@ function updateStats() {
   if (!n) return;
   const avgWCS     = allAccounts.reduce((s,a) => s + (a.WCS_raw||0), 0) / n;
   const strong     = allAccounts.filter(a => (a.WCS_raw||0) >= 7).length;
-  const paralysis  = allAccounts.filter(a => a.paralysis_or_freeze).length;
-  const delay      = allAccounts.filter(a => a.disclosure_delay_indicated).length;
-  const change     = allAccounts.filter(a => a.post_encounter_life_change).length;
+  const minimise   = allAccounts.filter(a => a.minimisation_phrases && a.minimisation_phrases.length > 0).length;
+  const eyes       = allAccounts.filter(a => a.self_illuminated_eyes).length;
+  const estHours   = Math.round(n * 70 / 60);
 
   document.getElementById('s-total').textContent    = n;
   document.getElementById('s-wcs').textContent      = avgWCS.toFixed(1);
   document.getElementById('s-strong').textContent   = strong;
-  document.getElementById('s-paralysis').textContent = Math.round(paralysis/n*100) + '%';
-  document.getElementById('s-delay').textContent    = Math.round(delay/n*100) + '%';
-  document.getElementById('s-change').textContent   = Math.round(change/n*100) + '%';
+  document.getElementById('s-hours').textContent    = '~' + estHours + 'h';
+  document.getElementById('s-minimise').textContent = Math.round(minimise/n*100) + '%';
+  document.getElementById('s-eyes').textContent     = Math.round(eyes/n*100) + '%';
 }
 
 function setFilter(f, btn) {

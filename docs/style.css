@@ -195,6 +195,14 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+.stat-card .stat-sub {
+  font-family:   var(--sans);
+  font-size:     0.7rem;
+  color:         var(--ink-faint);
+  margin-top:    0.2rem;
+  line-height:   1.4;
+  font-style:    italic;
+}
 
 /* ── WCS badge ───────────────────────────────────────────────────── */
 .wcs-badge {
