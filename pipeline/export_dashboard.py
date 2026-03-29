@@ -14,14 +14,9 @@ ROOT       = Path(__file__).parent.parent
 SCORED_DIR = ROOT / "data" / "scored"
 OUT_PATH   = ROOT / "docs" / "dashboard.json"
 
-# Title fragments that reliably identify non-witness-interview episodes
-NON_INTERVIEW_TITLE_FRAGMENTS = [
-    "q & a", "q&a", "livestream", "live stream",
-    "i write books", "we hunt", "we photograph", "we film",
-    "documentary", "documentary &", "dogman files",
-    "hunting grounds", "part 2",   # compilations
-    "author", "researcher", "investigator",
-]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from download import NON_INTERVIEW_FRAGMENTS as NON_INTERVIEW_TITLE_FRAGMENTS
 
 
 def is_valid_interview(data: dict) -> bool:

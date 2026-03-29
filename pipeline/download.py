@@ -18,6 +18,32 @@ from datetime import datetime
 ROOT      = Path(__file__).parent.parent
 AUDIO_DIR = ROOT / "data" / "audio"
 
+# ── Non-interview title filter ─────────────────────────────────────────────────
+# Episodes whose titles match any of these fragments are skipped at download time.
+# They are not witness interviews and should not enter the pipeline.
+# Add to this list as new patterns are identified.
+NON_INTERVIEW_FRAGMENTS = [
+    # Format types
+    "q & a", "q&a", "live stream", "livestream",
+    "documentary", "documentary &",
+    # Author/researcher episodes (not witnesses)
+    "i write books", "we hunt", "we photograph", "we film",
+    "author interview", "researcher", "investigator",
+    # Compilation/roundup formats
+    "hunting grounds", "dogman files",
+    # Misc confirmed non-witness episodes
+    "dogman encounters q",          # Q&A series
+]
+
+def is_interview_title(title: str) -> bool:
+    """Return True if the title looks like a genuine witness interview."""
+    t = title.lower()
+    for fragment in NON_INTERVIEW_FRAGMENTS:
+        if fragment in t:
+            return False
+    return True
+
+
 # ── Channel Registry ───────────────────────────────────────────────────────────
 CHANNELS = {
     "dogman_encounters": {
@@ -69,6 +95,12 @@ def download_channel(channel_key: str, limit: int = None, skip_existing: bool = 
         print(f"Limit:       {limit} episodes")
     print(f"{'='*60}\n")
 
+    # Build yt-dlp title exclusion filter
+    # yt-dlp --match-filter supports basic expressions; we reject titles containing
+    # any non-interview fragment by checking each one.
+    # We use multiple --reject-title patterns (one per fragment) as the most reliable approach.
+    reject_patterns = [f"(?i){frag}" for frag in NON_INTERVIEW_FRAGMENTS]
+
     cmd = [
         sys.executable, "-m", "yt_dlp",
         "--extract-audio",
@@ -79,9 +111,13 @@ def download_channel(channel_key: str, limit: int = None, skip_existing: bool = 
         "--write-description",
         "--no-overwrites",
         "--ignore-errors",
-        "--sleep-interval",   "2",     # be polite
+        "--sleep-interval",   "2",
         "--max-sleep-interval","5",
     ]
+
+    # Add reject-title filters for non-interview patterns
+    for pattern in reject_patterns:
+        cmd += ["--reject-title", pattern]
 
     if limit:
         # --max-downloads is global cap across all tabs/playlists
