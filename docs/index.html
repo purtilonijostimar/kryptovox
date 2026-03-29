@@ -180,7 +180,7 @@
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-wcs">—</div>
-      <div class="stat-label">Avg. credibility score <span class="stat-label-note">/ 10</span></div>
+      <div class="stat-label">Avg. credibility score (0–10)</div>
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-strong">—</div>
@@ -265,9 +265,7 @@ function updateStats() {
   document.getElementById('s-total').textContent    = n;
   document.getElementById('s-wcs').textContent      = avgWCS.toFixed(1);
   document.getElementById('s-strong').textContent   = strong;
-  document.getElementById('s-hours').textContent    = '~' + estHours + 'h';
-  document.getElementById('s-minimise').textContent = Math.round(minimise/n*100) + '%';
-  document.getElementById('s-eyes').textContent     = Math.round(eyes/n*100) + '%';
+  document.getElementById('s-hours').textContent = '~' + estHours + 'h';
 }
 
 function setFilter(f, btn) {
