@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Cross-Cultural Map</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+  .map-hero {
+    padding: 3rem 2rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .map-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .layer-btn {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    background: var(--paper-warm);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .layer-btn .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .layer-btn.active { border-color: currentColor; }
+  .layer-btn.modern.active  { color: #2d5a3d; background: var(--accent-bg); border-color: #b8d4c0; }
+  .layer-btn.historic.active { color: #8a6420; background: var(--amber-bg);  border-color: #e8d090; }
+  .layer-btn.folklore.active { color: #7a2020; background: var(--flag-bg);   border-color: #f0a0a0; }
+  #main-map {
+    width: 100%;
+    height: calc(100vh - 200px);
+    min-height: 500px;
+  }
+  .map-sidebar {
+    position: absolute;
+    top: 0; right: 0;
+    width: 320px;
+    max-height: 100%;
+    overflow-y: auto;
+    background: var(--paper);
+    border-left: 1px solid var(--rule);
+    padding: 1.5rem;
+    z-index: 1000;
+    display: none;
+  }
+  .map-sidebar.open { display: block; }
+  .map-wrapper {
+    position: relative;
+    border-top: 1px solid var(--rule);
+  }
+  .sidebar-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--ink-faint);
+    cursor: pointer;
+    font-family: var(--sans);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .sidebar-close:hover { background: var(--paper-deep); }
+  .sidebar-type {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .sidebar-title {
+    font-family: var(--serif-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    padding-right: 1.5rem;
+  }
+  .sidebar-field {
+    margin-bottom: 0.75rem;
+  }
+  .sidebar-field-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-bottom: 0.2rem;
+  }
+  .sidebar-field-value {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+  .descriptor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 0.25rem;
+  }
+  .descriptor-tag {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--paper-deep);
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+  }
+  .descriptor-tag.match {
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-color: #b8d4c0;
+  }
+  .map-count-bar {
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.6rem 2rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .count-item span { color: var(--ink-mid); font-weight: 600; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="paper.html">Research</a>
+    <a href="index.html">Dashboard</a>
+    <a href="map.html" class="active">Map</a>
+    <a href="submit.html">Submit</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<div class="map-hero">
+  <div>
+    <div class="section-label">Cross-cultural convergence</div>
+    <div style="font-family:var(--serif-display);font-size:1.5rem;font-weight:700;color:var(--ink);margin-top:0.3rem">
+      The same thing, independently, across the world
+    </div>
+    <p style="font-family:var(--sans);font-size:0.8rem;color:var(--ink-soft);margin-top:0.4rem;max-width:480px">
+      Modern encounter accounts, historical traditions, and folklore primary sources — mapped.
+      Click any marker for details. Green = modern accounts. Amber = historical traditions. Red = folklore sources.
+    </p>
+  </div>
+  <div class="map-controls">
+    <button class="layer-btn modern active"  onclick="toggleLayer('modern',this)">
+      <span class="dot" style="background:#2d5a3d"></span> Modern accounts
+    </button>
+    <button class="layer-btn historic active" onclick="toggleLayer('historic',this)">
+      <span class="dot" style="background:#8a6420"></span> Historic traditions
+    </button>
+    <button class="layer-btn folklore active" onclick="toggleLayer('folklore',this)">
+      <span class="dot" style="background:#7a2020"></span> Folklore sources
+    </button>
+  </div>
+</div>
+
+<div class="map-count-bar">
+  <div>Modern accounts: <span id="c-modern">8</span> regions</div>
+  <div>Historical traditions: <span id="c-historic">9</span> entries</div>
+  <div>Folklore sources: <span id="c-folklore">5</span> entries</div>
+</div>
+
+<div class="map-wrapper">
+  <div id="main-map"></div>
+  <div class="map-sidebar" id="map-sidebar">
+    <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+    <div id="sidebar-content"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map = L.map('main-map', {
+  center: [25, 10],
+  zoom: 2,
+  scrollWheelZoom: true,
+  zoomControl: true,
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19,
+}).addTo(map);
+
+const layers = { modern: L.layerGroup(), historic: L.layerGroup(), folklore: L.layerGroup() };
+Object.values(layers).forEach(l => l.addTo(map));
+
+function makeIcon(color, size=10) {
+  return L.circleMarker.bind(null, undefined, {
+    color, fillColor: color, fillOpacity: 0.85, radius: size, weight: 1.5
+  });
+}
+
+const DATA = {
+  modern: [
+    { lat:47.5, lng:-121.5, title:'Pacific Northwest', region:'USA', desc:'Highest density of modern accounts. Consistent reporting across multiple decades and witnesses.',
+      descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes','paralysis','watches-then-leaves','silent departure'] },
+    { lat:37.0, lng:-85.0,  title:'Appalachia', region:'USA', desc:'Multi-decade reporting from isolated rural communities. High proportion of witness accounts with professional referrals.',
+      descriptors:['bipedal','canine head','large','nocturnal','forest','smell','paralysis','disclosure delay'] },
+    { lat:33.5, lng:-84.0,  title:'Georgia', region:'USA', desc:'Multiple high-credibility accounts. Includes James\'s Dogman Encounter (Episode 600) — WCS 6.8 (Moderate), 40-year disclosure delay.',
+      descriptors:['bipedal','canine head','paralysis','disclosure delay','curiosity not fear','watches-then-leaves'] },
+    { lat:40.0, lng:-105.0, title:'Colorado Rockies', region:'USA', desc:'Documented encounters in mountain terrain. Episode 603 scored WCS 7.1 (Strong).',
+      descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes'] },
+    { lat:44.0, lng:-89.0,  title:'Great Lakes Region', region:'USA', desc:'Extensive corpus including Wisconsin and Michigan accounts. Dense reporting area.',
+      descriptors:['bipedal','canine head','smell','nocturnal','paralysis'] },
+    { lat:35.5, lng:-97.0,  title:'Oklahoma', region:'USA', desc:'Multiple accounts including law enforcement witnesses. Professional referrals documented.',
+      descriptors:['bipedal','canine head','large','glowing eyes','disclosure delay','career risk'] },
+    { lat:30.5, lng:-92.0,  title:'Louisiana/Mississippi', region:'USA', desc:'Swamp and river terrain accounts. Distinct environmental context from forest encounters.',
+      descriptors:['bipedal','canine head','smell','nocturnal','large'] },
+    { lat:46.0, lng:-93.0,  title:'Minnesota/Wisconsin', region:'USA', desc:'Northern forest accounts. Cold climate reporting. Some accounts dating pre-2010.',
+      descriptors:['bipedal','canine head','large','forest','paralysis','silent departure'] },
+  ],
+  historic: [
+    { lat:46.1, lng:14.9,  title:'Slovenian Pasjeglavci', region:'Slovenia', date:'Medieval / 19th century collected',
+      desc:'Pack-dwelling canine humanoids. Key unique descriptor: oči obrnjene v tla (eyes turned toward ground — anatomically cannot look upward). Equated with historical Avar/Hun invaders. Killed by iron axe.',
+      descriptors:['bipedal','canine head','pack behaviour','iron association','downward gaze limitation ← UNIQUE','territorial','intelligent'] },
+    { lat:44.0, lng:21.0,  title:'Serbian Psoglav', region:'Serbia', date:'Medieval folk tradition',
+      desc:'Dog-headed humanoid with iron teeth, single cyclopean eye. Cave-dwelling, anthropophagous. Associated with underworld and death.',
+      descriptors:['bipedal','canine head','iron teeth','cyclopean eye','cave-dwelling','underworld'] },
+    { lat:36.5, lng:-108.5, title:'Navajo Skin-Walker (Yee Naaldlooshii)', region:'Navajo Nation, USA', date:'Pre-colonial, oral tradition',
+      desc:'Shape-shifting entity that can appear as large canine or bipedal dog-like being. Strong behavioural parallels: watches-then-leaves, felt-known by target, social taboo on disclosure.',
+      descriptors:['canine form','watches-then-leaves ← MATCH','felt-known ← MATCH','disclosure taboo ← MATCH','targeted individual'] },
+    { lat:60.0, lng:90.0,  title:'Siberian Shamanic Encounters', region:'Siberia/Central Asia', date:'Pre-modern, oral tradition',
+      desc:'Animal-headed spirit beings in shamanic encounter accounts. Documented behavioural parallels: paralysis, watches-then-withdraws, territorial, felt-known.',
+      descriptors:['animal head','paralysis ← MATCH','watches-then-withdraws ← MATCH','felt-known ← MATCH','territorial'] },
+    { lat:20.5, lng:-88.0, title:'Huay Chivo', region:'Yucatan, Mexico', date:'Pre-colonial Mayan tradition',
+      desc:'Half-man, half-goat or half-dog. Glowing eyes — one of very few pre-modern traditions describing eye luminescence. Nocturnal, forest-dwelling. Associated with sorcery.',
+      descriptors:['bipedal','canine/animal hybrid','glowing eyes ← MATCH','nocturnal','forest'] },
+    { lat:20.0, lng:102.0, title:'Shanhaijing Beings', region:'China', date:'~4th century BCE',
+      desc:'Classic of Mountains and Seas describes multiple dog-headed or dog-featured beings associated with specific mountain territories. Treated as geographic taxonomy rather than supernatural.',
+      descriptors:['canine head','territorial','mountain dwelling','organised'] },
+    { lat:13.0, lng:122.0, title:'Aswang (Weredog variant)', region:'Philippines', date:'Documented by Spanish colonists 1589',
+      desc:'Shape-shifting beings including explicit weredog category. Documented as most feared creature in Philippines by 16th-century Spanish accounts. Nocturnal, forest-dwelling.',
+      descriptors:['canine form','nocturnal','forest','shape-shifting','documented 1589'] },
+    { lat:30.0, lng:75.0,  title:'Indian Cynocephali', region:'India', date:'4th century BCE onwards',
+      desc:'Described by Ctesias of Cnidus and Megasthenes as mountain-dwelling, bark to communicate, wear animal skins, strong hunters. Treated as a real species.',
+      descriptors:['bipedal','canine head','mountain dwelling','fast','strong','real species taxonomy'] },
+    { lat:9.0,  lng:7.0,   title:'Yoruba Iron-Dog Association', region:'West Africa (Nigeria)', date:'Pre-colonial, oral tradition',
+      desc:'Ogun (deity of iron, war, hunting) — dogs sacred to him. Structural iron-dog connection parallels Slavic psoglav (iron teeth) and pasjeglavci (iron axe). Independent convergence on iron association.',
+      descriptors:['canine association','iron association ← PARALLEL','hunting','warrior'] },
+  ],
+  folklore: [
+    { lat:41.9, lng:12.5,  title:'Pliny the Elder — Naturalis Historia', region:'Rome', date:'77 CE',
+      desc:'Describes cynocephali as a real species. "In many mountains there is a race of men with the heads of dogs, who are clothed in the skins of wild beasts." Treated as natural history not mythology.',
+      source:'Naturalis Historia, Book VII', descriptors:['bipedal','canine head','mountain','wild animal skins','real species'] },
+    { lat:37.9, lng:23.7,  title:'Ctesias of Cnidus — Indika', region:'Greece', date:'4th century BCE',
+      desc:'First systematic description of cynocephali. Dog-headed people in India, 120,000 in number. Communicate by barking. Strong, fast, eat raw meat. Trade with Indians via sign language.',
+      source:'Indika (preserved in Photius, Bibliotheca Codex 72)', descriptors:['bipedal','canine head','fast','strong','organised','trade behaviour'] },
+    { lat:51.5, lng:10.5,  title:'Nuremberg Chronicle', region:'Germany', date:'1493',
+      desc:'Illustrated compendium of world history. Cynocephalus depicted as bipedal, well-dressed figure with dog head. Placed among known peoples of the world, not mythological creatures.',
+      source:'Schedel\'sche Weltchronik (1493)', descriptors:['bipedal','canine head','intelligent','cultural behaviour'] },
+    { lat:29.5, lng:31.2,  title:'Anubis / Wepwawet', region:'Egypt', date:'Ancient, pre-3000 BCE',
+      desc:'Jackal-headed psychopomps — guides of the dead. Boundary beings existing between the living and dead worlds. Dog-headed deity as threshold guardian is one of the oldest recorded forms.',
+      source:'Egyptian religious texts and iconography', descriptors:['canine head','psychopomp','boundary being','underworld','ancient'] },
+    { lat:19.4, lng:-99.1, title:'Xolotl', region:'Mexico (Aztec)', date:'Pre-colonial',
+      desc:'Dog-headed man. Psychopomp, guide of the dead. Depicted with reversed feet — anatomically unusual feature. Empty eye sockets (wept his eyes out). Twin of Quetzalcóatl. Master transformer.',
+      source:'Codex Borgia, Florentine Codex', descriptors:['dog-headed man','reversed feet','unusual eyes','psychopomp','transformer'] },
+  ],
+};
+
+function openSidebar(type, item) {
+  const colors = { modern:'var(--accent)', historic:'var(--amber)', folklore:'var(--flag)' };
+  const labels = { modern:'Modern Account Region', historic:'Historical Tradition', folklore:'Folklore Primary Source' };
+
+  const matchTags = (item.descriptors||[]).map(d => {
+    const isMatch = d.includes('← MATCH') || d.includes('← PARALLEL') || d.includes('← UNIQUE');
+    return `<span class="descriptor-tag ${isMatch?'match':''}">${d}</span>`;
+  }).join('');
+
+  let extra = '';
+  if (item.date) extra += `<div class="sidebar-field"><div class="sidebar-field-label">Period</div><div class="sidebar-field-value">${item.date}</div></div>`;
+  if (item.source) extra += `<div class="sidebar-field"><div class="sidebar-field-label">Source</div><div class="sidebar-field-value">${item.source}</div></div>`;
+  if (item.region) extra += `<div class="sidebar-field"><div class="sidebar-field-label">Region</div><div class="sidebar-field-value">${item.region}</div></div>`;
+
+  document.getElementById('sidebar-content').innerHTML = `
+    <div class="sidebar-type" style="color:${colors[type]}">${labels[type]}</div>
+    <div class="sidebar-title">${item.title}</div>
+    ${extra}
+    <div class="sidebar-field"><div class="sidebar-field-label">Description</div><div class="sidebar-field-value">${item.desc}</div></div>
+    <div class="sidebar-field">
+      <div class="sidebar-field-label">Descriptors <span style="color:var(--accent);font-weight:600">← matched to modern accounts</span></div>
+      <div class="descriptor-tags">${matchTags}</div>
+    </div>
+  `;
+  document.getElementById('map-sidebar').classList.add('open');
+}
+
+function closeSidebar() {
+  document.getElementById('map-sidebar').classList.remove('open');
+}
+
+function addMarkers(type, color, size) {
+  DATA[type].forEach(item => {
+    const marker = L.circleMarker([item.lat, item.lng], {
+      color, fillColor: color, fillOpacity: 0.85, radius: size, weight: 1.5
+    });
+    marker.on('click', () => openSidebar(type, item));
+    marker.bindTooltip(item.title, { permanent: false, direction: 'top', className: 'leaflet-tooltip' });
+    marker.addTo(layers[type]);
+  });
+}
+
+addMarkers('modern',  '#2d5a3d', 9);
+addMarkers('historic','#8a6420', 9);
+addMarkers('folklore','#7a2020', 8);
+
+function toggleLayer(type, btn) {
+  btn.classList.toggle('active');
+  if (map.hasLayer(layers[type])) {
+    map.removeLayer(layers[type]);
+  } else {
+    map.addLayer(layers[type]);
+  }
+}
+</script>
+</body>
+</html>

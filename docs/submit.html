@@ -222,14 +222,117 @@
     Accounts that appear deliberately fabricated or that contain demonstrable inconsistencies will not be published.
   </div>
 
+  <!-- Submission type toggle -->
+  <div style="display:flex;gap:0.75rem;margin:2rem 0 1.5rem;flex-wrap:wrap">
+    <button class="filter-btn active" id="btn-witness" onclick="switchType('witness')">Witness account</button>
+    <button class="filter-btn" id="btn-folklore" onclick="switchType('folklore')">Historic / folklore source</button>
+  </div>
+
   <div class="coming-soon-overlay">
     <h3>Submission portal opening soon</h3>
     <p>
       The submission system is under development and will open during Phase 2 of the research roadmap.
-      If you have an account you'd like to submit now, reach out directly.
+      If you have an account or source to submit now, reach out directly.
     </p>
     <a href="mailto:research@kryptovox.com" style="font-family:var(--sans);font-size:0.83rem;color:var(--accent);text-decoration:none;font-weight:600">research@kryptovox.com →</a>
   </div>
+
+  <!-- Witness form (placeholder) -->
+  <div id="form-witness" style="opacity:0.4;pointer-events:none">
+    <h3 style="font-family:var(--serif-display);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:1rem">Your encounter</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">First name <span>(or anonymous)</span></label>
+        <input class="form-input" type="text" placeholder="First name or leave blank">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contact email <span>(private, not published)</span></label>
+        <input class="form-input" type="email" placeholder="your@email.com">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Location <span>(country / state / region)</span></label>
+        <input class="form-input" type="text" placeholder="e.g. Pacific Northwest, USA">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Approximate year</label>
+        <input class="form-input" type="text" placeholder="e.g. 2018 or early 2000s">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Your account <span>(as much detail as you can recall)</span></label>
+      <textarea class="form-textarea" placeholder="Describe what happened — what you were doing, what you saw, heard, smelled, how you responded, and how it affected you afterwards. Don't worry about making it perfect."></textarea>
+      <div class="form-hint">Uncertainty and self-correction are signs of authentic recall. Write as you remember it.</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Audio or video link <span>(optional)</span></label>
+      <input class="form-input" type="url" placeholder="YouTube, Google Drive, or any public link">
+      <div class="form-hint">If you'd prefer to record your account, a voice recording is ideal for our acoustic analysis pipeline.</div>
+    </div>
+    <div class="consent-block">
+      <label class="consent-label">
+        <input type="checkbox">
+        <span class="consent-text">I consent to my account being analysed, scored, and published on the Kryptovox public dashboard. I understand I can remain anonymous and my contact details will not be published.</span>
+      </label>
+    </div>
+    <button class="submit-btn">Submit account</button>
+  </div>
+
+  <!-- Folklore form (placeholder) -->
+  <div id="form-folklore" style="display:none;opacity:0.4;pointer-events:none">
+    <h3 style="font-family:var(--serif-display);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:1rem">Your source</h3>
+    <div class="form-group">
+      <label class="form-label">Source title</label>
+      <input class="form-input" type="text" placeholder="e.g. Deklica in pasjeglavci (Bolhar 1965)">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Culture / tradition</label>
+        <input class="form-input" type="text" placeholder="e.g. Slovenian folk tale">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Approximate date</label>
+        <input class="form-input" type="text" placeholder="e.g. 19th century collected, pre-1600">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Region / location</label>
+      <input class="form-input" type="text" placeholder="e.g. Slovenia, Balkans, South-East Asia">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Description of the being</label>
+      <textarea class="form-textarea" placeholder="What does the source describe? Physical appearance, behaviour, how it interacts with humans, what environment it inhabits. Include direct quotes if available."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Modern account parallels <span>(optional)</span></label>
+      <textarea class="form-textarea" style="min-height:80px" placeholder="If you've noticed specific descriptors that match modern witness accounts — paralysis, watches-then-leaves, glowing eyes, silent departure — note them here."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Source link or reference</label>
+      <input class="form-input" type="text" placeholder="URL, ISBN, archive reference, or full citation">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Your contact <span>(optional)</span></label>
+      <input class="form-input" type="email" placeholder="your@email.com — in case we have follow-up questions">
+    </div>
+    <div class="consent-block">
+      <label class="consent-label">
+        <input type="checkbox">
+        <span class="consent-text">I consent to this source being added to the Kryptovox folklore research database and referenced in the working paper and public map.</span>
+      </label>
+    </div>
+    <button class="submit-btn">Submit source</button>
+  </div>
+
+  <script>
+  function switchType(type) {
+    document.getElementById('form-witness').style.display  = type === 'witness'  ? 'block' : 'none';
+    document.getElementById('form-folklore').style.display = type === 'folklore' ? 'block' : 'none';
+    document.getElementById('btn-witness').classList.toggle('active',  type === 'witness');
+    document.getElementById('btn-folklore').classList.toggle('active', type === 'folklore');
+  }
+  </script>
 
   <h2 style="font-family:var(--serif-display);font-size:1.2rem;font-weight:700;color:var(--ink);margin:2.5rem 0 0.75rem">What makes a strong submission</h2>
   <p style="color:var(--ink-mid)">

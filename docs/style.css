@@ -61,11 +61,12 @@ body {
 }
 .site-nav {
   display:    flex;
-  gap:        2rem;
+  gap:        1.5rem;
   align-items: center;
   font-family: var(--sans);
   font-size:  0.82rem;
   letter-spacing: 0.03em;
+  flex-wrap:  wrap;
 }
 .site-nav a {
   color:           var(--ink-soft);
