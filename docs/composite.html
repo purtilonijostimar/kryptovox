@@ -463,7 +463,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="0 -110 660 622" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="0 -110 640 622" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
           <feTurbulence type="fractalNoise" baseFrequency="0.06 0.04" numOctaves="3" seed="7" result="noise"/>
@@ -497,13 +497,13 @@ input[type=range] {
       <g transform="translate(50,0)" opacity="0.55">
         <image
           href="composite-human.png"
-          x="291" y="89"
+          x="266" y="89"
           width="301" height="451"
           preserveAspectRatio="xMidYMid meet"
         />
-        <text x="441" y="512" text-anchor="middle"
+        <text x="416" y="512" text-anchor="middle"
           font-family="var(--sans)" font-size="8.5" fill="var(--ink-faint)">avg. human</text>
-        <text x="441" y="523" text-anchor="middle"
+        <text x="416" y="523" text-anchor="middle"
           font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.7">5′ 9″</text>
       </g><!-- /human figure -->
 
@@ -533,14 +533,15 @@ input[type=range] {
       </g>
 
       <!-- Avg dogman 7.5ft reference line -->
-      <line x1="10" y1="-4" x2="625" y2="-4"
+      <line x1="10" y1="-4" x2="600" y2="-4"
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.2"/>
-      <text x="627" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55">7.5 ft</text>
+      <text x="602" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55">7.5 ft</text>
       <!-- Avg human 5.75ft reference line -->
-      <line x1="10" y1="113" x2="625" y2="113"
+      <line x1="10" y1="113" x2="600" y2="113"
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.15"/>
-      <text x="627" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.45">5.75 ft</text>
+      <text x="602" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.45">5.75 ft</text>
 
+      <g transform="translate(50,0)"><!-- zones layer -->
       <!-- ── ZONE OVERLAYS — recalibrated v3 ──────────────────────────
      Dogman: img x=17 y=-27 w=387 h=580 in translate(50,0)
      x_svg=17+px*(387/853) | y_svg=-27+px*(580/1280)
