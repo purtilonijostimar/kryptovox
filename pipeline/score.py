@@ -126,7 +126,9 @@ Return JSON only, no preamble:
   "post_encounter_life_change": false,
   "minimisation_phrases": [],
   "scoring_notes": "..."
-}}"""
+}}
+
+Return ONLY the JSON object above. No explanation, no preamble, no markdown. Just the raw JSON."""
 
 WCS_WEIGHTS = {
     "IC": 0.20,
@@ -195,13 +197,29 @@ def score_transcript(transcript_path: Path, channel_key: str, force: bool = Fals
             messages   = [{"role": "user", "content": prompt}],
         )
 
+        import re
         raw = message.content[0].text.strip()
+        # Try code block extraction first
         if "```json" in raw:
             raw = raw.split("```json")[1].split("```")[0].strip()
         elif "```" in raw:
             raw = raw.split("```")[1].split("```")[0].strip()
+        else:
+            # Find outermost JSON object via regex
+            match = re.search(r'\{[\s\S]*\}', raw)
+            if match:
+                raw = match.group(0)
 
-        result = json.loads(raw)
+        # Attempt parse; if fails, try to salvage by truncating at last valid comma
+        try:
+            result = json.loads(raw)
+        except json.JSONDecodeError:
+            # Strip trailing garbage after last complete key-value block
+            raw_clean = re.sub(r',\s*$', '', raw.rstrip().rstrip('}').rstrip(',')) + '\n}'
+            try:
+                result = json.loads(raw_clean)
+            except json.JSONDecodeError as e2:
+                raise ValueError(f"Could not parse JSON from response: {e2}\nRaw (first 500): {raw[:500]}")
 
         # Calculate WCS
         dim_scores = {k: result[k]["score"] for k in WCS_WEIGHTS if k in result}
