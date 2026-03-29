@@ -146,6 +146,45 @@ input[type=range] {
 .zone-overlay:hover { fill: rgba(45,90,61,0.08); }
 .zone-overlay.active { fill: rgba(45,90,61,0.13); }
 
+/* Hover zone tooltip */
+#zone-tooltip {
+  position: fixed;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 100;
+  white-space: nowrap;
+}
+#zone-tooltip.visible { opacity: 1; }
+
+/* Panel fade transition */
+#panel-content {
+  animation: none;
+}
+#panel-content.fade-in {
+  animation: panelFade 0.2s ease;
+}
+@keyframes panelFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* WCS count flash */
+@keyframes countFlash {
+  0%   { color: var(--accent); transform: scale(1.15); }
+  100% { color: var(--ink); transform: scale(1); }
+}
+.count-flash { animation: countFlash 0.4s ease forwards; }
+
 /* Data panel */
 .data-panel {
   border-left: 1px solid var(--rule);
@@ -436,6 +475,24 @@ input[type=range] {
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
       </defs>
+
+      <!-- ── HUMAN SCALE REFERENCE (faint) ──────────────────────── -->
+      <g opacity="0.10" fill="none" stroke="var(--ink)" stroke-width="1" stroke-linecap="round">
+        <!-- Human at ~5'9" relative to 7.5ft figure — roughly 75% the height -->
+        <!-- Head -->
+        <circle cx="220" cy="312" r="10"/>
+        <!-- Body -->
+        <line x1="220" y1="322" x2="220" y2="375"/>
+        <!-- Arms -->
+        <line x1="220" y1="332" x2="206" y2="360"/>
+        <line x1="220" y1="332" x2="234" y2="360"/>
+        <!-- Legs -->
+        <line x1="220" y1="375" x2="213" y2="420"/>
+        <line x1="220" y1="375" x2="227" y2="420"/>
+        <!-- Label -->
+        <line x1="220" y1="422" x2="220" y2="426"/>
+      </g>
+      <text x="220" y="434" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--ink-faint)" opacity="0.45">avg. human</text>
 
       <!-- ── FIGURE (pencil sketch group) ────────────────────────── -->
       <g filter="url(#pencil)" stroke="var(--ink-mid)" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -814,6 +871,7 @@ function renderPanel(zoneKey) {
   document.getElementById('p-tag').textContent = cfg.tag;
   document.getElementById('p-title').textContent = cfg.title;
 
+  const n = accounts.length;
   let html = '';
 
   // Primary stat
@@ -828,13 +886,17 @@ function renderPanel(zoneKey) {
     html += cfg.custom_html(accounts);
   }
 
-  // Bars
+  // Bars — now with account counts
   if (cfg.bars) {
     const bars = cfg.bars(accounts);
     html += `<div style="margin-bottom:1.5rem">`;
     bars.forEach(bar => {
+      const count = Math.round(bar.pct / 100 * n);
       html += `<div class="panel-bar-row">
-        <div class="panel-bar-label"><span>${bar.label}</span><span>${bar.pct}%</span></div>
+        <div class="panel-bar-label">
+          <span>${bar.label}</span>
+          <span style="color:var(--ink-faint);font-size:0.66rem">${bar.pct}% · ${count}/${n}</span>
+        </div>
         <div class="panel-bar-track"><div class="panel-bar-fill" style="width:${bar.pct}%"></div></div>
       </div>`;
     });
@@ -877,6 +939,12 @@ function renderPanel(zoneKey) {
 
   document.getElementById('p-body').innerHTML = html;
 
+  // Fade transition
+  const content = document.getElementById('panel-content');
+  content.classList.remove('fade-in');
+  void content.offsetWidth; // reflow
+  content.classList.add('fade-in');
+
   // Update active zone visuals
   document.querySelectorAll('.zone-overlay').forEach(el => {
     el.classList.toggle('active', el.dataset.zone === zoneKey);
@@ -889,8 +957,14 @@ function renderPanel(zoneKey) {
 // ── WCS FILTER ──────────────────────────────────────────────────────
 function applyFilter(threshold) {
   FILTERED = ALL_ACCOUNTS.filter(a => (a.WCS_raw || 0) >= threshold);
-  document.getElementById('wcs-count').textContent = FILTERED.length + ' of ' + ALL_ACCOUNTS.length;
+  const countEl = document.getElementById('wcs-count');
+  countEl.textContent = FILTERED.length + ' of ' + ALL_ACCOUNTS.length;
   document.getElementById('f-n').textContent = FILTERED.length;
+
+  // Flash the count to signal the data changed
+  countEl.classList.remove('count-flash');
+  void countEl.offsetWidth;
+  countEl.classList.add('count-flash');
 
   // Re-render active panel if open
   if (activeZone) renderPanel(activeZone);
@@ -904,18 +978,43 @@ async function init() {
     ALL_ACCOUNTS = data.accounts || [];
     document.getElementById('h-n').textContent = ALL_ACCOUNTS.length;
     applyFilter(4.0);
+    // Default: open Sensory (the zone with no clickable body region)
+    renderPanel('sensory');
   } catch(e) {
     console.warn('Could not load dashboard.json', e);
     document.getElementById('wcs-count').textContent = 'error loading data';
+    renderPanel('sensory');
   }
 }
 
-// ── EVENTS ──────────────────────────────────────────────────────────
-// SVG zone clicks
+// ── TOOLTIP ─────────────────────────────────────────────────────────
+const ZONE_LABELS = {
+  head: 'Head & Face', eyes: 'Eyes', torso: 'Torso',
+  arms: 'Arms', hands: 'Hands & Claws', legs: 'Legs'
+};
+const tooltip = document.createElement('div');
+tooltip.id = 'zone-tooltip';
+document.body.appendChild(tooltip);
+
 document.querySelectorAll('.zone-overlay').forEach(el => {
-  el.addEventListener('click', () => renderPanel(el.dataset.zone));
+  el.addEventListener('mouseenter', (e) => {
+    tooltip.textContent = ZONE_LABELS[el.dataset.zone] || el.dataset.zone;
+    tooltip.classList.add('visible');
+  });
+  el.addEventListener('mousemove', (e) => {
+    tooltip.style.left = (e.clientX + 14) + 'px';
+    tooltip.style.top  = (e.clientY - 28) + 'px';
+  });
+  el.addEventListener('mouseleave', () => {
+    tooltip.classList.remove('visible');
+  });
+  el.addEventListener('click', () => {
+    tooltip.classList.remove('visible');
+    renderPanel(el.dataset.zone);
+  });
 });
 
+// ── EVENTS ──────────────────────────────────────────────────────────
 // Zone nav buttons
 document.querySelectorAll('.zone-dot-btn').forEach(btn => {
   btn.addEventListener('click', () => renderPanel(btn.dataset.zone));
