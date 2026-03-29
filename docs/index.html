@@ -51,9 +51,12 @@
   }
   .stats-grid {
     display:               grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap:                   1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap:                   0.75rem;
     margin-bottom:         2rem;
+  }
+  @media (max-width: 640px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
   .accounts-section {
     max-width: var(--max-wide);
@@ -174,32 +177,18 @@
     <div class="stat-card">
       <div class="stat-value" id="s-total">—</div>
       <div class="stat-label">Witness accounts</div>
-      <div class="stat-sub">in the research corpus</div>
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-wcs">—</div>
-      <div class="stat-label">Average credibility score</div>
-      <div class="stat-sub">out of 10 — forensic WCS scale</div>
+      <div class="stat-label">Avg. credibility score <span class="stat-label-note">/ 10</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-strong">—</div>
       <div class="stat-label">Score Strong or higher</div>
-      <div class="stat-sub">meet the forensic credibility threshold</div>
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-hours">—</div>
       <div class="stat-label">Hours of testimony</div>
-      <div class="stat-sub">examined and transcribed</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" id="s-minimise">—</div>
-      <div class="stat-label">Said "who would believe me"</div>
-      <div class="stat-sub">used phrases anticipating disbelief</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" id="s-eyes">—</div>
-      <div class="stat-label">Reported glowing eyes</div>
-      <div class="stat-sub">self-illuminated — no light source</div>
     </div>
   </div>
 
