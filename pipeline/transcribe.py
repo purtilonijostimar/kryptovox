@@ -82,15 +82,15 @@ def transcribe_groq(audio_path: Path) -> dict:
         chunk_duration = 1200  # 20 minutes
 
         try:
-            # Split with ffmpeg
+            # Split with ffmpeg and convert to mp3
             subprocess.run([
                 "ffmpeg", "-i", str(audio_path),
                 "-f", "segment", "-segment_time", str(chunk_duration),
-                "-c", "copy",
-                str(chunk_dir / "chunk_%03d.webm")
+                "-acodec", "libmp3lame", "-q:a", "3",
+                str(chunk_dir / "chunk_%03d.mp3")
             ], check=True, capture_output=True)
 
-            chunks = sorted(chunk_dir.glob("chunk_*.webm"))
+            chunks = sorted(chunk_dir.glob("chunk_*.mp3"))
             print(f"  {len(chunks)} chunks created")
 
             for chunk in chunks:
