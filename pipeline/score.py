@@ -210,16 +210,12 @@ def score_transcript(transcript_path: Path, channel_key: str, force: bool = Fals
             if match:
                 raw = match.group(0)
 
-        # Attempt parse; if fails, try to salvage by truncating at last valid comma
+        # Attempt parse; if fails, use json-repair
         try:
             result = json.loads(raw)
         except json.JSONDecodeError:
-            # Strip trailing garbage after last complete key-value block
-            raw_clean = re.sub(r',\s*$', '', raw.rstrip().rstrip('}').rstrip(',')) + '\n}'
-            try:
-                result = json.loads(raw_clean)
-            except json.JSONDecodeError as e2:
-                raise ValueError(f"Could not parse JSON from response: {e2}\nRaw (first 500): {raw[:500]}")
+            from json_repair import repair_json
+            result = json.loads(repair_json(raw))
 
         # Calculate WCS
         dim_scores = {k: result[k]["score"] for k in WCS_WEIGHTS if k in result}
