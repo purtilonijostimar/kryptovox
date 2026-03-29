@@ -460,13 +460,13 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="0 0 280 520" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="0 0 280 500" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <!-- Pencil sketch filter -->
-        <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.04 0.07" numOctaves="4" seed="3" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="rough"/>
-          <feGaussianBlur stdDeviation="0.25" in="rough"/>
+        <!-- Pencil sketch filter — very subtle, just roughens edges slightly -->
+        <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.06 0.04" numOctaves="3" seed="7" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+          <feGaussianBlur stdDeviation="0.18" in="rough"/>
         </filter>
 
         <!-- Glow for active zones -->
@@ -477,198 +477,203 @@ input[type=range] {
       </defs>
 
       <!-- ── HUMAN SCALE REFERENCE (faint) ──────────────────────── -->
-      <g opacity="0.10" fill="none" stroke="var(--ink)" stroke-width="1" stroke-linecap="round">
-        <!-- Human at ~5'9" relative to 7.5ft figure — roughly 75% the height -->
-        <!-- Head -->
-        <circle cx="220" cy="312" r="10"/>
-        <!-- Body -->
-        <line x1="220" y1="322" x2="220" y2="375"/>
-        <!-- Arms -->
-        <line x1="220" y1="332" x2="206" y2="360"/>
-        <line x1="220" y1="332" x2="234" y2="360"/>
-        <!-- Legs -->
-        <line x1="220" y1="375" x2="213" y2="420"/>
-        <line x1="220" y1="375" x2="227" y2="420"/>
-        <!-- Label -->
-        <line x1="220" y1="422" x2="220" y2="426"/>
+      <g opacity="0.13" fill="none" stroke="var(--ink)" stroke-linecap="round">
+        <circle cx="238" cy="355" r="8" stroke-width="1"/>
+        <line x1="238" y1="363" x2="238" y2="405" stroke-width="1"/>
+        <line x1="238" y1="373" x2="228" y2="393" stroke-width="1"/>
+        <line x1="238" y1="373" x2="248" y2="393" stroke-width="1"/>
+        <line x1="238" y1="405" x2="231" y2="435" stroke-width="1"/>
+        <line x1="238" y1="405" x2="245" y2="435" stroke-width="1"/>
       </g>
-      <text x="220" y="434" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--ink-faint)" opacity="0.45">avg. human</text>
+      <text x="238" y="444" text-anchor="middle" font-family="var(--sans)" font-size="7.5" fill="var(--ink-faint)" opacity="0.5">human</text>
 
-      <!-- ── FIGURE (pencil sketch group) ────────────────────────── -->
-      <g filter="url(#pencil)" stroke="var(--ink-mid)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- ── FIGURE — redrawn with correct proportions ─────────── -->
+      <g filter="url(#pencil)" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
 
-        <!-- HEAD -->
-        <!-- Skull -->
-        <ellipse cx="140" cy="72" rx="32" ry="28" stroke-width="1.6"/>
-        <!-- Snout / muzzle — elongated canine -->
-        <path d="M 140 82 Q 165 85 176 92 Q 170 100 155 100 Q 145 98 140 95" stroke-width="1.4"/>
-        <!-- Nostril hint -->
-        <path d="M 168 96 Q 172 94 174 96" stroke-width="0.9"/>
-        <!-- Mouth line -->
-        <path d="M 155 100 Q 163 103 170 102" stroke-width="0.9"/>
-        <!-- Left ear — upright pointed -->
-        <path d="M 116 55 L 106 24 L 122 50" stroke-width="1.5"/>
-        <path d="M 109 42 L 112 30 L 118 42" stroke-width="0.7" stroke-dasharray="none"/>
+        <!-- ── HEAD — large canine skull, forward-set ── -->
+        <!-- Main skull — wide, slightly flattened on top -->
+        <path d="M 108 66 C 106 44 120 32 140 30 C 160 28 176 42 175 64 C 174 80 165 92 152 97 C 146 99 134 99 128 96 C 115 91 109 80 108 66 Z" stroke-width="1.7"/>
+
+        <!-- Muzzle — protruding forward, canine, lower jaw visible -->
+        <path d="M 128 92 C 128 96 132 105 140 108 C 148 111 162 108 168 100 C 174 92 174 84 172 80" stroke-width="1.4"/>
+        <!-- Upper muzzle bridge -->
+        <path d="M 134 78 C 140 76 156 76 164 80" stroke-width="1.1"/>
+        <!-- Jaw line -->
+        <path d="M 126 94 C 124 100 126 108 132 112 C 138 116 152 116 160 110 C 166 105 168 100 168 100" stroke-width="1.2"/>
+        <!-- Nostril -->
+        <path d="M 158 86 C 162 84 166 85 167 88" stroke-width="0.9"/>
+        <circle cx="162" cy="86" r="1.5" fill="var(--ink)" opacity="0.6" stroke="none"/>
+
+        <!-- Left ear — large, triangular, slightly forward-angled -->
+        <path d="M 113 50 C 108 36 112 18 118 14 C 122 10 128 18 128 38 C 128 48 122 56 116 58" stroke-width="1.6"/>
+        <!-- Left ear inner -->
+        <path d="M 116 50 C 114 40 116 26 120 22 C 122 30 122 44 118 52" stroke-width="0.7" opacity="0.6"/>
+
         <!-- Right ear -->
-        <path d="M 158 52 L 170 22 L 162 50" stroke-width="1.5"/>
-        <path d="M 162 38 L 167 27 L 166 40" stroke-width="0.7"/>
-        <!-- Eye sockets — forward facing, large -->
-        <ellipse cx="128" cy="68" rx="7" ry="5.5" stroke-width="1.3"/>
-        <ellipse cx="152" cy="67" rx="7" ry="5.5" stroke-width="1.3"/>
-        <!-- Iris -->
-        <circle cx="129" cy="68" r="3.5" stroke-width="0.8"/>
-        <circle cx="153" cy="67" r="3.5" stroke-width="0.8"/>
-        <!-- Brow ridge -->
-        <path d="M 120 62 Q 128 58 136 61" stroke-width="1.1"/>
-        <path d="M 145 60 Q 153 56 161 60" stroke-width="1.1"/>
-        <!-- Neck — thick -->
-        <path d="M 120 96 L 114 128" stroke-width="1.5"/>
-        <path d="M 160 96 L 164 128" stroke-width="1.5"/>
-        <!-- Neck cross-hatch shadow -->
-        <line x1="118" y1="105" x2="125" y2="118" stroke-width="0.5" opacity="0.4"/>
-        <line x1="122" y1="105" x2="129" y2="118" stroke-width="0.5" opacity="0.4"/>
-        <line x1="126" y1="104" x2="133" y2="117" stroke-width="0.5" opacity="0.4"/>
+        <path d="M 165 48 C 170 34 168 16 162 12 C 158 8 152 16 152 36 C 152 46 158 54 164 56" stroke-width="1.6"/>
+        <!-- Right ear inner -->
+        <path d="M 162 48 C 164 38 162 24 158 20 C 156 28 156 42 160 50" stroke-width="0.7" opacity="0.6"/>
 
-        <!-- TORSO + SHOULDERS -->
-        <!-- Shoulder line — broad -->
-        <path d="M 54 145 Q 140 135 226 145" stroke-width="1.8"/>
-        <!-- Left shoulder cap -->
-        <path d="M 54 145 Q 44 160 50 178" stroke-width="1.4"/>
-        <!-- Right shoulder cap -->
-        <path d="M 226 145 Q 236 160 230 178" stroke-width="1.4"/>
-        <!-- Chest/torso outline -->
-        <path d="M 114 128 Q 90 138 78 175 Q 88 240 98 268" stroke-width="1.5"/>
-        <path d="M 164 128 Q 188 138 200 175 Q 192 240 182 268" stroke-width="1.5"/>
-        <!-- Pec definition -->
-        <path d="M 114 148 Q 140 155 164 148" stroke-width="0.9" opacity="0.6"/>
+        <!-- Eyes — large, forward-facing, slightly angled, predator set -->
+        <!-- Left eye -->
+        <path d="M 118 62 C 121 57 130 56 135 60 C 138 63 137 70 133 73 C 128 76 120 74 118 70 C 116 67 117 64 118 62 Z" stroke-width="1.4"/>
+        <circle cx="127" cy="65" r="4.5" stroke-width="1.0"/>
+        <circle cx="128" cy="65" r="2" fill="var(--ink)" opacity="0.7" stroke="none"/>
+        <!-- Highlight -->
+        <circle cx="130" cy="63" r="1" fill="white" opacity="0.9" stroke="none"/>
+
+        <!-- Right eye -->
+        <path d="M 148 60 C 152 56 161 56 164 61 C 166 65 164 72 159 74 C 154 77 147 74 146 69 C 145 65 146 62 148 60 Z" stroke-width="1.4"/>
+        <circle cx="156" cy="65" r="4.5" stroke-width="1.0"/>
+        <circle cx="157" cy="65" r="2" fill="var(--ink)" opacity="0.7" stroke="none"/>
+        <circle cx="159" cy="63" r="1" fill="white" opacity="0.9" stroke="none"/>
+
+        <!-- Brow ridge — prominent, heavy -->
+        <path d="M 112 58 C 118 52 128 50 136 54" stroke-width="1.4"/>
+        <path d="M 146 53 C 154 50 164 52 168 57" stroke-width="1.4"/>
+
+        <!-- ── NECK — thick, muscular ── -->
+        <path d="M 126 102 C 122 114 118 124 114 138" stroke-width="1.7"/>
+        <path d="M 154 100 C 158 112 162 122 166 136" stroke-width="1.7"/>
+        <!-- Neck shadow hatching -->
+        <line x1="124" y1="108" x2="130" y2="126" stroke-width="0.5" opacity="0.3"/>
+        <line x1="128" y1="106" x2="134" y2="124" stroke-width="0.5" opacity="0.3"/>
+        <line x1="132" y1="104" x2="138" y2="122" stroke-width="0.5" opacity="0.3"/>
+
+        <!-- ── TORSO — broad shouldered, tapers to waist, muscular ── -->
+        <!-- Left body outline: shoulder → armpit → waist → hip -->
+        <path d="M 60 148 C 54 156 50 170 52 188 C 54 206 62 224 72 248 C 80 268 88 278 92 292" stroke-width="1.6"/>
+        <!-- Right body outline -->
+        <path d="M 220 148 C 226 156 230 170 228 188 C 226 206 218 224 208 248 C 200 268 192 278 188 292" stroke-width="1.6"/>
+        <!-- Shoulder top — broad sweeping curve -->
+        <path d="M 114 136 C 106 138 82 142 60 148" stroke-width="1.8"/>
+        <path d="M 166 136 C 174 138 198 142 220 148" stroke-width="1.8"/>
+        <!-- Chest centre line — sternum -->
+        <path d="M 140 140 C 140 180 140 220 140 258" stroke-width="0.6" opacity="0.3"/>
+        <!-- Pectoral definition -->
+        <path d="M 116 152 C 128 158 140 156 152 152" stroke-width="1.0" opacity="0.6"/>
         <!-- Waist -->
-        <path d="M 98 268 Q 140 275 182 268" stroke-width="1.4"/>
-        <!-- Torso hatching — shadow left side -->
-        <line x1="82" y1="165" x2="90" y2="200" stroke-width="0.45" opacity="0.35"/>
-        <line x1="86" y1="158" x2="94" y2="193" stroke-width="0.45" opacity="0.35"/>
-        <line x1="79" y1="175" x2="87" y2="210" stroke-width="0.45" opacity="0.35"/>
-        <!-- Torso hatching — shadow right side -->
-        <line x1="196" y1="165" x2="188" y2="200" stroke-width="0.45" opacity="0.35"/>
-        <line x1="192" y1="158" x2="184" y2="193" stroke-width="0.45" opacity="0.35"/>
+        <path d="M 92 292 C 110 298 130 300 140 300 C 150 300 170 298 188 292" stroke-width="1.4"/>
+        <!-- Torso shadow — left -->
+        <line x1="58" y1="168" x2="66" y2="200" stroke-width="0.5" opacity="0.28"/>
+        <line x1="54" y1="180" x2="62" y2="212" stroke-width="0.5" opacity="0.28"/>
+        <line x1="56" y1="192" x2="64" y2="224" stroke-width="0.5" opacity="0.28"/>
+        <!-- Torso shadow — right -->
+        <line x1="222" y1="168" x2="214" y2="200" stroke-width="0.5" opacity="0.28"/>
+        <line x1="226" y1="180" x2="218" y2="212" stroke-width="0.5" opacity="0.28"/>
+        <line x1="224" y1="192" x2="216" y2="224" stroke-width="0.5" opacity="0.28"/>
+        <!-- Fur texture marks — chest -->
+        <path d="M 130 168 C 132 164 135 168" stroke-width="0.6" opacity="0.35"/>
+        <path d="M 144 166 C 146 162 149 166" stroke-width="0.6" opacity="0.35"/>
+        <path d="M 126 190 C 128 186 131 190" stroke-width="0.6" opacity="0.35"/>
+        <path d="M 148 188 C 150 184 153 188" stroke-width="0.6" opacity="0.35"/>
+        <path d="M 132 214 C 134 210 137 214" stroke-width="0.6" opacity="0.35"/>
+        <path d="M 143 212 C 145 208 148 212" stroke-width="0.6" opacity="0.35"/>
 
-        <!-- HIPS / HAUNCHES — prominent dog-like -->
-        <path d="M 98 268 Q 80 278 76 305" stroke-width="1.5"/>
-        <path d="M 182 268 Q 200 278 204 305" stroke-width="1.5"/>
-        <!-- Hip curve -->
-        <path d="M 76 305 Q 70 318 78 325" stroke-width="1.3"/>
-        <path d="M 204 305 Q 210 318 202 325" stroke-width="1.3"/>
+        <!-- ── HIPS / HAUNCHES — dog-like, prominent ── -->
+        <path d="M 92 292 C 82 304 76 320 78 338" stroke-width="1.6"/>
+        <path d="M 188 292 C 198 304 204 320 202 338" stroke-width="1.6"/>
+        <!-- Hip shelf -->
+        <path d="M 78 338 C 76 346 80 354 84 358" stroke-width="1.3"/>
+        <path d="M 202 338 C 204 346 200 354 196 358" stroke-width="1.3"/>
 
-        <!-- ARMS — long, hanging forward -->
-        <!-- Left arm upper -->
-        <path d="M 54 145 Q 42 195 36 250" stroke-width="1.5"/>
-        <!-- Left arm lower -->
-        <path d="M 36 250 Q 30 285 28 315" stroke-width="1.5"/>
-        <!-- Right arm upper -->
-        <path d="M 226 145 Q 238 195 244 250" stroke-width="1.5"/>
-        <!-- Right arm lower -->
-        <path d="M 244 250 Q 250 285 252 315" stroke-width="1.5"/>
-        <!-- Elbow hints -->
-        <path d="M 38 248 Q 34 252 36 258" stroke-width="0.9"/>
-        <path d="M 242 248 Q 246 252 244 258" stroke-width="0.9"/>
+        <!-- ── ARMS — long, slightly forward-hanging ── -->
+        <!-- Left upper arm — shoulder to elbow -->
+        <path d="M 56 152 C 46 178 38 210 32 244" stroke-width="1.6"/>
+        <!-- Left forearm — elbow to wrist -->
+        <path d="M 32 244 C 28 270 24 294 22 318" stroke-width="1.5"/>
+        <!-- Left elbow -->
+        <path d="M 34 242 C 30 248 32 254" stroke-width="1.0"/>
+        <!-- Right upper arm -->
+        <path d="M 224 152 C 234 178 242 210 248 244" stroke-width="1.6"/>
+        <!-- Right forearm -->
+        <path d="M 248 244 C 252 270 256 294 258 318" stroke-width="1.5"/>
+        <!-- Right elbow -->
+        <path d="M 246 242 C 250 248 248 254" stroke-width="1.0"/>
 
-        <!-- HANDS / CLAWS — long fingers -->
-        <!-- Left hand -->
-        <path d="M 28 315 Q 22 320 18 335" stroke-width="1.2"/>
-        <path d="M 28 315 Q 24 322 22 338" stroke-width="1.2"/>
-        <path d="M 28 315 Q 28 325 28 340" stroke-width="1.2"/>
-        <path d="M 28 315 Q 33 323 35 337" stroke-width="1.2"/>
-        <!-- Left claws -->
-        <path d="M 18 335 L 15 344" stroke-width="1.1"/>
-        <path d="M 22 338 L 19 347" stroke-width="1.1"/>
-        <path d="M 28 340 L 27 349" stroke-width="1.1"/>
-        <path d="M 35 337 L 36 346" stroke-width="1.1"/>
-        <!-- Palm -->
-        <path d="M 22 314 Q 26 312 32 314" stroke-width="1.1"/>
-        <!-- Right hand -->
-        <path d="M 252 315 Q 258 320 262 335" stroke-width="1.2"/>
-        <path d="M 252 315 Q 256 322 258 338" stroke-width="1.2"/>
-        <path d="M 252 315 Q 252 325 252 340" stroke-width="1.2"/>
-        <path d="M 252 315 Q 247 323 245 337" stroke-width="1.2"/>
-        <!-- Right claws -->
-        <path d="M 262 335 L 265 344" stroke-width="1.1"/>
-        <path d="M 258 338 L 261 347" stroke-width="1.1"/>
-        <path d="M 252 340 L 253 349" stroke-width="1.1"/>
-        <path d="M 245 337 L 244 346" stroke-width="1.1"/>
-        <!-- Palm -->
-        <path d="M 248 314 Q 252 312 257 314" stroke-width="1.1"/>
+        <!-- ── HANDS — long-fingered, raccoon-like, clawed ── -->
+        <!-- Left palm -->
+        <path d="M 18 316 C 20 312 26 310 32 312 C 34 316 28 320 22 320 Z" stroke-width="1.1"/>
+        <!-- Left fingers + claws -->
+        <path d="M 18 318 C 14 326 12 336 10 346 C 8 352 10 356 12 352 C 14 348 16 340 18 334" stroke-width="1.1"/>
+        <path d="M 22 320 C 20 330 18 342 17 352 C 16 358 18 360 20 356 C 22 350 23 340 24 330" stroke-width="1.1"/>
+        <path d="M 26 320 C 26 330 26 342 26 352 C 26 358 28 360 30 356 C 30 348 30 336 30 326" stroke-width="1.1"/>
+        <path d="M 30 318 C 32 328 34 340 36 350 C 38 356 40 356 40 350 C 39 342 37 330 34 320" stroke-width="1.1"/>
+        <!-- Right palm -->
+        <path d="M 258 316 C 256 312 250 310 244 312 C 242 316 248 320 254 320 Z" stroke-width="1.1"/>
+        <!-- Right fingers + claws -->
+        <path d="M 258 318 C 262 326 264 336 266 346 C 268 352 266 356 264 352 C 262 348 260 340 258 334" stroke-width="1.1"/>
+        <path d="M 254 320 C 256 330 258 342 259 352 C 260 358 258 360 256 356 C 254 350 253 340 252 330" stroke-width="1.1"/>
+        <path d="M 250 320 C 250 330 250 342 250 352 C 250 358 248 360 246 356 C 246 348 246 336 246 326" stroke-width="1.1"/>
+        <path d="M 246 318 C 244 328 242 340 240 350 C 238 356 236 356 236 350 C 237 342 239 330 242 320" stroke-width="1.1"/>
 
-        <!-- LEGS — digitigrade stance, thighs prominent -->
-        <!-- Left thigh -->
-        <path d="M 78 325 Q 72 370 78 400" stroke-width="1.6"/>
-        <!-- Left lower leg — knee back, foot forward -->
-        <path d="M 78 400 Q 68 430 62 460" stroke-width="1.5"/>
-        <!-- Left foot -->
-        <path d="M 62 460 Q 58 465 72 470" stroke-width="1.4"/>
-        <!-- Left knee -->
-        <path d="M 76 397 Q 70 403 76 408" stroke-width="1.0"/>
+        <!-- ── LEGS — digitigrade, powerful thighs ── -->
+        <!-- Left thigh — forward-angled, powerful -->
+        <path d="M 84 358 C 80 380 76 400 80 422" stroke-width="1.7"/>
+        <!-- Left knee — prominent joint -->
+        <path d="M 78 420 C 74 428 76 434 82 432" stroke-width="1.2"/>
+        <!-- Left shin — angled back slightly (digitigrade) -->
+        <path d="M 80 430 C 78 446 72 462 66 476" stroke-width="1.6"/>
+        <!-- Left foot — forward, grounded -->
+        <path d="M 64 474 C 60 478 58 482 74 484 C 82 484 86 480 84 476" stroke-width="1.4"/>
+        <!-- Left foot claws -->
+        <line x1="64" y1="482" x2="60" y2="490" stroke-width="1.0"/>
+        <line x1="70" y1="484" x2="68" y2="492" stroke-width="1.0"/>
+        <line x1="76" y1="484" x2="76" y2="492" stroke-width="1.0"/>
+        <!-- Leg shadow -->
+        <line x1="76" y1="364" x2="70" y2="394" stroke-width="0.5" opacity="0.3"/>
+        <line x1="72" y1="372" x2="66" y2="402" stroke-width="0.5" opacity="0.3"/>
+
         <!-- Right thigh -->
-        <path d="M 202 325 Q 208 370 202 400" stroke-width="1.6"/>
-        <!-- Right lower leg -->
-        <path d="M 202 400 Q 212 430 218 460" stroke-width="1.5"/>
-        <!-- Right foot -->
-        <path d="M 218 460 Q 222 465 208 470" stroke-width="1.4"/>
+        <path d="M 196 358 C 200 380 204 400 200 422" stroke-width="1.7"/>
         <!-- Right knee -->
-        <path d="M 204 397 Q 210 403 204 408" stroke-width="1.0"/>
-        <!-- Leg hatching -->
-        <line x1="74" y1="335" x2="69" y2="360" stroke-width="0.45" opacity="0.35"/>
-        <line x1="70" y1="340" x2="65" y2="365" stroke-width="0.45" opacity="0.35"/>
-        <line x1="205" y1="335" x2="210" y2="360" stroke-width="0.45" opacity="0.35"/>
-        <line x1="209" y1="340" x2="214" y2="365" stroke-width="0.45" opacity="0.35"/>
-
-        <!-- Fur texture marks — sparse body detail -->
-        <path d="M 135 160 Q 137 155 140 160" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 148 162 Q 150 157 153 162" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 128 185 Q 130 180 133 185" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 155 183 Q 157 178 160 183" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 136 210 Q 138 205 141 210" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 149 208 Q 151 203 154 208" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 122 235 Q 124 230 127 235" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 158 232 Q 160 227 163 232" stroke-width="0.6" opacity="0.4"/>
-        <!-- Shoulder fur -->
-        <path d="M 58 150 Q 61 143 65 150" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 66 147 Q 69 140 73 147" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 214 147 Q 217 140 221 147" stroke-width="0.6" opacity="0.4"/>
-        <path d="M 220 151 Q 223 144 227 151" stroke-width="0.6" opacity="0.4"/>
+        <path d="M 202 420 C 206 428 204 434 198 432" stroke-width="1.2"/>
+        <!-- Right shin -->
+        <path d="M 200 430 C 202 446 208 462 214 476" stroke-width="1.6"/>
+        <!-- Right foot -->
+        <path d="M 216 474 C 220 478 222 482 206 484 C 198 484 194 480 196 476" stroke-width="1.4"/>
+        <!-- Right foot claws -->
+        <line x1="216" y1="482" x2="220" y2="490" stroke-width="1.0"/>
+        <line x1="210" y1="484" x2="212" y2="492" stroke-width="1.0"/>
+        <line x1="204" y1="484" x2="204" y2="492" stroke-width="1.0"/>
+        <!-- Right leg shadow -->
+        <line x1="204" y1="364" x2="210" y2="394" stroke-width="0.5" opacity="0.3"/>
+        <line x1="208" y1="372" x2="214" y2="402" stroke-width="0.5" opacity="0.3"/>
 
       </g><!-- /pencil group -->
 
       <!-- ── ZONE OVERLAYS (invisible clickable areas) ───────────── -->
-      <!-- HEAD zone -->
+      <!-- HEAD zone — covers skull + ears + muzzle -->
       <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="148" cy="72" rx="48" ry="55"/>
+        cx="140" cy="65" rx="58" ry="62"/>
 
-      <!-- EYES zone — smaller, on top of head zone -->
+      <!-- EYES zone — sits on top of head zone, smaller -->
       <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-        cx="140" cy="68" rx="35" ry="18"/>
+        cx="140" cy="65" rx="38" ry="20"/>
 
       <!-- TORSO zone -->
       <rect class="zone-overlay" id="zone-torso" data-zone="torso"
-        x="75" y="128" width="130" height="145" rx="8"/>
+        x="62" y="134" width="156" height="168" rx="10"/>
 
       <!-- LEFT ARM zone -->
       <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
-        x="18" y="140" width="50" height="180" rx="8" transform="rotate(-8,43,230)"/>
+        x="10" y="144" width="52" height="180" rx="8" transform="rotate(-7,36,234)"/>
 
       <!-- RIGHT ARM zone -->
       <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
-        x="212" y="140" width="50" height="180" rx="8" transform="rotate(8,237,230)"/>
+        x="218" y="144" width="52" height="180" rx="8" transform="rotate(7,244,234)"/>
 
       <!-- LEFT HAND zone -->
       <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
-        x="8" y="305" width="48" height="55" rx="6"/>
+        x="4" y="306" width="46" height="62" rx="6"/>
 
       <!-- RIGHT HAND zone -->
       <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
-        x="224" y="305" width="48" height="55" rx="6"/>
+        x="230" y="306" width="46" height="62" rx="6"/>
 
       <!-- LEGS zone -->
       <rect class="zone-overlay" id="zone-legs" data-zone="legs"
-        x="55" y="320" width="170" height="165" rx="8"/>
+        x="60" y="332" width="160" height="162" rx="8"/>
 
     </svg>
 
@@ -865,13 +870,10 @@ function renderPanel(zoneKey) {
   const n = accounts.length;
 
   document.getElementById('panel-empty').style.display = 'none';
-  const content = document.getElementById('panel-content');
-  content.classList.add('visible');
+  document.getElementById('panel-content').classList.add('visible');
 
   document.getElementById('p-tag').textContent = cfg.tag;
   document.getElementById('p-title').textContent = cfg.title;
-
-  const n = accounts.length;
   let html = '';
 
   // Primary stat
@@ -940,10 +942,10 @@ function renderPanel(zoneKey) {
   document.getElementById('p-body').innerHTML = html;
 
   // Fade transition
-  const content = document.getElementById('panel-content');
-  content.classList.remove('fade-in');
-  void content.offsetWidth; // reflow
-  content.classList.add('fade-in');
+  const panelContent = document.getElementById('panel-content');
+  panelContent.classList.remove('fade-in');
+  void panelContent.offsetWidth; // reflow
+  panelContent.classList.add('fade-in');
 
   // Update active zone visuals
   document.querySelectorAll('.zone-overlay').forEach(el => {
