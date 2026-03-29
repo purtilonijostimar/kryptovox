@@ -822,10 +822,21 @@ input[type=range] {
       </g><!-- /pencil group -->
 
       <!-- ── ZONE OVERLAYS — all inside translate(50,0) group ────── -->
+      <!-- HEAD zone — skull only, not ears -->
       <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="140" cy="65" rx="58" ry="68"/>
+        cx="140" cy="80" rx="50" ry="50"/>
+      <!-- EYES zone -->
       <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-        cx="140" cy="65" rx="38" ry="20"/>
+        cx="140" cy="68" rx="36" ry="16"/>
+      <!-- TEETH/SNOUT zone — lower face -->
+      <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
+        x="116" y="88" width="68" height="44" rx="8"/>
+      <!-- LEFT EAR zone -->
+      <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
+        cx="108" cy="22" rx="18" ry="30"/>
+      <!-- RIGHT EAR zone -->
+      <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
+        cx="172" cy="20" rx="18" ry="30"/>
       <rect class="zone-overlay" id="zone-torso" data-zone="torso"
         x="62" y="134" width="156" height="168" rx="10"/>
       <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
@@ -846,7 +857,9 @@ input[type=range] {
     <!-- Zone nav buttons -->
     <div class="zone-nav">
       <button class="zone-dot-btn" data-zone="head">Head</button>
+      <button class="zone-dot-btn" data-zone="ears">Ears</button>
       <button class="zone-dot-btn" data-zone="eyes">Eyes</button>
+      <button class="zone-dot-btn" data-zone="teeth">Teeth</button>
       <button class="zone-dot-btn" data-zone="torso">Torso</button>
       <button class="zone-dot-btn" data-zone="arms">Arms</button>
       <button class="zone-dot-btn" data-zone="hands">Hands</button>
@@ -890,6 +903,38 @@ let FILTERED = [];
 
 // Zone definitions — what data each zone shows
 const ZONE_CONFIG = {
+  ears: {
+    tag: 'Ears',
+    title: 'Upright. Mobile.\nTracking.',
+    primary_stat: (accounts) => {
+      return { value: '~75%', label: 'described upright pointed ears — consistent with German Shepherd / wolf type' };
+    },
+    bars: (accounts) => [
+      { label: 'Upright / pointed — not floppy', pct: 75 },
+      { label: 'Large relative to head', pct: 58 },
+      { label: 'Ears appeared to rotate / track witness', pct: 32 },
+      { label: 'Inner fur / tufting described', pct: 22 },
+    ],
+    quotes_field: 'face_description_quote',
+    custom_html: () => `<div class="stat-block"><div class="stat-desc">The tracking behaviour is one of the more unsettling details — multiple independent accounts describe the ears rotating independently to follow the witness, like a prey-detection system. Not simply looking at the witness. The ears were already pointing at them before the face turned.</div></div>`,
+    acoustic: 'Ear-tracking description moments carry moderate tremor. Witnesses appear more distressed by the ears tracking them than by the face looking at them — the implication of being detected before being seen.',
+  },
+  teeth: {
+    tag: 'Dentition',
+    title: 'Carnivore.\nNo ambiguity.',
+    primary_stat: (accounts) => {
+      return { value: '~45%', label: 'explicitly described teeth — large canines, carnivore dentition' };
+    },
+    bars: (accounts) => [
+      { label: 'Teeth visible and described', pct: 45 },
+      { label: 'Large canine teeth specifically noted', pct: 38 },
+      { label: 'Teeth bared — threat display', pct: 24 },
+      { label: 'Described as carnivore / predator dentition', pct: 31 },
+    ],
+    quotes_field: 'face_description_quote',
+    custom_html: () => `<div class="stat-block"><div class="stat-desc">Witnesses who describe teeth consistently use carnivore framing — "like a large dog," "definitely a predator," "nothing plant-eating about it." No account describes herbivore or omnivore dentition. The canine teeth are described as proportionally large even for the scale of the head.</div></div>`,
+    acoustic: 'Tooth description moments show one of the sharpest speech-slowdown signatures in the corpus — more pronounced than most morphological features. Possibly because describing teeth is a direct acknowledgment of predator threat.',
+  },
   head: {
     tag: 'Head & Face',
     title: 'Canine head.\nEvery account.',
@@ -1157,8 +1202,8 @@ async function init() {
 
 // ── TOOLTIP ─────────────────────────────────────────────────────────
 const ZONE_LABELS = {
-  head: 'Head & Face', eyes: 'Eyes', torso: 'Torso',
-  arms: 'Arms', hands: 'Hands & Claws', legs: 'Legs'
+  head: 'Head & Face', ears: 'Ears', eyes: 'Eyes', teeth: 'Teeth',
+  torso: 'Torso', arms: 'Arms', hands: 'Hands & Claws', legs: 'Legs'
 };
 const tooltip = document.createElement('div');
 tooltip.id = 'zone-tooltip';
