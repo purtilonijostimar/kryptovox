@@ -517,71 +517,23 @@ input[type=range] {
       <line x1="10" y1="-4" x2="458" y2="-4"
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.2"/>
       <text x="460" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55" text-anchor="start">avg. dogman</text>
-      <!-- Avg human 5.75 ft → y=113 -->
-      <line x1="10" y1="113" x2="458" y2="113"
-        stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.2"/>
-      <text x="460" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55" text-anchor="start">avg. human</text>
 
-      <!-- ── FIGURE + HUMAN wrapped in translate to clear scale bar → -->
+
+      <!-- ── FIGURE + ZONES wrapped in translate to clear scale bar ─ -->
       <g transform="translate(50,0)">
 
-      <!-- ── HUMAN FIGURE — same pencil-sketch style, 5'9", beside dogman -->
-      <!-- 5.75 ft / 7.5 ft = 76.7% of dogman. Dogman spans y≈2 to y≈495 = 493px.
-           Human height = 378px. Feet at y=495, head top at y=117. Center x=308. -->
-      <g filter="url(#pencil)" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.38">
-        <!-- Head — round, simple human oval -->
-        <ellipse cx="308" cy="132" rx="18" ry="20" stroke-width="1.4"/>
-        <!-- Hair suggestion — few strokes -->
-        <path d="M 292 128 C 294 118 304 113 308 112 C 312 113 322 118 324 128" stroke-width="1.0"/>
-        <!-- Eyes — simple horizontal lines -->
-        <line x1="299" y1="131" x2="304" y2="131" stroke-width="1.2"/>
-        <line x1="312" y1="131" x2="317" y2="131" stroke-width="1.2"/>
-        <!-- Nose — small vertical -->
-        <path d="M 308 134 L 307 140 L 309 140" stroke-width="0.9"/>
-        <!-- Neck — slender -->
-        <path d="M 302 152 C 300 162 298 170 296 178" stroke-width="1.3"/>
-        <path d="M 314 152 C 316 162 318 170 320 178" stroke-width="1.3"/>
-        <!-- Shoulders — modest width -->
-        <path d="M 280 183 C 290 178 326 178 340 183" stroke-width="1.4"/>
-        <!-- Torso sides -->
-        <path d="M 280 183 C 278 220 280 260 284 300" stroke-width="1.3"/>
-        <path d="M 340 183 C 342 220 340 260 336 300" stroke-width="1.3"/>
-        <!-- Waist -->
-        <path d="M 284 300 C 294 304 322 304 336 300" stroke-width="1.2"/>
-        <!-- Hips -->
-        <path d="M 284 300 C 280 310 278 318 280 326" stroke-width="1.3"/>
-        <path d="M 336 300 C 340 310 342 318 340 326" stroke-width="1.3"/>
-        <!-- Left arm — along body, slightly away -->
-        <path d="M 280 188 C 272 224 268 268 266 308" stroke-width="1.2"/>
-        <!-- Right arm -->
-        <path d="M 340 188 C 348 224 352 268 354 308" stroke-width="1.2"/>
-        <!-- Left hand — small -->
-        <path d="M 264 308 C 262 316 264 322 268 320" stroke-width="1.0"/>
-        <!-- Right hand -->
-        <path d="M 356 308 C 358 316 356 322 352 320" stroke-width="1.0"/>
-        <!-- Left leg -->
-        <path d="M 280 326 C 278 380 278 430 280 495" stroke-width="1.4"/>
-        <!-- Right leg -->
-        <path d="M 340 326 C 342 380 342 430 340 495" stroke-width="1.4"/>
-        <!-- Left shoe -->
-        <path d="M 278 493 C 272 494 268 498 282 499 C 286 499 288 497 286 495" stroke-width="1.1"/>
-        <!-- Right shoe -->
-        <path d="M 342 493 C 348 494 352 498 338 499 C 334 499 332 497 334 495" stroke-width="1.1"/>
-      </g>
-      <!-- Human label -->
-      <text x="308" y="509" text-anchor="middle" font-family="var(--sans)" font-size="8.5" fill="var(--ink-faint)" opacity="0.6">avg. human</text>
-      <text x="308" y="520" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.42">5′ 9″</text>
-
       <!-- Ground line -->
-      <line x1="50" y1="495" x2="380" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
+      <line x1="0" y1="495" x2="280" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
 
-      <!-- ── FIGURE — AI illustration (ChatGPT/DALL-E) ──────────── -->
-      <!-- Image sits at x=0, y=-10, width=280, height=510 in SVG coords  -->
-      <!-- Zone overlays calibrated to match illustration body positions   -->
+      <!-- ── FIGURE — AI illustration, sized to match scale bar ──── -->
+      <!-- 853×1280px image; figure fills ~88% of height, 6% pad each side  -->
+      <!-- SVG: width=378 height=567 so figure spans y=-4 to y=495 (7.5ft) -->
+      <!-- Image centred at x=140: x = 140-(378/2) = -49                    -->
+      <!-- z-order: image FIRST so scale/lines render on top                 -->
       <image
         href="composite-figure.png"
-        x="0" y="-10"
-        width="280" height="515"
+        x="-49" y="-38"
+        width="378" height="567"
         preserveAspectRatio="xMidYMid meet"
       />
 
