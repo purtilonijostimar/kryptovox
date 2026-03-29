@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Forensic Composite Profile</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── PAGE LAYOUT ────────────────────────────────────────────────── */
+.composite-hero {
+  padding: 5rem 2rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 4rem;
+  align-items: end;
+}
+@media (max-width: 860px) {
+  .composite-hero { grid-template-columns: 1fr; gap: 2rem; }
+}
+.composite-hero-text {}
+.composite-hero-meta {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem;
+  background: var(--paper-warm);
+}
+.composite-hero-meta table { width: 100%; border-collapse: collapse; }
+.composite-hero-meta td { padding: 0.3rem 0; }
+.composite-hero-meta td:first-child { color: var(--ink-faint); width: 50%; }
+.composite-hero-meta td:last-child { color: var(--ink-mid); font-weight: 600; }
+
+/* ── SVG SILHOUETTE ─────────────────────────────────────────────── */
+.silhouette-wrap {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.silhouette-wrap svg {
+  width: 100%;
+  max-width: 280px;
+}
+.silhouette-caption {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+/* ── MAIN GRID ──────────────────────────────────────────────────── */
+.composite-body {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 4rem;
+}
+@media (max-width: 760px) {
+  .composite-body { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.composite-section {}
+.composite-section-title {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-bg);
+}
+
+/* Trait rows */
+.trait-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+}
+.trait-name {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-mid);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.trait-pct {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+.trait-bar-wrap {
+  height: 5px;
+  background: var(--paper-deep);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.trait-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 1s ease;
+}
+.trait-bar.amber { background: var(--amber); }
+.trait-bar.flag  { background: var(--flag); }
+.trait-value {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin-top: 0.1rem;
+}
+
+/* Colour swatches */
+.swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.swatch-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+.swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+/* Witness quotes */
+.quote-block {
+  border-left: 3px solid var(--rule);
+  padding: 0.6rem 0 0.6rem 1rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.15s;
+}
+.quote-block:hover { border-color: var(--accent-light); }
+.quote-text {
+  font-family: var(--serif-body);
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  font-style: italic;
+}
+.quote-meta {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  color: var(--ink-faint);
+  margin-top: 0.3rem;
+}
+.quote-wcs {
+  display: inline-block;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid #b8d4c0;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  margin-right: 0.3rem;
+}
+
+/* Full-width sections */
+.composite-section.full {
+  grid-column: 1 / -1;
+}
+.behaviour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.behaviour-card {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.1rem;
+}
+.behaviour-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.behaviour-card-name {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.behaviour-card-pct {
+  font-family: var(--serif-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.behaviour-card-desc {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+/* Unknown/contested */
+.contested-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+}
+.contested-row:last-child { border-bottom: none; }
+.contested-label { color: var(--ink); font-weight: 500; flex: 1; }
+.contested-note { color: var(--ink-faint); font-size: 0.72rem; }
+
+/* Methodology note */
+.methodology-note {
+  grid-column: 1 / -1;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.77rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.methodology-note strong { color: var(--ink-mid); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="index.html">Dashboard</a>
+    
+    <a href="composite.html" class="active">Composite</a>
+    <a href="map.html">Map</a>
+    <a href="framework.html">Framework</a>
+    <a href="submit.html">Submit</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<div class="composite-hero">
+  <div class="composite-hero-text">
+    <div class="section-label">Forensic composite profile</div>
+    <div class="display-title mt-2">Subject: Unknown Biped</div>
+    <p class="display-subtitle mt-2">
+      A composite morphological and behavioural profile constructed from <strong>121 witness accounts</strong>,
+      weighted by Witness Credibility Score. Every descriptor sourced to a specific percentage of the corpus.
+      No embellishment. No interpretation. Only what witnesses reported.
+    </p>
+    <p style="font-family:var(--sans);font-size:0.78rem;color:var(--ink-faint);margin-top:1rem;line-height:1.5">
+      This is not an artistic impression. It is a data document. The silhouette is a schematic
+      based on the most frequently reported proportional features — not a rendering of something observed.
+    </p>
+  </div>
+
+  <div>
+    <!-- Metadata card -->
+    <div class="composite-hero-meta">
+      <table>
+        <tr><td>Source corpus</td><td>Dogman Encounters (121 accounts)</td></tr>
+        <tr><td>Avg. WCS</td><td>7.0 / 10</td></tr>
+        <tr><td>Strong or higher</td><td>62% of accounts</td></tr>
+        <tr><td>Feature agreement</td><td>Varies — see below</td></tr>
+        <tr><td>Confidence level</td><td>Descriptive composite only</td></tr>
+      </table>
+    </div>
+
+    <!-- Silhouette -->
+    <div class="silhouette-wrap">
+      <!-- Bipedal dog-headed figure SVG — schematic, not artistic -->
+      <svg viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic silhouette of described entity">
+        <defs>
+          <style>
+            .fig { fill: var(--ink); opacity: 0.12; }
+            .fig-outline { fill: none; stroke: var(--ink-mid); stroke-width: 1.2; opacity: 0.5; }
+            .anno { font-family: 'Inter', sans-serif; font-size: 9px; fill: var(--ink-faint); }
+            .anno-line { stroke: var(--rule); stroke-width: 0.8; stroke-dasharray: 3,3; }
+            .scale-line { stroke: var(--ink-mid); stroke-width: 1; opacity: 0.4; }
+          </style>
+        </defs>
+
+        <!-- Height scale bar -->
+        <line x1="22" y1="30" x2="22" y2="390" class="scale-line"/>
+        <line x1="18" y1="30" x2="26" y2="30" class="scale-line"/>
+        <line x1="18" y1="390" x2="26" y2="390" class="scale-line"/>
+        <text x="8" y="215" class="anno" transform="rotate(-90,8,215)" text-anchor="middle">~7–8 ft</text>
+
+        <!-- Body figure — schematic -->
+        <!-- Head — elongated canine snout -->
+        <ellipse cx="110" cy="58" rx="24" ry="20" class="fig-outline"/>
+        <!-- Snout -->
+        <path d="M 110 65 Q 140 68 148 75 Q 140 80 110 78 Z" class="fig-outline"/>
+        <!-- Ears — pointed upright -->
+        <path d="M 94 42 L 88 20 L 100 38" class="fig-outline"/>
+        <path d="M 124 40 L 132 18 L 122 38" class="fig-outline"/>
+        <!-- Eye annotation -->
+        <circle cx="122" cy="58" r="3.5" class="fig-outline"/>
+        <line x1="130" y1="55" x2="158" y2="48" class="anno-line"/>
+        <text x="160" y="48" class="anno">Eyes: amber/yellow</text>
+        <text x="160" y="58" class="anno">48% reported glow</text>
+
+        <!-- Neck -->
+        <path d="M 96 75 L 90 98 M 124 75 L 128 98" class="fig-outline"/>
+
+        <!-- Shoulders — broad -->
+        <path d="M 65 100 Q 110 95 155 100" class="fig-outline"/>
+        <!-- Arms -->
+        <path d="M 65 100 L 48 175 L 52 220" class="fig-outline"/>
+        <path d="M 155 100 L 170 175 L 166 220" class="fig-outline"/>
+        <!-- Hands/claws -->
+        <path d="M 48 218 L 42 228 M 50 220 L 46 231 M 53 221 L 51 232 M 56 220 L 55 231" class="fig-outline"/>
+        <path d="M 162 218 L 156 228 M 164 220 L 162 231 M 167 221 L 167 232 M 170 220 L 171 231" class="fig-outline"/>
+        <!-- Hands annotation -->
+        <line x1="46" y1="228" x2="20" y2="250" class="anno-line"/>
+        <text x="5" y="248" class="anno">Long fingers</text>
+        <text x="5" y="258" class="anno">dagger claws</text>
+        <text x="5" y="268" class="anno">60% described</text>
+
+        <!-- Torso -->
+        <path d="M 65 100 L 72 230 M 155 100 L 146 230" class="fig-outline"/>
+        <!-- Waist -->
+        <path d="M 72 230 Q 110 240 146 230" class="fig-outline"/>
+
+        <!-- Haunches — dog-like prominent -->
+        <path d="M 72 230 Q 60 255 68 290" class="fig-outline"/>
+        <path d="M 146 230 Q 158 255 150 290" class="fig-outline"/>
+        <!-- Thighs -->
+        <path d="M 68 290 L 72 350" class="fig-outline"/>
+        <path d="M 150 290 L 148 350" class="fig-outline"/>
+        <!-- Lower legs — digitigrade suggestion -->
+        <path d="M 72 350 L 62 390" class="fig-outline"/>
+        <path d="M 148 350 L 156 390" class="fig-outline"/>
+        <!-- Feet -->
+        <path d="M 58 388 L 76 392" class="fig-outline"/>
+        <path d="M 152 388 L 160 392" class="fig-outline"/>
+
+        <!-- Locomotion annotation -->
+        <line x1="148" y1="360" x2="172" y2="340" class="anno-line"/>
+        <text x="174" y="338" class="anno">Bipedal: 83%</text>
+        <text x="174" y="348" class="anno">Also quad: 46%</text>
+
+        <!-- Shoulder width annotation -->
+        <line x1="65" y1="108" x2="155" y2="108" class="anno-line" stroke-dasharray="none" opacity="0.3"/>
+        <line x1="65" y1="104" x2="65" y2="112" class="scale-line"/>
+        <line x1="155" y1="104" x2="155" y2="112" class="scale-line"/>
+        <text x="110" y="122" class="anno" text-anchor="middle">Broad — consistently reported</text>
+
+        <!-- Fur annotation -->
+        <line x1="125" y1="165" x2="165" y2="155" class="anno-line"/>
+        <text x="167" y="153" class="anno">Fur: black (58%)</text>
+        <text x="167" y="163" class="anno">dark brown (22%)</text>
+      </svg>
+      <div class="silhouette-caption">
+        Schematic only — proportions based on most-reported features.<br>
+        Not an artistic impression. Not a depiction of an observed entity.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── COMPOSITE BODY ─────────────────────────────────────────────── -->
+<div class="composite-body">
+
+  <!-- METHODOLOGY NOTE -->
+  <div class="methodology-note">
+    <strong>How this profile was constructed:</strong> Each feature below is drawn from structured extraction of 121 witness accounts,
+    weighted by Witness Credibility Score (WCS ≥ 7.0 = Strong). Percentages reflect the proportion of accounts in which a feature was
+    explicitly described — not the proportion in which it was absent. Absence of description does not imply absence of feature.
+    Features reported in fewer than 15% of accounts are listed under "Low consensus / contested." No features have been inferred,
+    extrapolated, or added by the researchers.
+  </div>
+
+  <!-- PHYSICAL — MORPHOLOGY -->
+  <div class="composite-section">
+    <div class="composite-section-title">Physical — Morphology</div>
+
+    <div class="trait-row">
+      <div class="trait-name">Bipedal locomotion <span class="trait-pct">83% of accounts</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar" style="width:83%"></div></div>
+      <div class="trait-value">Upright, two-legged. Described as "walking like a man" but with animal proportions.</div>
+    </div>
+
+    <div class="trait-row">
+      <div class="trait-name">Height 7–8 feet <span class="trait-pct">most frequent range</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar" style="width:70%"></div></div>
+      <div class="trait-value">Range across corpus: 6–10ft. Median estimate 7.5ft. Consistently described as significantly taller than an adult human.</div>
+    </div>
+
+    <div class="trait-row">
+      <div class="trait-name">Canine head type <span class="trait-pct">dominant description</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar" style="width:88%"></div></div>
+      <div class="trait-value">Dog or wolf-like face, elongated snout, upright ears. Occasionally described as "wolf" or "German Shepherd" specifically.</div>
+    </div>
+
+    <div class="trait-row">
+      <div class="trait-name">Muscular build <span class="trait-pct">consistent across accounts</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar" style="width:76%"></div></div>
+      <div class="trait-value">Prominent haunches. Wide chest. Described variously as "600–700 pounds," "muscular like a horse," "very thick and wide."</div>
+    </div>
+
+    <div class="trait-row">
+      <div class="trait-name">Also observed quadrupedal <span class="trait-pct">46% of accounts</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar amber" style="width:46%"></div></div>
+      <div class="trait-value">Switches between upright and four-legged movement. Often drops to all fours when departing at speed.</div>
+    </div>
+
+    <!-- Face quotes -->
+    <div style="margin-top:1.5rem">
+      <div class="quote-block">
+        <div class="quote-text">"It had a dog face, clearly had the dog's ears, but they were very tufted, more like a cat. The fur on the neck was slightly longer."</div>
+        <div class="quote-meta"><span class="quote-wcs">WCS 8.2</span> High-credibility account</div>
+      </div>
+      <div class="quote-block">
+        <div class="quote-text">"Classic Timberwolf face — and the classic Doberman pointed ears. That's the closest I can get."</div>
+        <div class="quote-meta"><span class="quote-wcs">WCS 8.1</span> High-credibility account</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHYSICAL — COLOURATION -->
+  <div class="composite-section">
+    <div class="composite-section-title">Physical — Colouration</div>
+
+    <div class="trait-row">
+      <div class="trait-name">Fur colour</div>
+      <div class="trait-value" style="margin-top:0.5rem">
+        <div class="swatch-row">
+          <div class="swatch-item"><div class="swatch" style="background:#1a1714"></div> Black — 58%</div>
+          <div class="swatch-item"><div class="swatch" style="background:#4a3520"></div> Dark brown — 22%</div>
+          <div class="swatch-item"><div class="swatch" style="background:#7a6040"></div> Brown — 12%</div>
+          <div class="swatch-item"><div class="swatch" style="background:#9e9488"></div> Grey — 6%</div>
+          <div class="swatch-item"><div class="swatch" style="background:#f0ece4;border-color:#ccc"></div> White — 2%</div>
+        </div>
+        Black is the dominant reported colour by a significant margin. Dark variants (black + dark brown) account for 80% of accounts with colour reported.
+      </div>
+    </div>
+
+    <div class="trait-row" style="margin-top:1rem">
+      <div class="trait-name">Eye colour</div>
+      <div class="trait-value" style="margin-top:0.5rem">
+        <div class="swatch-row">
+          <div class="swatch-item"><div class="swatch" style="background:#d4a800"></div> Amber/yellow — 55%</div>
+          <div class="swatch-item"><div class="swatch" style="background:#c84000"></div> Orange/flame — 18%</div>
+          <div class="swatch-item"><div class="swatch" style="background:#c80000"></div> Red — 14%</div>
+          <div class="swatch-item"><div class="swatch" style="background:#1a1714"></div> Black — 13%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trait-row">
+      <div class="trait-name">Eyes self-illuminated <span class="trait-pct">48% of accounts</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar amber" style="width:48%"></div></div>
+      <div class="trait-value">Described as glowing from within — not reflecting light. Several accounts specify that the glow was visible in total darkness where no ambient light was present.</div>
+    </div>
+
+    <div class="quote-block" style="margin-top:1.5rem">
+      <div class="quote-text">"Its eyes were glowing like a red color. It was really spooky, but I could see through the glow. I could clearly see eyes behind the glow."</div>
+      <div class="quote-meta"><span class="quote-wcs">WCS 8.2</span></div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"The color of our campfire flames... they were flame orange, a yellowish orange, and they were huge. They were sitting on top of each other almost — not side by side like an animal."</div>
+      <div class="quote-meta"><span class="quote-wcs">WCS 8.1</span></div>
+    </div>
+  </div>
+
+  <!-- SENSORY — SMELL & SOUND -->
+  <div class="composite-section">
+    <div class="composite-section-title">Sensory — Smell &amp; Sound</div>
+
+    <div class="trait-row">
+      <div class="trait-name">Smell reported <span class="trait-pct">27% of accounts</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar" style="width:27%"></div></div>
+      <div class="trait-value">Consistently described as putrid, rotten, or intensely animal. "Wet dog and death." "Rotten flesh." "Curdled cheese and rancid fat." Not one account describes a neutral or pleasant smell.</div>
+    </div>
+
+    <div class="quote-block" style="margin-top:0.5rem">
+      <div class="quote-text">"The smell that hit me as it stood up was this really musky — like it smelled like a wet dog and death."</div>
+      <div class="quote-meta"><span class="quote-wcs">WCS 8.2</span></div>
+    </div>
+
+    <div class="trait-row" style="margin-top:1.25rem">
+      <div class="trait-name">Infrasound felt in chest <span class="trait-pct">subset of accounts</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar amber" style="width:22%"></div></div>
+      <div class="trait-value">Low-frequency growl felt physically rather than heard audibly. Described as vibration in the chest, seat of the car, or ground beneath the witness.</div>
+    </div>
+
+    <div class="quote-block" style="margin-top:0.5rem">
+      <div class="quote-text">"The growl was so low that audibly I could barely hear it, but I could feel it in my chest. I could feel it in the seat of the car."</div>
+      <div class="quote-meta"><span class="quote-wcs">WCS 8.2</span></div>
+    </div>
+
+    <div class="trait-row" style="margin-top:1.25rem">
+      <div class="trait-name">Vocalisation type</div>
+      <div class="trait-value">Growl (dominant), howl (some), and — notably — silence. A significant proportion of accounts describe the entity making no sound at all, including during rapid movement through dense vegetation.</div>
+    </div>
+  </div>
+
+  <!-- HANDS & EXTREMITIES -->
+  <div class="composite-section">
+    <div class="composite-section-title">Extremities</div>
+
+    <div class="trait-row">
+      <div class="trait-name">Hands described <span class="trait-pct">60% of accounts</span></div>
+      <div class="trait-bar-wrap"><div class="trait-bar" style="width:60%"></div></div>
+      <div class="trait-value">Described as hand-like rather than paw-like. Long fingers. Claws described as "made for killing" and "dagger-like." Several accounts compare them to raccoon hands — long-fingered, clearly articulated.</div>
+    </div>
+
+    <div class="quote-block" style="margin-top:0.5rem">
+      <div class="quote-text">"It opened up its hands and they were clearly hands — and they had claws on the end of them that were definitely made for killing."</div>
+      <div class="quote-meta"><span class="quote-wcs">WCS 8.2</span></div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Overgrown raccoon hands. But it had like four long fingers with dagger-like claws. I would say they were probably three to four inches long."</div>
+      <div class="quote-meta"><span class="quote-wcs">WCS 8.1</span></div>
+    </div>
+  </div>
+
+  <!-- BEHAVIOUR -->
+  <div class="composite-section full">
+    <div class="composite-section-title">Behavioural Signature</div>
+    <div class="behaviour-grid">
+      <div class="behaviour-card">
+        <div class="behaviour-card-top">
+          <div class="behaviour-card-name">Watches then leaves</div>
+          <div class="behaviour-card-pct">50%</div>
+        </div>
+        <div class="behaviour-card-desc">Observes the witness for a sustained period — seconds to minutes — then withdraws. Does not attack. Does not flee in panic. Deliberate departure.</div>
+      </div>
+      <div class="behaviour-card">
+        <div class="behaviour-card-top">
+          <div class="behaviour-card-name">Silent departure</div>
+          <div class="behaviour-card-pct">40%</div>
+        </div>
+        <div class="behaviour-card-desc">Leaves without sound — even through vegetation that should produce noise. Witnesses frequently describe being unable to hear movement after the entity withdraws.</div>
+      </div>
+      <div class="behaviour-card">
+        <div class="behaviour-card-top">
+          <div class="behaviour-card-name">Witness paralysis</div>
+          <div class="behaviour-card-pct">40%</div>
+        </div>
+        <div class="behaviour-card-desc">Involuntary physical immobility during the encounter. Not a choice not to move — described as inability to move. Resolves after entity departs.</div>
+      </div>
+      <div class="behaviour-card">
+        <div class="behaviour-card-top">
+          <div class="behaviour-card-name">Pre-encounter silence</div>
+          <div class="behaviour-card-pct">subset</div>
+        </div>
+        <div class="behaviour-card-desc">All ambient sound — insects, birds, wind — stops before the entity appears. Noted across geographically and temporally separate accounts with no contact between witnesses.</div>
+      </div>
+      <div class="behaviour-card">
+        <div class="behaviour-card-top">
+          <div class="behaviour-card-name">Nocturnal / low-light</div>
+          <div class="behaviour-card-pct">dominant</div>
+        </div>
+        <div class="behaviour-card-desc">Night, dusk, or dawn in the majority of accounts. Daylight encounters exist but are a minority. Forest and wooded terrain in over 90% of accounts.</div>
+      </div>
+      <div class="behaviour-card">
+        <div class="behaviour-card-top">
+          <div class="behaviour-card-name">Felt known by entity</div>
+          <div class="behaviour-card-pct">subset</div>
+        </div>
+        <div class="behaviour-card-desc">Witnesses describe a distinct sense that the entity was aware of them specifically — not a general reaction to a human presence. Some describe sustained eye contact without aggression.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOW CONSENSUS -->
+  <div class="composite-section full">
+    <div class="composite-section-title">Low consensus / Contested features</div>
+    <p style="font-family:var(--sans);font-size:0.78rem;color:var(--ink-soft);margin-bottom:1rem;line-height:1.55">
+      Features reported in fewer than 15% of accounts, or where accounts significantly contradict each other.
+      Included for completeness — not part of the core composite profile.
+    </p>
+    <div style="border:1px solid var(--rule);border-radius:8px;overflow:hidden;padding:0 1rem">
+      <div class="contested-row"><span class="contested-label">Tail</span><span class="contested-note">Some accounts describe a bushy tail; others describe none. No consensus.</span></div>
+      <div class="contested-row"><span class="contested-label">Semi-transparent / cloaked appearance</span><span class="contested-note">Reported in a small number of accounts. Cannot be reconciled with majority description.</span></div>
+      <div class="contested-row"><span class="contested-label">White or light-coloured fur</span><span class="contested-note">2% of accounts. Not part of core profile but documented.</span></div>
+      <div class="contested-row"><span class="contested-label">Multiple individuals sighted simultaneously</span><span class="contested-note">Rare but present. Several accounts describe pairs or small groups.</span></div>
+      <div class="contested-row"><span class="contested-label">Humanoid face</span><span class="contested-note">A small number describe primate-like or human-like facial features rather than purely canine. Low frequency.</span></div>
+      <div class="contested-row"><span class="contested-label">Missing time</span><span class="contested-note">Reported in a minority of accounts. Time gap between encounter and next clear memory. No explanation offered by witnesses.</span></div>
+    </div>
+  </div>
+
+  <!-- METHODOLOGY NOTE bottom -->
+  <div class="methodology-note">
+    <strong>Researcher note:</strong> This composite represents the current state of the corpus at N=121. It will be updated as the corpus grows.
+    High-frequency features (≥50% of accounts) are considered core descriptors. Features between 15–50% are secondary.
+    Below 15% is listed as contested. The composite does not assert that an entity matching this description exists.
+    It asserts only that this is what 121 people, evaluated for credibility, described seeing.
+    <br><br>
+    <a href="index.html" style="color:var(--accent)">Browse the full account database →</a>
+    &nbsp;&nbsp;
+    <a href="framework.html" style="color:var(--ink-soft)">Read the analytical framework →</a>
+  </div>
+
+</div>
+
+</body>
+</html>
