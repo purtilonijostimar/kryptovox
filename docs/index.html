@@ -4,213 +4,226 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kryptovox — Research Dashboard</title>
+<link rel="stylesheet" href="style.css">
 <style>
-  :root {
-    --bg: #0a0e1a;
-    --surface: #111827;
-    --border: #1f2937;
-    --accent: #6366f1;
-    --accent2: #10b981;
-    --warn: #f59e0b;
-    --danger: #ef4444;
-    --text: #e2e8f0;
-    --muted: #64748b;
+  .dashboard-hero {
+    background:    var(--paper-warm);
+    border-bottom: 1px solid var(--rule);
+    padding:       2.5rem 2rem 2rem;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; }
-
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  .dashboard-hero-inner {
+    max-width: var(--max-wide);
+    margin:    0 auto;
+    display:   flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:       1.5rem;
   }
-  header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
-  header span { color: var(--muted); font-size: 0.85rem; }
-  .badge { background: var(--accent); color: white; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
-
-  .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-
+  .hero-title {
+    font-family:  var(--serif-display);
+    font-size:    1.6rem;
+    font-weight:  700;
+    color:        var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .hero-sub {
+    font-family:  var(--sans);
+    font-size:    0.8rem;
+    color:        var(--ink-faint);
+    letter-spacing: 0.02em;
+  }
+  .corpus-pill {
+    font-family:  var(--sans);
+    font-size:    0.75rem;
+    font-weight:  600;
+    background:   var(--accent-bg);
+    color:        var(--accent);
+    border:       1px solid #b8d4c0;
+    padding:      5px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+  }
+  .stats-section {
+    max-width:  var(--max-wide);
+    margin:     2rem auto;
+    padding:    0 2rem;
+  }
   .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+    display:               grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap:                   1rem;
+    margin-bottom:         2rem;
   }
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
+  .accounts-section {
+    max-width: var(--max-wide);
+    margin:    0 auto;
+    padding:   0 2rem 4rem;
   }
-  .stat-card .label { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-  .stat-card .value { font-size: 2rem; font-weight: 700; }
-  .stat-card .sub { color: var(--muted); font-size: 0.8rem; margin-top: 0.25rem; }
-
-  .section-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 2rem 0 1rem;
-  }
-
   .accounts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1rem;
+    display:               grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap:                   1rem;
+  }
+  .loading-msg {
+    font-family: var(--sans);
+    font-size:   0.85rem;
+    color:       var(--ink-faint);
+    text-align:  center;
+    padding:     3rem;
   }
 
-  .account-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
-    cursor: pointer;
-    transition: border-color 0.15s, transform 0.15s;
+  /* Modal internals */
+  .modal-title {
+    font-family:   var(--serif-display);
+    font-size:     1.2rem;
+    font-weight:   600;
+    color:         var(--ink);
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+    line-height:   1.3;
   }
-  .account-card:hover { border-color: var(--accent); transform: translateY(-1px); }
-
-  .account-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
-  .account-title { font-size: 0.9rem; font-weight: 600; line-height: 1.3; flex: 1; padding-right: 0.5rem; }
-  .wcs-badge {
-    font-size: 0.8rem;
+  .modal-section-head {
+    font-family:    var(--sans);
+    font-size:      0.68rem;
+    font-weight:    600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color:          var(--ink-faint);
+    margin:         1.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom:  1px solid var(--rule-soft);
+  }
+  .dim-detail { margin-bottom: 1.25rem; }
+  .dim-detail-header {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     baseline;
+    margin-bottom:   0.3rem;
+  }
+  .dim-name {
+    font-family: var(--serif-display);
+    font-weight: 600;
+    font-size:   0.92rem;
+    color:       var(--ink);
+  }
+  .dim-score-val {
+    font-family: var(--sans);
     font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 999px;
-    white-space: nowrap;
+    font-size:   0.85rem;
   }
-  .band-Exceptional { background: #065f46; color: #6ee7b7; }
-  .band-Strong      { background: #1e3a5f; color: #93c5fd; }
-  .band-Moderate    { background: #3b2f00; color: #fcd34d; }
-  .band-Weak        { background: #3b1a00; color: #fdba74; }
-  .band-Unreliable  { background: #3b0000; color: #fca5a5; }
-
-  .dim-bars { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin: 0.75rem 0; }
-  .dim-bar { text-align: center; }
-  .dim-bar .bar-wrap { background: var(--border); border-radius: 4px; height: 40px; display: flex; align-items: flex-end; overflow: hidden; }
-  .dim-bar .bar-fill { width: 100%; border-radius: 4px; transition: height 0.3s; }
-  .dim-bar .dim-label { font-size: 0.65rem; color: var(--muted); margin-top: 3px; }
-  .dim-bar .dim-val { font-size: 0.7rem; font-weight: 600; }
-
-  .flags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.75rem; }
-  .flag {
-    font-size: 0.65rem;
-    padding: 2px 7px;
-    border-radius: 999px;
-    background: #1e293b;
-    color: var(--muted);
-    border: 1px solid var(--border);
+  .dim-rationale {
+    font-size:   0.82rem;
+    color:       var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
   }
-  .flag.on { background: #1a2e1a; color: #86efac; border-color: #166534; }
-
-  .meta-row { display: flex; gap: 1rem; font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
-
-  /* Modal */
-  .modal-overlay {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 100;
-    overflow-y: auto;
-    padding: 2rem;
-  }
-  .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
-  .modal {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    max-width: 760px;
-    width: 100%;
-    padding: 2rem;
-    position: relative;
-    margin: auto;
-  }
-  .modal-close {
-    position: absolute; top: 1rem; right: 1rem;
-    background: none; border: none; color: var(--muted);
-    font-size: 1.4rem; cursor: pointer; line-height: 1;
-  }
-  .modal h2 { font-size: 1.1rem; margin-bottom: 1.25rem; padding-right: 2rem; }
-  .modal-section { margin-bottom: 1.25rem; }
-  .modal-section h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.5rem; }
-  .modal-section p { font-size: 0.85rem; line-height: 1.6; color: var(--text); }
-  .quote { background: #0f172a; border-left: 3px solid var(--accent); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.8rem; color: #94a3b8; font-style: italic; margin: 0.25rem 0; }
-  .dim-detail { margin-bottom: 1rem; }
-  .dim-detail-header { display: flex; justify-content: space-between; margin-bottom: 0.25rem; }
-  .dim-name { font-weight: 600; font-size: 0.85rem; }
-  .dim-score { font-weight: 700; }
-  .dim-rationale { font-size: 0.8rem; color: #94a3b8; line-height: 1.5; }
-
   .patterns-list { list-style: none; }
-  .patterns-list li { font-size: 0.82rem; color: #94a3b8; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
-  .patterns-list li:last-child { border-bottom: none; }
-  .patterns-list li::before { content: "→ "; color: var(--accent); }
-
-  .loading { text-align: center; color: var(--muted); padding: 4rem; }
-  .error { color: var(--danger); text-align: center; padding: 2rem; }
-
-  .filter-bar { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center; }
-  .filter-btn {
-    background: var(--surface); border: 1px solid var(--border);
-    color: var(--muted); padding: 5px 14px; border-radius: 999px;
-    font-size: 0.8rem; cursor: pointer; transition: all 0.15s;
+  .patterns-list li {
+    font-size:     0.82rem;
+    color:         var(--ink-soft);
+    padding:       0.3rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    line-height:   1.5;
   }
-  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
-  .filter-input {
-    background: var(--surface); border: 1px solid var(--border);
-    color: var(--text); padding: 5px 12px; border-radius: 999px;
-    font-size: 0.8rem; outline: none; width: 200px;
+  .patterns-list li:last-child { border-bottom: none; }
+  .patterns-list li::before { content: "→ "; color: var(--accent); font-weight: 600; }
+  .scoring-notes {
+    font-size:      0.82rem;
+    color:          var(--ink-soft);
+    line-height:    1.65;
+    font-style:     italic;
+    background:     var(--paper-deep);
+    border-radius:  6px;
+    padding:        0.875rem 1rem;
+    margin-top:     0.5rem;
+  }
+  .flags-row { display: flex; flex-wrap: wrap; gap: 4px; margin: 0.75rem 0; }
+  .card-meta {
+    display:     flex;
+    gap:         1rem;
+    font-family: var(--sans);
+    font-size:   0.7rem;
+    color:       var(--ink-faint);
+    margin-top:  0.5rem;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>🐾 Kryptovox</h1>
-    <span>Anomalous Encounter Research Dashboard</span>
-  </div>
-  <div class="badge" id="corpus-badge">Loading...</div>
+<header class="site-header">
+  <a href="index.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="index.html" class="active">Dashboard</a>
+    <a href="paper.html">Paper</a>
+  </nav>
 </header>
 
-<div class="container">
-  <div class="stats-grid" id="stats-grid">
-    <div class="stat-card"><div class="label">Accounts</div><div class="value" id="s-total">—</div><div class="sub">scored</div></div>
-    <div class="stat-card"><div class="label">Avg WCS</div><div class="value" id="s-wcs">—</div><div class="sub">all accounts</div></div>
-    <div class="stat-card"><div class="label">Strong+</div><div class="value" id="s-strong">—</div><div class="sub">WCS ≥ 7.0</div></div>
-    <div class="stat-card"><div class="label">Paralysis</div><div class="value" id="s-paralysis">—</div><div class="sub">% reporting</div></div>
-    <div class="stat-card"><div class="label">Disclosure Delay</div><div class="value" id="s-delay">—</div><div class="sub">% indicated</div></div>
-    <div class="stat-card"><div class="label">Life Change</div><div class="value" id="s-change">—</div><div class="sub">% post-encounter</div></div>
+<div class="dashboard-hero">
+  <div class="dashboard-hero-inner">
+    <div>
+      <div class="hero-title">Research Dashboard</div>
+      <div class="hero-sub">Dogman Encounters corpus — witness credibility analysis</div>
+    </div>
+    <div class="corpus-pill" id="corpus-pill">Loading...</div>
+  </div>
+</div>
+
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value" id="s-total">—</div>
+      <div class="stat-label">Accounts scored</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-wcs">—</div>
+      <div class="stat-label">Average WCS</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-strong">—</div>
+      <div class="stat-label">Strong or better</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-paralysis">—</div>
+      <div class="stat-label">Paralysis reported</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-delay">—</div>
+      <div class="stat-label">Disclosure delay</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-change">—</div>
+      <div class="stat-label">Life changed after</div>
+    </div>
   </div>
 
   <div class="filter-bar">
-    <span style="color:var(--muted);font-size:0.8rem">Filter:</span>
+    <span class="text-sans text-xs text-muted" style="letter-spacing:0.05em;text-transform:uppercase;">Filter</span>
     <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setFilter('Exceptional',this)">Exceptional</button>
     <button class="filter-btn" onclick="setFilter('Strong',this)">Strong</button>
     <button class="filter-btn" onclick="setFilter('Moderate',this)">Moderate</button>
     <button class="filter-btn" onclick="setFilter('Unreliable',this)">Unreliable</button>
     <input class="filter-input" id="search-input" placeholder="Search accounts..." oninput="renderCards()">
   </div>
+</div>
 
-  <div class="section-title">Scored Accounts</div>
+<div class="accounts-section">
+  <div class="section-label mb-2">Scored accounts</div>
   <div class="accounts-grid" id="accounts-grid">
-    <div class="loading">Loading accounts...</div>
+    <div class="loading-msg">Loading accounts...</div>
   </div>
 </div>
 
 <!-- Modal -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal-content">
+  <div class="modal-box" id="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div id="modal-body"></div>
   </div>
 </div>
 
 <script>
-const DIM_LABELS = { IC:'IC', SS:'SS', SA:'SA', EA:'EA', CP:'CP', CO:'CO' };
 const DIM_FULL = {
   IC: 'Internal Consistency',
   SS: 'Sensory Specificity',
@@ -219,15 +232,16 @@ const DIM_FULL = {
   CP: 'Contextual Plausibility',
   CO: 'Corroboration',
 };
+const DIMS = ['IC','SS','SA','EA','CP','CO'];
 
 let allAccounts = [];
 let activeFilter = 'all';
 
 function barColor(score) {
-  if (score >= 8) return '#10b981';
-  if (score >= 6) return '#6366f1';
-  if (score >= 4) return '#f59e0b';
-  return '#ef4444';
+  if (score >= 8) return '#2d5a3d';
+  if (score >= 6) return '#4a8a5e';
+  if (score >= 4) return '#8a6420';
+  return '#7a2020';
 }
 
 async function loadAll() {
@@ -237,27 +251,28 @@ async function loadAll() {
     allAccounts = data.accounts || [];
     updateStats();
     renderCards();
-    document.getElementById('corpus-badge').textContent = `${allAccounts.length} accounts`;
+    document.getElementById('corpus-pill').textContent = `${allAccounts.length} accounts`;
   } catch(e) {
-    document.getElementById('accounts-grid').innerHTML = `<div class="error">Could not load dashboard.json: ${e.message}</div>`;
+    document.getElementById('accounts-grid').innerHTML =
+      `<div class="loading-msg" style="color:var(--flag)">Could not load dashboard.json: ${e.message}</div>`;
   }
 }
 
 function updateStats() {
   const n = allAccounts.length;
   if (!n) return;
-  const avgWCS = allAccounts.reduce((s, a) => s + (a.WCS_raw || 0), 0) / n;
-  const strong = allAccounts.filter(a => (a.WCS_raw || 0) >= 7).length;
-  const paralysis = allAccounts.filter(a => a.paralysis_or_freeze).length;
-  const delay = allAccounts.filter(a => a.disclosure_delay_indicated).length;
-  const change = allAccounts.filter(a => a.post_encounter_life_change).length;
+  const avgWCS     = allAccounts.reduce((s,a) => s + (a.WCS_raw||0), 0) / n;
+  const strong     = allAccounts.filter(a => (a.WCS_raw||0) >= 7).length;
+  const paralysis  = allAccounts.filter(a => a.paralysis_or_freeze).length;
+  const delay      = allAccounts.filter(a => a.disclosure_delay_indicated).length;
+  const change     = allAccounts.filter(a => a.post_encounter_life_change).length;
 
-  document.getElementById('s-total').textContent = n;
-  document.getElementById('s-wcs').textContent = avgWCS.toFixed(1);
-  document.getElementById('s-strong').textContent = strong;
+  document.getElementById('s-total').textContent    = n;
+  document.getElementById('s-wcs').textContent      = avgWCS.toFixed(1);
+  document.getElementById('s-strong').textContent   = strong;
   document.getElementById('s-paralysis').textContent = Math.round(paralysis/n*100) + '%';
-  document.getElementById('s-delay').textContent = Math.round(delay/n*100) + '%';
-  document.getElementById('s-change').textContent = Math.round(change/n*100) + '%';
+  document.getElementById('s-delay').textContent    = Math.round(delay/n*100) + '%';
+  document.getElementById('s-change').textContent   = Math.round(change/n*100) + '%';
 }
 
 function setFilter(f, btn) {
@@ -267,61 +282,59 @@ function setFilter(f, btn) {
   renderCards();
 }
 
+function cleanTitle(audioFile) {
+  return (audioFile || '')
+    .replace(/^\d{8}_[\w-]+_/, '')
+    .replace(/_wcs$/, '')
+    .replace(/_/g, ' ')
+    .replace(/\.[^.]+$/, '');
+}
+
 function renderCards() {
   const search = document.getElementById('search-input').value.toLowerCase();
   let accounts = allAccounts;
-
-  if (activeFilter !== 'all') {
-    accounts = accounts.filter(a => a.WCS_band === activeFilter);
-  }
-  if (search) {
-    accounts = accounts.filter(a => (a.audio_file || '').toLowerCase().includes(search));
-  }
+  if (activeFilter !== 'all') accounts = accounts.filter(a => a.WCS_band === activeFilter);
+  if (search) accounts = accounts.filter(a => cleanTitle(a.audio_file).toLowerCase().includes(search));
 
   const grid = document.getElementById('accounts-grid');
   if (!accounts.length) {
-    grid.innerHTML = '<div class="loading">No accounts match filter.</div>';
+    grid.innerHTML = '<div class="loading-msg">No accounts match filter.</div>';
     return;
   }
 
-  grid.innerHTML = accounts.map((a, i) => {
-    const title = (a.audio_file || 'Unknown')
-      .replace(/_/g, ' ')
-      .replace(/\.[^.]+$/, '')
-      .replace(/^\d{8}_\w+_/, '');
-
-    const dims = ['IC','SS','SA','EA','CP','CO'];
-    const bars = dims.map(d => {
+  grid.innerHTML = accounts.map(a => {
+    const title = cleanTitle(a.audio_file);
+    const bars = DIMS.map(d => {
       const score = a[d]?.score ?? 0;
-      const pct = score * 10;
       return `<div class="dim-bar">
-        <div class="bar-wrap"><div class="bar-fill" style="height:${pct}%;background:${barColor(score)}"></div></div>
+        <div class="bar-wrap"><div class="bar-fill" style="height:${score*10}%;background:${barColor(score)}"></div></div>
         <div class="dim-val">${score}</div>
         <div class="dim-label">${d}</div>
       </div>`;
     }).join('');
 
     const flagDefs = [
-      ['paralysis_or_freeze', '🧊 Paralysis'],
-      ['self_illuminated_eyes', '👁️ Glow Eyes'],
-      ['specific_smell_reported', '👃 Smell'],
-      ['disclosure_delay_indicated', '⏳ Delay'],
-      ['post_encounter_life_change', '🔄 Life Change'],
+      ['paralysis_or_freeze','🧊 Paralysis'],
+      ['self_illuminated_eyes','✨ Glow Eyes'],
+      ['specific_smell_reported','👃 Smell'],
+      ['disclosure_delay_indicated','⏳ Delay'],
+      ['post_encounter_life_change','🔄 Life Change'],
     ];
     const flags = flagDefs.map(([k,label]) =>
-      `<span class="flag ${a[k] ? 'on' : ''}">${label}</span>`
+      `<span class="flag-chip ${a[k]?'active':''}">${label}</span>`
     ).join('');
 
-    return `<div class="account-card" onclick="openModal(${allAccounts.indexOf(a)})">
-      <div class="account-header">
-        <div class="account-title">${title}</div>
-        <div class="wcs-badge band-${a.WCS_band}">${(a.WCS_raw||0).toFixed(1)} ${a.WCS_band}</div>
+    const idx = allAccounts.indexOf(a);
+    return `<div class="account-card" onclick="openModal(${idx})">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem">
+        <div class="card-title">${title}</div>
+        <span class="wcs-badge band-${a.WCS_band}" style="margin-left:0.75rem;flex-shrink:0">${(a.WCS_raw||0).toFixed(1)} ${a.WCS_band}</span>
       </div>
       <div class="dim-bars">${bars}</div>
-      <div class="flags">${flags}</div>
-      <div class="meta-row">
-        <span>Scored ${a.score_time_s}s</span>
+      <div class="flags-row">${flags}</div>
+      <div class="card-meta">
         <span>${a.channel || ''}</span>
+        <span>Scored in ${a.score_time_s}s</span>
       </div>
     </div>`;
   }).join('');
@@ -329,38 +342,35 @@ function renderCards() {
 
 function openModal(idx) {
   const a = allAccounts[idx];
-  const title = (a.audio_file || '').replace(/^\d{8}_\w+_/, '').replace(/_wcs$/, '');
-  const dims = ['IC','SS','SA','EA','CP','CO'];
+  const title = cleanTitle(a.audio_file);
 
-  const dimHTML = dims.map(d => {
+  const dimHTML = DIMS.map(d => {
     const info = a[d] || {};
-    const quotes = (info.evidence_quotes || []).map(q => `<div class="quote">"${q}"</div>`).join('');
+    const quotes = (info.evidence_quotes || [])
+      .map(q => `<div class="evidence-quote">"${q}"</div>`).join('');
     return `<div class="dim-detail">
       <div class="dim-detail-header">
         <span class="dim-name">${DIM_FULL[d]}</span>
-        <span class="dim-score" style="color:${barColor(info.score||0)}">${info.score ?? '—'}/10</span>
+        <span class="dim-score-val" style="color:${barColor(info.score||0)}">${info.score ?? '—'} / 10</span>
       </div>
       <div class="dim-rationale">${info.rationale || ''}</div>
       ${quotes}
     </div>`;
   }).join('');
 
-  const patterns = (a.notable_patterns || []).map(p => `<li>${p}</li>`).join('');
-  const minimisation = (a.minimisation_phrases || []).map(p => `<div class="quote">"${p}"</div>`).join('');
-  const notes = a.scoring_notes || '';
+  const patterns = (a.notable_patterns||[]).map(p=>`<li>${p}</li>`).join('');
+  const minimisation = (a.minimisation_phrases||[]).map(p=>`<div class="evidence-quote">"${p}"</div>`).join('');
 
   document.getElementById('modal-body').innerHTML = `
-    <h2>${title}</h2>
-    <div style="display:flex;gap:0.75rem;margin-bottom:1.25rem;flex-wrap:wrap">
-      <span class="wcs-badge band-${a.WCS_band}" style="font-size:0.9rem;padding:5px 14px">WCS ${(a.WCS_raw||0).toFixed(1)} — ${a.WCS_band}</span>
+    <div class="modal-title">${title}</div>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
+      <span class="wcs-badge band-${a.WCS_band}" style="font-size:0.8rem;padding:4px 14px">WCS ${(a.WCS_raw||0).toFixed(1)} — ${a.WCS_band}</span>
     </div>
-    <div class="modal-section">
-      <h3>Dimension Scores</h3>
-      ${dimHTML}
-    </div>
-    ${patterns ? `<div class="modal-section"><h3>Notable Patterns</h3><ul class="patterns-list">${patterns}</ul></div>` : ''}
-    ${minimisation ? `<div class="modal-section"><h3>Minimisation Phrases</h3>${minimisation}</div>` : ''}
-    ${notes ? `<div class="modal-section"><h3>Scoring Notes</h3><p style="font-size:0.82rem;color:#94a3b8;line-height:1.6">${notes}</p></div>` : ''}
+    <div class="modal-section-head">Dimension Scores</div>
+    ${dimHTML}
+    ${patterns ? `<div class="modal-section-head">Notable Patterns</div><ul class="patterns-list">${patterns}</ul>` : ''}
+    ${minimisation ? `<div class="modal-section-head">Minimisation Phrases</div>${minimisation}` : ''}
+    ${a.scoring_notes ? `<div class="modal-section-head">Scoring Notes</div><div class="scoring-notes">${a.scoring_notes}</div>` : ''}
   `;
   document.getElementById('modal-overlay').classList.add('open');
 }
