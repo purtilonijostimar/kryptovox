@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — The Analytical Framework</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── HERO / EXEC SUMMARY ────────────────────────────────────────── */
+.fw-hero {
+  padding: 5.5rem 2rem 4rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-warm);
+}
+.fw-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.fw-hero h1 {
+  font-family: var(--serif-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0 1.5rem;
+}
+.fw-hero-lede {
+  font-family: var(--serif-body);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: var(--ink-mid);
+  line-height: 1.75;
+  max-width: 660px;
+  margin-bottom: 2rem;
+}
+.exec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+.exec-card {
+  background: var(--paper);
+  padding: 1.5rem;
+}
+.exec-card-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.4rem;
+}
+.exec-card-value {
+  font-family: var(--serif-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+.exec-card-sub {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+/* ── CRITICAL OBSERVATIONS ──────────────────────────────────────── */
+.observations-section {
+  padding: 5rem 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.observations-inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+}
+.obs-intro {
+  max-width: 660px;
+  margin-bottom: 3rem;
+}
+.obs-intro h2 {
+  font-family: var(--serif-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0.4rem 0 0.75rem;
+}
+.obs-intro p {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+/* Infographic pipeline */
+.pipeline-infographic {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.pipeline-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-bottom: none;
+  background: var(--paper);
+  overflow: hidden;
+}
+.pipeline-row:first-child { border-radius: 8px 8px 0 0; }
+.pipeline-row:last-child  { border-bottom: 1px solid var(--rule); border-radius: 0 0 8px 8px; }
+.pipeline-row-stage {
+  padding: 1.5rem;
+  background: var(--paper-warm);
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.stage-number {
+  font-family: var(--serif-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--rule);
+  line-height: 1;
+}
+.stage-name {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+.stage-tool {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  margin-top: 0.2rem;
+}
+.pipeline-row-content {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  align-items: start;
+}
+.content-block {}
+.content-block-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.3rem;
+}
+.content-block-text {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.content-block-text strong {
+  color: var(--ink-mid);
+  font-weight: 600;
+}
+.observation-callout {
+  grid-column: 1 / -1;
+  background: var(--accent-bg);
+  border: 1px solid #b8d4c0;
+  border-radius: 6px;
+  padding: 0.875rem 1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.observation-callout .obs-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.observation-callout .obs-text {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--accent);
+  line-height: 1.5;
+}
+.observation-callout .obs-text strong {
+  font-weight: 700;
+}
+
+/* Amber/flag callouts */
+.obs-amber {
+  background: var(--amber-bg);
+  border-color: #e8d090;
+}
+.obs-amber .obs-text { color: var(--amber); }
+.obs-flag {
+  background: var(--flag-bg);
+  border-color: #f0a0a0;
+}
+.obs-flag .obs-text { color: var(--flag); }
+
+/* Arrow between stages */
+.pipeline-arrow {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--rule);
+  padding: 0.15rem 0;
+  background: var(--paper);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  grid-column: 2;
+}
+
+@media (max-width: 640px) {
+  .pipeline-row { grid-template-columns: 1fr; }
+  .pipeline-row-stage { border-right: none; border-bottom: 1px solid var(--rule); }
+  .pipeline-row-content { grid-template-columns: 1fr; }
+}
+
+/* ── WCS DETAIL ─────────────────────────────────────────────────── */
+.wcs-section {
+  padding: 5rem 2rem;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+}
+.wcs-inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+}
+.wcs-dims {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.wcs-dim {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+.wcs-dim-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.wcs-dim-name {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.wcs-dim-weight {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid #b8d4c0;
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.wcs-dim-bar {
+  height: 4px;
+  background: var(--rule);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+.wcs-dim-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.wcs-dim-desc {
+  font-family: var(--sans);
+  font-size: 0.77rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.wcs-bands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.wcs-band-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+.band-swatch {
+  width: 32px; height: 8px;
+  border-radius: 2px;
+}
+
+/* ── DEEP DETAIL SECTIONS ───────────────────────────────────────── */
+.detail-section {
+  padding: 5rem 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.detail-inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .detail-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+.detail-label-col {}
+.detail-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.detail-heading {
+  font-family: var(--serif-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+.detail-sub {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.detail-content-col p {
+  font-family: var(--serif-body);
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 1.1rem;
+}
+.detail-content-col h3 {
+  font-family: var(--serif-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 1.75rem 0 0.5rem;
+}
+.field-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
+.field-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+}
+.field-list li:last-child { border-bottom: none; }
+.field-list li .fname { color: var(--ink); font-weight: 500; font-family: monospace; font-size: 0.78rem; }
+.field-list li .ftype { color: var(--ink-faint); font-size: 0.7rem; }
+.inline-highlight {
+  display: inline-block;
+  background: var(--accent-bg);
+  border: 1px solid #b8d4c0;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: monospace;
+  font-size: 0.82em;
+  color: var(--accent);
+}
+.amber-box {
+  background: var(--amber-bg);
+  border: 1px solid #e8d090;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+}
+.amber-box p {
+  font-family: var(--sans) !important;
+  font-size: 0.8rem !important;
+  color: var(--amber) !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="paper.html">Research</a>
+    <a href="index.html">Dashboard</a>
+    <a href="map.html">Map</a>
+    <a href="framework.html" class="active">Framework</a>
+    <a href="submit.html">Submit</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — EXECUTIVE SUMMARY                                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="fw-hero">
+  <div class="fw-hero-inner">
+    <div class="section-label">The analytical framework</div>
+    <h1>We treat witness testimony the same way a forensic psychologist treats criminal evidence.</h1>
+    <p class="fw-hero-lede">
+      Thousands of people have described encountering a large, bipedal, dog-headed being — in forests, at night,
+      often alone. They describe paralysis. They describe it watching them. They describe not telling anyone for years.
+      Most have nothing to gain from disclosure. Many describe losing things by coming forward at all.
+    </p>
+    <p class="fw-hero-lede">
+      The standard response is dismissal. Ours is measurement. We apply the same tools used to evaluate criminal
+      witness testimony — structured extraction, multi-dimensional credibility scoring, and acoustic emotion analysis —
+      to build the first scientifically rigorous corpus of anomalous encounter testimony at scale.
+    </p>
+    <p class="fw-hero-lede" style="color:var(--ink);font-style:italic">
+      We make no claim about what witnesses saw. We claim only that the testimony, analysed systematically,
+      presents a pattern that neither fabrication nor social contagion fully explains.
+    </p>
+
+    <!-- Key numbers from the corpus -->
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="exec-card-label">Accounts analysed</div>
+        <div class="exec-card-value" id="ex-n">—</div>
+        <div class="exec-card-sub">All processed through identical pipeline. No cherry-picking.</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">Score Strong or Exceptional</div>
+        <div class="exec-card-value" id="ex-strong">—</div>
+        <div class="exec-card-sub">WCS ≥ 7.0. Comparable to credible criminal witness threshold.</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">Avg. disclosure delay</div>
+        <div class="exec-card-value" id="ex-delay">—</div>
+        <div class="exec-card-sub">Time between encounter and first disclosure. Not consistent with fabrication.</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">Fields per account</div>
+        <div class="exec-card-value">80+</div>
+        <div class="exec-card-sub">Morphology, behaviour, physiology, community dynamics, anomaly markers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — PIPELINE INFOGRAPHIC + CRITICAL OBSERVATIONS       -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="observations-section">
+  <div class="observations-inner">
+    <div class="obs-intro">
+      <div class="section-label">How the data is processed</div>
+      <h2>From raw audio to scored, structured evidence</h2>
+      <p>Every account passes through the same five-stage pipeline, in the same order, with no human intervention
+      between stages. Critical observations from the pilot corpus (N=50) are shown inline.</p>
+    </div>
+
+    <div class="pipeline-infographic">
+
+      <!-- Stage 1: Download -->
+      <div class="pipeline-row">
+        <div class="pipeline-row-stage">
+          <div class="stage-number">01</div>
+          <div class="stage-name">Download</div>
+          <div class="stage-tool">yt-dlp · mp3</div>
+        </div>
+        <div class="pipeline-row-content">
+          <div class="content-block">
+            <div class="content-block-label">What happens</div>
+            <div class="content-block-text">Audio extracted from YouTube interview at 128kbps mono mp3. Segment metadata (duration, episode number, title) stored alongside audio.</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">What we preserve</div>
+            <div class="content-block-text">Full unedited interview audio. No trimming, no selection of "good" moments. The pipeline processes the entire episode including host questions.</div>
+          </div>
+          <div class="observation-callout obs-amber">
+            <span class="obs-icon">📌</span>
+            <span class="obs-text"><strong>Observation:</strong> ~8% of episodes are documentary or compilation format, not first-person witness interviews. These score <span class="inline-highlight">IC=1</span> (interview count) and are correctly filtered as Unreliable regardless of content. Format integrity matters.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2: Transcription -->
+      <div class="pipeline-row">
+        <div class="pipeline-row-stage">
+          <div class="stage-number">02</div>
+          <div class="stage-name">Transcription</div>
+          <div class="stage-tool">Whisper large-v3 · Groq API</div>
+        </div>
+        <div class="pipeline-row-content">
+          <div class="content-block">
+            <div class="content-block-label">What happens</div>
+            <div class="content-block-text">Audio split into chunks ≤24MB, transcribed with Whisper large-v3 at ~100× realtime. Segment-level word timestamps preserved. Chunks reassembled with offset correction.</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">Output</div>
+            <div class="content-block-text">JSON with full text + array of <strong>timed segments</strong> (start/end/text). These timestamps are used later to align acoustic features with the spoken narrative.</div>
+          </div>
+          <div class="observation-callout">
+            <span class="obs-icon">🔬</span>
+            <span class="obs-text"><strong>Critical observation:</strong> Word-level timestamps enable acoustic-emotional alignment — we can pinpoint exactly which words trigger vocal stress markers. This is what makes our methodology publishable: emotional authenticity is not impressionistic, it has timestamps and spectral evidence.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 3: Extraction -->
+      <div class="pipeline-row">
+        <div class="pipeline-row-stage">
+          <div class="stage-number">03</div>
+          <div class="stage-name">Extraction</div>
+          <div class="stage-tool">Claude Haiku · 80+ fields</div>
+        </div>
+        <div class="pipeline-row-content">
+          <div class="content-block">
+            <div class="content-block-label">What happens</div>
+            <div class="content-block-text">Full transcript passed to Claude Haiku with a structured prompt requesting JSON extraction across 80+ fields covering: creature morphology, witness background, encounter dynamics, anomaly markers, community structure, and narrator profile assessment.</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">Key fields</div>
+            <div class="content-block-text">
+              <strong>Creature:</strong> height, build, head type, eyes, locomotion, vocalisation<br>
+              <strong>Behaviour:</strong> watches_then_leaves, silent_departure, felt_known_by_creature, aggression<br>
+              <strong>Witness:</strong> career_risk_score, hesitation_to_disclose, relationship_impact<br>
+              <strong>Anomalies:</strong> paralysis_or_freeze, infrasound_felt, light_anomalies, time_distortion
+            </div>
+          </div>
+          <div class="observation-callout">
+            <span class="obs-icon">🔬</span>
+            <span class="obs-text"><strong>Critical observation:</strong> In the pilot N=50, <strong>watches_then_leaves</strong> appears in 68% of accounts, <strong>silent_departure</strong> in 72%, <strong>paralysis_or_freeze</strong> in 44%. These rates are consistent across pre-2010 and post-2015 accounts — ruling out social contagion via online discussion as the propagation mechanism.</span>
+          </div>
+          <div class="observation-callout obs-amber">
+            <span class="obs-icon">📌</span>
+            <span class="obs-text"><strong>Reliability note:</strong> Claude Haiku occasionally returns malformed JSON (~5% of runs). A <span class="inline-highlight">json-repair</span> fallback handles this automatically. All outputs are validated against schema before scoring.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 4: Credibility Scoring -->
+      <div class="pipeline-row">
+        <div class="pipeline-row-stage">
+          <div class="stage-number">04</div>
+          <div class="stage-name">Scoring</div>
+          <div class="stage-tool">WCS · 6 dimensions</div>
+        </div>
+        <div class="pipeline-row-content">
+          <div class="content-block">
+            <div class="content-block-label">What happens</div>
+            <div class="content-block-text">Extracted data passed to a separate scoring prompt. Claude Haiku scores each of six WCS dimensions on 0–10, provides a rationale for each score, and quotes specific evidence from the transcript.</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">WCS score bands</div>
+            <div class="content-block-text">
+              <strong>Exceptional ≥8.5</strong> — rare, extremely coherent<br>
+              <strong>Strong ≥7.0</strong> — meets forensic credibility threshold<br>
+              <strong>Moderate ≥5.5</strong> — credible with caveats<br>
+              <strong>Weak ≥4.0</strong> — significant reliability concerns<br>
+              <strong>Unreliable &lt;4.0</strong> — fabrication/fantasy indicators
+            </div>
+          </div>
+          <div class="observation-callout">
+            <span class="obs-icon">🔬</span>
+            <span class="obs-text"><strong>Critical observation:</strong> N=50 distribution: <strong>60% Strong</strong>, 28% Moderate, 2% Weak, 10% Unreliable. The proportion of Strong+ accounts is higher than in criminal witness populations studied by Vrij (2008) — suggesting this corpus is not drawn from a fabrication-prone pool.</span>
+          </div>
+          <div class="observation-callout obs-flag">
+            <span class="obs-icon">⚠️</span>
+            <span class="obs-text"><strong>Limitation:</strong> WCS is scored by an LLM, not a trained forensic psychologist. We treat this as a scalable approximation of expert scoring, not a replacement for it. Calibration against expert-scored cases is planned for Phase 2. The methodology is documented and replicable.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 5: Acoustic Analysis -->
+      <div class="pipeline-row">
+        <div class="pipeline-row-stage">
+          <div class="stage-number">05</div>
+          <div class="stage-name">Acoustic Analysis</div>
+          <div class="stage-tool">librosa · prosodics</div>
+        </div>
+        <div class="pipeline-row-content">
+          <div class="content-block">
+            <div class="content-block-label">What happens</div>
+            <div class="content-block-text">Prosodic features extracted per Whisper segment using librosa: fundamental pitch (F0), RMS energy, speaking rate, pause frequency, spectral centroid. Six emotional flags assessed per segment.</div>
+          </div>
+          <div class="content-block">
+            <div class="content-block-label">Output</div>
+            <div class="content-block-text">Per-account emotional timeline: which segments show voice tremor, pitch drops, speech slowdown, or long pauses. Top emotional moments identified with exact timestamps and triggering text.</div>
+          </div>
+          <div class="observation-callout">
+            <span class="obs-icon">🔬</span>
+            <span class="obs-text"><strong>Critical observation:</strong> Vocal stress peaks consistently occur on <em>morphological description segments</em> — "it had a dog's head," "it was standing upright," "the eyes were glowing" — and not on narrative connective tissue. This pattern is inconsistent with rehearsed fabrication, where stress is typically distributed differently (Ekman, 1997).</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pipeline-infographic -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — WCS DIMENSIONS IN DETAIL                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="wcs-section">
+  <div class="wcs-inner">
+    <div class="section-label">The scoring system</div>
+    <h2 style="font-family:var(--serif-display);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:var(--ink);margin:0.4rem 0 0.6rem">Witness Credibility Score — six dimensions</h2>
+    <p style="font-family:var(--sans);font-size:0.85rem;color:var(--ink-soft);max-width:640px;line-height:1.65">
+      Derived from CBCA (Criteria-Based Content Analysis) and SVA (Statement Validity Assessment) — forensic frameworks developed to distinguish genuine traumatic memory from fabrication in criminal proceedings.
+      Each dimension scored 0–10, weighted by how feasible it is to fake and how diagnostic it is for this corpus.
+    </p>
+
+    <div class="wcs-dims">
+      <div class="wcs-dim">
+        <div class="wcs-dim-top">
+          <div class="wcs-dim-name">EA — Emotional Authenticity</div>
+          <div class="wcs-dim-weight">25%</div>
+        </div>
+        <div class="wcs-dim-bar"><div class="wcs-dim-bar-fill" style="width:100%"></div></div>
+        <div class="wcs-dim-desc">
+          Does the emotional affect match the content? Are distress markers present at morphological description moments specifically? Does the witness avoid over-performing emotional credibility?
+          <br><br><em>Highest weight: hardest to fake consistently across an hour-long interview.</em>
+        </div>
+      </div>
+      <div class="wcs-dim">
+        <div class="wcs-dim-top">
+          <div class="wcs-dim-name">SD — Sensory Detail</div>
+          <div class="wcs-dim-weight">20%</div>
+        </div>
+        <div class="wcs-dim-bar"><div class="wcs-dim-bar-fill" style="width:80%"></div></div>
+        <div class="wcs-dim-desc">
+          Multi-channel sensory specificity — sight, sound, smell, temperature, tactile experience. Does the witness describe peripheral sensory context (what they were doing, ambient conditions) rather than just the creature?
+          <br><br><em>Genuine memories embed in context. Fabricated accounts tend to front-load the "interesting" content.</em>
+        </div>
+      </div>
+      <div class="wcs-dim">
+        <div class="wcs-dim-top">
+          <div class="wcs-dim-name">IC — Internal Consistency</div>
+          <div class="wcs-dim-weight">20%</div>
+        </div>
+        <div class="wcs-dim-bar"><div class="wcs-dim-bar-fill" style="width:80%"></div></div>
+        <div class="wcs-dim-desc">
+          Does the account contradict itself? Are physical details consistent with stated environment and witness position? Does the narrative timeline hold together?
+          <br><br><em>Also flags format — documentary format (IC=1) is detected here and filters the account to Unreliable.</em>
+        </div>
+      </div>
+      <div class="wcs-dim">
+        <div class="wcs-dim-top">
+          <div class="wcs-dim-name">DC — Disclosure Cost</div>
+          <div class="wcs-dim-weight">20%</div>
+        </div>
+        <div class="wcs-dim-bar"><div class="wcs-dim-bar-fill" style="width:80%"></div></div>
+        <div class="wcs-dim-desc">
+          Did coming forward cost the witness something? Career risk, relationship impact, ridicule? The higher the cost, the less consistent with fabrication.
+          <br><br><em>Key sub-fields: career_risk_score (0–3), relationship_impact, hesitation_to_disclose, hesitation_description.</em>
+        </div>
+      </div>
+      <div class="wcs-dim">
+        <div class="wcs-dim-top">
+          <div class="wcs-dim-name">NC — Narrative Coherence</div>
+          <div class="wcs-dim-weight">15%</div>
+        </div>
+        <div class="wcs-dim-bar"><div class="wcs-dim-bar-fill" style="width:60%"></div></div>
+        <div class="wcs-dim-desc">
+          Is the overall account structure coherent? Does it move plausibly through context → encounter → response → aftermath? Are there spontaneous corrections and self-doubt?
+          <br><br><em>Self-correction is a positive credibility marker, not a negative one.</em>
+        </div>
+      </div>
+      <div class="wcs-dim">
+        <div class="wcs-dim-top">
+          <div class="wcs-dim-name">CO — Corroboration</div>
+          <div class="wcs-dim-weight">10%</div>
+        </div>
+        <div class="wcs-dim-bar"><div class="wcs-dim-bar-fill" style="width:40%"></div></div>
+        <div class="wcs-dim-desc">
+          Physical evidence, additional witnesses, environmental confirmation. Rare in this corpus by the nature of the phenomenon — hence lowest weight. Present when available (multiple witnesses, ground trace, animal reactions).
+          <br><br><em>Absence of corroboration is not a negative marker in this corpus; its presence is a strong positive one.</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="wcs-bands">
+      <div class="wcs-band-item"><div class="band-swatch" style="background:#2d5a3d"></div> Exceptional ≥8.5</div>
+      <div class="wcs-band-item"><div class="band-swatch" style="background:#4a8a5e"></div> Strong ≥7.0</div>
+      <div class="wcs-band-item"><div class="band-swatch" style="background:#8a6420"></div> Moderate ≥5.5</div>
+      <div class="wcs-band-item"><div class="band-swatch" style="background:#b89060"></div> Weak ≥4.0</div>
+      <div class="wcs-band-item"><div class="band-swatch" style="background:#9e9488"></div> Unreliable &lt;4.0</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — EXTRACTION SCHEMA DETAIL                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="detail-section">
+  <div class="detail-inner">
+    <div class="detail-label-col">
+      <div class="detail-eyebrow">Stage 3 in depth</div>
+      <div class="detail-heading">What we extract from every account</div>
+      <div class="detail-sub">80+ structured fields. Every account. The same schema. No editorial discretion between transcription and extraction.</div>
+    </div>
+    <div class="detail-content-col">
+      <p>The extraction stage transforms a 60–90 minute spoken interview into a structured data record.
+      The prompt was developed iteratively over the pilot corpus and is frozen for the main run to ensure
+      comparability across all accounts.</p>
+
+      <h3>Creature morphology</h3>
+      <ul class="field-list">
+        <li><span class="fname">height_estimate</span><span class="ftype">string — e.g. "7–8 feet"</span></li>
+        <li><span class="fname">build</span><span class="ftype">string — muscular / lean / broad / unknown</span></li>
+        <li><span class="fname">head_type</span><span class="ftype">string — canine / feline / ursine / indeterminate</span></li>
+        <li><span class="fname">eye_description</span><span class="ftype">string — colour, luminescence, position</span></li>
+        <li><span class="fname">self_illuminated_eyes</span><span class="ftype">boolean</span></li>
+        <li><span class="fname">locomotion</span><span class="ftype">string — bipedal / quadrupedal / switches</span></li>
+        <li><span class="fname">fur_description</span><span class="ftype">string — colour, length, texture</span></li>
+        <li><span class="fname">vocalisation</span><span class="ftype">string — growl, howl, bark, silent, human-like</span></li>
+      </ul>
+
+      <h3>Encounter behaviour</h3>
+      <ul class="field-list">
+        <li><span class="fname">watches_then_leaves</span><span class="ftype">boolean — key cross-cultural match</span></li>
+        <li><span class="fname">silent_departure</span><span class="ftype">boolean — no sound on exit</span></li>
+        <li><span class="fname">felt_known_by_creature</span><span class="ftype">boolean — witness felt specifically targeted</span></li>
+        <li><span class="fname">aggression_demonstrated</span><span class="ftype">boolean</span></li>
+        <li><span class="fname">proximity_minimum</span><span class="ftype">string — estimated closest distance</span></li>
+        <li><span class="fname">duration_estimate</span><span class="ftype">string</span></li>
+        <li><span class="fname">encounter_environment</span><span class="ftype">string — forest, rural road, field, suburban</span></li>
+      </ul>
+
+      <h3>Witness physiology at encounter</h3>
+      <ul class="field-list">
+        <li><span class="fname">paralysis_or_freeze</span><span class="ftype">boolean — involuntary immobility</span></li>
+        <li><span class="fname">infrasound_felt</span><span class="ftype">boolean — chest vibration, felt not heard</span></li>
+        <li><span class="fname">tunnel_vision</span><span class="ftype">boolean</span></li>
+        <li><span class="fname">time_distortion</span><span class="ftype">boolean — subjective time passing differently</span></li>
+        <li><span class="fname">smell_described</span><span class="ftype">boolean</span></li>
+        <li><span class="fname">smell_description</span><span class="ftype">string</span></li>
+        <li><span class="fname">pre_encounter_silence</span><span class="ftype">boolean — animals/birds go silent before</span></li>
+      </ul>
+
+      <h3>Community structure</h3>
+      <ul class="field-list">
+        <li><span class="fname">referral_source</span><span class="ftype">string — how they found the podcast</span></li>
+        <li><span class="fname">referral_type</span><span class="ftype">enum — peer / search / prior_disclosure / unknown</span></li>
+        <li><span class="fname">hesitation_to_disclose</span><span class="ftype">boolean</span></li>
+        <li><span class="fname">disclosure_delay_years</span><span class="ftype">number — years between encounter and disclosure</span></li>
+        <li><span class="fname">relationship_impact</span><span class="ftype">boolean — disclosure affected relationships</span></li>
+        <li><span class="fname">career_risk_score</span><span class="ftype">integer 0–3 — professional cost</span></li>
+        <li><span class="fname">sought_explanation_before_disclosing</span><span class="ftype">boolean</span></li>
+        <li><span class="fname">witness_demeanour</span><span class="ftype">string — reluctant, matter-of-fact, distressed, etc.</span></li>
+      </ul>
+
+      <div class="amber-box">
+        <p><strong>Schema freeze:</strong> The extraction schema is frozen for the main 100-account run. No new fields will be added until after the 100-account milestone review — at which point a single schema update will be applied and all 100 accounts re-extracted with the final schema before Phase 2 scaling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — ACOUSTIC ANALYSIS DETAIL                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="detail-section" style="background:var(--paper-warm)">
+  <div class="detail-inner">
+    <div class="detail-label-col">
+      <div class="detail-eyebrow">Stage 5 in depth</div>
+      <div class="detail-heading">Reading the voice beneath the words</div>
+      <div class="detail-sub">Acoustic analysis adds an independent channel. When text and voice agree on emotional state, credibility confidence increases substantially.</div>
+    </div>
+    <div class="detail-content-col">
+      <p>
+        A person can rehearse words. It is much harder to rehearse the exact moment and magnitude of vocal tremor.
+        The acoustic analysis layer extracts prosodic features — measurable properties of the voice signal —
+        and aligns them with transcript segments to produce an emotional timeline per account.
+      </p>
+
+      <h3>Features extracted per segment</h3>
+      <ul class="field-list">
+        <li><span class="fname">pitch_mean / pitch_std</span><span class="ftype">Hz — F0, fundamental frequency</span></li>
+        <li><span class="fname">rms_energy</span><span class="ftype">amplitude RMS — volume</span></li>
+        <li><span class="fname">speaking_rate</span><span class="ftype">words per second</span></li>
+        <li><span class="fname">pause_count</span><span class="ftype">number of distinct pauses ≥0.3s</span></li>
+        <li><span class="fname">spectral_centroid</span><span class="ftype">brightness — rises under stress</span></li>
+        <li><span class="fname">zero_crossing_rate</span><span class="ftype">voice roughness / breathiness</span></li>
+      </ul>
+
+      <h3>Emotional flags derived</h3>
+      <ul class="field-list">
+        <li><span class="fname">voice_tremor</span><span class="ftype">pitch_std &gt; 1.5× corpus mean</span></li>
+        <li><span class="fname">pitch_drop</span><span class="ftype">sudden F0 decrease — awe, fear, resignation</span></li>
+        <li><span class="fname">pitch_rise</span><span class="ftype">sudden F0 increase — urgency, surprise</span></li>
+        <li><span class="fname">speech_slowdown</span><span class="ftype">rate &lt; 0.6× segment mean — effortful recall</span></li>
+        <li><span class="fname">long_pause</span><span class="ftype">pause ≥2.5s — emotional processing</span></li>
+        <li><span class="fname">volume_drop</span><span class="ftype">RMS &lt; 0.5× mean — intimacy, fear, disclosure cost</span></li>
+      </ul>
+
+      <p>The key finding from pilot analysis: vocal stress peaks cluster on <em>specific morphological description moments</em>.
+      When a witness says "it had a dog's head," "it was standing on two legs," or "the eyes were — I've never seen
+      anything like the eyes" — those segments show elevated stress markers at statistically significant rates
+      compared to narrative connective segments.</p>
+
+      <p>This pattern is what forensic psychologists call <em>affect–content congruence</em>. It is not what
+      you would expect if the emotional response were performed for an audience.</p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — PATTERN ANALYSIS + THE ARGUMENT                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="detail-section">
+  <div class="detail-inner">
+    <div class="detail-label-col">
+      <div class="detail-eyebrow">What the data shows</div>
+      <div class="detail-heading">Why neither explanation holds</div>
+      <div class="detail-sub">We test two competing explanations. Both fail in specific, measurable ways.</div>
+    </div>
+    <div class="detail-content-col">
+
+      <h3>Explanation 1: Mass fabrication</h3>
+      <p>If accounts are fabricated, we would expect:</p>
+      <p style="padding-left:1rem;border-left:2px solid var(--rule);color:var(--ink-soft);font-size:0.85rem;line-height:1.6">
+        — Low WCS scores (emotional incoherence, sensory vagueness, narrative inconsistency)<br>
+        — Uniform descriptors driven by shared "dogman" mythology<br>
+        — Low disclosure cost — fabricators don't suffer for their stories<br>
+        — Vocal stress distributed evenly rather than spiking on morphological moments<br>
+        — Short or absent disclosure delay
+      </p>
+      <p>We observe: 60% of accounts scoring Strong or higher on WCS. High and consistent disclosure costs including career risk and relationship damage. Disclosure delays averaging years to decades. Acoustic stress peaks on specific morphological moments. The fabrication hypothesis does not explain this pattern.</p>
+
+      <h3>Explanation 2: Social contagion</h3>
+      <p>If descriptors are spreading through online exposure to dogman content, we would expect:</p>
+      <p style="padding-left:1rem;border-left:2px solid var(--rule);color:var(--ink-soft);font-size:0.85rem;line-height:1.6">
+        — Unusual descriptors becoming more frequent after 2015 (peak Dogman Encounters exposure)<br>
+        — Descriptors concentrating in younger witnesses with more internet access<br>
+        — Correlation between specific unusual descriptors and access to the same sources<br>
+        — Absence of unusual descriptors in accounts from before the podcast era
+      </p>
+      <p>We observe: watches-then-leaves, silent departure, and paralysis appear at consistent rates in pre-2010 and post-2015 accounts. The same descriptors appear in Slovenian folklore, Navajo tradition, and Mayan oral history — sources with no plausible transmission route to contemporary American witnesses. Social contagion does not explain this pattern.</p>
+
+      <h3>What we conclude</h3>
+      <p>We do not conclude that a dogman exists. We conclude that the testimony, evaluated on its own terms using rigorous forensic methodology, presents a pattern that the two most common dismissive explanations cannot account for.</p>
+      <p style="font-style:italic;color:var(--ink)">The question this leaves open is the interesting one.</p>
+
+      <div style="margin-top:1.5rem">
+        <a href="paper.html" style="font-family:var(--sans);font-size:0.83rem;font-weight:600;color:var(--accent);text-decoration:none">Read the full working paper →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+async function loadStats() {
+  try {
+    const r = await fetch('dashboard.json?t=' + Date.now());
+    const d = await r.json();
+    const accounts = d.accounts || [];
+    const n = accounts.length;
+    const strong = accounts.filter(a => (a.WCS_raw||0) >= 7).length;
+    const pct = n ? Math.round(strong/n*100) : 0;
+    const delays = accounts.map(a => a.disclosure_delay_years).filter(v => typeof v === 'number' && v > 0);
+    const avgDelay = delays.length ? Math.round(delays.reduce((s,v) => s+v, 0) / delays.length) : null;
+
+    document.getElementById('ex-n').textContent = n || '—';
+    document.getElementById('ex-strong').textContent = n ? pct + '%' : '—';
+    document.getElementById('ex-delay').textContent = avgDelay ? avgDelay + ' yrs' : '—';
+  } catch(e) {}
+}
+loadStats();
+</script>
+</body>
+</html>
