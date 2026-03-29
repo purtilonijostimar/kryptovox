@@ -613,21 +613,20 @@ input[type=range] {
         <line x1="138" y1="52" x2="137" y2="60" stroke-width="0.9" opacity="0.45"/>
         <line x1="142" y1="52" x2="143" y2="60" stroke-width="0.9" opacity="0.45"/>
 
-        <!-- EYES — clean line art. Large almond, white fill, dark iris, catchlight.
-             Outer corner higher than inner = predator angle. No shadow fills. -->
-        <!-- Left eye: outer(112,63) higher than inner(131,70) -->
-        <path d="M 112 63  C 118 58  127 60  131 70  C 127 76  117 75  112 63 Z"
-          stroke-width="1.7" fill="var(--paper-warm)"/>
-        <circle cx="121" cy="67" r="5.5" stroke-width="1.3" fill="none"/>
-        <circle cx="121" cy="67" r="3.2" fill="var(--ink)" stroke="none"/>
-        <circle cx="123" cy="64" r="1.5" fill="white" stroke="none"/>
+        <!-- EYES — smaller, harder, predator angle. Outer corner higher. -->
+        <!-- Left: outer(113,65) high, inner(129,71) low -->
+        <path d="M 113 65  C 117 61  125 62  129 71  C 125 75  117 74  113 65 Z"
+          stroke-width="1.6" fill="var(--paper-warm)"/>
+        <circle cx="121" cy="68" r="3.5" stroke-width="1.2" fill="none"/>
+        <circle cx="121" cy="68" r="2.0" fill="var(--ink)" stroke="none"/>
+        <circle cx="122.5" cy="66" r="0.9" fill="white" stroke="none"/>
 
-        <!-- Right eye: outer(168,63) higher than inner(149,70) -->
-        <path d="M 149 70  C 153 60  162 58  168 63  C 162 75  152 76  149 70 Z"
-          stroke-width="1.7" fill="var(--paper-warm)"/>
-        <circle cx="159" cy="67" r="5.5" stroke-width="1.3" fill="none"/>
-        <circle cx="159" cy="67" r="3.2" fill="var(--ink)" stroke="none"/>
-        <circle cx="161" cy="64" r="1.5" fill="white" stroke="none"/>
+        <!-- Right: outer(167,65) high, inner(151,71) low -->
+        <path d="M 151 71  C 155 62  163 61  167 65  C 163 74  155 75  151 71 Z"
+          stroke-width="1.6" fill="var(--paper-warm)"/>
+        <circle cx="159" cy="68" r="3.5" stroke-width="1.2" fill="none"/>
+        <circle cx="159" cy="68" r="2.0" fill="var(--ink)" stroke="none"/>
+        <circle cx="160.5" cy="66" r="0.9" fill="white" stroke="none"/>
 
         <!-- SNOUT — the most important feature.
              A rectangular mass projecting from center-lower face.
@@ -646,36 +645,22 @@ input[type=range] {
         <!-- Nostrils -->
         <path d="M 129 105  C 131 103  134 103  135 106  C 133 108  130 107  129 105 Z" stroke-width="0.9" opacity="0.7"/>
         <path d="M 145 106  C 146 103  149 103  151 105  C 150 107  147 108  145 106 Z" stroke-width="0.9" opacity="0.7"/>
-        <!-- UPPER LIP — snout base, teeth hang below -->
-        <path d="M 122 106  C 130 111  150 111  158 106"
-          stroke-width="1.3"/>
+        <!-- UPPER LIP -->
+        <path d="M 122 106  C 130 111  150 111  158 106" stroke-width="1.3"/>
 
-        <!-- TEETH — prominent carnivore canines + incisors. Clean line art. -->
-        <!-- Left canine — large -->
-        <path d="M 126 108  L 124 121  C 124 124  129 124  129 121  L 128 108 Z"
-          stroke-width="1.3" fill="var(--paper-warm)"/>
-        <!-- Left incisor -->
-        <path d="M 132 109  L 131 119  C 131 122  135 122  135 119  L 134 109 Z"
-          stroke-width="1.0" fill="var(--paper-warm)"/>
-        <!-- Centre incisors -->
-        <path d="M 137 109  L 136 119  C 136 122  140 122  140 119  L 139 109 Z"
-          stroke-width="1.0" fill="var(--paper-warm)"/>
-        <path d="M 141 109  L 141 119  C 141 122  145 122  145 119  L 144 109 Z"
-          stroke-width="1.0" fill="var(--paper-warm)"/>
-        <!-- Right incisor -->
-        <path d="M 146 109  L 146 119  C 146 122  150 122  150 119  L 149 109 Z"
-          stroke-width="1.0" fill="var(--paper-warm)"/>
-        <!-- Right canine — large -->
-        <path d="M 152 108  L 152 121  C 152 124  157 124  157 121  L 155 108 Z"
-          stroke-width="1.3" fill="var(--paper-warm)"/>
+        <!-- TEETH — just two canine tips visible below lip. Menacing, not skeletal. -->
+        <path d="M 127 108  L 125 118  C 125 120  130 120  130 118  L 128 108 Z"
+          stroke-width="1.2" fill="var(--paper-warm)"/>
+        <path d="M 150 108  L 150 118  C 150 120  155 120  155 118  L 153 108 Z"
+          stroke-width="1.2" fill="var(--paper-warm)"/>
+        <!-- Lip gap between canines — hints at more teeth behind -->
+        <path d="M 130 109  C 136 112  144 112  150 109" stroke-width="0.8" opacity="0.4"/>
 
-        <!-- LOWER JAW — closed behind teeth -->
-        <path d="M 118 118  C 116 130  122 140  132 144  C 137 146  143 146  148 144  C 158 140  164 130  162 118"
+        <!-- LOWER JAW -->
+        <path d="M 118 116  C 116 128  122 138  132 142  C 137 144  143 144  148 142  C 158 138  164 128  162 116"
           stroke-width="1.4" fill="var(--paper-warm)"/>
-        <!-- Lower lip -->
-        <path d="M 121 120  C 130 126  150 126  159 120" stroke-width="1.1"/>
-        <!-- Chin -->
-        <path d="M 138 140  C 140 143  142 143  144 140" stroke-width="0.8" opacity="0.4"/>
+        <path d="M 121 118  C 130 124  150 124  159 118" stroke-width="1.1"/>
+        <path d="M 138 138  C 140 141  142 141  144 138" stroke-width="0.8" opacity="0.4"/>
 
         <!-- Cheek fur definition lines -->
         <path d="M 104 80  C 108 86  110 94  112 100" stroke-width="0.7" opacity="0.4"/>
@@ -723,6 +708,26 @@ input[type=range] {
         <path d="M 148 188 C 150 184 153 188" stroke-width="0.6" opacity="0.35"/>
         <path d="M 132 214 C 134 210 137 214" stroke-width="0.6" opacity="0.35"/>
         <path d="M 143 212 C 145 208 148 212" stroke-width="0.6" opacity="0.35"/>
+
+        <!-- FUR EDGE TEXTURE — short irregular strokes on outer silhouette -->
+        <!-- Left shoulder/arm outer edge -->
+        <path d="M 58 150  C 54 146  50 149" stroke-width="1.0" opacity="0.5"/>
+        <path d="M 54 160  C 49 157  46 161" stroke-width="1.0" opacity="0.5"/>
+        <path d="M 51 172  C 46 170  44 174" stroke-width="0.9" opacity="0.45"/>
+        <path d="M 50 184  C 45 182  43 187" stroke-width="0.9" opacity="0.45"/>
+        <path d="M 51 196  C 46 195  44 200" stroke-width="0.9" opacity="0.4"/>
+        <path d="M 53 210  C 49 209  48 214" stroke-width="0.8" opacity="0.38"/>
+        <path d="M 57 224  C 53 223  52 228" stroke-width="0.8" opacity="0.35"/>
+        <path d="M 62 238  C 58 237  57 242" stroke-width="0.8" opacity="0.32"/>
+        <!-- Right shoulder/arm outer edge -->
+        <path d="M 222 150  C 226 146  230 149" stroke-width="1.0" opacity="0.5"/>
+        <path d="M 226 160  C 231 157  234 161" stroke-width="1.0" opacity="0.5"/>
+        <path d="M 229 172  C 234 170  236 174" stroke-width="0.9" opacity="0.45"/>
+        <path d="M 230 184  C 235 182  237 187" stroke-width="0.9" opacity="0.45"/>
+        <path d="M 229 196  C 234 195  236 200" stroke-width="0.9" opacity="0.4"/>
+        <path d="M 227 210  C 231 209  232 214" stroke-width="0.8" opacity="0.38"/>
+        <path d="M 223 224  C 227 223  228 228" stroke-width="0.8" opacity="0.35"/>
+        <path d="M 218 238  C 222 237  223 242" stroke-width="0.8" opacity="0.32"/>
 
         <!-- ── HIPS / HAUNCHES — dog-like, prominent ── -->
         <path d="M 92 292 C 82 304 76 320 78 338" stroke-width="1.6"/>
