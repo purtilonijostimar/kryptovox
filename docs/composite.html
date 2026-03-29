@@ -464,568 +464,101 @@ input[type=range] {
 
     <svg id="figure-svg" viewBox="0 -110 490 622" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <!-- Pencil sketch filter — very subtle, just roughens edges slightly -->
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
           <feTurbulence type="fractalNoise" baseFrequency="0.06 0.04" numOctaves="3" seed="7" result="noise"/>
           <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
           <feGaussianBlur stdDeviation="0.18" in="rough"/>
         </filter>
-
-        <!-- Glow for active zones -->
         <filter id="zone-glow">
           <feGaussianBlur stdDeviation="4" result="blur"/>
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
       </defs>
 
-      <!-- ── SCALE BAR — x=10, flush left, 0–8 ft ──────────────── -->
-      <!-- Ground=y=495; 1ft=66.5u; 8ft=y=495−(8×66.5)=−37 -->
+      <!-- ── FIGURE (bottom layer — renders first, behind everything) ── -->
+      <g transform="translate(50,0)">
+        <!-- Ground line -->
+        <line x1="0" y1="495" x2="280" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
+        <!-- AI illustration: 853×1280px, figure fills ~88% height, 6% pad
+             SVG: width=378 height=567; x=-49 y=-38 centres figure on x=140
+             feet=y=495 (0ft), ear tips=y=-4 (7.5ft)                     -->
+        <image
+          href="composite-figure.png"
+          x="-49" y="-38"
+          width="378" height="567"
+          preserveAspectRatio="xMidYMid meet"
+        />
+      </g><!-- /figure layer -->
+
+      <!-- ── SCALE BAR (renders on top of image) ───────────────────── -->
+      <!-- Ground=y=495; 1ft=66.5u; 8ft=y=495-(8x66.5)=-37 -->
       <g font-family="var(--sans)" font-size="9.5" fill="var(--ink-faint)" opacity="0.65">
         <line x1="16" y1="-38" x2="16" y2="495" stroke="var(--ink-faint)" stroke-width="0.9" opacity="0.5"/>
         <text x="6" y="196" text-anchor="middle" transform="rotate(-90,6,196)" font-size="8">ft</text>
-        <!-- 0 ft -->
         <line x1="11" y1="495" x2="21" y2="495" stroke="var(--ink-faint)" stroke-width="1.1"/>
         <text x="25" y="499">0</text>
-        <!-- 1 ft y=428 -->
         <line x1="12" y1="428" x2="20" y2="428" stroke="var(--ink-faint)" stroke-width="0.8"/>
         <text x="25" y="432">1</text>
-        <!-- 2 ft y=362 -->
         <line x1="12" y1="362" x2="20" y2="362" stroke="var(--ink-faint)" stroke-width="0.8"/>
         <text x="25" y="366">2</text>
-        <!-- 3 ft y=296 -->
         <line x1="12" y1="296" x2="20" y2="296" stroke="var(--ink-faint)" stroke-width="0.8"/>
         <text x="25" y="300">3</text>
-        <!-- 4 ft y=229 -->
         <line x1="12" y1="229" x2="20" y2="229" stroke="var(--ink-faint)" stroke-width="0.8"/>
         <text x="25" y="233">4</text>
-        <!-- 5 ft y=163 -->
         <line x1="12" y1="163" x2="20" y2="163" stroke="var(--ink-faint)" stroke-width="0.8"/>
         <text x="25" y="167">5</text>
-        <!-- 6 ft y=96 -->
         <line x1="12" y1="96" x2="20" y2="96" stroke="var(--ink-faint)" stroke-width="0.8"/>
         <text x="25" y="100">6</text>
-        <!-- 7 ft y=30 -->
         <line x1="12" y1="30" x2="20" y2="30" stroke="var(--ink-faint)" stroke-width="0.9"/>
         <text x="25" y="34">7</text>
-        <!-- 8 ft y=−37 -->
         <line x1="11" y1="-37" x2="21" y2="-37" stroke="var(--ink-faint)" stroke-width="1.1"/>
         <text x="25" y="-33">8</text>
       </g>
 
-      <!-- ── REFERENCE LINES (span full composition width) ─────── -->
-      <!-- Avg dogman 7.5 ft → y=−4 -->
-      <line x1="10" y1="-4" x2="458" y2="-4"
+      <!-- Avg dogman 7.5ft reference line -->
+      <line x1="10" y1="-4" x2="420" y2="-4"
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.2"/>
-      <text x="460" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55" text-anchor="start">avg. dogman</text>
+      <text x="422" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55">avg. dogman 7.5 ft</text>
 
-
-      <!-- ── FIGURE + ZONES wrapped in translate to clear scale bar ─ -->
+      <!-- ── ZONE OVERLAYS (top layer — renders last) ───────────────
+           Coords in translate(50,0) space.
+           Image 853x1280 -> SVG 378x567; x_svg=px*0.443-49; y_svg=(px-80)*0.445-4
+      ──────────────────────────────────────────────────────────── -->
       <g transform="translate(50,0)">
-
-      <!-- Ground line -->
-      <line x1="0" y1="495" x2="280" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
-
-      <!-- ── FIGURE — AI illustration, sized to match scale bar ──── -->
-      <!-- 853×1280px image; figure fills ~88% of height, 6% pad each side  -->
-      <!-- SVG: width=378 height=567 so figure spans y=-4 to y=495 (7.5ft) -->
-      <!-- Image centred at x=140: x = 140-(378/2) = -49                    -->
-      <!-- z-order: image FIRST so scale/lines render on top                 -->
-      <image
-        href="composite-figure.png"
-        x="-49" y="-38"
-        width="378" height="567"
-        preserveAspectRatio="xMidYMid meet"
-      />
-
-      <!-- ── ZONE OVERLAYS — calibrated to illustration ──────────── -->
-      <!-- Illustration: 280w × 515h, figure fills ~85% of height      -->
-      <!-- Head top ~y=10, feet ~y=500; head centre ~y=75              -->
-      <!-- LEFT EAR -->
-      <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
-        cx="108" cy="48" rx="22" ry="38"/>
-      <!-- RIGHT EAR -->
-      <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
-        cx="172" cy="46" rx="22" ry="38"/>
-      <!-- HEAD (skull, not ears) -->
-      <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="140" cy="95" rx="48" ry="42"/>
-      <!-- EYES -->
-      <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-        cx="140" cy="88" rx="30" ry="12"/>
-      <!-- TEETH / snout lower -->
-      <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
-        x="112" y="112" width="56" height="36" rx="8"/>
-      <!-- TORSO -->
-      <rect class="zone-overlay" id="zone-torso" data-zone="torso"
-        x="68" y="165" width="144" height="160" rx="10"/>
-      <!-- LEFT ARM -->
-      <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
-        x="14" y="162" width="56" height="190" rx="8" transform="rotate(-5,42,257)"/>
-      <!-- RIGHT ARM -->
-      <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
-        x="210" y="162" width="56" height="190" rx="8" transform="rotate(5,238,257)"/>
-      <!-- LEFT HAND -->
-      <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
-        x="8" y="348" width="52" height="68" rx="6"/>
-      <!-- RIGHT HAND -->
-      <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
-        x="220" y="348" width="52" height="68" rx="6"/>
-      <!-- LEGS -->
-      <rect class="zone-overlay" id="zone-legs" data-zone="legs"
-        x="66" y="328" width="148" height="168" rx="8"/>
-
-      </g><!-- /translate group -->
-
-
-    </svg>
-
-    <!-- Zone nav buttons -->
-    <div class="zone-nav">
-      <button class="zone-dot-btn" data-zone="head">Head</button>
-      <button class="zone-dot-btn" data-zone="ears">Ears</button>
-      <button class="zone-dot-btn" data-zone="eyes">Eyes</button>
-      <button class="zone-dot-btn" data-zone="teeth">Teeth</button>
-      <button class="zone-dot-btn" data-zone="torso">Torso</button>
-      <button class="zone-dot-btn" data-zone="arms">Arms</button>
-      <button class="zone-dot-btn" data-zone="hands">Hands</button>
-      <button class="zone-dot-btn" data-zone="legs">Legs</button>
-      <button class="zone-dot-btn" data-zone="sensory">Sensory</button>
-    </div>
-  </div>
-
-  <!-- DATA PANEL -->
-  <div class="data-panel" id="data-panel">
-
-    <div class="panel-empty" id="panel-empty">
-      <div class="panel-empty-icon">☝</div>
-      <div class="panel-empty-text">Click any region of the figure<br>or use the buttons below<br>to explore the data</div>
-    </div>
-
-    <div class="panel-content" id="panel-content">
-      <div class="panel-zone-tag" id="p-tag"></div>
-      <div class="panel-zone-title" id="p-title"></div>
-      <div id="p-body"></div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ── FOOTER ────────────────────────────────────────────────────── -->
-<div class="composite-footer">
-  <span>Every number sourced directly from <span id="f-n">121</span> witness accounts. No features inferred or embellished.</span>
-  <span>
-    <a href="index.html">Browse corpus →</a>
-    &nbsp;&nbsp;
-    <a href="framework.html" style="color:var(--ink-soft)">Methodology →</a>
-  </span>
-</div>
-
-
-<script>
-// ── DATA LAYER ──────────────────────────────────────────────────────
-let ALL_ACCOUNTS = [];
-let FILTERED = [];
-
-// Zone definitions — what data each zone shows
-const ZONE_CONFIG = {
-  ears: {
-    tag: 'Ears',
-    title: 'Upright. Mobile.\nTracking.',
-    primary_stat: (accounts) => {
-      return { value: '~75%', label: 'described upright pointed ears — consistent with German Shepherd / wolf type' };
-    },
-    bars: (accounts) => [
-      { label: 'Upright / pointed — not floppy', pct: 75 },
-      { label: 'Large relative to head', pct: 58 },
-      { label: 'Ears appeared to rotate / track witness', pct: 32 },
-      { label: 'Inner fur / tufting described', pct: 22 },
-    ],
-    quotes_field: 'face_description_quote',
-    custom_html: () => `<div class="stat-block"><div class="stat-desc">The tracking behaviour is one of the more unsettling details — multiple independent accounts describe the ears rotating independently to follow the witness, like a prey-detection system. Not simply looking at the witness. The ears were already pointing at them before the face turned.</div></div>`,
-    acoustic: 'Ear-tracking description moments carry moderate tremor. Witnesses appear more distressed by the ears tracking them than by the face looking at them — the implication of being detected before being seen.',
-  },
-  teeth: {
-    tag: 'Dentition',
-    title: 'Carnivore.\nNo ambiguity.',
-    primary_stat: (accounts) => {
-      return { value: '~45%', label: 'explicitly described teeth — large canines, carnivore dentition' };
-    },
-    bars: (accounts) => [
-      { label: 'Teeth visible and described', pct: 45 },
-      { label: 'Large canine teeth specifically noted', pct: 38 },
-      { label: 'Teeth bared — threat display', pct: 24 },
-      { label: 'Described as carnivore / predator dentition', pct: 31 },
-    ],
-    quotes_field: 'face_description_quote',
-    custom_html: () => `<div class="stat-block"><div class="stat-desc">Witnesses who describe teeth consistently use carnivore framing — "like a large dog," "definitely a predator," "nothing plant-eating about it." No account describes herbivore or omnivore dentition. The canine teeth are described as proportionally large even for the scale of the head.</div></div>`,
-    acoustic: 'Tooth description moments show one of the sharpest speech-slowdown signatures in the corpus — more pronounced than most morphological features. Possibly because describing teeth is a direct acknowledgment of predator threat.',
-  },
-  head: {
-    tag: 'Head & Face',
-    title: 'Canine head.\nEvery account.',
-    primary_stat: (accounts) => {
-      const canine = accounts.filter(a => {
-        const ft = (a.face_type || '').toLowerCase();
-        return ft.includes('canine') || ft.includes('wolf') || ft.includes('dog');
-      }).length;
-      return { value: pct(canine, accounts.length) + '%', label: 'described a canine or wolf-like face' };
-    },
-    bars: (accounts) => [
-      { label: 'Canine / wolf face', pct: pct(accounts.filter(a => (a.face_type||'').toLowerCase().match(/canine|wolf|dog/)).length, accounts.length) },
-      { label: 'Upright pointed ears', pct: pct(accounts.filter(a => (a.face_type||'').toLowerCase().match(/point|ear|tufted/)).length, accounts.length) || 68 },
-      { label: 'Elongated snout / muzzle', pct: pct(accounts.filter(a => (a.face_type||'').toLowerCase().match(/snout|muzzle|elongat/)).length, accounts.length) || 71 },
-    ],
-    quotes_field: 'face_description_quote',
-    acoustic: 'Voice stress peaks observed on face description segments across high-WCS accounts — higher than on narrative connective segments.',
-  },
-  eyes: {
-    tag: 'Eyes',
-    title: 'Forward-facing.\nSelf-illuminated.',
-    primary_stat: (accounts) => {
-      const glow = accounts.filter(a => a.eyes_glow || a.self_illuminated_eyes).length;
-      return { value: pct(glow, accounts.length) + '%', label: 'reported self-illuminated or glowing eyes' };
-    },
-    bars: (accounts) => [
-      { label: 'Glowing / self-illuminated', pct: pct(accounts.filter(a => a.eyes_glow || a.self_illuminated_eyes).length, accounts.length) },
-      { label: 'Amber or yellow', pct: pct(accounts.filter(a => (a.eyes_colour||'').toLowerCase().match(/amber|yellow/)).length, accounts.length) },
-      { label: 'Red or orange', pct: pct(accounts.filter(a => (a.eyes_colour||'').toLowerCase().match(/red|orange|flame/)).length, accounts.length) },
-      { label: 'Forward-facing (like human, not prey)', pct: 82 },
-    ],
-    swatches: [
-      { color: '#d4a800', label: 'Amber / yellow — 55%' },
-      { color: '#c84000', label: 'Orange / flame — 18%' },
-      { color: '#c80000', label: 'Red — 14%' },
-      { color: '#1a1714', label: 'Black — 13%' },
-    ],
-    quotes_field: 'eyes_description_quote',
-    acoustic: 'Eye description moments show elevated pitch rise — consistent with physiological arousal at the point of visual contact.',
-  },
-  torso: {
-    tag: 'Torso & Build',
-    title: 'Muscular.\nAnimal proportions.',
-    primary_stat: (accounts) => {
-      const bipedal = accounts.filter(a => a.bipedal).length;
-      return { value: pct(bipedal, accounts.length) + '%', label: 'confirmed bipedal — standing and moving on two legs' };
-    },
-    bars: (accounts) => [
-      { label: 'Bipedal locomotion', pct: pct(accounts.filter(a => a.bipedal).length, accounts.length) },
-      { label: 'Muscular / powerful build', pct: pct(accounts.filter(a => (a.build||'').toLowerCase().match(/muscul|power|thick|massive|large/)).length, accounts.length) || 74 },
-      { label: 'Height 7ft or taller', pct: pct(accounts.filter(a => parseFloat(a.height_estimate_ft) >= 7).length, accounts.length) },
-      { label: 'Wide chest / broad shoulders', pct: 68 },
-    ],
-    quotes_field: null,
-    custom_html: (accounts) => {
-      const heights = accounts.map(a => parseFloat(a.height_estimate_ft)).filter(h => !isNaN(h) && h > 0);
-      const avg = heights.length ? (heights.reduce((s,v) => s+v, 0) / heights.length).toFixed(1) : '7.5';
-      return `<div class="stat-block"><div class="stat-big">${avg} ft</div><div class="stat-desc">Average height estimate across ${heights.length} accounts with measurable data. Range: 6–10ft.</div></div>`;
-    },
-    acoustic: null,
-  },
-  arms: {
-    tag: 'Arms & Reach',
-    title: 'Disproportionately long.\nHanging forward.',
-    primary_stat: (accounts) => {
-      return { value: '60%', label: 'described hands or arms in enough detail to note length or proportion' };
-    },
-    bars: (accounts) => [
-      { label: 'Arms notably long for body', pct: 58 },
-      { label: 'Hanging forward at rest', pct: 52 },
-      { label: 'Comparable to or longer than legs', pct: 34 },
-    ],
-    quotes_field: null,
-    custom_html: () => `<div class="stat-block"><div class="stat-desc">Arms consistently described as longer than human proportion, hanging slightly forward of the body at rest — an animal posture that multiple witnesses noted as one of the first "wrong" things they registered.</div></div>`,
-    acoustic: null,
-  },
-  hands: {
-    tag: 'Hands & Claws',
-    title: 'Not paws.\nHands with claws.',
-    primary_stat: (accounts) => {
-      const hands = accounts.filter(a => a.hands_described).length;
-      return { value: pct(hands, accounts.length) + '%', label: 'described articulated hands rather than paws' };
-    },
-    bars: (accounts) => [
-      { label: 'Hands described (not paws)', pct: pct(accounts.filter(a => a.hands_described).length, accounts.length) },
-      { label: 'Long fingers noted specifically', pct: 48 },
-      { label: 'Claws visible', pct: 62 },
-      { label: 'Compared to raccoon hands', pct: 18 },
-    ],
-    quotes_field: 'hands_description_quote',
-    acoustic: 'Hand description is not a primary acoustic stress trigger — witnesses describe hands matter-of-factly rather than with visible distress. The distress clusters on the face and eyes.',
-  },
-  legs: {
-    tag: 'Legs & Movement',
-    title: 'Bipedal.\nBut built like an animal.',
-    primary_stat: (accounts) => {
-      const quad = accounts.filter(a => a.quadrupedal_also_observed).length;
-      return { value: pct(quad, accounts.length) + '%', label: 'also observed moving on all fours' };
-    },
-    bars: (accounts) => [
-      { label: 'Bipedal (primary)', pct: pct(accounts.filter(a => a.bipedal).length, accounts.length) },
-      { label: 'Also quadrupedal', pct: pct(accounts.filter(a => a.quadrupedal_also_observed).length, accounts.length) },
-      { label: 'Digitigrade suggestion (heel raised)', pct: 44 },
-      { label: 'Fast / "impossibly fast"', pct: 38 },
-    ],
-    quotes_field: null,
-    custom_html: () => `<div class="stat-block"><div class="stat-desc">The leg structure is one of the most consistently described features: upright bipedal stance, but with hindquarter proportions that witnesses compare to large dogs or horses. Several accounts describe it dropping to all fours at speed — particularly when departing.</div></div>`,
-    acoustic: null,
-  },
-  sensory: {
-    tag: 'Sensory — Smell & Sound',
-    title: 'Felt before seen.\nSmelled. Heard. Frozen.',
-    primary_stat: (accounts) => {
-      const par = accounts.filter(a => a.paralysis_or_freeze).length;
-      return { value: pct(par, accounts.length) + '%', label: 'experienced involuntary physical paralysis or freeze response' };
-    },
-    bars: (accounts) => [
-      { label: 'Involuntary paralysis / freeze', pct: pct(accounts.filter(a => a.paralysis_or_freeze).length, accounts.length) },
-      { label: 'Specific smell reported', pct: pct(accounts.filter(a => a.specific_smell_reported || a.smell_reported).length, accounts.length) },
-      { label: 'Pre-encounter silence (animals stop)', pct: 36 },
-      { label: 'Infrasound — felt in chest, not heard', pct: 22 },
-    ],
-    quotes_field: 'smell_description_quote',
-    custom_html: () => `<div class="stat-block"><div class="stat-desc">Smell is consistently described as putrid, rotten, or intensely animal. Zero accounts describe a neutral or pleasant smell. The infrasound finding — a low vibration felt physically rather than heard — appears independently across geographically separate accounts.</div></div>`,
-    acoustic: 'Accounts describing paralysis show the most extreme acoustic stress markers — tremor, pitch drop, speech slowdown — at the exact moment of immobility description. The body is responding to the memory.',
-  },
-};
-
-// ── UTILITIES ───────────────────────────────────────────────────────
-function pct(n, total) {
-  if (!total) return 0;
-  return Math.round(n / total * 100);
-}
-
-// ── RENDER PANEL ────────────────────────────────────────────────────
-let activeZone = null;
-
-function renderPanel(zoneKey) {
-  const cfg = ZONE_CONFIG[zoneKey];
-  if (!cfg) return;
-
-  activeZone = zoneKey;
-  const accounts = FILTERED;
-  const n = accounts.length;
-
-  document.getElementById('panel-empty').style.display = 'none';
-  document.getElementById('panel-content').classList.add('visible');
-
-  document.getElementById('p-tag').textContent = cfg.tag;
-  document.getElementById('p-title').textContent = cfg.title;
-  let html = '';
-
-  // Primary stat
-  const stat = cfg.primary_stat(accounts);
-  html += `<div class="stat-block">
-    <div class="stat-big">${stat.value}</div>
-    <div class="stat-desc">${stat.label}</div>
-  </div>`;
-
-  // Custom HTML block
-  if (cfg.custom_html) {
-    html += cfg.custom_html(accounts);
-  }
-
-  // Bars — now with account counts
-  if (cfg.bars) {
-    const bars = cfg.bars(accounts);
-    html += `<div style="margin-bottom:1.5rem">`;
-    bars.forEach(bar => {
-      const count = Math.round(bar.pct / 100 * n);
-      html += `<div class="panel-bar-row">
-        <div class="panel-bar-label">
-          <span>${bar.label}</span>
-          <span style="color:var(--ink-faint);font-size:0.66rem">${bar.pct}% · ${count}/${n}</span>
-        </div>
-        <div class="panel-bar-track"><div class="panel-bar-fill" style="width:${bar.pct}%"></div></div>
-      </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // Colour swatches
-  if (cfg.swatches) {
-    html += `<div class="panel-swatches">`;
-    cfg.swatches.forEach(s => {
-      html += `<div class="panel-swatch"><div class="panel-swatch-dot" style="background:${s.color}"></div>${s.label}</div>`;
-    });
-    html += `</div>`;
-  }
-
-  // Quotes
-  if (cfg.quotes_field) {
-    const quotes = accounts
-      .filter(a => a[cfg.quotes_field] && (a.WCS_raw || 0) >= 7)
-      .sort((a, b) => (b.WCS_raw || 0) - (a.WCS_raw || 0))
-      .slice(0, 3);
-
-    if (quotes.length) {
-      html += `<div class="panel-quotes-label">In their own words — WCS ≥ 7.0</div>`;
-      quotes.forEach(a => {
-        const q = a[cfg.quotes_field];
-        const text = typeof q === 'string' ? q : JSON.stringify(q);
-        html += `<div class="panel-quote">
-          <div class="panel-quote-text">"${text.slice(0,220)}${text.length > 220 ? '...' : ''}"</div>
-          <div class="panel-quote-wcs">WCS ${(a.WCS_raw||0).toFixed(1)}</div>
-        </div>`;
-      });
-    }
-  }
-
-  // Acoustic note
-  if (cfg.acoustic) {
-    html += `<div class="acoustic-note"><strong>Acoustic analysis:</strong> ${cfg.acoustic}</div>`;
-  }
-
-  document.getElementById('p-body').innerHTML = html;
-
-  // Fade transition
-  const panelContent = document.getElementById('panel-content');
-  panelContent.classList.remove('fade-in');
-  void panelContent.offsetWidth; // reflow
-  panelContent.classList.add('fade-in');
-
-  // Update active zone visuals
-  document.querySelectorAll('.zone-overlay').forEach(el => {
-    el.classList.toggle('active', el.dataset.zone === zoneKey);
-  });
-  document.querySelectorAll('.zone-dot-btn').forEach(el => {
-    el.classList.toggle('active', el.dataset.zone === zoneKey);
-  });
-}
-
-// ── WCS FILTER ──────────────────────────────────────────────────────
-function applyFilter(threshold) {
-  FILTERED = ALL_ACCOUNTS.filter(a => (a.WCS_raw || 0) >= threshold);
-  const countEl = document.getElementById('wcs-count');
-  countEl.textContent = FILTERED.length + ' of ' + ALL_ACCOUNTS.length;
-  document.getElementById('f-n').textContent = FILTERED.length;
-
-  // Flash the count to signal the data changed
-  countEl.classList.remove('count-flash');
-  void countEl.offsetWidth;
-  countEl.classList.add('count-flash');
-
-  // Re-render active panel if open
-  if (activeZone) renderPanel(activeZone);
-}
-
-// ── LOAD DATA ───────────────────────────────────────────────────────
-async function init() {
-  try {
-    const resp = await fetch('dashboard.json?t=' + Date.now());
-    const data = await resp.json();
-    ALL_ACCOUNTS = data.accounts || [];
-    document.getElementById('h-n').textContent = ALL_ACCOUNTS.length;
-    applyFilter(4.0);
-    // Default: open Sensory (the zone with no clickable body region)
-    renderPanel('sensory');
-  } catch(e) {
-    console.warn('Could not load dashboard.json', e);
-    document.getElementById('wcs-count').textContent = 'error loading data';
-    renderPanel('sensory');
-  }
-}
-
-// ── TOOLTIP ─────────────────────────────────────────────────────────
-const ZONE_LABELS = {
-  head: 'Head & Face', ears: 'Ears', eyes: 'Eyes', teeth: 'Teeth',
-  torso: 'Torso', arms: 'Arms', hands: 'Hands & Claws', legs: 'Legs'
-};
-const tooltip = document.createElement('div');
-tooltip.id = 'zone-tooltip';
-document.body.appendChild(tooltip);
-
-document.querySelectorAll('.zone-overlay').forEach(el => {
-  el.addEventListener('mouseenter', (e) => {
-    tooltip.textContent = ZONE_LABELS[el.dataset.zone] || el.dataset.zone;
-    tooltip.classList.add('visible');
-  });
-  el.addEventListener('mousemove', (e) => {
-    tooltip.style.left = (e.clientX + 14) + 'px';
-    tooltip.style.top  = (e.clientY - 28) + 'px';
-  });
-  el.addEventListener('mouseleave', () => {
-    tooltip.classList.remove('visible');
-  });
-  el.addEventListener('click', () => {
-    tooltip.classList.remove('visible');
-    renderPanel(el.dataset.zone);
-  });
-});
-
-// ── EVENTS ──────────────────────────────────────────────────────────
-// Zone nav buttons
-document.querySelectorAll('.zone-dot-btn').forEach(btn => {
-  btn.addEventListener('click', () => renderPanel(btn.dataset.zone));
-});
-
-// WCS slider
-const slider = document.getElementById('wcs-slider');
-const display = document.getElementById('wcs-display');
-slider.addEventListener('input', () => {
-  const val = parseFloat(slider.value);
-  display.innerHTML = val.toFixed(1) + ' <span>/ 10</span>';
-  applyFilter(val);
-});
-
-init();
-</script>
-</body>
-</html>      <!-- ── FIGURE + ZONES wrapped in translate to clear scale bar ─ -->
-      <g transform="translate(50,0)">
-
-      <!-- Ground line -->
-      <line x1="0" y1="495" x2="280" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
-
-      <!-- ── FIGURE — AI illustration, sized to match scale bar ──── -->
-      <!-- 853×1280px image; figure fills ~88% of height, 6% pad each side  -->
-      <!-- SVG: width=378 height=567 so figure spans y=-4 to y=495 (7.5ft) -->
-      <!-- Image centred at x=140: x = 140-(378/2) = -49                    -->
-      <!-- z-order: image FIRST so scale/lines render on top                 -->
-      <image
-        href="composite-figure.png"
-        x="-49" y="-38"
-        width="378" height="567"
-        preserveAspectRatio="xMidYMid meet"
-      />
-
-      <!-- ── ZONE OVERLAYS — recalibrated to actual illustration ─────
-           Image 853×1280 → SVG 378×567 (translate(50,0) applied)
-           x_svg = px_x*0.443 - 49 | y_svg = (px_y-80)*0.445 - 4      -->
-      <!-- LEFT EAR -->
-      <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
-        cx="92" cy="10" rx="26" ry="40"/>
-      <!-- RIGHT EAR -->
-      <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
-        cx="188" cy="10" rx="26" ry="40"/>
-      <!-- HEAD -->
-      <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="140" cy="78" rx="50" ry="52"/>
-      <!-- EYES -->
-      <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-        cx="140" cy="70" rx="32" ry="13"/>
-      <!-- TEETH -->
-      <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
-        x="112" y="118" width="56" height="38" rx="8"/>
-      <!-- TORSO -->
-      <rect class="zone-overlay" id="zone-torso" data-zone="torso"
-        x="60" y="198" width="160" height="150" rx="10"/>
-      <!-- LEFT ARM -->
-      <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
-        x="18" y="198" width="50" height="200" rx="8" transform="rotate(-4,43,298)"/>
-      <!-- RIGHT ARM -->
-      <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
-        x="212" y="198" width="50" height="200" rx="8" transform="rotate(4,237,298)"/>
-      <!-- LEFT HAND -->
-      <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
-        x="14" y="378" width="54" height="72" rx="6"/>
-      <!-- RIGHT HAND -->
-      <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
-        x="212" y="378" width="54" height="72" rx="6"/>
-      <!-- LEGS -->
-      <rect class="zone-overlay" id="zone-legs" data-zone="legs"
-        x="72" y="346" width="136" height="150" rx="8"/>
-
-      </g><!-- /translate group -->
+        <!-- LEFT EAR -->
+        <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
+          cx="92" cy="10" rx="26" ry="40"/>
+        <!-- RIGHT EAR -->
+        <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
+          cx="188" cy="10" rx="26" ry="40"/>
+        <!-- HEAD -->
+        <ellipse class="zone-overlay" id="zone-head" data-zone="head"
+          cx="140" cy="78" rx="50" ry="52"/>
+        <!-- EYES -->
+        <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
+          cx="140" cy="70" rx="32" ry="13"/>
+        <!-- TEETH -->
+        <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
+          x="112" y="118" width="56" height="38" rx="8"/>
+        <!-- TORSO -->
+        <rect class="zone-overlay" id="zone-torso" data-zone="torso"
+          x="60" y="198" width="160" height="150" rx="10"/>
+        <!-- LEFT ARM -->
+        <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
+          x="18" y="198" width="50" height="200" rx="8" transform="rotate(-4,43,298)"/>
+        <!-- RIGHT ARM -->
+        <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
+          x="212" y="198" width="50" height="200" rx="8" transform="rotate(4,237,298)"/>
+        <!-- LEFT HAND -->
+        <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
+          x="14" y="378" width="54" height="72" rx="6"/>
+        <!-- RIGHT HAND -->
+        <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
+          x="212" y="378" width="54" height="72" rx="6"/>
+        <!-- LEGS -->
+        <rect class="zone-overlay" id="zone-legs" data-zone="legs"
+          x="72" y="346" width="136" height="150" rx="8"/>
+      </g><!-- /zones layer -->
 
     </svg>
 
