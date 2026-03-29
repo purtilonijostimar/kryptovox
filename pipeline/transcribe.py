@@ -39,6 +39,82 @@ def transcribe_local(audio_path: Path) -> dict:
     return result
 
 
+def transcribe_groq(audio_path: Path) -> dict:
+    """Transcribe using Groq Whisper API (~100x realtime, $0.111/hr)."""
+    from groq import Groq
+    import math
+
+    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    print(f"  Transcribing via Groq: {audio_path.name}")
+
+    # Groq has a 25MB file size limit — chunk if needed
+    file_size_mb = audio_path.stat().st_size / (1024 * 1024)
+    print(f"  File size: {file_size_mb:.1f} MB")
+
+    all_text = []
+    all_segments = []
+    offset_s = 0
+
+    if file_size_mb <= 24:
+        # Single request
+        with open(audio_path, "rb") as f:
+            response = client.audio.transcriptions.create(
+                model           = "whisper-large-v3",
+                file            = f,
+                response_format = "verbose_json",
+                language        = "en",
+            )
+        return {
+            "text":     response.text,
+            "segments": [{"start": s.start, "end": s.end, "text": s.text}
+                         for s in (response.segments or [])],
+            "language": getattr(response, "language", "en"),
+        }
+    else:
+        # Chunk large files using ffmpeg
+        print(f"  File too large — chunking into 20-min segments...")
+        import subprocess, tempfile, shutil
+        chunk_dir = Path(tempfile.mkdtemp())
+        chunk_duration = 1200  # 20 minutes
+
+        try:
+            # Split with ffmpeg
+            subprocess.run([
+                "ffmpeg", "-i", str(audio_path),
+                "-f", "segment", "-segment_time", str(chunk_duration),
+                "-c", "copy",
+                str(chunk_dir / "chunk_%03d.webm")
+            ], check=True, capture_output=True)
+
+            chunks = sorted(chunk_dir.glob("chunk_*.webm"))
+            print(f"  {len(chunks)} chunks created")
+
+            for chunk in chunks:
+                with open(chunk, "rb") as f:
+                    resp = client.audio.transcriptions.create(
+                        model           = "whisper-large-v3",
+                        file            = f,
+                        response_format = "verbose_json",
+                        language        = "en",
+                    )
+                all_text.append(resp.text)
+                for s in (resp.segments or []):
+                    all_segments.append({
+                        "start": round(s.start + offset_s, 2),
+                        "end":   round(s.end   + offset_s, 2),
+                        "text":  s.text,
+                    })
+                offset_s += chunk_duration
+
+            return {
+                "text":     " ".join(all_text),
+                "segments": all_segments,
+                "language": "en",
+            }
+        finally:
+            shutil.rmtree(chunk_dir, ignore_errors=True)
+
+
 def transcribe_api(audio_path: Path) -> dict:
     """Transcribe using OpenAI Whisper API ($0.006/min)."""
     from openai import OpenAI
@@ -52,17 +128,10 @@ def transcribe_api(audio_path: Path) -> dict:
             response_format  = "verbose_json",
             timestamp_granularities = ["segment"],
         )
-    # Normalise to same format as local
     return {
         "text":     response.text,
-        "segments": [
-            {
-                "start": s.start,
-                "end":   s.end,
-                "text":  s.text,
-            }
-            for s in response.segments
-        ],
+        "segments": [{"start": s.start, "end": s.end, "text": s.text}
+                     for s in response.segments],
         "language": response.language,
     }
 
@@ -86,7 +155,9 @@ def transcribe_file(audio_path: Path, channel_key: str, force: bool = False) -> 
     start = time.time()
 
     try:
-        if WHISPER_MODE == "api":
+        if WHISPER_MODE == "groq":
+            result = transcribe_groq(audio_path)
+        elif WHISPER_MODE == "api":
             result = transcribe_api(audio_path)
         else:
             result = transcribe_local(audio_path)
