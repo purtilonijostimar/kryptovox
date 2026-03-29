@@ -96,34 +96,6 @@
     align-items: center;
     gap: 0.4rem;
   }
-  /* Dog-head quotation mark easter egg */
-  .hero-dogmark {
-    display: flex;
-    align-items: flex-end;
-    gap: 0.6rem;
-    margin-bottom: 1rem;
-    height: 5rem;
-    line-height: 1;
-  }
-  .dogmark-left,
-  .dogmark-right {
-    font-family: var(--serif-display);
-    font-size: 7rem;
-    color: #e8e000;
-    display: block;
-    line-height: 1;
-    user-select: none;
-  }
-  /* Left = snout: lower, slight rightward lean */
-  .dogmark-left {
-    transform: rotate(8deg) translateY(0.4rem);
-  }
-  /* Right = ear: higher, smaller, slight tilt */
-  .dogmark-right {
-    font-size: 5.5rem;
-    transform: rotate(-6deg) translateY(-1.1rem) translateX(-0.3rem);
-  }
-
   .hero-scroll::after {
     content: '';
     width: 1px;
@@ -528,9 +500,6 @@
 <!-- ── HERO ─────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-dogmark" aria-hidden="true">
-      <span class="dogmark-left">&ldquo;</span><span class="dogmark-right">&ldquo;</span>
-    </div>
     <div class="hero-eyebrow">Kryptovox — Anomalous Encounter Research</div>
     <h1 class="hero-headline">Something is being seen.<br>We built the tools to find out<br>what the testimony actually says.</h1>
     <p class="hero-sub">
