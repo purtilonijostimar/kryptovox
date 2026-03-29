@@ -613,27 +613,21 @@ input[type=range] {
         <line x1="138" y1="52" x2="137" y2="60" stroke-width="0.9" opacity="0.45"/>
         <line x1="142" y1="52" x2="143" y2="60" stroke-width="0.9" opacity="0.45"/>
 
-        <!-- EYES — intense, predator angle, outer corner higher.
-             Larger iris, near-black fill, fierce highlight -->
-        <!-- Left eye socket lid shape -->
-        <path d="M 112 64  C 118 59  126 61  130 70  C 126 75  118 74  112 64 Z"
-          stroke-width="1.6" fill="var(--paper-warm)"/>
-        <!-- Left iris — large, dark, almost filled -->
-        <circle cx="121" cy="67" r="5.5" fill="var(--ink)" opacity="0.82" stroke="none"/>
-        <!-- Left iris ring -->
-        <circle cx="121" cy="67" r="5.5" stroke-width="1.1" fill="none"/>
-        <!-- Left catchlight — sharp white dot, gives life/menace -->
-        <circle cx="123" cy="64" r="1.4" fill="white" opacity="0.95" stroke="none"/>
-        <!-- Left pupil slit suggestion -->
-        <ellipse cx="121" cy="67" rx="1.5" ry="3.5" fill="var(--ink)" opacity="0.4" stroke="none"/>
+        <!-- EYES — clean line art. Large almond, white fill, dark iris, catchlight.
+             Outer corner higher than inner = predator angle. No shadow fills. -->
+        <!-- Left eye: outer(112,63) higher than inner(131,70) -->
+        <path d="M 112 63  C 118 58  127 60  131 70  C 127 76  117 75  112 63 Z"
+          stroke-width="1.7" fill="var(--paper-warm)"/>
+        <circle cx="121" cy="67" r="5.5" stroke-width="1.3" fill="none"/>
+        <circle cx="121" cy="67" r="3.2" fill="var(--ink)" stroke="none"/>
+        <circle cx="123" cy="64" r="1.5" fill="white" stroke="none"/>
 
-        <!-- Right eye -->
-        <path d="M 150 70  C 154 61  162 59  168 64  C 162 74  154 75  150 70 Z"
-          stroke-width="1.6" fill="var(--paper-warm)"/>
-        <circle cx="159" cy="67" r="5.5" fill="var(--ink)" opacity="0.82" stroke="none"/>
-        <circle cx="159" cy="67" r="5.5" stroke-width="1.1" fill="none"/>
-        <circle cx="161" cy="64" r="1.4" fill="white" opacity="0.95" stroke="none"/>
-        <ellipse cx="159" cy="67" rx="1.5" ry="3.5" fill="var(--ink)" opacity="0.4" stroke="none"/>
+        <!-- Right eye: outer(168,63) higher than inner(149,70) -->
+        <path d="M 149 70  C 153 60  162 58  168 63  C 162 75  152 76  149 70 Z"
+          stroke-width="1.7" fill="var(--paper-warm)"/>
+        <circle cx="159" cy="67" r="5.5" stroke-width="1.3" fill="none"/>
+        <circle cx="159" cy="67" r="3.2" fill="var(--ink)" stroke="none"/>
+        <circle cx="161" cy="64" r="1.5" fill="white" stroke="none"/>
 
         <!-- SNOUT — the most important feature.
              A rectangular mass projecting from center-lower face.
@@ -652,43 +646,40 @@ input[type=range] {
         <!-- Nostrils -->
         <path d="M 129 105  C 131 103  134 103  135 106  C 133 108  130 107  129 105 Z" stroke-width="0.9" opacity="0.7"/>
         <path d="M 145 106  C 146 103  149 103  151 105  C 150 107  147 108  145 106 Z" stroke-width="0.9" opacity="0.7"/>
-        <!-- Lower jaw — closed chin, filled so it reads as solid mass -->
-        <path d="M 114 90  C 112 104  116 118  126 124  C 132 127  148 127  154 124  C 164 118  168 104  166 90"
-          stroke-width="1.5" fill="var(--paper-warm)"/>
-        <!-- Chin crease — prevents mouth reading -->
-        <path d="M 137 121  C 139 124  141 124  143 121" stroke-width="0.8" opacity="0.4"/>
-        <!-- Fur texture on chin -->
-        <path d="M 128 116  C 130 120  132 122" stroke-width="0.55" opacity="0.3"/>
-        <path d="M 152 116  C 150 120  148 122" stroke-width="0.55" opacity="0.3"/>
+        <!-- UPPER LIP — snout base, teeth hang below -->
+        <path d="M 122 106  C 130 111  150 111  158 106"
+          stroke-width="1.3"/>
 
-        <!-- BROW SHADOW — dark fill under brow shelf, over eyes.
-             This is what makes a face look menacing vs blank. -->
-        <path d="M 104 66  C 112 56  124 52  134 56  C 137 50  143 50  146 56  C 156 52  168 56  176 66  C 172 72  162 68  150 70  C 146 56  134 56  130 70  C 118 68  108 72  104 66 Z"
-          fill="var(--ink)" opacity="0.12" stroke="none"/>
+        <!-- TEETH — prominent carnivore canines + incisors. Clean line art. -->
+        <!-- Left canine — large -->
+        <path d="M 126 108  L 124 121  C 124 124  129 124  129 121  L 128 108 Z"
+          stroke-width="1.3" fill="var(--paper-warm)"/>
+        <!-- Left incisor -->
+        <path d="M 132 109  L 131 119  C 131 122  135 122  135 119  L 134 109 Z"
+          stroke-width="1.0" fill="var(--paper-warm)"/>
+        <!-- Centre incisors -->
+        <path d="M 137 109  L 136 119  C 136 122  140 122  140 119  L 139 109 Z"
+          stroke-width="1.0" fill="var(--paper-warm)"/>
+        <path d="M 141 109  L 141 119  C 141 122  145 122  145 119  L 144 109 Z"
+          stroke-width="1.0" fill="var(--paper-warm)"/>
+        <!-- Right incisor -->
+        <path d="M 146 109  L 146 119  C 146 122  150 122  150 119  L 149 109 Z"
+          stroke-width="1.0" fill="var(--paper-warm)"/>
+        <!-- Right canine — large -->
+        <path d="M 152 108  L 152 121  C 152 124  157 124  157 121  L 155 108 Z"
+          stroke-width="1.3" fill="var(--paper-warm)"/>
 
-        <!-- EYE SOCKETS — dark fill behind eyes, predator depth -->
-        <ellipse cx="121" cy="68" rx="14" ry="9" fill="var(--ink)" opacity="0.07" stroke="none"/>
-        <ellipse cx="159" cy="68" rx="14" ry="9" fill="var(--ink)" opacity="0.07" stroke="none"/>
-
-        <!-- FUR TEXTURE — face: cheeks and forehead break the mask look -->
-        <!-- Forehead fur -->
-        <path d="M 126 42  C 128 38  131 42" stroke-width="0.7" opacity="0.4"/>
-        <path d="M 136 38  C 138 34  141 38" stroke-width="0.7" opacity="0.4"/>
-        <path d="M 146 40  C 148 36  151 40" stroke-width="0.7" opacity="0.4"/>
-        <path d="M 130 52  C 132 48  135 52" stroke-width="0.6" opacity="0.35"/>
-        <path d="M 145 50  C 147 46  150 50" stroke-width="0.6" opacity="0.35"/>
-        <!-- Cheek fur — left -->
-        <path d="M 106 78  C 109 74  112 78" stroke-width="0.65" opacity="0.38"/>
-        <path d="M 108 88  C 111 84  114 88" stroke-width="0.65" opacity="0.38"/>
-        <path d="M 110 98  C 113 94  116 98" stroke-width="0.6" opacity="0.32"/>
-        <!-- Cheek fur — right -->
-        <path d="M 168 78  C 171 74  174 78" stroke-width="0.65" opacity="0.38"/>
-        <path d="M 166 88  C 169 84  172 88" stroke-width="0.65" opacity="0.38"/>
-        <path d="M 164 98  C 167 94  170 98" stroke-width="0.6" opacity="0.32"/>
+        <!-- LOWER JAW — closed behind teeth -->
+        <path d="M 118 118  C 116 130  122 140  132 144  C 137 146  143 146  148 144  C 158 140  164 130  162 118"
+          stroke-width="1.4" fill="var(--paper-warm)"/>
+        <!-- Lower lip -->
+        <path d="M 121 120  C 130 126  150 126  159 120" stroke-width="1.1"/>
+        <!-- Chin -->
+        <path d="M 138 140  C 140 143  142 143  144 140" stroke-width="0.8" opacity="0.4"/>
 
         <!-- Cheek fur definition lines -->
-        <path d="M 104 80  C 108 86  110 94  112 100" stroke-width="0.6" opacity="0.35"/>
-        <path d="M 176 80  C 172 86  170 94  168 100" stroke-width="0.6" opacity="0.35"/>
+        <path d="M 104 80  C 108 86  110 94  112 100" stroke-width="0.7" opacity="0.4"/>
+        <path d="M 176 80  C 172 86  170 94  168 100" stroke-width="0.7" opacity="0.4"/>
 
         <!-- ── NECK — massively thick, trapezoidal, animal ── -->
         <!-- Left neck outline — wide at jaw, fans into shoulders -->
@@ -710,21 +701,7 @@ input[type=range] {
         <path d="M 114 136 C 106 138 82 142 60 148" stroke-width="1.8"/>
         <path d="M 166 136 C 174 138 198 142 220 148" stroke-width="1.8"/>
 
-        <!-- SHOULDER FUR MASS — jagged outer silhouette gives bulk -->
-        <!-- Left shoulder fur clumps -->
-        <path d="M 58 146  C 52 138  46 140  44 148  C 46 152  54 152  58 148" stroke-width="1.2" opacity="0.6"/>
-        <path d="M 54 154  C 46 150  40 154  42 162  C 46 166  54 162  56 158" stroke-width="1.1" opacity="0.5"/>
-        <path d="M 50 164  C 42 162  38 168  40 176  C 44 180  52 176  54 170" stroke-width="1.0" opacity="0.45"/>
-        <!-- Right shoulder fur clumps -->
-        <path d="M 222 146  C 228 138  234 140  236 148  C 234 152  226 152  222 148" stroke-width="1.2" opacity="0.6"/>
-        <path d="M 226 154  C 234 150  240 154  238 162  C 234 166  226 162  224 158" stroke-width="1.1" opacity="0.5"/>
-        <path d="M 230 164  C 238 162  242 168  240 176  C 236 180  228 176  226 170" stroke-width="1.0" opacity="0.45"/>
 
-        <!-- BODY SHADOW — dark fill on torso sides gives mass -->
-        <path d="M 54 156  C 52 180  58 220  68 252  C 76 270  88 280  92 292  C 82 278  70 262  62 238  C 52 210  50 184  54 156 Z"
-          fill="var(--ink)" opacity="0.06" stroke="none"/>
-        <path d="M 226 156  C 228 180  222 220  212 252  C 204 270  192 280  188 292  C 198 278  210 262  218 238  C 228 210  230 184  226 156 Z"
-          fill="var(--ink)" opacity="0.06" stroke="none"/>
         <!-- Chest centre line — sternum -->
         <path d="M 140 140 C 140 180 140 220 140 258" stroke-width="0.6" opacity="0.3"/>
         <!-- Pectoral definition -->
@@ -822,15 +799,15 @@ input[type=range] {
       </g><!-- /pencil group -->
 
       <!-- ── ZONE OVERLAYS — all inside translate(50,0) group ────── -->
-      <!-- HEAD zone — skull only, not ears -->
+      <!-- HEAD zone -->
       <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="140" cy="80" rx="50" ry="50"/>
+        cx="140" cy="84" rx="52" ry="58"/>
       <!-- EYES zone -->
       <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-        cx="140" cy="68" rx="36" ry="16"/>
-      <!-- TEETH/SNOUT zone — lower face -->
+        cx="140" cy="67" rx="36" ry="16"/>
+      <!-- TEETH zone — lower snout + jaw -->
       <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
-        x="116" y="88" width="68" height="44" rx="8"/>
+        x="116" y="98" width="68" height="52" rx="8"/>
       <!-- LEFT EAR zone -->
       <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
         cx="108" cy="22" rx="18" ry="30"/>
