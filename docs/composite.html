@@ -103,10 +103,12 @@ input[type=range] {
 .figure-pane {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 3rem 1rem 3rem 0;
   position: relative;
 }
+.figure-instructions { align-self: center; }
+.zone-nav { align-self: center; }
 .figure-instructions {
   font-family: var(--sans);
   font-size: 0.7rem;
@@ -460,7 +462,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="-42 -118 420 638" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="0 -110 490 622" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Pencil sketch filter — very subtle, just roughens edges slightly -->
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
@@ -476,60 +478,52 @@ input[type=range] {
         </filter>
       </defs>
 
-      <!-- ── SCALE BAR — far left edge, 0–9 ft ─────────────────── -->
-      <!-- Ground = y=495; 1 ft = 66.5 units
-           9 ft = y=495−(9×66.5)=−103.5
-           8 ft = y=−37    7 ft = y=29.5   6 ft = y=96
-           5 ft = y=162.5  4 ft = y=229    3 ft = y=295.5
-           2 ft = y=362    1 ft = y=428.5  0 ft = y=495    -->
-      <g font-family="var(--sans)" font-size="9" fill="var(--ink-faint)" opacity="0.65">
-        <!-- Vertical rule — full height -->
-        <line x1="-30" y1="-104" x2="-30" y2="495" stroke="var(--ink-faint)" stroke-width="0.9" opacity="0.55"/>
-        <!-- Unit label -->
-        <text x="-38" y="196" text-anchor="middle" transform="rotate(-90,-38,196)" font-size="8">ft</text>
-
+      <!-- ── SCALE BAR — x=10, flush left, 0–8 ft ──────────────── -->
+      <!-- Ground=y=495; 1ft=66.5u; 8ft=y=495−(8×66.5)=−37 -->
+      <g font-family="var(--sans)" font-size="9.5" fill="var(--ink-faint)" opacity="0.65">
+        <line x1="16" y1="-38" x2="16" y2="495" stroke="var(--ink-faint)" stroke-width="0.9" opacity="0.5"/>
+        <text x="6" y="196" text-anchor="middle" transform="rotate(-90,6,196)" font-size="8">ft</text>
         <!-- 0 ft -->
-        <line x1="-35" y1="495" x2="-25" y2="495" stroke="var(--ink-faint)" stroke-width="1.0"/>
-        <text x="-18" y="499" text-anchor="start">0</text>
-        <!-- 1 ft -->
-        <line x1="-34" y1="428" x2="-26" y2="428" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="-18" y="432" text-anchor="start">1</text>
-        <!-- 2 ft -->
-        <line x1="-34" y1="362" x2="-26" y2="362" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="-18" y="366" text-anchor="start">2</text>
-        <!-- 3 ft -->
-        <line x1="-34" y1="296" x2="-26" y2="296" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="-18" y="300" text-anchor="start">3</text>
-        <!-- 4 ft -->
-        <line x1="-34" y1="229" x2="-26" y2="229" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="-18" y="233" text-anchor="start">4</text>
-        <!-- 5 ft -->
-        <line x1="-34" y1="163" x2="-26" y2="163" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="-18" y="167" text-anchor="start">5</text>
-        <!-- 6 ft -->
-        <line x1="-34" y1="96" x2="-26" y2="96" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="-18" y="100" text-anchor="start">6</text>
-        <!-- 7 ft -->
-        <line x1="-34" y1="30" x2="-26" y2="30" stroke="var(--ink-faint)" stroke-width="0.9"/>
-        <text x="-18" y="34" text-anchor="start">7</text>
-        <!-- 8 ft -->
-        <line x1="-34" y1="-37" x2="-26" y2="-37" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="-18" y="-33" text-anchor="start">8</text>
-        <!-- 9 ft -->
-        <line x1="-35" y1="-104" x2="-25" y2="-104" stroke="var(--ink-faint)" stroke-width="1.0"/>
-        <text x="-18" y="-100" text-anchor="start">9</text>
+        <line x1="11" y1="495" x2="21" y2="495" stroke="var(--ink-faint)" stroke-width="1.1"/>
+        <text x="25" y="499">0</text>
+        <!-- 1 ft y=428 -->
+        <line x1="12" y1="428" x2="20" y2="428" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="25" y="432">1</text>
+        <!-- 2 ft y=362 -->
+        <line x1="12" y1="362" x2="20" y2="362" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="25" y="366">2</text>
+        <!-- 3 ft y=296 -->
+        <line x1="12" y1="296" x2="20" y2="296" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="25" y="300">3</text>
+        <!-- 4 ft y=229 -->
+        <line x1="12" y1="229" x2="20" y2="229" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="25" y="233">4</text>
+        <!-- 5 ft y=163 -->
+        <line x1="12" y1="163" x2="20" y2="163" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="25" y="167">5</text>
+        <!-- 6 ft y=96 -->
+        <line x1="12" y1="96" x2="20" y2="96" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="25" y="100">6</text>
+        <!-- 7 ft y=30 -->
+        <line x1="12" y1="30" x2="20" y2="30" stroke="var(--ink-faint)" stroke-width="0.9"/>
+        <text x="25" y="34">7</text>
+        <!-- 8 ft y=−37 -->
+        <line x1="11" y1="-37" x2="21" y2="-37" stroke="var(--ink-faint)" stroke-width="1.1"/>
+        <text x="25" y="-33">8</text>
       </g>
 
-      <!-- ── REFERENCE LINES ────────────────────────────────────── -->
-      <!-- Avg dogman 7.5 ft → y = 495−(7.5×66.5) = −3.75 ≈ y=−4 -->
-      <line x1="-30" y1="-4" x2="370" y2="-4"
-        stroke="var(--ink)" stroke-width="0.7" stroke-dasharray="5,4" opacity="0.22"/>
-      <text x="372" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.6">avg. dogman 7.5 ft</text>
+      <!-- ── REFERENCE LINES (span full composition width) ─────── -->
+      <!-- Avg dogman 7.5 ft → y=−4 -->
+      <line x1="10" y1="-4" x2="458" y2="-4"
+        stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.2"/>
+      <text x="460" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55" text-anchor="start">avg. dogman</text>
+      <!-- Avg human 5.75 ft → y=113 -->
+      <line x1="10" y1="113" x2="458" y2="113"
+        stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.2"/>
+      <text x="460" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55" text-anchor="start">avg. human</text>
 
-      <!-- Avg human 5.75 ft → y = 495−(5.75×66.5) = 113 -->
-      <line x1="-30" y1="113" x2="370" y2="113"
-        stroke="var(--ink)" stroke-width="0.7" stroke-dasharray="5,4" opacity="0.22"/>
-      <text x="372" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.6">avg. human 5.75 ft</text>
+      <!-- ── FIGURE + HUMAN wrapped in translate to clear scale bar → -->
+      <g transform="translate(50,0)">
 
       <!-- ── HUMAN FIGURE — same pencil-sketch style, 5'9", beside dogman -->
       <!-- 5.75 ft / 7.5 ft = 76.7% of dogman. Dogman spans y≈2 to y≈495 = 493px.
@@ -578,8 +572,8 @@ input[type=range] {
       <text x="308" y="509" text-anchor="middle" font-family="var(--sans)" font-size="8.5" fill="var(--ink-faint)" opacity="0.6">avg. human</text>
       <text x="308" y="520" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.42">5′ 9″</text>
 
-      <!-- Ground line under dogman -->
-      <line x1="50" y1="495" x2="270" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
+      <!-- Ground line -->
+      <line x1="50" y1="495" x2="380" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
 
       <!-- ── FIGURE — redrawn with correct proportions ─────────── -->
       <g filter="url(#pencil)" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -590,7 +584,7 @@ input[type=range] {
              very tall upright ears, heavy brow shelf
         ─────────────────────────────────────────────────────────── -->
 
-        <!-- Outer skull — wide at cheeks, domed forehead, tapers to jaw -->
+        <!-- Outer skull — paper fill kills the "open void" face problem -->
         <path d="
           M 104 82
           C 100 62  106 40  120 30
@@ -600,7 +594,7 @@ input[type=range] {
           C 152 118  148 120  140 120
           C 132 120  128 118  122 114
           C 112 108  106 96   104 82 Z
-        " stroke-width="1.8"/>
+        " stroke-width="1.8" fill="var(--paper-warm)"/>
 
         <!-- EARS — tall, at upper corners of skull, angled slightly outward
              NOT from crown center — from the sides, like a German Shepherd -->
@@ -650,9 +644,9 @@ input[type=range] {
         <!-- Nostrils -->
         <path d="M 129 105  C 131 103  134 103  135 106  C 133 108  130 107  129 105 Z" stroke-width="0.9" opacity="0.7"/>
         <path d="M 145 106  C 146 103  149 103  151 105  C 150 107  147 108  145 106 Z" stroke-width="0.9" opacity="0.7"/>
-        <!-- Lower jaw — CLOSED chin mass. Not an open mouth.
-             Curves outward from cheeks then draws in to a rounded chin. -->
-        <path d="M 114 90  C 112 104  116 118  126 124  C 132 127  148 127  154 124  C 164 118  168 104  166 90" stroke-width="1.5"/>
+        <!-- Lower jaw — closed chin, filled so it reads as solid mass -->
+        <path d="M 114 90  C 112 104  116 118  126 124  C 132 127  148 127  154 124  C 164 118  168 104  166 90"
+          stroke-width="1.5" fill="var(--paper-warm)"/>
         <!-- Chin crease — prevents mouth reading -->
         <path d="M 137 121  C 139 124  141 124  143 121" stroke-width="0.8" opacity="0.4"/>
         <!-- Fur texture on chin -->
@@ -778,38 +772,25 @@ input[type=range] {
 
       </g><!-- /pencil group -->
 
-      <!-- ── ZONE OVERLAYS (invisible clickable areas) ───────────── -->
-      <!-- HEAD zone — covers skull + ears + muzzle -->
+      <!-- ── ZONE OVERLAYS — all inside translate(50,0) group ────── -->
       <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="140" cy="65" rx="58" ry="62"/>
-
-      <!-- EYES zone — sits on top of head zone, smaller -->
+        cx="140" cy="65" rx="58" ry="68"/>
       <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
         cx="140" cy="65" rx="38" ry="20"/>
-
-      <!-- TORSO zone -->
       <rect class="zone-overlay" id="zone-torso" data-zone="torso"
         x="62" y="134" width="156" height="168" rx="10"/>
-
-      <!-- LEFT ARM zone -->
       <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
         x="10" y="144" width="52" height="180" rx="8" transform="rotate(-7,36,234)"/>
-
-      <!-- RIGHT ARM zone -->
       <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
         x="218" y="144" width="52" height="180" rx="8" transform="rotate(7,244,234)"/>
-
-      <!-- LEFT HAND zone -->
       <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
         x="4" y="306" width="46" height="62" rx="6"/>
-
-      <!-- RIGHT HAND zone -->
       <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
         x="230" y="306" width="46" height="62" rx="6"/>
-
-      <!-- LEGS zone -->
       <rect class="zone-overlay" id="zone-legs" data-zone="legs"
         x="60" y="332" width="160" height="162" rx="8"/>
+
+      </g><!-- /translate group -->
 
     </svg>
 
