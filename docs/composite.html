@@ -460,7 +460,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="0 0 280 510" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="0 0 360 515" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Pencil sketch filter — very subtle, just roughens edges slightly -->
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
@@ -476,16 +476,69 @@ input[type=range] {
         </filter>
       </defs>
 
-      <!-- ── HUMAN SCALE REFERENCE (faint) ──────────────────────── -->
-      <g opacity="0.13" fill="none" stroke="var(--ink)" stroke-linecap="round">
-        <circle cx="238" cy="355" r="8" stroke-width="1"/>
-        <line x1="238" y1="363" x2="238" y2="405" stroke-width="1"/>
-        <line x1="238" y1="373" x2="228" y2="393" stroke-width="1"/>
-        <line x1="238" y1="373" x2="248" y2="393" stroke-width="1"/>
-        <line x1="238" y1="405" x2="231" y2="435" stroke-width="1"/>
-        <line x1="238" y1="405" x2="245" y2="435" stroke-width="1"/>
+      <!-- ── SCALE BAR (left edge) ─────────────────────────────── -->
+      <!-- Ground = y=495; 1 ft = 65.7 units; dogman = 7.5 ft -->
+      <g font-family="var(--sans)" font-size="8.5" fill="var(--ink-faint)" opacity="0.6">
+        <!-- Vertical rule -->
+        <line x1="22" y1="33" x2="22" y2="495" stroke="var(--ink-faint)" stroke-width="0.8" opacity="0.5"/>
+        <!-- Ground tick -->
+        <line x1="18" y1="495" x2="26" y2="495" stroke="var(--ink-faint)" stroke-width="0.9"/>
+        <text x="28" y="498" text-anchor="start">0</text>
+        <!-- 1 ft — y=429 -->
+        <line x1="18" y1="429" x2="26" y2="429" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="28" y="432" text-anchor="start">1</text>
+        <!-- 2 ft — y=363 -->
+        <line x1="18" y1="363" x2="26" y2="363" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="28" y="366" text-anchor="start">2</text>
+        <!-- 3 ft — y=297 -->
+        <line x1="18" y1="297" x2="26" y2="297" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="28" y="300" text-anchor="start">3</text>
+        <!-- 4 ft — y=231 -->
+        <line x1="18" y1="231" x2="26" y2="231" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="28" y="234" text-anchor="start">4</text>
+        <!-- 5 ft — y=165 -->
+        <line x1="18" y1="165" x2="26" y2="165" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="28" y="168" text-anchor="start">5</text>
+        <!-- 6 ft — y=99 -->
+        <line x1="18" y1="99" x2="26" y2="99" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="28" y="102" text-anchor="start">6</text>
+        <!-- 7 ft — y=33 -->
+        <line x1="18" y1="33" x2="26" y2="33" stroke="var(--ink-faint)" stroke-width="0.9"/>
+        <text x="28" y="36" text-anchor="start">7</text>
+        <!-- Unit label rotated -->
+        <text x="10" y="264" text-anchor="middle" transform="rotate(-90,10,264)" font-size="7.5">ft</text>
       </g>
-      <text x="238" y="444" text-anchor="middle" font-family="var(--sans)" font-size="7.5" fill="var(--ink-faint)" opacity="0.5">human</text>
+
+      <!-- ── HUMAN SILHOUETTE (correctly proportioned, to the right) -->
+      <!-- 5'9" = 5.75 ft = 377 units tall. Feet at y=495, head top at y=118 -->
+      <g opacity="0.18" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Head -->
+        <circle cx="308" cy="133" r="16" stroke-width="1.2"/>
+        <!-- Neck -->
+        <line x1="308" y1="149" x2="308" y2="164" stroke-width="2.2"/>
+        <!-- Shoulders -->
+        <line x1="282" y1="175" x2="334" y2="175" stroke-width="1.6"/>
+        <!-- Torso -->
+        <line x1="308" y1="164" x2="308" y2="320" stroke-width="2.2"/>
+        <!-- Left arm -->
+        <line x1="282" y1="175" x2="272" y2="290" stroke-width="1.4"/>
+        <!-- Right arm -->
+        <line x1="334" y1="175" x2="344" y2="290" stroke-width="1.4"/>
+        <!-- Hips -->
+        <line x1="290" y1="320" x2="326" y2="320" stroke-width="1.6"/>
+        <!-- Left leg -->
+        <line x1="295" y1="320" x2="288" y2="495" stroke-width="1.8"/>
+        <!-- Right leg -->
+        <line x1="321" y1="320" x2="328" y2="495" stroke-width="1.8"/>
+        <!-- Ground line -->
+        <line x1="280" y1="495" x2="350" y2="495" stroke-width="1.0" opacity="0.5"/>
+      </g>
+      <!-- Human label -->
+      <text x="308" y="508" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55">avg. human</text>
+      <text x="308" y="518" text-anchor="middle" font-family="var(--sans)" font-size="7.5" fill="var(--ink-faint)" opacity="0.4">5′ 9″</text>
+
+      <!-- Ground line under dogman -->
+      <line x1="50" y1="495" x2="270" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
 
       <!-- ── FIGURE — redrawn with correct proportions ─────────── -->
       <g filter="url(#pencil)" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
