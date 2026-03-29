@@ -180,8 +180,9 @@ def score_transcript(transcript_path: Path, channel_key: str, force: bool = Fals
         print(f"  ⚠️  Too short — skipping")
         return None
 
-    if len(transcript_text) > 60_000:
-        transcript_text = transcript_text[:60_000]
+    if len(transcript_text) > 30_000:
+        # Take first 20k + last 10k — captures intro context and emotional peak/resolution
+        transcript_text = transcript_text[:20_000] + "\n\n[...]\n\n" + transcript_text[-10_000:]
 
     prompt = WCS_PROMPT.format(transcript=transcript_text)
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
@@ -189,7 +190,7 @@ def score_transcript(transcript_path: Path, channel_key: str, force: bool = Fals
 
     try:
         message = client.messages.create(
-            model      = "claude-sonnet-4-5",   # Use Sonnet for scoring — more nuanced
+            model      = "claude-haiku-4-5",
             max_tokens = 3000,
             messages   = [{"role": "user", "content": prompt}],
         )
