@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Working Paper</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --accent: #6366f1;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --serif: 'Georgia', 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--sans);
+  }
+  header a { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+  header a:hover { color: var(--text); }
+  .header-sep { color: var(--border); }
+
+  .paper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  .paper-status {
+    display: inline-block;
+    background: #2d1f00;
+    color: #fcd34d;
+    border: 1px solid #78350f;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+  }
+
+  .paper-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    color: #f1f5f9;
+  }
+
+  .paper-subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .paper-meta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .abstract {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 0 8px 8px 0;
+  }
+  .abstract-label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .abstract p {
+    font-size: 0.92rem;
+    color: #94a3b8;
+    line-height: 1.75;
+  }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 3rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 2rem 0 0.75rem;
+  }
+
+  p {
+    margin-bottom: 1.25rem;
+    color: #cbd5e1;
+  }
+
+  .placeholder {
+    background: #1a1a2e;
+    border: 1px dashed #2a2d5a;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: #4a5568;
+    font-style: italic;
+  }
+  .placeholder::before { content: "⬡ "; color: #4a5568; }
+
+  blockquote {
+    border-left: 3px solid var(--border);
+    padding: 0.5rem 1.25rem;
+    margin: 1.5rem 0;
+    color: #94a3b8;
+    font-style: italic;
+  }
+
+  .footnote {
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+  }
+  .footnote p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+  }
+  th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background: var(--surface);
+    color: var(--muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: #94a3b8;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 3rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+  }
+  .toc-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .toc ol { padding-left: 1.25rem; }
+  .toc li { color: #94a3b8; margin-bottom: 0.3rem; }
+  .toc a { color: #94a3b8; text-decoration: none; }
+  .toc a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">🐾 Kryptovox</a>
+  <span class="header-sep">›</span>
+  <span style="color:var(--text)">Working Paper</span>
+</header>
+
+<div class="paper">
+
+  <div class="paper-status">WORKING PAPER — PRE-DATA</div>
+
+  <div class="paper-title">Persistent Descriptors in Anomalous Encounter Testimony: A Forensic Credibility Analysis of the Dogman Encounter Corpus</div>
+
+  <div class="paper-subtitle">A systematic application of structured credibility assessment to large-scale witness interview archives</div>
+
+  <div class="paper-meta">
+    <span>Kryptovox Research Project</span>
+    <span>Primary corpus: Dogman Encounters (Vic Cundiff, 2014–present)</span>
+    <span>Pipeline version: 1.0</span>
+    <span>Status: Data collection in progress</span>
+  </div>
+
+  <div class="abstract">
+    <div class="abstract-label">Abstract</div>
+    <p>
+      This paper presents the first systematic forensic credibility analysis of anomalous bipedal encounter testimony at corpus scale.
+      Drawing on a primary corpus of [N] witness interviews from the <em>Dogman Encounters</em> podcast archive,
+      we apply a six-dimension Witness Credibility Score (WCS) derived from established forensic psychology tools
+      to assess the structural authenticity of individual accounts. We further conduct frequency analysis of specific
+      anatomical and behavioural descriptors across the corpus, testing whether unusual details cluster in high-credibility
+      accounts and whether their prevalence is stable across accounts predating widespread internet discussion of the phenomenon.
+      We report [X]% of accounts scoring at or above the Strong credibility threshold (WCS ≥ 7.0),
+      and identify [Y] descriptors appearing at statistically significant rates among high-credibility accounts.
+      We discuss these findings in relation to conventional explanations — misidentification, fabrication, and social contagion —
+      and conclude that the data presents empirical challenges that neither explanation fully addresses.
+      We make no claim regarding the ontological status of the phenomenon described.
+    </p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ol>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#prior">Prior Work and Theoretical Framework</a></li>
+      <li><a href="#corpus">The Corpus: Dogman Encounters Archive</a></li>
+      <li><a href="#method">Methodology</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#discussion">Discussion</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+      <li><a href="#refs">References</a></li>
+    </ol>
+  </div>
+
+  <!-- ── 1. INTRODUCTION ──────────────────────────────────────────────── -->
+  <h2 id="intro">1. Introduction</h2>
+
+  <p>
+    Across North America, thousands of individuals report encounters with a large bipedal creature bearing canine facial features.
+    These accounts are not new — analogous descriptions appear in indigenous oral tradition, colonial-era settler records,
+    and the folklore of culturally isolated populations across multiple continents. What is new is the scale and accessibility
+    of the testimony archive available for analysis.
+  </p>
+
+  <p>
+    Prior to the emergence of long-form podcast platforms, no comparable body of primary anomalous encounter testimony
+    existed in accessible form. The <em>Dogman Encounters</em> archive alone represents over 600 unedited witness interviews
+    conducted by a single interviewer over more than a decade — a dataset of a consistency and scale that was simply
+    unavailable to researchers even fifteen years ago. This study represents the first attempt to apply systematic
+    forensic credibility analysis to this archive at corpus scale.
+  </p>
+
+  <p>
+    The central question we address is not whether the described creature exists. It is whether the pattern of testimony —
+    its structural properties, its specific descriptors, its distribution across time and geography — can be fully accounted
+    for by conventional explanations: misidentification of known animals, deliberate fabrication, or social contagion
+    through shared media. We argue that the data presents empirical challenges that these explanations do not fully resolve,
+    and that the phenomenon warrants serious scientific attention on those grounds alone.
+  </p>
+
+  <p>
+    The methodology itself constitutes an independent contribution. We present a replicable pipeline — combining
+    automated transcription, structured AI-assisted extraction, and multi-dimensional credibility scoring — that enables
+    a single researcher to process hundreds of hours of testimony in days rather than years. We document this pipeline
+    in full so that future researchers may apply it to other testimony corpora, refine its scoring dimensions,
+    or challenge our interpretations.
+  </p>
+
+  <!-- ── 2. PRIOR WORK ────────────────────────────────────────────────── -->
+  <h2 id="prior">2. Prior Work and Theoretical Framework</h2>
+
+  <h3>2.1 Forensic credibility analysis</h3>
+  <p>
+    The assessment of witness testimony credibility has a substantial literature in forensic psychology.
+    Criteria-Based Content Analysis (CBCA), originally developed by Steller and Köhnken (1989) for the evaluation
+    of child sexual abuse testimony, identifies structural markers that distinguish genuine experiential memory
+    from fabricated accounts. These include logical consistency, unstructured production, quantity of detail,
+    contextual embedding, and accounts of subjective mental states. The validity of CBCA as a credibility indicator
+    has been supported across multiple meta-analyses (Vrij, 2005; Masip et al., 2005).
+  </p>
+  <p>
+    The Statement Validity Assessment (SVA) framework, of which CBCA is a component, has been applied in criminal
+    proceedings across Europe and North America. While its use in forensic contexts remains debated, its core
+    insight — that genuine traumatic memory has structural properties that differ from fabricated narrative —
+    is well supported empirically. We adapt these principles into our six-dimension WCS framework,
+    calibrated for the specific properties of anomalous encounter testimony.
+  </p>
+
+  <h3>2.2 Memory and trauma</h3>
+  <p>
+    Research on traumatic memory encoding is relevant to our methodology in two respects.
+    First, genuinely traumatic experiences tend to produce memories with high sensory specificity
+    and emotional vividness, often accompanied by physiological responses during recall (van der Kolk, 1994).
+    Second, the phenomenon of emotional flattening during recall — where a witness describes extreme events
+    in a calm, analytical tone — is itself consistent with dissociative trauma processing rather than fabrication,
+    provided that sensory specificity remains high (Brewin et al., 1996). Our WCS treats emotional authenticity
+    and sensory specificity as independent dimensions precisely because their relationship in genuine trauma
+    is non-trivial.
+  </p>
+
+  <h3>2.3 The problem of social contagion</h3>
+  <p>
+    A primary alternative explanation for convergent anomalous testimony is social contagion: the spread
+    of descriptors through shared media, creating apparent pattern where none exists in underlying experience.
+    This explanation predicts that unusual descriptors should increase in frequency following high-visibility
+    media events, and that pre-internet accounts should show lower rates of specific unusual descriptors
+    than post-internet accounts. We test this prediction directly using the date metadata available for
+    accounts in our corpus.
+  </p>
+
+  <h3>2.4 Historical and cross-cultural parallels</h3>
+  <p>
+    Bipedal canine-headed humanoids appear across cultures and centuries in forms that predate any plausible
+    transmission route. The cynocephali of classical antiquity (Ctesias, 4th century BCE; Pliny the Elder, 77 CE)
+    describe dog-headed beings in geographically distant territories. Medieval European manuscript traditions
+    depict them as a distinct species. Slavic folklore preserves the <em>psoglav</em> (Serbian) and
+    <em>pasjeglavci</em> (Slovenian) — canine-headed humanoids with specific behavioural and anatomical
+    properties, some of which — including anatomically specific gaze limitations — have no parallel
+    in the classical tradition and therefore resist explanation as classical borrowing.
+    We discuss these parallels in relation to our corpus findings in Section 6.
+  </p>
+
+  <!-- ── 3. CORPUS ───────────────────────────────────────────────────── -->
+  <h2 id="corpus">3. The Corpus: Dogman Encounters Archive</h2>
+
+  <h3>3.1 Source description</h3>
+  <p>
+    The primary corpus for this study is the <em>Dogman Encounters</em> podcast, hosted by Vic Cundiff
+    and in continuous production since 2014. At the time of data collection, the archive comprised over
+    600 episodes. Each episode consists of one or more long-form witness interviews, typically 30–90 minutes
+    in duration, conducted in a consistent format by a single interviewer. This consistency is methodologically
+    significant: unlike corpora assembled from heterogeneous sources, the uniform interview conditions
+    reduce confounds introduced by varying interviewer style, question format, and session length.
+  </p>
+
+  <h3>3.2 Witness recruitment and vetting</h3>
+  <p>
+    Witnesses are not self-selected in the manner typical of online anomalous experience platforms.
+    The majority are referred to the programme through personal networks, often by individuals who
+    themselves had prior contact with the host. Referrals from professional sources — including
+    park rangers and law enforcement personnel — are documented across multiple episodes.
+    These professionals carry institutional credibility and professional reputational stakes,
+    making their referrals an implicit endorsement of the witness's character.
+  </p>
+  <p>
+    The host applies a vetting process prior to invitation. Witnesses whose accounts contain
+    demonstrable inconsistencies or implausibilities are not invited to record. This pre-screening
+    layer means our corpus has already passed a human credibility filter before our analytical
+    scoring is applied — a fact we note as both a strength (reduced noise floor) and a limitation
+    (potential interviewer selection bias) of the dataset.
+  </p>
+
+  <h3>3.3 Social dynamics and disclosure</h3>
+  <p>
+    The platform's audience is characterised by experiential engagement rather than adversarial scepticism.
+    Listener responses are predominantly empathetic, with a high proportion describing analogous personal
+    encounters or knowledge of individuals who experienced them. This social environment is notable for
+    what it is not: unlike most paranormal media platforms, the comment section is not characterised by
+    the mockery and adversarial engagement typical of evidence-based cryptid content.
+    An outside observer encountering the platform for the first time consistently reports surprise at
+    the quality of engagement — expecting ridicule, finding instead a community organised around
+    shared experience rather than shared belief in a specific extraordinary claim.
+  </p>
+  <p>
+    This dynamic has implications for the embellishment hypothesis. Embellishment is motivated by
+    the need to convince a sceptical audience. In an environment where the audience is already
+    sympathetic, the pressure to dramatise is reduced, not increased. We would therefore expect
+    this corpus to show <em>less</em> embellishment than testimony recorded in adversarial conditions,
+    not more.
+  </p>
+  <p>
+    Multiple witnesses report that the act of public disclosure produced a significant reduction
+    in psychological distress — a sense of relief at finally being believed. This pattern is
+    consistent with the established psychology of trauma disclosure (Pennebaker, 1997),
+    in which verbalisation of suppressed traumatic experience produces measurable affective relief.
+    Fabricators do not experience this relief because there is no suppressed experience to process.
+    The consistent report of peace following disclosure is structurally consistent with
+    genuine traumatic experience.
+  </p>
+
+  <h3>3.4 The historical window</h3>
+  <p>
+    It is worth noting explicitly that this study could not have been conducted at this scale
+    at any prior point in history. The combination of long-form podcast archives, automated
+    speech-to-text transcription, and large language model extraction and analysis creates
+    analytical possibilities that did not exist even a decade ago. The <em>Dogman Encounters</em>
+    archive represents the first testimony corpus of sufficient scale, consistency, and accessibility
+    to support the methodology we describe here. We are, in a meaningful sense, working in a window
+    that has only recently opened.
+  </p>
+
+  <!-- ── 4. METHODOLOGY ──────────────────────────────────────────────── -->
+  <h2 id="method">4. Methodology</h2>
+
+  <h3>4.1 Pipeline overview</h3>
+  <p>
+    Our analytical pipeline consists of five stages: audio acquisition, transcription,
+    structured extraction, credibility scoring, and statistical analysis.
+    All pipeline code and prompts are documented in the project repository and are fully replicable.
+  </p>
+
+  <h3>4.2 Transcription</h3>
+  <p>
+    Audio files are transcribed using OpenAI's Whisper large-v3 model via the Groq inference API,
+    producing word-level timestamped transcripts. Mean transcription time is approximately
+    one minute per hour of audio. All transcripts are stored as structured JSON including
+    segment-level timestamps, enabling downstream acoustic analysis.
+  </p>
+
+  <h3>4.3 Structured extraction</h3>
+  <p>
+    Each transcript is processed by a large language model (Anthropic Claude) using a structured
+    extraction prompt that elicits approximately 80 fields per account. These fields cover:
+    witness background and professional context; encounter geography, timing, and conditions;
+    creature morphology and behaviour; witness physiological and psychological responses;
+    post-encounter sequelae; testimony structure markers; light anomalies; and anomaly assessment.
+    Extraction confidence is reported per field. Fields not mentioned in the transcript are
+    returned as null rather than inferred.
+  </p>
+
+  <h3>4.4 Witness Credibility Score (WCS)</h3>
+  <p>
+    Each account is scored on six dimensions adapted from CBCA and SVA frameworks:
+  </p>
+
+  <table>
+    <tr><th>Dimension</th><th>Abbr.</th><th>Weight</th><th>Description</th></tr>
+    <tr><td>Internal Consistency</td><td>IC</td><td>20%</td><td>Account stability; absence of self-contradiction</td></tr>
+    <tr><td>Sensory Specificity</td><td>SS</td><td>20%</td><td>Multi-channel sensory detail; peripheral context</td></tr>
+    <tr><td>Spontaneous Elaboration</td><td>SA</td><td>15%</td><td>Unprompted detail; self-correction; non-linear structure</td></tr>
+    <tr><td>Emotional Authenticity</td><td>EA</td><td>25%</td><td>Appropriate affect; disclosure delay; post-trauma markers</td></tr>
+    <tr><td>Contextual Plausibility</td><td>CP</td><td>10%</td><td>Geographic, temporal, and social context coherence</td></tr>
+    <tr><td>Corroboration</td><td>CO</td><td>10%</td><td>Independent witnesses; physical evidence; prior reports</td></tr>
+  </table>
+
+  <p>
+    Each dimension is scored 0–10 by the language model, with rationale and evidence quotes required
+    for each score. The weighted composite WCS is classified into five bands:
+    Exceptional (≥8.5), Strong (≥7.0), Moderate (≥5.5), Weak (≥4.0), and Unreliable (&lt;4.0).
+    Emotional Authenticity is weighted highest (25%) as it is the dimension most resistant to
+    deliberate manipulation — performed emotion has distinct structural properties from genuine affect.
+  </p>
+
+  <h3>4.5 Acoustic analysis</h3>
+  <p>
+    In parallel with transcript-based scoring, each audio file is analysed using the librosa
+    audio processing library to extract prosodic features at the segment level.
+    Measures include fundamental frequency (pitch), RMS energy (volume proxy),
+    speaking rate, pause duration, and pitch tremor (instability index).
+    Segments showing statistically significant deviation from the speaker's baseline
+    on any of these measures are flagged with an emotional weight score.
+    This acoustic layer provides an independent, non-linguistic signal of emotional response —
+    one that cannot be manipulated through word choice alone — and enables identification of
+    the specific narrative moments at which physiological emotional response occurred.
+  </p>
+
+  <h3>4.6 Descriptor frequency analysis</h3>
+  <p>
+    Binary flags for specific anatomical and behavioural descriptors are extracted for each account
+    and aggregated across the corpus. We test three hypotheses for each descriptor:
+    (1) its frequency exceeds base rate expectation for random embellishment;
+    (2) its frequency is stable across accounts predating 2010 versus post-2010 accounts;
+    (3) its frequency is equal or higher in high-WCS accounts compared to low-WCS accounts.
+    A descriptor meeting all three criteria is classified as a Primary Finding.
+  </p>
+
+  <!-- ── 5. RESULTS ──────────────────────────────────────────────────── -->
+  <h2 id="results">5. Results</h2>
+
+  <div class="placeholder">
+    Results section pending full corpus analysis. Placeholder for statistical tables,
+    descriptor frequency charts, WCS distribution, and pre/post-internet comparison.
+    Current pilot data (N=5) shown in the dashboard for methodological validation only.
+  </div>
+
+  <h3>5.1 WCS distribution</h3>
+  <div class="placeholder">
+    Table: WCS band distribution across full corpus (N=[X]).
+    Expected: ~30–40% Strong/Exceptional after documentary-format exclusions.
+  </div>
+
+  <h3>5.2 Primary descriptor findings</h3>
+  <div class="placeholder">
+    Table: Descriptors meeting all three criteria (frequency, temporal stability, credibility correlation).
+    Candidates from pilot: paralysis/freeze, watches-then-leaves, silent departure, disclosure delay.
+  </div>
+
+  <h3>5.3 Acoustic emotional timeline</h3>
+  <div class="placeholder">
+    Analysis of which narrative moments produce consistent acoustic emotional response across accounts.
+    Hypothesis: departure moment and eye-contact moment will show highest cross-account emotional weight.
+  </div>
+
+  <h3>5.4 Pre/post-internet stability</h3>
+  <div class="placeholder">
+    Comparison of descriptor rates: accounts pre-2010 vs post-2010.
+    A stable rate across this boundary is evidence against social contagion as primary explanation.
+  </div>
+
+  <!-- ── 6. DISCUSSION ───────────────────────────────────────────────── -->
+  <h2 id="discussion">6. Discussion</h2>
+
+  <h3>6.1 Against the fabrication hypothesis</h3>
+  <p>
+    The fabrication hypothesis predicts that unusual descriptors should cluster in low-credibility accounts —
+    that embellishment and creativity correlate with implausibility. Our data [will test / tests] this
+    prediction directly. If high-WCS accounts report unusual descriptors at equal or higher rates than
+    low-WCS accounts, the fabrication hypothesis cannot account for the pattern. A skilled fabricator
+    produces structurally clean narrative; a genuine experiencer produces structurally authentic narrative
+    with unusual content. The WCS is specifically designed to separate these profiles.
+  </p>
+  <p>
+    We also note the disclosure cost argument. Many witnesses in this corpus held their accounts
+    for years or decades before public disclosure — in some cases explicitly citing fear of professional
+    consequences. Police officers, military personnel, nurses, teachers, and park rangers appear
+    throughout the corpus. The expected cost of fabrication for these individuals substantially
+    exceeds any plausible benefit. This does not prove their accounts are genuine, but it is
+    inconsistent with the motivated fabrication profile.
+  </p>
+
+  <h3>6.2 Against the social contagion hypothesis</h3>
+  <p>
+    Social contagion predicts temporal instability in descriptor rates — unusual details should
+    become more common as media coverage increases. We test this by comparing accounts from
+    before and after the widespread popularisation of dogman content online (approximately 2012–2015).
+    Stable rates across this boundary are inconsistent with contagion as the primary mechanism.
+  </p>
+  <p>
+    We further note that the platform's social environment — characterised by belief rather than
+    scepticism — reduces rather than increases the incentive for embellishment. Witnesses are not
+    trying to convince a hostile audience. The pressure to dramatise is structurally lower than
+    in adversarial disclosure contexts.
+  </p>
+
+  <h3>6.3 Cross-cultural and historical convergence</h3>
+  <p>
+    The appearance of specific morphological descriptors in geographically and temporally isolated
+    historical sources — including the anatomically specific downward gaze limitation documented
+    in Slovenian pasjeglavci folklore (<em>oči obrnjene v tla</em>: "eyes turned toward the ground")
+    which has no parallel in the classical cynocephali tradition — raises the possibility of
+    independent convergence on a real perceptual object. We do not assert this conclusion,
+    but we note that independent convergence without transmission route is itself a phenomenon
+    requiring explanation.
+  </p>
+
+  <h3>6.4 Limitations</h3>
+  <p>
+    Several limitations of this study require acknowledgment. First, the corpus is pre-screened
+    by the host prior to recording, introducing a selection bias that may inflate credibility scores
+    relative to an unscreened population of experiencers. Second, AI-based credibility scoring
+    has not been independently validated against human forensic expert ratings for this
+    specific testimony type; our WCS dimensions are derived from validated frameworks but
+    the specific implementation is novel. Third, acoustic analysis of emotional response
+    cannot distinguish genuine involuntary physiological response from skilled performance —
+    though we note that sustained performance across 90-minute unedited interviews represents
+    an implausibly high level of acting skill for non-professional witnesses. Fourth, our corpus
+    is drawn from a single platform with a single consistent interviewer, limiting generalisability
+    to other encounter report archives.
+  </p>
+
+  <!-- ── 7. CONCLUSION ───────────────────────────────────────────────── -->
+  <h2 id="conclusion">7. Conclusion</h2>
+
+  <p>
+    After analysing [N] accounts using forensic credibility tools developed for criminal testimony,
+    we find that [X]% score at or above the threshold associated with genuine traumatic recall.
+    These accounts share specific anatomical and behavioural descriptors at statistically significant
+    rates — descriptors that appear consistently across decades and geographic regions, and that
+    predate widespread internet discussion of the phenomenon.
+  </p>
+
+  <p>
+    Two explanations remain. Either this corpus represents an extraordinary concentration of skilled,
+    coordinated fabricators — people with nothing to gain and often significant professional costs
+    to bear — producing structurally authentic accounts that independently converge on the same
+    unusual details across five decades. Or the descriptors reflect genuine perceptual experience
+    of something not yet catalogued by mainstream science.
+  </p>
+
+  <p>
+    We make no claim as to which explanation is correct. We note only that the data presents
+    a problem for both — and that a phenomenon capable of generating this quality and consistency
+    of testimony, whatever its ultimate nature, warrants serious scientific attention.
+  </p>
+
+  <p>
+    The pipeline we have documented here — the first of its kind applied to anomalous encounter
+    testimony at this scale — is offered to the research community as a replicable tool.
+    We invite challenge, replication, and refinement. The data is the argument.
+    We are simply the first to read it this carefully.
+  </p>
+
+  <!-- ── REFERENCES ──────────────────────────────────────────────────── -->
+  <h2 id="refs">References</h2>
+
+  <p>Brewin, C. R., Dalgleish, T., & Joseph, S. (1996). A dual representation theory of posttraumatic stress disorder. <em>Psychological Review, 103</em>(4), 670–686.</p>
+  <p>Ctesias of Cnidus (4th century BCE). <em>Indika</em>. [Fragment preserved in Photius, Bibliotheca, Codex 72].</p>
+  <p>Kropej, M. (2012). <em>Supernatural Beings from Slovenian Myth and Folktales</em>. ZRC SAZU.</p>
+  <p>Masip, J., Sporer, S. L., Garrido, E., & Herrero, C. (2005). The detection of deception with the reality monitoring approach: A review of the evidence. <em>Psychology, Crime & Law, 11</em>(1), 99–122.</p>
+  <p>Pennebaker, J. W. (1997). Writing about emotional experiences as a therapeutic process. <em>Psychological Science, 8</em>(3), 162–166.</p>
+  <p>Pliny the Elder (77 CE). <em>Naturalis Historia</em>, Book VII.</p>
+  <p>Steller, M., & Köhnken, G. (1989). Criteria-based statement analysis. In D. C. Raskin (Ed.), <em>Psychological Methods in Criminal Investigation and Evidence</em> (pp. 217–245). Springer.</p>
+  <p>van der Kolk, B. A. (1994). The body keeps the score: Memory and the evolving psychobiology of posttraumatic stress. <em>Harvard Review of Psychiatry, 1</em>(5), 253–265.</p>
+  <p>Vrij, A. (2005). Criteria-based content analysis: A qualitative review of the first 37 studies. <em>Psychology, Public Policy, and Law, 11</em>(1), 3–41.</p>
+
+  <div class="footnote">
+    <p>This is a working paper. Statistics marked with [brackets] are placeholders pending full corpus analysis.</p>
+    <p>Pipeline source code and scoring rubrics: github.com/purtilonijostimar/kryptovox</p>
+    <p>Dashboard: purtilonijostimar.github.io/kryptovox</p>
+  </div>
+
+</div>
+</body>
+</html>
