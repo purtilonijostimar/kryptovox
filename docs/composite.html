@@ -462,7 +462,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="0 -110 490 622" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="0 -110 700 622" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
           <feTurbulence type="fractalNoise" baseFrequency="0.06 0.04" numOctaves="3" seed="7" result="noise"/>
@@ -490,6 +490,22 @@ input[type=range] {
         />
       </g><!-- /figure layer -->
 
+      <!-- ── HUMAN FIGURE (scale reference, 5′9″ = 76.7% of dogman) ── -->
+      <!-- Same image dimensions 853×1280; height=435, width=290        -->
+      <!-- Feet at y=495, placed to right of dogman (x=339)             -->
+      <g transform="translate(50,0)" opacity="0.55">
+        <image
+          href="composite-human.png"
+          x="339" y="-30"
+          width="290" height="435"
+          preserveAspectRatio="xMidYMid meet"
+        />
+        <text x="484" y="512" text-anchor="middle"
+          font-family="var(--sans)" font-size="8.5" fill="var(--ink-faint)">avg. human</text>
+        <text x="484" y="523" text-anchor="middle"
+          font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.7">5′ 9″</text>
+      </g><!-- /human figure -->
+
       <!-- ── SCALE BAR (renders on top of image) ───────────────────── -->
       <!-- Ground=y=495; 1ft=66.5u; 8ft=y=495-(8x66.5)=-37 -->
       <g font-family="var(--sans)" font-size="9.5" fill="var(--ink-faint)" opacity="0.65">
@@ -516,9 +532,13 @@ input[type=range] {
       </g>
 
       <!-- Avg dogman 7.5ft reference line -->
-      <line x1="10" y1="-4" x2="420" y2="-4"
+      <line x1="10" y1="-4" x2="630" y2="-4"
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.2"/>
-      <text x="422" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55">avg. dogman 7.5 ft</text>
+      <text x="632" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55">avg. dogman 7.5 ft</text>
+      <!-- Avg human 5.75ft reference line -->
+      <line x1="10" y1="113" x2="630" y2="113"
+        stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.15"/>
+      <text x="632" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.45">5.75 ft</text>
 
       <!-- ── ZONE OVERLAYS (top layer — renders last) ───────────────
            Coords in translate(50,0) space.
