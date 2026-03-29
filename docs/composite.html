@@ -104,7 +104,7 @@ input[type=range] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 3rem 1rem 3rem 0;
+  padding: 3rem 0 3rem 0;
   position: relative;
 }
 .figure-instructions { align-self: center; }
@@ -134,7 +134,7 @@ input[type=range] {
 /* SVG figure */
 #figure-svg {
   width: 100%;
-  max-width: 520px;
+  max-width: 680px;
   cursor: crosshair;
 }
 
@@ -540,44 +540,44 @@ input[type=range] {
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.15"/>
       <text x="692" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.45">5.75 ft</text>
 
-      <!-- ── ZONE OVERLAYS (top layer — renders last) ───────────────
-           Coords in translate(50,0) space.
-           Image 853x1280 -> SVG 378x567; x_svg=px*0.443-49; y_svg=(px-80)*0.445-4
-      ──────────────────────────────────────────────────────────── -->
-      <g transform="translate(50,0)">
-        <!-- LEFT EAR -->
-        <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
-          cx="162" cy="10" rx="26" ry="40"/>
-        <!-- RIGHT EAR -->
-        <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
-          cx="258" cy="10" rx="26" ry="40"/>
-        <!-- HEAD -->
-        <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-          cx="210" cy="78" rx="50" ry="52"/>
-        <!-- EYES -->
-        <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-          cx="210" cy="70" rx="32" ry="13"/>
-        <!-- TEETH -->
-        <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
-         x="182" y="118" width="56" height="38" rx="8"/>
-        <!-- TORSO -->
-        <rect class="zone-overlay" id="zone-torso" data-zone="torso"
-         x="130" y="198" width="160" height="150" rx="10"/>
-        <!-- LEFT ARM -->
-        <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
-         x="88" y="198" width="50" height="200" rx="8" transform="rotate(-4,113,298)"/>
-        <!-- RIGHT ARM -->
-        <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
-         x="282" y="198" width="50" height="200" rx="8" transform="rotate(4,307,298)"/>
-        <!-- LEFT HAND -->
-        <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
-         x="84" y="378" width="54" height="72" rx="6"/>
-        <!-- RIGHT HAND -->
-        <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
-         x="282" y="378" width="54" height="72" rx="6"/>
-        <!-- LEGS -->
-        <rect class="zone-overlay" id="zone-legs" data-zone="legs"
-         x="142" y="346" width="136" height="150" rx="8"/>
+      <!-- ── ZONE OVERLAYS — recalibrated v3 ──────────────────────────
+     Dogman: img x=17 y=-27 w=387 h=580 in translate(50,0)
+     x_svg=17+px*(387/853) | y_svg=-27+px*(580/1280)
+     Center at translate x≈210                          -->
+      <!-- LEFT EAR: ear center ~(290px, 80px) -->
+      <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
+        cx="152" cy="9" rx="24" ry="38"/>
+      <!-- RIGHT EAR: ~(560px, 80px) -->
+      <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
+        cx="271" cy="9" rx="24" ry="38"/>
+      <!-- HEAD: skull from ears to chin -->
+      <ellipse class="zone-overlay" id="zone-head" data-zone="head"
+        cx="210" cy="80" rx="56" ry="70"/>
+      <!-- EYES: ~y=220px -->
+      <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
+        cx="210" cy="72" rx="34" ry="14"/>
+      <!-- TEETH: snout lower ~y=300-380px -->
+      <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
+        x="182" y="109" width="56" height="48" rx="8"/>
+      <!-- TORSO: shoulders to waist ~y=450-720px -->
+      <rect class="zone-overlay" id="zone-torso" data-zone="torso"
+        x="128" y="176" width="164" height="130" rx="10"/>
+      <!-- LEFT ARM: ~x=250px shoulder to hand -->
+      <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
+        x="88" y="176" width="48" height="210" rx="8" transform="rotate(-4,112,281)"/>
+      <!-- RIGHT ARM: ~x=600px -->
+      <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
+        x="284" y="176" width="48" height="210" rx="8" transform="rotate(4,308,281)"/>
+      <!-- LEFT HAND: ~y=1000-1150px -->
+      <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
+        x="80" y="360" width="52" height="68" rx="6"/>
+      <!-- RIGHT HAND -->
+      <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
+        x="284" y="360" width="52" height="68" rx="6"/>
+      <!-- LEGS: hips to feet -->
+      <rect class="zone-overlay" id="zone-legs" data-zone="legs"
+        x="138" y="344" width="144" height="152" rx="8"/>
+
       </g><!-- /zones layer -->
 
     </svg>
