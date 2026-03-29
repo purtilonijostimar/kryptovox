@@ -14,29 +14,45 @@ ROOT       = Path(__file__).parent.parent
 SCORED_DIR = ROOT / "data" / "scored"
 OUT_PATH   = ROOT / "docs" / "dashboard.json"
 
+# Title fragments that reliably identify non-witness-interview episodes
+NON_INTERVIEW_TITLE_FRAGMENTS = [
+    "q & a", "q&a", "livestream", "live stream",
+    "i write books", "we hunt", "we photograph", "we film",
+    "documentary", "documentary &", "dogman files",
+    "hunting grounds", "part 2",   # compilations
+    "author", "researcher", "investigator",
+]
+
+
 def is_valid_interview(data: dict) -> bool:
     """
-    Exclude episodes that are not genuine first-person witness interviews.
-    An account is excluded if:
-      - interview_count is 0 (no first-person witness)
-      - narrator_profile is 'documentary' or 'compilation'
-      - WCS_band is 'Unreliable' AND interview_count < 1
-    Low-WCS genuine interviews are kept — they belong in the corpus as the weak end.
-    Only non-interview format episodes are excluded.
+    Keep only genuine first-person witness interviews.
+    Excludes:
+      - Any account scoring Unreliable (WCS < 4.0)
+      - Episodes with non-interview format titles (Q&A, livestream, documentary, etc.)
+      - Episodes where interview_count = 0 or narrator_profile = documentary/compilation
     """
-    ic = data.get("interview_count", 1)
+    band    = data.get("WCS_band", "")
+    ic      = data.get("interview_count")
     narrator = (data.get("narrator_profile") or "").lower()
-    band = data.get("WCS_band", "")
+    title   = (data.get("audio_file") or data.get("title") or "").lower()
 
-    # Explicit non-interview format
+    # Any Unreliable score — not fit for the research corpus
+    if band == "Unreliable":
+        return False
+
+    # Explicit non-interview narrator profile
     if narrator in ("documentary", "compilation"):
         return False
-    # No first-person witness at all
+
+    # No first-person witness
     if isinstance(ic, (int, float)) and ic < 1:
         return False
-    # Unreliable AND no witness — belt-and-suspenders
-    if band == "Unreliable" and isinstance(ic, (int, float)) and ic == 0:
-        return False
+
+    # Title-based safety net for episodes extraction missed
+    for fragment in NON_INTERVIEW_TITLE_FRAGMENTS:
+        if fragment in title:
+            return False
 
     return True
 
@@ -61,10 +77,11 @@ def export():
                 excluded.append(f.name)
 
     output = {
-        "generated_at": datetime.now().isoformat(),
-        "total":        len(accounts),
-        "excluded":     len(excluded),
-        "accounts":     accounts,
+        "generated_at":    datetime.now().isoformat(),
+        "total":           len(accounts),   # always = len(accounts) — what's shown
+        "total_processed": len(accounts) + len(excluded),
+        "excluded":        len(excluded),
+        "accounts":        accounts,
     }
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
