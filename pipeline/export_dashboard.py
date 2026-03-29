@@ -53,11 +53,39 @@ def is_valid_interview(data: dict) -> bool:
     return True
 
 
+def flatten_extracted(extracted: dict) -> dict:
+    """
+    Flatten the nested extracted JSON into a single-level dict.
+    Nested sections: witness, encounter, creature, behaviour, anomalies,
+    community, analysis, extraction_meta.
+    Scoring fields (WCS etc.) stay at top level.
+    """
+    flat = {}
+
+    # Preserve top-level scalar fields
+    for k, v in extracted.items():
+        if not isinstance(v, dict):
+            flat[k] = v
+
+    # Flatten known nested sections
+    NESTED_SECTIONS = [
+        "witness", "encounter", "creature", "behaviour",
+        "anomalies", "community", "analysis", "extraction_meta", "source",
+    ]
+    for section in NESTED_SECTIONS:
+        if section in extracted and isinstance(extracted[section], dict):
+            for k, v in extracted[section].items():
+                # Don't overwrite if already set at top level
+                if k not in flat:
+                    flat[k] = v
+
+    return flat
+
+
 def merge_account(scored_path: Path, channel_key: str) -> dict:
     """
-    Merge extracted fields + scored fields into one record.
-    Extracted fields are the base; scored fields overwrite on conflict.
-    This ensures all 80+ extraction fields are present in the dashboard.
+    Merge extracted fields + scored fields into one flat record.
+    Extracted fields (flattened) form the base; scored fields overwrite on conflict.
     """
     with open(scored_path, encoding="utf-8") as f:
         scored = json.load(f)
@@ -68,18 +96,18 @@ def merge_account(scored_path: Path, channel_key: str) -> dict:
 
     if extracted_path.exists():
         with open(extracted_path, encoding="utf-8") as f:
-            extracted = json.load(f)
-        # Merge: extracted as base, scored fields overwrite
-        merged = {**extracted, **scored}
+            raw_extracted = json.load(f)
+        flat_extracted = flatten_extracted(raw_extracted)
+        # Scored fields win on conflict (WCS scores are authoritative)
+        merged = {**flat_extracted, **scored}
     else:
         merged = scored
 
-    # Strip fields that are too heavy for the dashboard
-    merged.pop("segments", None)
-    merged.pop("full_transcript", None)
-    merged.pop("raw_text", None)
-    # Strip verbose WCS rationale text to keep file size down
-    # but keep the score numbers and evidence quotes
+    # Strip heavy fields
+    for key in ("segments", "full_transcript", "raw_text", "_source_transcript"):
+        merged.pop(key, None)
+
+    # Strip verbose WCS rationale text — keep scores and evidence quotes
     for dim in ("EA", "SA", "IC", "SS", "DC", "CO", "CP", "NC"):
         if dim in merged and isinstance(merged[dim], dict):
             merged[dim].pop("rationale", None)
