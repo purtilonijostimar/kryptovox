@@ -132,7 +132,7 @@ input[type=range] {
 /* SVG figure */
 #figure-svg {
   width: 100%;
-  max-width: 340px;
+  max-width: 520px;
   cursor: crosshair;
 }
 
@@ -509,33 +509,52 @@ input[type=range] {
         <text x="10" y="264" text-anchor="middle" transform="rotate(-90,10,264)" font-size="7.5">ft</text>
       </g>
 
-      <!-- ── HUMAN SILHOUETTE (correctly proportioned, to the right) -->
-      <!-- 5'9" = 5.75 ft = 377 units tall. Feet at y=495, head top at y=118 -->
-      <g opacity="0.18" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Head -->
-        <circle cx="308" cy="133" r="16" stroke-width="1.2"/>
-        <!-- Neck -->
-        <line x1="308" y1="149" x2="308" y2="164" stroke-width="2.2"/>
-        <!-- Shoulders -->
-        <line x1="282" y1="175" x2="334" y2="175" stroke-width="1.6"/>
-        <!-- Torso -->
-        <line x1="308" y1="164" x2="308" y2="320" stroke-width="2.2"/>
-        <!-- Left arm -->
-        <line x1="282" y1="175" x2="272" y2="290" stroke-width="1.4"/>
-        <!-- Right arm -->
-        <line x1="334" y1="175" x2="344" y2="290" stroke-width="1.4"/>
+      <!-- ── HUMAN FIGURE — same pencil-sketch style, 5'9", beside dogman -->
+      <!-- 5.75 ft / 7.5 ft = 76.7% of dogman. Dogman spans y≈2 to y≈495 = 493px.
+           Human height = 378px. Feet at y=495, head top at y=117. Center x=308. -->
+      <g filter="url(#pencil)" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.38">
+        <!-- Head — round, simple human oval -->
+        <ellipse cx="308" cy="132" rx="18" ry="20" stroke-width="1.4"/>
+        <!-- Hair suggestion — few strokes -->
+        <path d="M 292 128 C 294 118 304 113 308 112 C 312 113 322 118 324 128" stroke-width="1.0"/>
+        <!-- Eyes — simple horizontal lines -->
+        <line x1="299" y1="131" x2="304" y2="131" stroke-width="1.2"/>
+        <line x1="312" y1="131" x2="317" y2="131" stroke-width="1.2"/>
+        <!-- Nose — small vertical -->
+        <path d="M 308 134 L 307 140 L 309 140" stroke-width="0.9"/>
+        <!-- Neck — slender -->
+        <path d="M 302 152 C 300 162 298 170 296 178" stroke-width="1.3"/>
+        <path d="M 314 152 C 316 162 318 170 320 178" stroke-width="1.3"/>
+        <!-- Shoulders — modest width -->
+        <path d="M 280 183 C 290 178 326 178 340 183" stroke-width="1.4"/>
+        <!-- Torso sides -->
+        <path d="M 280 183 C 278 220 280 260 284 300" stroke-width="1.3"/>
+        <path d="M 340 183 C 342 220 340 260 336 300" stroke-width="1.3"/>
+        <!-- Waist -->
+        <path d="M 284 300 C 294 304 322 304 336 300" stroke-width="1.2"/>
         <!-- Hips -->
-        <line x1="290" y1="320" x2="326" y2="320" stroke-width="1.6"/>
+        <path d="M 284 300 C 280 310 278 318 280 326" stroke-width="1.3"/>
+        <path d="M 336 300 C 340 310 342 318 340 326" stroke-width="1.3"/>
+        <!-- Left arm — along body, slightly away -->
+        <path d="M 280 188 C 272 224 268 268 266 308" stroke-width="1.2"/>
+        <!-- Right arm -->
+        <path d="M 340 188 C 348 224 352 268 354 308" stroke-width="1.2"/>
+        <!-- Left hand — small -->
+        <path d="M 264 308 C 262 316 264 322 268 320" stroke-width="1.0"/>
+        <!-- Right hand -->
+        <path d="M 356 308 C 358 316 356 322 352 320" stroke-width="1.0"/>
         <!-- Left leg -->
-        <line x1="295" y1="320" x2="288" y2="495" stroke-width="1.8"/>
+        <path d="M 280 326 C 278 380 278 430 280 495" stroke-width="1.4"/>
         <!-- Right leg -->
-        <line x1="321" y1="320" x2="328" y2="495" stroke-width="1.8"/>
-        <!-- Ground line -->
-        <line x1="280" y1="495" x2="350" y2="495" stroke-width="1.0" opacity="0.5"/>
+        <path d="M 340 326 C 342 380 342 430 340 495" stroke-width="1.4"/>
+        <!-- Left shoe -->
+        <path d="M 278 493 C 272 494 268 498 282 499 C 286 499 288 497 286 495" stroke-width="1.1"/>
+        <!-- Right shoe -->
+        <path d="M 342 493 C 348 494 352 498 338 499 C 334 499 332 497 334 495" stroke-width="1.1"/>
       </g>
       <!-- Human label -->
-      <text x="308" y="508" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.55">avg. human</text>
-      <text x="308" y="518" text-anchor="middle" font-family="var(--sans)" font-size="7.5" fill="var(--ink-faint)" opacity="0.4">5′ 9″</text>
+      <text x="308" y="509" text-anchor="middle" font-family="var(--sans)" font-size="8.5" fill="var(--ink-faint)" opacity="0.6">avg. human</text>
+      <text x="308" y="520" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.42">5′ 9″</text>
 
       <!-- Ground line under dogman -->
       <line x1="50" y1="495" x2="270" y2="495" stroke="var(--ink-faint)" stroke-width="0.7" opacity="0.35"/>
@@ -543,66 +562,87 @@ input[type=range] {
       <!-- ── FIGURE — redrawn with correct proportions ─────────── -->
       <g filter="url(#pencil)" stroke="var(--ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
 
-        <!-- ── HEAD — wolf/German Shepherd anatomy ── -->
-        <!-- Skull — broad across cheeks, slightly domed -->
-        <path d="M 110 75 C 108 52 118 36 140 32 C 162 28 174 46 173 70 C 172 86 162 96 148 100 C 144 102 136 102 132 100 C 118 94 112 86 110 75 Z" stroke-width="1.7"/>
+        <!-- ══ HEAD — wolf anatomy, front view ══════════════════════
+             Key proportions: wide cheekbones, narrow forehead,
+             prominent rectangular snout, small predator eyes,
+             very tall upright ears, heavy brow shelf
+        ─────────────────────────────────────────────────────────── -->
 
-        <!-- EARS — tall narrow triangles, German Shepherd style, close set on crown -->
-        <!-- Left ear outer -->
-        <path d="M 124 46 L 114 2 L 138 42" stroke-width="1.8"/>
-        <!-- Left ear inner line -->
-        <path d="M 126 44 L 120 12 L 136 42" stroke-width="0.75" opacity="0.55"/>
-        <!-- Right ear outer -->
-        <path d="M 156 42 L 166 2 L 142 44" stroke-width="1.8"/>
-        <!-- Right ear inner line -->
-        <path d="M 154 42 L 160 12 L 144 44" stroke-width="0.75" opacity="0.55"/>
+        <!-- Outer skull — wide at cheeks, domed forehead, tapers to jaw -->
+        <path d="
+          M 104 82
+          C 100 62  106 40  120 30
+          C 130 22  150 22  160 30
+          C 174 40  180 62  176 82
+          C 174 96  168 108  158 114
+          C 152 118  148 120  140 120
+          C 132 120  128 118  122 114
+          C 112 108  106 96   104 82 Z
+        " stroke-width="1.8"/>
 
-        <!-- SNOUT — rectangular wolf muzzle, visible from front as a mass -->
-        <!-- Stop (indent where forehead meets muzzle) -->
-        <path d="M 128 72 C 132 68 148 68 152 72" stroke-width="1.0" opacity="0.5"/>
-        <!-- Upper muzzle sides — comes forward and slightly narrows -->
-        <path d="M 126 74 C 124 80 126 90 130 94" stroke-width="1.3"/>
-        <path d="M 154 74 C 156 80 154 90 150 94" stroke-width="1.3"/>
-        <!-- Nose bridge — top of muzzle, fairly flat -->
-        <path d="M 126 74 C 132 71 148 71 154 74" stroke-width="1.2"/>
-        <!-- Nose tip — wide dog nose -->
-        <path d="M 128 94 C 132 98 148 98 152 94" stroke-width="1.4"/>
-        <path d="M 128 94 C 130 91 150 91 152 94" stroke-width="1.0"/>
-        <!-- Nostrils -->
-        <ellipse cx="134" cy="94" rx="3.5" ry="2" stroke-width="1.1"/>
-        <ellipse cx="146" cy="94" rx="3.5" ry="2" stroke-width="1.1"/>
-        <!-- Lower jaw — hangs below nose, slightly wider -->
-        <path d="M 122 82 C 120 90 122 100 130 106 C 136 110 144 110 150 106 C 158 100 160 90 158 82" stroke-width="1.4"/>
-        <!-- Chin fur tuft -->
-        <path d="M 135 108 C 138 112 142 112 145 108" stroke-width="0.8" opacity="0.5"/>
+        <!-- EARS — very tall, narrow, near-vertical. German Shepherd.
+             Base sits at top of skull, tips reach near top of viewBox -->
+        <!-- Left ear -->
+        <path d="M 118 34  L 106 -6  L 132 28 Z" stroke-width="1.9"/>
+        <path d="M 120 32  L 110 2   L 130 28" stroke-width="0.8" opacity="0.5" fill="none"/>
+        <!-- Right ear -->
+        <path d="M 162 28  L 174 -6  L 148 32 Z" stroke-width="1.9"/>
+        <path d="M 160 28  L 170 2   L 150 30" stroke-width="0.8" opacity="0.5" fill="none"/>
 
-        <!-- EYES — small, almond-shaped, predator set, under heavy brow -->
-        <!-- Left eye — almond, slightly angled (outer corner higher) -->
-        <path d="M 116 68 C 120 63 130 63 133 67 C 131 72 122 72 116 68 Z" stroke-width="1.4"/>
-        <ellipse cx="125" cy="67" rx="3" ry="3" stroke-width="0.9"/>
-        <circle cx="126" cy="67" r="1.8" fill="var(--ink)" opacity="0.75" stroke="none"/>
-        <circle cx="128" cy="65" r="0.9" fill="white" opacity="0.85" stroke="none"/>
+        <!-- BROW SHELF — very pronounced, overhangs eyes, creates shadow -->
+        <path d="M 104 66  C 112 56  124 52  134 56" stroke-width="2.4"/>
+        <path d="M 146 56  C 156 52  168 56  176 66" stroke-width="2.4"/>
+        <!-- Inter-brow crease — furrowed, aggressive -->
+        <path d="M 134 56  C 137 50  143 50  146 56" stroke-width="1.3"/>
+        <line x1="138" y1="52" x2="137" y2="60" stroke-width="0.9" opacity="0.45"/>
+        <line x1="142" y1="52" x2="143" y2="60" stroke-width="0.9" opacity="0.45"/>
+
+        <!-- EYES — small, hard almond shape, predator angle, under brow -->
+        <!-- Left eye: outer corner slightly higher than inner (predator) -->
+        <path d="M 112 70  C 116 64  126 63  130 68  C 127 74  117 74  112 70 Z" stroke-width="1.5"/>
+        <circle cx="121" cy="69" r="3.2" stroke-width="1.0"/>
+        <circle cx="121" cy="69" r="1.9" fill="var(--ink)" opacity="0.8" stroke="none"/>
+        <circle cx="123" cy="67" r="0.9" fill="white" opacity="0.9" stroke="none"/>
         <!-- Right eye -->
-        <path d="M 147 67 C 150 63 160 63 164 68 C 158 72 149 72 147 67 Z" stroke-width="1.4"/>
-        <ellipse cx="155" cy="67" rx="3" ry="3" stroke-width="0.9"/>
-        <circle cx="156" cy="67" r="1.8" fill="var(--ink)" opacity="0.75" stroke="none"/>
-        <circle cx="158" cy="65" r="0.9" fill="white" opacity="0.85" stroke="none"/>
+        <path d="M 150 68  C 154 63  164 64  168 70  C 163 74  153 74  150 68 Z" stroke-width="1.5"/>
+        <circle cx="159" cy="69" r="3.2" stroke-width="1.0"/>
+        <circle cx="159" cy="69" r="1.9" fill="var(--ink)" opacity="0.8" stroke="none"/>
+        <circle cx="161" cy="67" r="0.9" fill="white" opacity="0.9" stroke="none"/>
 
-        <!-- BROW RIDGE — very heavy, overhanging, gives predatory look -->
-        <path d="M 108 64 C 114 56 122 53 132 56" stroke-width="2.2"/>
-        <path d="M 148 56 C 158 53 166 56 172 64" stroke-width="2.2"/>
-        <!-- Forehead crease between brows — furrowed -->
-        <path d="M 132 56 C 136 52 144 52 148 56" stroke-width="1.1"/>
-        <line x1="138" y1="54" x2="138" y2="60" stroke-width="0.8" opacity="0.4"/>
-        <line x1="142" y1="54" x2="142" y2="60" stroke-width="0.8" opacity="0.4"/>
+        <!-- SNOUT — the most important feature.
+             A rectangular mass projecting from center-lower face.
+             Viewed front-on: see the flat top, two sides, wide dog nose at bottom. -->
+        <!-- Snout sides — vertical lines from stop down to nose -->
+        <path d="M 124 76  C 122 84  122 96  124 106" stroke-width="1.5"/>
+        <path d="M 156 76  C 158 84  158 96  156 106" stroke-width="1.5"/>
+        <!-- Stop line — where forehead meets snout (horizontal indent) -->
+        <path d="M 124 76  C 130 72  150 72  156 76" stroke-width="1.2"/>
+        <!-- Snout top — flat bridge -->
+        <path d="M 126 78  C 133 76  147 76  154 78" stroke-width="0.8" opacity="0.5"/>
+        <!-- Wide dog nose — T-shaped, sits at base of snout -->
+        <path d="M 122 106  C 124 114  136 118  140 118  C 144 118  156 114  158 106" stroke-width="1.5"/>
+        <!-- Nose pad — wide, flat -->
+        <path d="M 126 104  C 130 100  150 100  154 104  C 152 110  128 110  126 104 Z" stroke-width="1.3"/>
+        <!-- Nostrils -->
+        <path d="M 129 105  C 131 103  134 103  135 106  C 133 108  130 107  129 105 Z" stroke-width="0.9" opacity="0.7"/>
+        <path d="M 145 106  C 146 103  149 103  151 105  C 150 107  147 108  145 106 Z" stroke-width="0.9" opacity="0.7"/>
+        <!-- Lower jaw — slightly wider than snout, soft chin -->
+        <path d="M 116 88  C 114 100  116 112  122 118  C 126 122  132 124  140 124  C 148 124  154 122  158 118  C 164 112  166 100  164 88" stroke-width="1.5"/>
 
-        <!-- ── NECK — very thick, almost as wide as jaw ── -->
-        <path d="M 124 104 C 118 116 112 128 108 142" stroke-width="2.0"/>
-        <path d="M 156 102 C 162 114 168 126 172 140" stroke-width="2.0"/>
-        <!-- Neck musculature shadow -->
-        <line x1="120" y1="110" x2="126" y2="130" stroke-width="0.5" opacity="0.3"/>
-        <line x1="125" y1="108" x2="131" y2="128" stroke-width="0.5" opacity="0.3"/>
-        <line x1="130" y1="107" x2="136" y2="127" stroke-width="0.5" opacity="0.3"/>
+        <!-- Cheek fur definition lines -->
+        <path d="M 104 80  C 108 86  110 94  112 100" stroke-width="0.6" opacity="0.35"/>
+        <path d="M 176 80  C 172 86  170 94  168 100" stroke-width="0.6" opacity="0.35"/>
+
+        <!-- ── NECK — massively thick, trapezoidal, animal ── -->
+        <!-- Left neck outline — wide at jaw, fans into shoulders -->
+        <path d="M 118 120  C 114 132  110 144  104 158" stroke-width="2.2"/>
+        <!-- Right neck outline -->
+        <path d="M 162 118  C 166 130  170 142  176 156" stroke-width="2.2"/>
+        <!-- Neck shadow hatching -->
+        <line x1="116" y1="126" x2="122" y2="148" stroke-width="0.55" opacity="0.3"/>
+        <line x1="121" y1="124" x2="127" y2="146" stroke-width="0.55" opacity="0.3"/>
+        <line x1="126" y1="122" x2="132" y2="144" stroke-width="0.55" opacity="0.3"/>
+        <line x1="131" y1="121" x2="137" y2="143" stroke-width="0.55" opacity="0.3"/>
 
         <!-- ── TORSO — broad shouldered, tapers to waist, muscular ── -->
         <!-- Left body outline: shoulder → armpit → waist → hip -->
