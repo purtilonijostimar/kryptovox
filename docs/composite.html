@@ -104,7 +104,7 @@ input[type=range] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 2rem;
+  padding: 3rem 1rem 3rem 0;
   position: relative;
 }
 .figure-instructions {
@@ -460,7 +460,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="0 0 360 515" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="-35 -12 420 535" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Pencil sketch filter — very subtle, just roughens edges slightly -->
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
@@ -580,14 +580,14 @@ input[type=range] {
           C 112 108  106 96   104 82 Z
         " stroke-width="1.8"/>
 
-        <!-- EARS — very tall, narrow, near-vertical. German Shepherd.
-             Base sits at top of skull, tips reach near top of viewBox -->
-        <!-- Left ear -->
-        <path d="M 118 34  L 106 -6  L 132 28 Z" stroke-width="1.9"/>
-        <path d="M 120 32  L 110 2   L 130 28" stroke-width="0.8" opacity="0.5" fill="none"/>
-        <!-- Right ear -->
-        <path d="M 162 28  L 174 -6  L 148 32 Z" stroke-width="1.9"/>
-        <path d="M 160 28  L 170 2   L 150 30" stroke-width="0.8" opacity="0.5" fill="none"/>
+        <!-- EARS — tall, at upper corners of skull, angled slightly outward
+             NOT from crown center — from the sides, like a German Shepherd -->
+        <!-- Left ear: base at upper-left skull, tip angled slightly left -->
+        <path d="M 108 44  L 96 -4  L 124 34 Z" stroke-width="1.9"/>
+        <path d="M 110 42  L 100 4   L 122 34" stroke-width="0.8" opacity="0.5" fill="none"/>
+        <!-- Right ear: base at upper-right skull, tip angled slightly right -->
+        <path d="M 172 42  L 184 -4  L 156 32 Z" stroke-width="1.9"/>
+        <path d="M 170 40  L 180 4   L 158 32" stroke-width="0.8" opacity="0.5" fill="none"/>
 
         <!-- BROW SHELF — very pronounced, overhangs eyes, creates shadow -->
         <path d="M 104 66  C 112 56  124 52  134 56" stroke-width="2.4"/>
@@ -597,17 +597,19 @@ input[type=range] {
         <line x1="138" y1="52" x2="137" y2="60" stroke-width="0.9" opacity="0.45"/>
         <line x1="142" y1="52" x2="143" y2="60" stroke-width="0.9" opacity="0.45"/>
 
-        <!-- EYES — small, hard almond shape, predator angle, under brow -->
-        <!-- Left eye: outer corner slightly higher than inner (predator) -->
-        <path d="M 112 70  C 116 64  126 63  130 68  C 127 74  117 74  112 70 Z" stroke-width="1.5"/>
-        <circle cx="121" cy="69" r="3.2" stroke-width="1.0"/>
-        <circle cx="121" cy="69" r="1.9" fill="var(--ink)" opacity="0.8" stroke="none"/>
-        <circle cx="123" cy="67" r="0.9" fill="white" opacity="0.9" stroke="none"/>
-        <!-- Right eye -->
-        <path d="M 150 68  C 154 63  164 64  168 70  C 163 74  153 74  150 68 Z" stroke-width="1.5"/>
-        <circle cx="159" cy="69" r="3.2" stroke-width="1.0"/>
-        <circle cx="159" cy="69" r="1.9" fill="var(--ink)" opacity="0.8" stroke="none"/>
-        <circle cx="161" cy="67" r="0.9" fill="white" opacity="0.9" stroke="none"/>
+        <!-- EYES — predator angle: outer corner HIGHER than inner.
+             Top lid nearly straight/upward, bottom lid curves under.
+             Small. Hard. Not sad. -->
+        <!-- Left eye: outer(x=112) is higher(y=64), inner(x=130) is lower(y=70) -->
+        <path d="M 112 64  C 118 60  126 62  130 70  C 126 74  118 73  112 64 Z" stroke-width="1.5"/>
+        <circle cx="121" cy="67" r="3.0" stroke-width="1.0"/>
+        <circle cx="121" cy="67" r="1.9" fill="var(--ink)" opacity="0.85" stroke="none"/>
+        <circle cx="123" cy="65" r="0.8" fill="white" opacity="0.9" stroke="none"/>
+        <!-- Right eye: outer(x=168) is higher(y=64), inner(x=150) is lower(y=70) -->
+        <path d="M 150 70  C 154 62  162 60  168 64  C 162 73  154 74  150 70 Z" stroke-width="1.5"/>
+        <circle cx="159" cy="67" r="3.0" stroke-width="1.0"/>
+        <circle cx="159" cy="67" r="1.9" fill="var(--ink)" opacity="0.85" stroke="none"/>
+        <circle cx="161" cy="65" r="0.8" fill="white" opacity="0.9" stroke="none"/>
 
         <!-- SNOUT — the most important feature.
              A rectangular mass projecting from center-lower face.
@@ -626,8 +628,14 @@ input[type=range] {
         <!-- Nostrils -->
         <path d="M 129 105  C 131 103  134 103  135 106  C 133 108  130 107  129 105 Z" stroke-width="0.9" opacity="0.7"/>
         <path d="M 145 106  C 146 103  149 103  151 105  C 150 107  147 108  145 106 Z" stroke-width="0.9" opacity="0.7"/>
-        <!-- Lower jaw — slightly wider than snout, soft chin -->
-        <path d="M 116 88  C 114 100  116 112  122 118  C 126 122  132 124  140 124  C 148 124  154 122  158 118  C 164 112  166 100  164 88" stroke-width="1.5"/>
+        <!-- Lower jaw — CLOSED chin mass. Not an open mouth.
+             Curves outward from cheeks then draws in to a rounded chin. -->
+        <path d="M 114 90  C 112 104  116 118  126 124  C 132 127  148 127  154 124  C 164 118  168 104  166 90" stroke-width="1.5"/>
+        <!-- Chin crease — prevents mouth reading -->
+        <path d="M 137 121  C 139 124  141 124  143 121" stroke-width="0.8" opacity="0.4"/>
+        <!-- Fur texture on chin -->
+        <path d="M 128 116  C 130 120  132 122" stroke-width="0.55" opacity="0.3"/>
+        <path d="M 152 116  C 150 120  148 122" stroke-width="0.55" opacity="0.3"/>
 
         <!-- Cheek fur definition lines -->
         <path d="M 104 80  C 108 86  110 94  112 100" stroke-width="0.6" opacity="0.35"/>
