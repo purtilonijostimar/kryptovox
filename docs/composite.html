@@ -460,7 +460,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="-35 -12 420 535" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="-42 -118 420 638" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Pencil sketch filter — very subtle, just roughens edges slightly -->
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
@@ -476,38 +476,60 @@ input[type=range] {
         </filter>
       </defs>
 
-      <!-- ── SCALE BAR (left edge) ─────────────────────────────── -->
-      <!-- Ground = y=495; 1 ft = 65.7 units; dogman = 7.5 ft -->
-      <g font-family="var(--sans)" font-size="8.5" fill="var(--ink-faint)" opacity="0.6">
-        <!-- Vertical rule -->
-        <line x1="22" y1="33" x2="22" y2="495" stroke="var(--ink-faint)" stroke-width="0.8" opacity="0.5"/>
-        <!-- Ground tick -->
-        <line x1="18" y1="495" x2="26" y2="495" stroke="var(--ink-faint)" stroke-width="0.9"/>
-        <text x="28" y="498" text-anchor="start">0</text>
-        <!-- 1 ft — y=429 -->
-        <line x1="18" y1="429" x2="26" y2="429" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="28" y="432" text-anchor="start">1</text>
-        <!-- 2 ft — y=363 -->
-        <line x1="18" y1="363" x2="26" y2="363" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="28" y="366" text-anchor="start">2</text>
-        <!-- 3 ft — y=297 -->
-        <line x1="18" y1="297" x2="26" y2="297" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="28" y="300" text-anchor="start">3</text>
-        <!-- 4 ft — y=231 -->
-        <line x1="18" y1="231" x2="26" y2="231" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="28" y="234" text-anchor="start">4</text>
-        <!-- 5 ft — y=165 -->
-        <line x1="18" y1="165" x2="26" y2="165" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="28" y="168" text-anchor="start">5</text>
-        <!-- 6 ft — y=99 -->
-        <line x1="18" y1="99" x2="26" y2="99" stroke="var(--ink-faint)" stroke-width="0.8"/>
-        <text x="28" y="102" text-anchor="start">6</text>
-        <!-- 7 ft — y=33 -->
-        <line x1="18" y1="33" x2="26" y2="33" stroke="var(--ink-faint)" stroke-width="0.9"/>
-        <text x="28" y="36" text-anchor="start">7</text>
-        <!-- Unit label rotated -->
-        <text x="10" y="264" text-anchor="middle" transform="rotate(-90,10,264)" font-size="7.5">ft</text>
+      <!-- ── SCALE BAR — far left edge, 0–9 ft ─────────────────── -->
+      <!-- Ground = y=495; 1 ft = 66.5 units
+           9 ft = y=495−(9×66.5)=−103.5
+           8 ft = y=−37    7 ft = y=29.5   6 ft = y=96
+           5 ft = y=162.5  4 ft = y=229    3 ft = y=295.5
+           2 ft = y=362    1 ft = y=428.5  0 ft = y=495    -->
+      <g font-family="var(--sans)" font-size="9" fill="var(--ink-faint)" opacity="0.65">
+        <!-- Vertical rule — full height -->
+        <line x1="-30" y1="-104" x2="-30" y2="495" stroke="var(--ink-faint)" stroke-width="0.9" opacity="0.55"/>
+        <!-- Unit label -->
+        <text x="-38" y="196" text-anchor="middle" transform="rotate(-90,-38,196)" font-size="8">ft</text>
+
+        <!-- 0 ft -->
+        <line x1="-35" y1="495" x2="-25" y2="495" stroke="var(--ink-faint)" stroke-width="1.0"/>
+        <text x="-18" y="499" text-anchor="start">0</text>
+        <!-- 1 ft -->
+        <line x1="-34" y1="428" x2="-26" y2="428" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="-18" y="432" text-anchor="start">1</text>
+        <!-- 2 ft -->
+        <line x1="-34" y1="362" x2="-26" y2="362" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="-18" y="366" text-anchor="start">2</text>
+        <!-- 3 ft -->
+        <line x1="-34" y1="296" x2="-26" y2="296" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="-18" y="300" text-anchor="start">3</text>
+        <!-- 4 ft -->
+        <line x1="-34" y1="229" x2="-26" y2="229" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="-18" y="233" text-anchor="start">4</text>
+        <!-- 5 ft -->
+        <line x1="-34" y1="163" x2="-26" y2="163" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="-18" y="167" text-anchor="start">5</text>
+        <!-- 6 ft -->
+        <line x1="-34" y1="96" x2="-26" y2="96" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="-18" y="100" text-anchor="start">6</text>
+        <!-- 7 ft -->
+        <line x1="-34" y1="30" x2="-26" y2="30" stroke="var(--ink-faint)" stroke-width="0.9"/>
+        <text x="-18" y="34" text-anchor="start">7</text>
+        <!-- 8 ft -->
+        <line x1="-34" y1="-37" x2="-26" y2="-37" stroke="var(--ink-faint)" stroke-width="0.8"/>
+        <text x="-18" y="-33" text-anchor="start">8</text>
+        <!-- 9 ft -->
+        <line x1="-35" y1="-104" x2="-25" y2="-104" stroke="var(--ink-faint)" stroke-width="1.0"/>
+        <text x="-18" y="-100" text-anchor="start">9</text>
       </g>
+
+      <!-- ── REFERENCE LINES ────────────────────────────────────── -->
+      <!-- Avg dogman 7.5 ft → y = 495−(7.5×66.5) = −3.75 ≈ y=−4 -->
+      <line x1="-30" y1="-4" x2="370" y2="-4"
+        stroke="var(--ink)" stroke-width="0.7" stroke-dasharray="5,4" opacity="0.22"/>
+      <text x="372" y="-1" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.6">avg. dogman 7.5 ft</text>
+
+      <!-- Avg human 5.75 ft → y = 495−(5.75×66.5) = 113 -->
+      <line x1="-30" y1="113" x2="370" y2="113"
+        stroke="var(--ink)" stroke-width="0.7" stroke-dasharray="5,4" opacity="0.22"/>
+      <text x="372" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.6">avg. human 5.75 ft</text>
 
       <!-- ── HUMAN FIGURE — same pencil-sketch style, 5'9", beside dogman -->
       <!-- 5.75 ft / 7.5 ft = 76.7% of dogman. Dogman spans y≈2 to y≈495 = 493px.
