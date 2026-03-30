@@ -25,6 +25,12 @@
   .map-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 0.8rem; color: #8a5a0a; text-decoration: none; border: 1px solid #e8c080; padding: 6px 14px; border-radius: 6px; margin-top: 1rem; background: #fdf3e0; }
   .map-link:hover { background: #f5e4b8; }
   .not-found { text-align: center; padding: 4rem 0; color: var(--ink-faint); font-family: var(--sans); }
+
+@media (max-width: 768px) {
+  .historic-page { padding: 1.5rem 1.1rem 3rem; }
+  .entry-title { font-size: 1.5rem; }
+  .entry-refs li { font-size: 0.8rem; }
+}
 </style>
 </head>
 <body>
@@ -38,7 +44,24 @@
     <a href="framework.html">Framework</a>
     <a href="submit.html" class="nav-submit">Submit</a>
   </nav>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="nav-backdrop" id="nav-backdrop"></div>
+<script>
+(function(){
+  var btn = document.getElementById('nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  var bck = document.getElementById('nav-backdrop');
+  if (!btn || !nav) return;
+  function open()  { btn.classList.add('open'); nav.classList.add('open'); bck.classList.add('open'); btn.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+  function close() { btn.classList.remove('open'); nav.classList.remove('open'); bck.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', function(){ btn.classList.contains('open') ? close() : open(); });
+  bck.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 
 <div class="historic-page" id="historic-root">
   <div style="color:var(--ink-faint);font-family:var(--sans);padding:4rem 0;text-align:center">Loading…</div>

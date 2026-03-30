@@ -151,6 +151,19 @@
     flex-wrap: wrap;
   }
   .count-item span { color: var(--ink-mid); font-weight: 600; }
+
+@media (max-width: 768px) {
+  .map-hero { padding: 1.5rem 1.1rem 1rem; flex-direction: column; align-items: flex-start; }
+  .map-controls { flex-wrap: wrap; }
+  #main-map { height: calc(100vh - 160px); }
+  .map-sidebar {
+    top: auto; right: 0; left: 0; bottom: 0;
+    width: 100%; max-height: 55vh;
+    border-left: none; border-top: 1px solid var(--rule);
+    border-radius: 12px 12px 0 0;
+  }
+  .map-count-bar { padding: 0.5rem 1.1rem; font-size: 0.72rem; flex-wrap: wrap; gap: 0.5rem; }
+}
 </style>
 </head>
 <body>
@@ -163,7 +176,24 @@
     <a href="framework.html">Framework</a>
     <a href="submit.html" class="nav-submit">Submit</a>
   </nav>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="nav-backdrop" id="nav-backdrop"></div>
+<script>
+(function(){
+  var btn = document.getElementById('nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  var bck = document.getElementById('nav-backdrop');
+  if (!btn || !nav) return;
+  function open()  { btn.classList.add('open'); nav.classList.add('open'); bck.classList.add('open'); btn.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+  function close() { btn.classList.remove('open'); nav.classList.remove('open'); bck.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', function(){ btn.classList.contains('open') ? close() : open(); });
+  bck.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 
 <div class="map-hero">
   <div>

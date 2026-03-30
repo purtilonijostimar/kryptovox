@@ -271,6 +271,29 @@
     -webkit-box-orient: vertical; overflow: hidden;
   }
   .hcard-link { font-family: var(--sans); font-size: 0.72rem; color: #8a5a0a; margin-top: auto; padding-top: 0.6rem; }
+
+/* ── Dashboard mobile ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .dashboard-hero-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .dashboard-hero { padding: 2rem 1.25rem 1.5rem; }
+  .view-toggle { width: 100%; }
+  .view-btn { flex: 1; text-align: center; }
+  .stats-section { padding: 0 1.25rem; }
+  .filter-bar { flex-wrap: wrap; gap: 0.4rem; }
+  .filter-input { width: 100% !important; margin-top: 0.25rem; }
+  .accounts-grid { grid-template-columns: 1fr; padding: 0 1.25rem; gap: 0.75rem; }
+  .account-card { padding: 1rem; }
+  .dim-bars { gap: 4px; }
+  .historic-controls { padding: 1rem 1.25rem; flex-direction: column; align-items: stretch; }
+  .historic-search { width: 100% !important; }
+  .historic-grid-wrap { padding: 1rem 1.25rem 3rem; }
+  .historic-grid { grid-template-columns: 1fr; }
+  .hcard { padding: 1.1rem 1.1rem; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .stat-card { padding: 1rem; }
+}
 </style>
 </head>
 <body>
@@ -284,7 +307,24 @@
     <a href="framework.html">Framework</a>
     <a href="submit.html" class="nav-submit">Submit</a>
   </nav>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="nav-backdrop" id="nav-backdrop"></div>
+<script>
+(function(){
+  var btn = document.getElementById('nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  var bck = document.getElementById('nav-backdrop');
+  if (!btn || !nav) return;
+  function open()  { btn.classList.add('open'); nav.classList.add('open'); bck.classList.add('open'); btn.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+  function close() { btn.classList.remove('open'); nav.classList.remove('open'); bck.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', function(){ btn.classList.contains('open') ? close() : open(); });
+  bck.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 
 <div class="dashboard-hero">
   <div class="dashboard-hero-inner">

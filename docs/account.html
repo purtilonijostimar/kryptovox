@@ -244,6 +244,26 @@
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
+
+/* ── Account mobile ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .account-page { padding: 1.5rem 1.1rem 3rem; }
+  .account-hero { padding: 1.5rem 0 1.25rem; }
+  .hero-title { font-size: 1.45rem; }
+  .hero-meta { flex-wrap: wrap; gap: 0.5rem; }
+  .hero-nav { flex-wrap: wrap; gap: 0.5rem; }
+  .nav-btn { font-size: 0.75rem; padding: 0.4rem 0.75rem; }
+  .dim-bars { gap: 3px; overflow-x: auto; padding-bottom: 0.5rem; }
+  .dim-bar { min-width: 28px; }
+  .profile-grid { grid-template-columns: repeat(2, 1fr); }
+  .flags-row { gap: 5px; }
+  .dim-detail-card { padding: 1rem; }
+  .exec-summary { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .profile-grid { grid-template-columns: 1fr; }
+  .dim-bars { gap: 2px; }
+}
 </style>
 </head>
 <body>
@@ -257,7 +277,24 @@
     <a href="framework.html">Framework</a>
     <a href="submit.html" class="nav-submit">Submit</a>
   </nav>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="nav-backdrop" id="nav-backdrop"></div>
+<script>
+(function(){
+  var btn = document.getElementById('nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  var bck = document.getElementById('nav-backdrop');
+  if (!btn || !nav) return;
+  function open()  { btn.classList.add('open'); nav.classList.add('open'); bck.classList.add('open'); btn.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+  function close() { btn.classList.remove('open'); nav.classList.remove('open'); bck.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', function(){ btn.classList.contains('open') ? close() : open(); });
+  bck.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 
 <div class="account-page" id="account-root">
   <div style="color:var(--ink-faint);font-family:var(--sans);padding:4rem 0;text-align:center">Loading account…</div>

@@ -431,6 +431,19 @@ input[type=range] {
   gap: 0.75rem;
 }
 .composite-footer a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .composite-layout { flex-direction: column !important; }
+  .figure-pane { width: 100% !important; padding: 1.5rem 1rem 1rem; }
+  .data-panel { width: 100% !important; max-width: 100% !important; border-left: none !important; border-top: 1px solid var(--rule); }
+  #figure-svg { max-width: 380px; }
+}
+@media (max-width: 480px) {
+  .composite-header { padding: 1.5rem 1rem 1rem; }
+  #figure-svg { max-width: 300px; }
+  .zone-nav { gap: 0.35rem; }
+  .zone-dot-btn { font-size: 0.65rem; padding: 3px 8px; }
+}
 </style>
 </head>
 <body class="composite-page">
@@ -444,7 +457,24 @@ input[type=range] {
     <a href="framework.html">Framework</a>
     <a href="submit.html" class="nav-submit">Submit</a>
   </nav>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="nav-backdrop" id="nav-backdrop"></div>
+<script>
+(function(){
+  var btn = document.getElementById('nav-hamburger');
+  var nav = document.querySelector('.site-nav');
+  var bck = document.getElementById('nav-backdrop');
+  if (!btn || !nav) return;
+  function open()  { btn.classList.add('open'); nav.classList.add('open'); bck.classList.add('open'); btn.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+  function close() { btn.classList.remove('open'); nav.classList.remove('open'); bck.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', function(){ btn.classList.contains('open') ? close() : open(); });
+  bck.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 
 <!-- ── PAGE HEADER ───────────────────────────────────────────────── -->
 <div class="composite-header">
