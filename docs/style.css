@@ -104,15 +104,14 @@ body {
   align-items: start;
   gap:       3rem;
 }
-.footer-brand {
-  flex: 0 0 180px;
-}
+.footer-brand { flex: 0 0 180px; }
 .footer-cols {
-  flex: 1;
   display:               grid;
   grid-template-columns: repeat(3, 1fr);
-  gap:                   2rem;
+  gap:                   1.25rem 2.5rem;
+  margin-left:           auto;
   justify-items:         start;
+  align-items:           start;
 }
 .footer-brand .wordmark { font-size: 1.15rem; }
 .footer-brand p {
