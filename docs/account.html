@@ -362,7 +362,7 @@ function renderAccount(a, allAccounts) {
   // Profile items
   const profileItems = [
     ['Location', loc],
-    ['Terrain', (a.terrain_type || '').split(',')[0].trim() || '—'],
+    ['Terrain', Array.isArray(a.terrain_type) ? a.terrain_type[0] : (a.terrain_type || '').split(',')[0].trim() || '—'],
     ['Time of day', fmt(a.time_of_day)],
     ['Season', fmt(a.season)],
     ['Distance', a.distance_metres ? `~${a.distance_metres}` : '—'],
