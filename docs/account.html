@@ -498,6 +498,7 @@ function renderAccount(a, allAccounts) {
       <span class="wcs-badge-lg band-${a.WCS_band}">WCS ${(a.WCS_raw||0).toFixed(1)} — ${a.WCS_band}</span>
       <span class="hero-loc">${loc}</span>
       ${ytUrl ? `<a href="${ytUrl}" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:0.75rem;color:var(--accent);text-decoration:none">▶ Watch interview</a>` : ''}
+      <a href="map.html" style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-soft);text-decoration:none;margin-left:0.75rem">🗺 View on map</a>
     </div>
     ${(prev || next) ? `<div class="hero-nav">${prevLink}${nextLink}</div>` : ''}
   </div>
