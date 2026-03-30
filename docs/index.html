@@ -554,8 +554,7 @@ function setView(view) {
     modernEl.classList.add('hidden');
     historicEl.classList.add('visible');
     if (!allHistoric.length) loadHistoric();
-    else renderHistoric();
-    if (pill) pill.textContent = allHistoric.length + ' traditions';
+    else { renderHistoric(); if (pill) pill.textContent = allHistoric.length + ' traditions'; }
   }
   // Update URL param without reload
   const url = new URL(location.href);
@@ -568,6 +567,8 @@ async function loadHistoric() {
     const resp = await fetch('historic.json?t=' + Date.now());
     allHistoric = await resp.json();
     renderHistoric();
+    const pill = document.getElementById('corpus-pill');
+    if (pill && currentView === 'historic') pill.textContent = allHistoric.length + ' traditions';
   } catch(e) {
     document.getElementById('historic-grid').innerHTML =
       '<div class="loading-msg" style="grid-column:1/-1;padding:3rem">Could not load historic.json</div>';
