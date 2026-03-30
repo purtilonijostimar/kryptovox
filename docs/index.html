@@ -605,7 +605,6 @@ function renderHistoric() {
   }
 
   grid.innerHTML = entries.map(e => {
-    const tradition = e.name.replace(/^[^\u2014\u2013—–]+[\u2014\u2013—–]\s*/, '');
     const desc = (e.desc || '').replace(/<[^>]+>/g, '').slice(0, 220);
     return `<a href="historic.html?id=${e.slug}" class="hcard">
       <div class="hcard-meta">

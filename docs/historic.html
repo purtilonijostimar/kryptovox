@@ -98,7 +98,7 @@ fetch('historic.json')
       <a href="index.html?view=historic" class="back-link">← History &amp; Folklore</a>
       <div class="entry-kicker">Historic Tradition · ${entry.country || ''}</div>
       <h1 class="entry-title">${entry.name}</h1>
-      <div class="entry-country">${entry.display_country || entry.country || ''}</div>
+      <div class="entry-country">${entry.country || ''}</div>
       ${entry.period ? `<span class="period-badge">📅 ${entry.period}</span>` : ''}
       ${entry.desc ? `<div class="entry-summary">${entry.desc}</div>` : ''}
       ${tags ? `<div class="entry-section"><h3>Recurring descriptors</h3><div class="descriptor-tags">${tags}</div></div>` : ''}
