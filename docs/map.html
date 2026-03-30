@@ -567,57 +567,69 @@ function bindTerritory(layer, def) {
   layer.on('mouseout',  function() { this.setStyle(polyStyle()); });
 }
 
-// ── PRIMARY SOURCE PINS ────────────────────────────────────────────
-// Specific datable primary text records — rendered as diamond markers
 
-// ── MODERN ACCOUNTS ────────────────────────────────────────────────
-const MODERN_ACCOUNTS = [
-  { lat:47.5, lng:-121.5, title:'Pacific Northwest', region:'USA',
-    desc:'Highest density of modern accounts in the corpus. Consistent reporting across multiple decades and witnesses. Forest and mountain terrain.',
-    descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes','paralysis','watches-then-leaves','silent departure'] },
-  { lat:37.0, lng:-85.0, title:'Appalachia', region:'USA',
-    desc:'Multi-decade reporting from isolated rural communities. High proportion of accounts with professional witnesses. Long disclosure delays documented.',
-    descriptors:['bipedal','canine head','large','nocturnal','forest','smell','paralysis','disclosure delay'] },
-  { lat:33.5, lng:-84.0, title:'Georgia', region:'USA',
-    desc:'Multiple high-credibility accounts. WCS range 6.8–8.2. Disclosure delays 10–40 years.',
-    descriptors:['bipedal','canine head','paralysis','disclosure delay','watches-then-leaves'] },
-  { lat:40.0, lng:-105.0, title:'Colorado Rockies', region:'USA',
-    desc:'Mountain terrain encounters. Multiple accounts from hunters and hikers.',
-    descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes'] },
-  { lat:44.0, lng:-89.0, title:'Great Lakes Region', region:'USA',
-    desc:'Extensive corpus including Wisconsin and Michigan accounts. Dense reporting area.',
-    descriptors:['bipedal','canine head','smell','nocturnal','paralysis'] },
-  { lat:35.5, lng:-97.0, title:'Oklahoma', region:'USA',
-    desc:'Multiple accounts including law enforcement witnesses.',
-    descriptors:['bipedal','canine head','large','glowing eyes','disclosure delay','career risk'] },
-  { lat:30.5, lng:-92.0, title:'Louisiana/Mississippi', region:'USA',
-    desc:'Swamp and river terrain. Distinct environmental context from forest encounters.',
-    descriptors:['bipedal','canine head','smell','nocturnal','large'] },
-  { lat:46.0, lng:-93.0, title:'Minnesota/Wisconsin', region:'USA',
-    desc:'Northern forest accounts. Cold climate reporting.',
-    descriptors:['bipedal','canine head','large','forest','paralysis','silent departure'] },
-  { lat:51.5, lng:-0.5, title:'United Kingdom (multiple counties)', region:'England',
-    desc:'Kryptovox corpus includes accounts from Cheshire, Yorkshire, and Greater London. WCS 7.3 (Ep.450). Multi-encounter witness.',
-    descriptors:['bipedal','canine head','glowing eyes','smell','paralysis','disclosure delay 12yr'] },
-  { lat:38.8, lng:-77.0, title:'Mid-Atlantic USA', region:'USA',
-    desc:'Several accounts from Virginia, Maryland and Washington DC area.',
-    descriptors:['bipedal','canine head','nocturnal','suburban','paralysis'] },
-];
+const CLUSTER_DEFS = {
+  pacific_northwest: { lat:47.5, lng:-121.5, label:'Pacific Northwest' },
+  california:        { lat:36.5, lng:-119.5, label:'California' },
+  great_plains:      { lat:37.0, lng:-98.0,  label:'Great Plains' },
+  great_lakes:       { lat:44.0, lng:-87.0,  label:'Great Lakes' },
+  appalachia:        { lat:37.0, lng:-83.0,  label:'Appalachia' },
+  southeast:         { lat:31.5, lng:-87.5,  label:'Southeast USA' },
+  mid_atlantic:      { lat:39.5, lng:-76.5,  label:'Mid-Atlantic' },
+  canada:            { lat:52.0, lng:-96.0,  label:'Canada' },
+  uk_ireland:        { lat:53.0, lng:-2.0,   label:'United Kingdom' },
+  europe:            { lat:48.0, lng:10.0,   label:'Europe' },
+  oceania:           { lat:-28.0,lng:134.0,  label:'Oceania' },
+  asia_middle_east:  { lat:34.0, lng:65.0,   label:'Asia / Middle East' },
+};
 
-// ── RENDERING ─────────────────────────────────────────────────────
-// Modern account circles
-MODERN_ACCOUNTS.forEach(item => {
-  const marker = L.circleMarker([item.lat, item.lng], {
-    color:'#2d5a3d', fillColor:'#2d5a3d', fillOpacity:0.8, radius:9, weight:1.5
-  });
-  marker.bindTooltip(item.title, { direction:'top', className:'leaflet-tooltip' });
-  marker.on('click', () => openSidebar('modern', item));
-  marker.addTo(layers.modern);
-});
+// ── MODERN ACCOUNTS — loaded from dashboard.json ─────────────────
+async function loadModernAccounts() {
+  try {
+    const resp = await fetch('dashboard.json?t=' + Date.now());
+    const data = await resp.json();
+    const accounts = data.accounts || [];
 
-// Update counts
-document.getElementById('c-modern').textContent = MODERN_ACCOUNTS.length;
-document.getElementById('c-historic').textContent = TERRITORY_DEFS.length;
+    // Group by region_key
+    const clusters = {};
+    accounts.forEach(a => {
+      const rk = a.region_key;
+      if (!rk || !CLUSTER_DEFS[rk]) return;
+      if (!clusters[rk]) clusters[rk] = [];
+      clusters[rk].push(a);
+    });
+
+    Object.entries(clusters).forEach(([rk, accs]) => {
+      const def = CLUSTER_DEFS[rk];
+      const marker = L.circleMarker([def.lat, def.lng], {
+        color:'#2d5a3d', fillColor:'#2d5a3d', fillOpacity:0.8,
+        radius: Math.min(6 + Math.sqrt(accs.length) * 2, 18), weight:1.5
+      });
+      marker.bindTooltip(`${def.label} — ${accs.length} account${accs.length>1?'s':''}`,
+        { direction:'top', className:'leaflet-tooltip' });
+
+      // Sidebar content: list of linked accounts
+      const listItems = accs.map(a =>
+        `<a href="account.html?id=${a.video_id}" style="display:block;font-size:0.8rem;color:var(--accent);padding:3px 0;text-decoration:none">${a.display_title || a.video_id}</a>`
+      ).join('');
+      const item = {
+        title: def.label,
+        region: 'USA / International',
+        desc: `${accs.length} witness account${accs.length>1?'s':''} in this region.`,
+        listItems,
+        descriptors: []
+      };
+      marker.on('click', () => openSidebar('modern', item));
+      marker.addTo(layers.modern);
+    });
+
+    document.getElementById('c-modern').textContent = accounts.length + ' accounts';
+  } catch(e) {
+    console.warn('Could not load modern accounts:', e);
+  }
+}
+loadModernAccounts();
+
 
 // Load TopoJSON territories async
 buildTerritoryLayers().catch(e => console.warn('Territory load failed:', e));
@@ -631,17 +643,18 @@ function openSidebar(type, item) {
     html = `
       <div class="sidebar-type" style="color:#2d5a3d">Modern Account Region</div>
       <div class="sidebar-title">${item.title}</div>
-      <div class="sidebar-field"><div class="sidebar-field-label">Region</div><div class="sidebar-field-value">${item.region}</div></div>
       <div class="sidebar-field"><div class="sidebar-field-label">Description</div><div class="sidebar-field-value">${item.desc}</div></div>
-      <div class="sidebar-field"><div class="sidebar-field-label">Recurring descriptors</div><div class="descriptor-tags">${tags}</div></div>`;
+      ${item.listItems ? `<div class="sidebar-field"><div class="sidebar-field-label">Accounts in this region</div><div class="sidebar-field-value" style="max-height:260px;overflow-y:auto">${item.listItems}</div></div>` : ''}
+      ${tags ? `<div class="sidebar-field"><div class="sidebar-field-label">Recurring descriptors</div><div class="descriptor-tags">${tags}</div></div>` : ''}`;
   } else if (type === 'territory') {
     const refs = (item.refs||[]).map(r => `<div style="margin-bottom:0.3rem">• ${r}</div>`).join('');
     html = `
       <div class="sidebar-type" style="color:#9a6820">Historical Territory</div>
       <div class="sidebar-title">${item.name}</div>
-      <div class="sidebar-field"><div class="sidebar-field-label">Period</div><div class="sidebar-field-value">${item.period}</div></div>
-      <div class="sidebar-field"><div class="sidebar-field-label">Description</div><div class="sidebar-field-value">${item.desc}</div></div>
-      <div class="sidebar-field"><div class="sidebar-field-label">Key sources</div><div class="sidebar-field-value" style="font-size:0.78rem">${refs}</div></div>`;
+      ${item.period ? `<div class="sidebar-field"><div class="sidebar-field-label">Period</div><div class="sidebar-field-value">${item.period}</div></div>` : ''}
+      <div class="sidebar-field"><div class="sidebar-field-label">Description</div><div class="sidebar-field-value">${(item.desc||'').slice(0,300)}${item.desc && item.desc.length > 300 ? '…' : ''}</div></div>
+      ${refs ? `<div class="sidebar-field"><div class="sidebar-field-label">Key sources</div><div class="sidebar-field-value" style="font-size:0.78rem">${refs}</div></div>` : ''}
+      ${item.slug ? `<div style="margin-top:0.8rem"><a href="historic.html?id=${item.slug}" style="font-family:var(--sans);font-size:0.8rem;color:#8a5a0a;text-decoration:none;border:1px solid #e8c080;padding:5px 12px;border-radius:6px;background:#fdf3e0">Read full entry →</a></div>` : ''}`;
   } else if (type === 'source') {
     const typeLabel = { primary_text:'Primary Text', trial_record:'Trial Record', encounter_record:'Encounter Record' }[item.type] || 'Historical Record';
     const typeColor = { primary_text:'#8a2020', trial_record:'#c06010', encounter_record:'#7a4010' }[item.type] || '#8a2020';

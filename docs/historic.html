@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Historic Account</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .historic-page { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .back-link { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; }
+  .back-link:hover { color: var(--accent); }
+  .entry-kicker { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #9a6820; margin-bottom: 0.6rem; }
+  .entry-title { font-family: var(--serif-display); font-size: 2rem; line-height: 1.2; margin: 0 0 0.4rem; }
+  .entry-country { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 1.8rem; }
+  .entry-summary { font-family: var(--serif-display); font-size: 1.12rem; line-height: 1.75; color: var(--ink); margin-bottom: 2rem; border-left: 3px solid #e8c080; padding-left: 1.2rem; }
+  .entry-section { margin-bottom: 2rem; }
+  .entry-section h3 { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.6rem; }
+  .entry-section p { font-family: var(--sans); font-size: 0.9rem; line-height: 1.65; color: var(--ink); margin: 0; }
+  .entry-refs { list-style: none; padding: 0; margin: 0; }
+  .entry-refs li { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); padding: 0.35rem 0; border-bottom: 1px solid var(--rule); }
+  .entry-refs li:last-child { border-bottom: none; }
+  .descriptor-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+  .descriptor-tag { font-family: var(--sans); font-size: 0.72rem; background: #fdf3e0; border: 1px solid #e8c080; color: #7a4810; border-radius: 999px; padding: 3px 10px; }
+  .period-badge { display: inline-block; font-family: var(--sans); font-size: 0.75rem; background: #fdf3e0; border: 1px solid #e8c080; color: #8a5a0a; padding: 4px 12px; border-radius: 999px; margin-bottom: 1.2rem; }
+  .map-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 0.8rem; color: #8a5a0a; text-decoration: none; border: 1px solid #e8c080; padding: 6px 14px; border-radius: 6px; margin-top: 1rem; background: #fdf3e0; }
+  .map-link:hover { background: #f5e4b8; }
+  .not-found { text-align: center; padding: 4rem 0; color: var(--ink-faint); font-family: var(--sans); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="index.html">Dashboard</a>
+    <a href="map.html">Map</a>
+    <a href="composite.html">Composite</a>
+    <a href="framework.html">Framework</a>
+    <a href="submit.html" class="nav-submit">Submit</a>
+  </nav>
+</header>
+
+<div class="historic-page" id="historic-root">
+  <div style="color:var(--ink-faint);font-family:var(--sans);padding:4rem 0;text-align:center">Loading…</div>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-brand">
+      <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+      <p>Anomalous encounter research.<br>Rigorous. Transparent. Open.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Dashboard</a>
+        <a href="map.html">Map</a>
+        <a href="composite.html">Composite</a>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="paper.html">Working Paper</a>
+        <a href="framework.html">Framework</a>
+      </div>
+      <div class="footer-col">
+        <h4>Project</h4>
+        <a href="submit.html">Submit Account</a>
+        <a href="roadmap.html">Timeline</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Purtilonij Ostimar — Kryptovox Research Project</span>
+    <span>Pipeline v1.0 · Data updated continuously</span>
+  </div>
+</footer>
+
+<script>
+const params = new URLSearchParams(location.search);
+const id = params.get('id');
+const root = document.getElementById('historic-root');
+
+fetch('historic.json')
+  .then(r => r.json())
+  .then(entries => {
+    const entry = entries.find(e => e.slug === id);
+    if (!entry) {
+      root.innerHTML = `<div class="not-found"><p>Entry not found.</p><a href="index.html?view=historic" style="color:var(--accent)">← Back to Historic Accounts</a></div>`;
+      return;
+    }
+    document.title = `Kryptovox — ${entry.name}`;
+
+    const refs = (entry.refs || []).map(r => `<li>${r}</li>`).join('');
+    const tags = (entry.descriptors || []).map(d => `<span class="descriptor-tag">${d}</span>`).join('');
+
+    root.innerHTML = `
+      <a href="index.html?view=historic" class="back-link">← Historic Accounts</a>
+      <div class="entry-kicker">Historic Tradition · ${entry.country || ''}</div>
+      <h1 class="entry-title">${entry.name}</h1>
+      <div class="entry-country">${entry.display_country || entry.country || ''}</div>
+      ${entry.period ? `<span class="period-badge">📅 ${entry.period}</span>` : ''}
+      ${entry.desc ? `<div class="entry-summary">${entry.desc}</div>` : ''}
+      ${tags ? `<div class="entry-section"><h3>Recurring descriptors</h3><div class="descriptor-tags">${tags}</div></div>` : ''}
+      ${refs ? `<div class="entry-section"><h3>Key sources</h3><ul class="entry-refs">${refs}</ul></div>` : ''}
+      <a href="map.html" class="map-link">🗺 View on map</a>
+    `;
+  })
+  .catch(() => {
+    root.innerHTML = '<div class="not-found"><p>Failed to load data.</p></div>';
+  });
+</script>
+</body>
+</html>

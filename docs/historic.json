@@ -1,0 +1,852 @@
+[
+  {
+    "id": "great_lakes",
+    "name": "Great Lakes — Rugaru / Michigan Dogman",
+    "type": "us_states",
+    "codes": [
+      "26",
+      "55",
+      "27",
+      "39",
+      "18",
+      "17"
+    ],
+    "period": "Ojibwe oral tradition; modern accounts 1887–present",
+    "desc": "The Rugaru (Ojibwe/Chippewa) is described as a tall, bipedal, wolf-headed being that travels alone at night. The Michigan Dogman first documented in print in 1887 (Traverse City Record-Eagle). Highest density modern encounter area.",
+    "refs": [
+      "Luther Sunderland, 1887 (newspaper account)",
+      "Ojibwe oral tradition (documented by Schoolcraft, 1851)"
+    ],
+    "slug": "great_lakes_rugaru_michigan_dogman",
+    "country": "USA",
+    "display_country": "USA"
+  },
+  {
+    "id": "pacific_nw",
+    "name": "Pacific Northwest — Canine Cryptid Accounts",
+    "type": "us_states",
+    "codes": [
+      "53",
+      "41",
+      "16"
+    ],
+    "period": "Pre-colonial oral tradition; modern accounts ongoing",
+    "desc": "Highest density region for modern dogman-type accounts. Multiple Indigenous traditions including Quileute and Quinault describe wolf-people. Overlaps with Sasquatch territory but described as distinct.",
+    "refs": [
+      "Kryptovox corpus — highest encounter density region"
+    ],
+    "slug": "pacific_northwest_canine_cryptid_accounts",
+    "country": "USA",
+    "display_country": "USA"
+  },
+  {
+    "id": "southwest",
+    "name": "American Southwest — Navajo Yee Naaldlooshii",
+    "type": "us_states",
+    "codes": [
+      "04",
+      "35",
+      "49",
+      "08"
+    ],
+    "period": "Pre-colonial, oral tradition — strongest behavioural match",
+    "desc": "Skin-walker (Yee Naaldlooshii) tradition. Behavioural parallels: watches-then-leaves, felt-known by target, disclosure taboo. Strongest Old World–New World parallel in the corpus.",
+    "refs": [
+      "Washington Matthews, Navaho Legends (1897)",
+      "Gladys Reichard, Navaho Religion (1950)"
+    ],
+    "slug": "american_southwest_navajo_yee_naaldlooshii",
+    "country": "USA",
+    "display_country": "USA"
+  },
+  {
+    "id": "appalachia",
+    "name": "Appalachian Region — Dense Modern Corpus",
+    "type": "us_states",
+    "codes": [
+      "54",
+      "21",
+      "47",
+      "51",
+      "37",
+      "42"
+    ],
+    "period": "Modern accounts (primary corpus region)",
+    "desc": "Second highest density region. High proportion of accounts with long disclosure delays. Terrain: dense mixed forest, isolated rural communities.",
+    "refs": [
+      "Kryptovox corpus — multiple high-WCS accounts"
+    ],
+    "slug": "appalachian_region_dense_modern_corpus",
+    "country": "USA",
+    "display_country": "USA"
+  },
+  {
+    "id": "louisiana",
+    "name": "Louisiana / Gulf Coast — Rougarou",
+    "type": "us_states",
+    "codes": [
+      "22",
+      "28",
+      "01"
+    ],
+    "period": "French colonial period (17th century) to present",
+    "desc": "Rougarou — swamp-dwelling werewolf. Strongly maintained in Cajun and Louisiana Creole tradition. Distinct from French source tradition — adapted to bayou environment.",
+    "refs": [
+      "Barry Jean Ancelet, Cajun and Creole Folktales (1994)"
+    ],
+    "slug": "louisiana_gulf_coast_rougarou",
+    "country": "USA",
+    "display_country": "USA"
+  },
+  {
+    "id": "mesoamerica",
+    "name": "Mesoamerica — Huay Chivo / Xolotl / Nagual",
+    "type": "countries",
+    "codes": [
+      484,
+      320,
+      84,
+      340,
+      222,
+      558,
+      188,
+      591
+    ],
+    "period": "Pre-colonial Mayan and Aztec traditions",
+    "desc": "Huay Chivo (Yucatan): half-man half-dog with glowing eyes. Xolotl: dog-headed psychopomp with anatomically reversed feet. Nagual shapeshifting traditions include canine forms across multiple cultures.",
+    "refs": [
+      "Codex Borgia",
+      "Florentine Codex (Sahagún)",
+      "Diego de Landa, Relación de las cosas de Yucatán (1566)"
+    ],
+    "slug": "mesoamerica_huay_chivo_xolotl_nagual",
+    "country": "Mesoamerica",
+    "display_country": "Mesoamerica"
+  },
+  {
+    "id": "british_isles",
+    "name": "British Isles — Werewolf & Barghest Traditions",
+    "type": "countries",
+    "codes": [
+      826,
+      372
+    ],
+    "period": "Medieval to 19th century documented",
+    "desc": "Black Shuck (East Anglia), Barghest (Yorkshire), Werewolf of Ossory (Ireland, 1188). Modern corpus includes multi-encounter UK witness with WCS 7.3.",
+    "refs": [
+      "Gerald of Wales, Topographia Hibernica (1188)"
+    ],
+    "slug": "british_isles_werewolf_barghest_traditions",
+    "country": "United Kingdom",
+    "display_country": "United Kingdom"
+  },
+  {
+    "id": "france",
+    "name": "France — Loup-Garou / Beast of Gévaudan",
+    "type": "countries",
+    "codes": [
+      250
+    ],
+    "period": "16th–18th century peak documentation",
+    "desc": "Richest documented werewolf trial record. Jean Grenier (1603), Gilles Garnier (1573). Beast of Gévaudan (1764–1767): 113 documented attacks.",
+    "refs": [
+      "Procès de Gilles Garnier (1573)",
+      "Procès de Jean Grenier (1603)"
+    ],
+    "slug": "france_loup_garou_beast_of_g_vaudan",
+    "country": "France",
+    "display_country": "France"
+  },
+  {
+    "id": "central_europe",
+    "name": "Central Europe — Werewolf Trial Records",
+    "type": "countries",
+    "codes": [
+      276,
+      40,
+      756,
+      616,
+      203,
+      703
+    ],
+    "period": "Peak 1580–1650",
+    "desc": "Germany, Austria, Switzerland, Poland, Czech Republic, Slovakia. Thousands of documented trials. Peter Stumpp execution (1589, Bedburg). Malleus Maleficarum (1487) provided the theological framework.",
+    "refs": [
+      "Peter Stumpp trial transcript (1589)",
+      "Malleus Maleficarum (Kramer, 1487)"
+    ],
+    "slug": "central_europe_werewolf_trial_records",
+    "country": "Central Europe",
+    "display_country": "Central Europe"
+  },
+  {
+    "id": "scandinavia",
+    "name": "Scandinavia — Ulfhednar / Werewolf Tradition",
+    "type": "countries",
+    "codes": [
+      578,
+      752,
+      246,
+      208,
+      352
+    ],
+    "period": "Viking Age (8th–11th century) and medieval",
+    "desc": "Ulfhednar wolf-warriors documented in Norse sagas. Livonian werewolf tradition documented by Olaus Magnus (1555). Thiess of Kaltenbrun (1692) — the most extraordinary werewolf testimony on record.",
+    "refs": [
+      "Olaus Magnus, Historia de Gentibus Septentrionalibus (1555)",
+      "Thiess of Kaltenbrun trial transcript (1692)"
+    ],
+    "slug": "scandinavia_ulfhednar_werewolf_tradition",
+    "country": "Scandinavia",
+    "display_country": "Scandinavia"
+  },
+  {
+    "id": "balkans",
+    "name": "Balkans / Slavic — Psoglav, Pasjeglavci, Vrykolakas",
+    "type": "countries",
+    "codes": [
+      705,
+      191,
+      688,
+      100,
+      300,
+      807,
+      70,
+      642
+    ],
+    "period": "Medieval documented; oral tradition older",
+    "desc": "Slovenian Pasjeglavci (eyes anatomically cannot look upward — unique globally); Serbian Psoglav (iron teeth); Greek/Croatian Vrykolakas (wolf-vampire hybrid).",
+    "refs": [
+      "Valvasor, Die Ehre des Herzogthums Crain (1689)",
+      "Monika Kropej, Supernatural Beings from Slovenian Myth (2012)"
+    ],
+    "slug": "balkans_slavic_psoglav_pasjeglavci_vrykolakas",
+    "country": "Balkans / Slavic",
+    "display_country": "Balkans / Slavic"
+  },
+  {
+    "id": "russia_east",
+    "name": "Russia / Eastern Europe — Volkolak / Oborot",
+    "type": "countries_plus",
+    "codes": [
+      804,
+      112,
+      440,
+      428,
+      233,
+      616,
+      703,
+      498,
+      642,
+      100,
+      688,
+      348,
+      203
+    ],
+    "extra_coords": [
+      [
+        [
+          47,
+          40
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          53,
+          58
+        ],
+        [
+          55,
+          67
+        ],
+        [
+          54,
+          79
+        ],
+        [
+          52,
+          89
+        ],
+        [
+          52,
+          100
+        ],
+        [
+          50,
+          110
+        ],
+        [
+          50,
+          117
+        ],
+        [
+          52,
+          124
+        ],
+        [
+          48,
+          128
+        ],
+        [
+          46,
+          134
+        ],
+        [
+          43,
+          131
+        ],
+        [
+          47,
+          140
+        ],
+        [
+          53,
+          142
+        ],
+        [
+          59,
+          151
+        ],
+        [
+          60,
+          163
+        ],
+        [
+          65,
+          173
+        ],
+        [
+          68,
+          170
+        ],
+        [
+          72,
+          168
+        ],
+        [
+          73,
+          150
+        ],
+        [
+          74,
+          120
+        ],
+        [
+          73,
+          100
+        ],
+        [
+          72,
+          80
+        ],
+        [
+          72,
+          60
+        ],
+        [
+          71,
+          45
+        ],
+        [
+          69,
+          33
+        ],
+        [
+          68,
+          29
+        ],
+        [
+          62,
+          28
+        ],
+        [
+          57,
+          28
+        ],
+        [
+          47,
+          40
+        ]
+      ]
+    ],
+    "period": "Medieval documented; pre-Christian oral tradition",
+    "desc": "Russia, Ukraine, Belarus, Lithuania, Latvia, Estonia. Volkolak and Oborot — not cursed humans but a structural intermediate category. Church records from the 12th century.",
+    "refs": [
+      "Russian Primary Chronicle references",
+      "Alexander Afanasyev, Russian Folk Legends (1859)"
+    ],
+    "slug": "russia_eastern_europe_volkolak_oborot",
+    "country": "Russia",
+    "display_country": "Russia"
+  },
+  {
+    "id": "india",
+    "name": "Ancient India — Cynocephali (Ctesias, Megasthenes)",
+    "type": "countries",
+    "codes": [
+      356,
+      524,
+      64,
+      586,
+      144
+    ],
+    "period": "400 BCE – 1300 CE (continuous documentation)",
+    "desc": "India, Nepal, Bhutan, Pakistan, Sri Lanka. Cynocephali documented for over 1,600 years as a real species. Ctesias (400 BCE), Megasthenes (300 BCE), Pliny (77 CE). Treated as zoology, not mythology.",
+    "refs": [
+      "Ctesias, Indica (~400 BCE)",
+      "Megasthenes, Indica (~300 BCE)",
+      "Pliny, Naturalis Historia (77 CE)"
+    ],
+    "slug": "ancient_india_cynocephali_ctesias_megasthenes",
+    "country": "India",
+    "display_country": "India"
+  },
+  {
+    "id": "egypt_nile",
+    "name": "Egypt / Nile Valley — Anubis / Wepwawet",
+    "type": "countries",
+    "codes": [
+      818,
+      729
+    ],
+    "period": "Pre-3000 BCE to Ptolemaic period",
+    "desc": "Oldest documented canine-headed humanoid traditions. Anubis and Wepwawet — bipedal, upright, psychopomp functions. Continuous Egyptian documentation for over 3,000 years.",
+    "refs": [
+      "Book of the Dead (New Kingdom, ~1550 BCE)",
+      "Pyramid Texts (~2400 BCE)"
+    ],
+    "slug": "egypt_nile_valley_anubis_wepwawet",
+    "country": "Egypt",
+    "display_country": "Egypt"
+  },
+  {
+    "id": "west_africa",
+    "name": "West Africa — Iron-Dog / Canine Deity Tradition",
+    "type": "countries",
+    "codes": [
+      566,
+      288,
+      768,
+      204,
+      686,
+      466,
+      324,
+      694
+    ],
+    "period": "Pre-colonial oral tradition",
+    "desc": "Nigeria, Ghana, Togo, Benin, Senegal, Mali, Guinea, Sierra Leone. Ogun (Yoruba): dogs sacred to deity of iron. Structural iron-dog connection parallels Slavic psoglav independently.",
+    "refs": [
+      "Samuel Johnson, History of the Yorubas (1921)",
+      "Wande Abimbola, Ifá (1975)"
+    ],
+    "slug": "west_africa_iron_dog_canine_deity_tradition",
+    "country": "West Africa",
+    "display_country": "West Africa"
+  },
+  {
+    "id": "china",
+    "name": "China — Shanhaijing (Classic of Mountains and Seas)",
+    "type": "countries",
+    "codes": [
+      156,
+      496
+    ],
+    "period": "~4th century BCE compilation; older oral sources",
+    "desc": "China and Mongolia. Multiple dog-headed beings described as geographic taxonomy. Treated as natural history alongside known animals.",
+    "refs": [
+      "Shanhaijing (~4th century BCE)",
+      "Edward Schafer, The Vermilion Bird (1967)"
+    ],
+    "slug": "china_shanhaijing_classic_of_mountains_and_seas",
+    "country": "China",
+    "display_country": "China"
+  },
+  {
+    "id": "philippines",
+    "name": "Philippines — Aswang (Weredog Variant)",
+    "type": "countries",
+    "codes": [
+      608
+    ],
+    "period": "Documented by Spanish colonists from 1589",
+    "desc": "Explicit weredog category. First documented 1589. Described as most feared creature in Philippine culture. Bipedal canine form, nocturnal.",
+    "refs": [
+      "Francisco Colin, Labor Evangélica (1663)"
+    ],
+    "slug": "philippines_aswang_weredog_variant",
+    "country": "Philippines",
+    "display_country": "Philippines"
+  },
+  {
+    "id": "central_asia",
+    "name": "Central Asia / Siberia — Shamanic Encounter Tradition",
+    "type": "countries",
+    "codes": [
+      398,
+      860,
+      762,
+      417,
+      795,
+      4,
+      104
+    ],
+    "period": "Pre-modern oral tradition",
+    "desc": "Kazakhstan, Uzbekistan, Tajikistan, Kyrgyzstan, Turkmenistan, Afghanistan, Myanmar. Shamanic traditions document animal-headed spirit beings with behavioural parallels: paralysis, watched-then-withdrew.",
+    "refs": [
+      "Mircea Eliade, Shamanism (1951)",
+      "Waldemar Bogoras, The Chukchee (1907)"
+    ],
+    "slug": "central_asia_siberia_shamanic_encounter_tradition",
+    "country": "Central Asia",
+    "display_country": "Central Asia"
+  },
+  {
+    "id": "canada_north",
+    "name": "Northern Canada / Alaska — Waheela & Algonquin Traditions",
+    "type": "us_states_canada",
+    "codes_us": [
+      "02"
+    ],
+    "codes_ca": "north",
+    "period": "Pre-colonial oral tradition",
+    "desc": "Waheela (Algonquin): large wolf-like creature, bipedal movement reported. Métis Rougarou bridges French-Canadian and Algonquin canine traditions.",
+    "refs": [
+      "Henry Schoolcraft, Algic Researches (1839)"
+    ],
+    "coords": [
+      [
+        74,
+        -145
+      ],
+      [
+        70,
+        -135
+      ],
+      [
+        69,
+        -100
+      ],
+      [
+        72,
+        -80
+      ],
+      [
+        67,
+        -76
+      ],
+      [
+        60,
+        -78
+      ],
+      [
+        57,
+        -130
+      ],
+      [
+        62,
+        -143
+      ]
+    ],
+    "slug": "northern_canada_alaska_waheela_algonquin_traditions",
+    "country": "Canada",
+    "display_country": "Canada"
+  },
+  {
+    "id": "south_america",
+    "name": "South America — Lobizón / Lobishomem",
+    "type": "countries",
+    "codes": [
+      76,
+      32,
+      858,
+      600,
+      68,
+      152,
+      604,
+      170,
+      218
+    ],
+    "period": "Colonial period (16th century) to present — deeply embedded",
+    "desc": "Brazil (Lobishomem) and Argentina/Uruguay/Paraguay (Lobizón): the seventh son is cursed to transform into a wolf-man on Friday nights. So embedded in Argentina that presidents formally became godparents of seventh sons until 2009 to break the curse. Described as bipedal, enormous, black fur, glowing eyes, foul smell — closely matching modern corpus descriptors.",
+    "refs": [
+      "João de Barros, Décadas da Ásia (1552) — early colonial documentation",
+      "Decree 1183/2009, Argentina — presidential godparent tradition to lift lobizón curse",
+      "Multiple 19th-century Argentine newspaper accounts of lobizón attacks"
+    ],
+    "slug": "south_america_lobiz_n_lobishomem",
+    "country": "South America",
+    "display_country": "South America"
+  },
+  {
+    "id": "horn_africa",
+    "name": "Horn of Africa — Were-Hyena / Buda",
+    "type": "countries",
+    "codes": [
+      231,
+      706,
+      262,
+      232,
+      729
+    ],
+    "period": "Documented by Leo Africanus 1526; tradition far older",
+    "desc": "Ethiopia, Somalia, Eritrea, Djibouti, Sudan. The Buda (Ethiopia) and Qori Ismaris (Somalia) — practitioners believed to transform into hyenas or dog-like creatures at night. In Ethiopia, blacksmiths and potters are hereditary buda — their caste status as were-hyenas is documented in church and colonial records. A distinct canine-hybrid tradition with a unique daytime social identity for the practitioner.",
+    "refs": [
+      "Leo Africanus, Description of Africa (1526)",
+      "Reminick, The Evil Eye Belief Among the Amhara of Ethiopia (1974)",
+      "Lewis, A Pastoral Democracy (1961) — Somalia documentation"
+    ],
+    "slug": "horn_of_africa_were_hyena_buda",
+    "country": "Ethiopia / Horn of Africa",
+    "display_country": "Ethiopia / Horn of Africa"
+  },
+  {
+    "id": "north_africa",
+    "name": "North Africa — Bouda / Were-Hyena Tradition",
+    "type": "countries",
+    "codes": [
+      504,
+      12,
+      788,
+      434
+    ],
+    "period": "Medieval Islamic documentation; pre-Islamic origin",
+    "desc": "Morocco, Algeria, Tunisia, Libya. The Bouda (from Arabic) — blacksmiths and Jewish communities in North Africa are believed to transform into hyenas at night. Documented by multiple European travellers. The Moroccan tradition specifies the transformation occurs at crossroads, at night, and the bouda retains human intelligence while in animal form — a direct parallel to the medieval European werewolf structural model.",
+    "refs": [
+      "Westermarck, Ritual and Belief in Morocco (1926)",
+      "Doutte, Magie et Religion dans l'Afrique du Nord (1909)"
+    ],
+    "slug": "north_africa_bouda_were_hyena_tradition",
+    "country": "North Africa",
+    "display_country": "North Africa"
+  },
+  {
+    "id": "japan",
+    "name": "Japan — Inugami (Dog God / Dog Spirit)",
+    "type": "countries",
+    "codes": [
+      392
+    ],
+    "period": "Documented from Heian period (794–1185 CE); Edo period court records",
+    "desc": "Inugami (犬神) — a vengeful spirit taking the form of a dog or dog-headed entity that can possess humans. Documented especially in Shikoku and Kyushu. Inugami-mochi (dog-god keepers) were hereditary practitioner families who could send the spirit against enemies. Documented in Edo-period court records as a real legal matter. The Tono Monogatari (1910) records multiple contemporary accounts.",
+    "refs": [
+      "Yanagita Kunio, Tono Monogatari (1910)",
+      "Edo period court records, Shikoku domain",
+      "Komatsu Kazuhiko, Nihon Yōkai Taizen (1994)"
+    ],
+    "slug": "japan_inugami_dog_god_dog_spirit",
+    "country": "Japan",
+    "display_country": "Japan"
+  },
+  {
+    "id": "indonesia_malay",
+    "name": "Indonesia / Malaysia — Barong / Anjing Shapeshifter",
+    "type": "countries",
+    "codes": [
+      360,
+      458,
+      764,
+      116,
+      104
+    ],
+    "period": "Pre-Hindu documented; continuous to present",
+    "desc": "Indonesia, Malaysia, Thailand, Cambodia, Myanmar. The Balinese Barong Ket — a dog-lion headed protective supernatural being, the subject of the famous sacred Barong dance. Depicted as upright, bipedal in some forms, with enormous canine head. The Malay Bajang — a shapeshifting spirit that takes the form of a wailing dog. Across the Malay Archipelago, dog-spirit possession accounts are documented in colonial ethnographies and persist in contemporary folk belief.",
+    "refs": [
+      "Covarrubias, Island of Bali (1937)",
+      "Skeat, Malay Magic (1900)",
+      "Endicott, An Analysis of Malay Magic (1970)"
+    ],
+    "slug": "indonesia_malaysia_barong_anjing_shapeshifter",
+    "country": "Indonesia / Malaysia",
+    "display_country": "Indonesia / Malaysia"
+  },
+  {
+    "id": "caribbean",
+    "name": "Caribbean — Loup-Garou / Jumbee",
+    "type": "countries",
+    "codes": [
+      332,
+      214,
+      192,
+      388,
+      780,
+      388,
+      630
+    ],
+    "period": "French and Spanish colonial period; syncretic with African traditions",
+    "desc": "Haiti, Dominican Republic, Cuba, Jamaica, Trinidad. The Haitian Loup-garou is distinct from European werewolf — it is syncretic with West African traditions brought by enslaved peoples. Described as a being that removes its skin at night and flies or runs in a luminescent dog-like form. In Trinidad, the Soucouyant and Lagahoo (from loup-garou) are contemporaneous traditions. Still reported in Caribbean rural communities.",
+    "refs": [
+      "Hurston, Tell My Horse (1938) — Haiti documentation",
+      "Mathers, Haitian Lore (1928)",
+      "Ottley, Creole Talk of Trinidad and Tobago (1971)"
+    ],
+    "slug": "caribbean_loup_garou_jumbee",
+    "country": "Caribbean",
+    "display_country": "Caribbean"
+  },
+  {
+    "id": "benandanti_italy",
+    "name": "Italy / Iberia — Benandanti / Hombre Lobo",
+    "type": "countries",
+    "codes": [
+      380,
+      724,
+      620
+    ],
+    "period": "Italy: Inquisition records 1575–1644; Spain/Portugal: medieval and colonial",
+    "desc": "Carlo Ginzburg's discovery: the Benandanti of Friuli — a documented society of spirit warriors who left their bodies at night in animal forms (including wolf) to fight witches and protect harvests. Inquisition trial transcripts 1575–1644 provide extraordinary first-person testimony. Spain (Hombre Lobo) and Portugal (Lobisomem — a distinct tradition from Brazil) add Iberian documentation. The Roman Versipellis (skin-turner) predates all medieval European accounts.",
+    "refs": [
+      "Ginzburg, The Night Battles: Witchcraft and Agrarian Cults in the 16th and 17th centuries (1966)",
+      "Inquisition transcripts, Friuli, 1575 (Archivo di Stato, Udine)",
+      "Pliny the Elder, Versipellis accounts, Naturalis Historia (77 CE)"
+    ],
+    "slug": "italy_iberia_benandanti_hombre_lobo",
+    "country": "Italy / Iberia",
+    "display_country": "Italy / Iberia"
+  },
+  {
+    "id": "native_na_extra",
+    "name": "Native North America — Amarok / Bear-Walker / Wechuge",
+    "type": "us_states",
+    "codes": [
+      "02"
+    ],
+    "period": "Pre-colonial oral tradition",
+    "desc": "Amarok (Inuit): a giant wolf with humanoid intelligence that hunts the sick and weak — in some traditions it can take a bipedal form and speak. Bear-Walker (Ojibwe): a shapeshifting medicine person who travels in animal form, sometimes wolf. Wechuge (Athabascan): a cannibal giant related to the Wendigo tradition. Across Northwest Coast cultures — Kwakwaka'wakw dog-human hybrid figures in potlatch tradition. The Tlingit Wolf Clan sacred narratives describe wolf-men as ancestors.",
+    "refs": [
+      "Boas, The Social Organization of the Kwakiutl (1897)",
+      "Lowie, Myths and Traditions of the Crow Indians (1918)",
+      "Petitot, Traditions Indiennes du Canada Nord-Ouest (1886)"
+    ],
+    "slug": "native_north_america_amarok_bear_walker_wechuge",
+    "country": "USA / Canada",
+    "display_country": "USA / Canada"
+  },
+  {
+    "id": "australia",
+    "name": "Australia — Aboriginal Canine-Headed Spirit Traditions",
+    "type": "countries",
+    "codes": [
+      36
+    ],
+    "period": "Pre-colonial; first recorded by European ethnographers 1880s",
+    "desc": "The Quinkan figures of Queensland rock art (some of the oldest rock art on Earth, some panels dated 30,000+ years) include tall bipedal figures with animal heads — some interpreted as canine. The Bunyip in some regional traditions is described with a dog-like head. The Yara-ma-yha-who of eastern Australia has animal-human hybrid characteristics. Ngurunderi (Ngarrindjeri tradition) involves ancestral beings with animal transformative abilities. The Mimi spirits of Arnhem Land rock art also show elongated animal-headed humanoids.",
+    "refs": [
+      "Flood, Rock Art of the Dreamtime (1997)",
+      "Massola, Bunjil's Cave: Myths, Legends and Superstitions of the Aborigines of South-East Australia (1968)",
+      "Mountford, The Dreamtime: Australian Aboriginal Myths in Paintings (1965)"
+    ],
+    "slug": "australia_aboriginal_canine_headed_spirit_traditions",
+    "country": "Australia",
+    "display_country": "Australia"
+  },
+  {
+    "id": "middle_east",
+    "name": "Middle East — Cynocephali in Islamic Scholarship",
+    "type": "countries",
+    "codes": [
+      682,
+      368,
+      760,
+      400,
+      784,
+      50,
+      586
+    ],
+    "period": "8th–14th century CE Islamic golden age documentation",
+    "desc": "Saudi Arabia, Iraq, Syria, Jordan, UAE, Bangladesh, Pakistan. Islamic scholars inherited Greek accounts of cynocephali and added new documentation. Al-Biruni (1030 CE) discusses dog-headed peoples in his survey of India. Al-Idrisi's world map (1154 CE) places cynocephali geographically. Ibn Battuta's travels mention dog-headed beings in the Indian Ocean region. The Ghul — an Arabian shapeshifting desert being that can take animal forms — is documented from pre-Islamic poetry.",
+    "refs": [
+      "Al-Biruni, Kitab al-Hind (1030 CE)",
+      "Al-Idrisi, Tabula Rogeriana (1154 CE)",
+      "Pre-Islamic Arabian poetry — ghul references (documented by Goldziher, 1889)"
+    ],
+    "slug": "middle_east_cynocephali_in_islamic_scholarship",
+    "country": "Middle East",
+    "display_country": "Middle East"
+  },
+  {
+    "id": "sub_saharan",
+    "name": "Sub-Saharan Africa — Therianthropic Spirit Traditions",
+    "type": "countries",
+    "codes": [
+      516,
+      508,
+      716,
+      454,
+      894,
+      818,
+      148,
+      120,
+      178,
+      706
+    ],
+    "period": "Pre-colonial; extensively documented from 1880s",
+    "desc": "Namibia, Mozambique, Zimbabwe, Malawi, Zambia, Tanzania, Chad, Cameroon, Congo, Somalia. Rock art across southern and central Africa depicts therianthropic (part-human, part-animal) figures. The San/Bushmen traditions of southern Africa include shape-shifting spirits. The Bwiti religion of Gabon and Cameroon involves animal-human transformation. Across the Congo basin, forest spirits described as large canine-headed bipedal beings appear in multiple ethnographic records.",
+    "refs": [
+      "Lewis-Williams, The Mind in the Cave (2002) — San rock art",
+      "Fernandez, Bwiti: An Ethnography of the Religious Imagination in Africa (1982)",
+      "Turnbull, The Forest People (1961) — Congo basin documentation"
+    ],
+    "slug": "sub_saharan_africa_therianthropic_spirit_traditions",
+    "country": "Sub-Saharan Africa",
+    "display_country": "Sub-Saharan Africa"
+  },
+  {
+    "id": "new_guinea",
+    "name": "New Guinea & Melanesia — Canine Spirit Traditions",
+    "type": "countries",
+    "codes": [
+      598,
+      90,
+      540
+    ],
+    "period": "Pre-colonial; documented from 1870s colonial ethnography",
+    "desc": "Papua New Guinea, Vanuatu, Fiji, Solomon Islands. Highland Papua New Guinea traditions describe the Masalai — shape-shifting spirits that can take the form of large dog-like bipedal creatures. The Sanguma of Papua New Guinea is a category of supernatural practitioner who can transform into an animal, often described as a large dog-shaped being. Melanesian traditions across multiple islands document encounters with large canine humanoids in forest areas.",
+    "refs": [
+      "Seligmann, The Melanesians of British New Guinea (1910)",
+      "Lawrence, Road Belong Cargo (1964)",
+      "Codrington, The Melanesians (1891)"
+    ],
+    "slug": "new_guinea_melanesia_canine_spirit_traditions",
+    "country": "Papua New Guinea",
+    "display_country": "Papua New Guinea"
+  },
+  {
+    "id": "new_zealand",
+    "name": "New Zealand — Moehau / Patupaiarehe",
+    "type": "countries",
+    "codes": [
+      554
+    ],
+    "period": "Pre-colonial Māori tradition; colonial accounts from 1880s onward",
+    "desc": "The Moehau (also Maeroero or Mohoao) — a large, hairy, bipedal forest creature documented in the Coromandel Peninsula and South Island ranges. Described as having an animal-like head with canine features, enormous strength, and a distinctive cry. First recorded colonial encounter accounts date to the 1880s. In Māori tradition, the Patupaiarehe are pale-skinned forest beings who live above the treeline; some regional traditions describe them as taking animal forms. The Moehau is treated as a distinct entity — not supernatural but an undiscovered creature — making it unusual among indigenous traditions worldwide.",
+    "refs": [
+      "Beattie, Traditions and Legends as Told by the Natives of Murihiku (1918)",
+      "Cowan, Fairy Folk of the Maori (1925)",
+      "Colonial newspaper archive accounts, Coromandel Peninsula (1882–1900)"
+    ],
+    "slug": "new_zealand_moehau_patupaiarehe",
+    "country": "New Zealand",
+    "display_country": "New Zealand"
+  },
+  {
+    "id": "canada_french",
+    "name": "Canada — Loup-Garou / Rugaru (French-Canadian)",
+    "type": "countries",
+    "codes": [
+      124
+    ],
+    "period": "French colonial period (1600s) to 20th century — deeply embedded in Catholic folk tradition",
+    "desc": "The French-Canadian Loup-Garou is one of the most extensively documented werewolf traditions in North America. Rooted in French colonial Catholic culture: anyone who missed Easter communion for 7 consecutive years was believed to transform into a loup-garou on Friday nights. Quebec parish records from the 17th–18th centuries document priests addressing the belief as a pastoral concern. The Métis Rugaru (from French loup-garou) is a related but distinct tradition — a large, hairy, bipedal creature that walks like a man but has a wolf or dog-like head. Contemporary Rugaru accounts from Manitoba and Saskatchewan parallel modern corpus descriptors almost exactly: bipedal, nocturnal, watcher behaviour, strong smell, glowing eyes.",
+    "refs": [
+      "Barbeau, Contes populaires canadiens (Journal of American Folklore, 1916)",
+      "Massicotte, Croyances et dictons populaires des environs de Trois-Rivières (1920)",
+      "Peers, The Ojibwa of Western Canada (1994) — Rugaru documentation",
+      "Quebec Séminaire records, 17th century"
+    ],
+    "slug": "canada_loup_garou_rugaru_french_canadian",
+    "country": "Canada",
+    "display_country": "Canada"
+  }
+]
