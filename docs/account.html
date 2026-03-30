@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptovox — Witness Account</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.account-page { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+
+/* Hero */
+.account-hero {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+}
+.account-back {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+.account-back:hover { color: var(--accent); }
+.account-title {
+  font-family: var(--serif-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.wcs-badge-lg {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+.band-Strong  { background: #d4ede0; color: #1e5e3a; border: 1px solid #a8d9be; }
+.band-Moderate{ background: #fdf3d8; color: #7a5a00; border: 1px solid #f0d87a; }
+.band-Weak    { background: #fde8e0; color: #8b2e1e; border: 1px solid #f4b8a8; }
+.hero-loc {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+.hero-nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.nav-btn {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Source credit */
+.source-credit {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+.source-credit a { color: var(--accent); text-decoration: none; }
+.source-credit a:hover { text-decoration: underline; }
+.source-credit strong { color: var(--ink); }
+
+/* Section headings */
+.section-heading {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 2.5rem 0 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Profile grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.profile-item { }
+.profile-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.2rem;
+}
+.profile-value {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+/* Flags */
+.flags-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+}
+.flag-pill {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid var(--rule);
+  color: var(--ink-faint);
+  background: var(--paper);
+}
+.flag-pill.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg, #f0f7f3);
+}
+
+/* WCS analysis */
+.dim-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.dim-section:last-child { border-bottom: none; }
+.dim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+.dim-name-lg {
+  font-family: var(--serif-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.dim-score-lg {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-mid);
+}
+.dim-score-bar {
+  height: 4px;
+  background: var(--rule);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.dim-score-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.dim-commentary {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.evidence-quotes { }
+.evidence-quote {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.65;
+  padding: 0.6rem 0 0.6rem 1rem;
+  border-left: 2px solid var(--accent);
+  margin-bottom: 0.6rem;
+  opacity: 0.85;
+}
+
+/* Notable patterns */
+.patterns-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.pattern-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  line-height: 1.4;
+}
+.pattern-bullet {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="landing.html" class="wordmark">Krypto<span>vox</span></a>
+  <nav class="site-nav">
+    <a href="index.html" class="active">Dashboard</a>
+    <a href="composite.html">Composite</a>
+    <a href="map.html">Map</a>
+    <a href="framework.html">Framework</a>
+    <a href="submit.html">Submit</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<div class="account-page" id="account-root">
+  <div style="color:var(--ink-faint);font-family:var(--sans);padding:4rem 0;text-align:center">Loading account…</div>
+</div>
+
+<script>
+const DIMS = ['IC','SS','SA','EA','CP','CO'];
+const DIM_FULL = {
+  IC: 'Internal Consistency',
+  SS: 'Sensory Specificity',
+  SA: 'Spontaneous Elaboration',
+  EA: 'Emotional Authenticity',
+  CP: 'Contextual Plausibility',
+  CO: 'Corroboration'
+};
+const DIM_DESC = {
+  IC: 'Whether the account holds together internally — no unexplained reversals, stable chronology, consistent creature description across the narrative.',
+  SS: 'The precision and unprompted specificity of sensory detail — sight, sound, smell, texture — beyond what a fabricator would typically include.',
+  SA: 'Spontaneous elaboration: details volunteered beyond the minimum required to answer a question, a marker of genuine episodic memory.',
+  EA: 'Whether the emotional responses — fear, hesitation, relationship impact — are appropriate, proportionate, and consistent with the claimed experience.',
+  CP: 'Whether the physical, geographical, and situational context is plausible and internally coherent.',
+  CO: 'Any independent corroboration: animal reactions, physical evidence, secondary witnesses, or documented precedent for the location.'
+};
+
+function barColor(score) {
+  if (score >= 7) return '#2d5a3d';
+  if (score >= 5) return '#9a7b2f';
+  return '#8b3a2a';
+}
+
+function dim_commentary(d, score, a) {
+  const quotes = (a[d] || {}).evidence_quotes || [];
+  const name = DIM_FULL[d];
+
+  // Score-based lead
+  let lead = '';
+  if (score >= 8) lead = `${name} is a notable strength in this account.`;
+  else if (score >= 6) lead = `${name} is above average — several indicators are present.`;
+  else if (score >= 5) lead = `${name} is moderate. Some positive indicators are present, but the account has limitations.`;
+  else lead = `${name} is below average in this account.`;
+
+  // Dimension-specific context
+  const ctx = {
+    IC: score >= 7
+      ? 'The witness maintains a coherent narrative across the full account with no significant self-contradictions. The creature description is stable.'
+      : score >= 5
+      ? 'The core account is broadly consistent, though some details shift across the narrative.'
+      : 'Notable inconsistencies reduce confidence — either in chronology, creature description, or claimed circumstances.',
+    SS: score >= 7
+      ? 'Specific unprompted sensory detail — beyond what is needed to answer any question — appears throughout. This is difficult to sustain in fabrication.'
+      : score >= 5
+      ? 'Some sensory specificity is present, though parts of the account remain at a general level.'
+      : 'Sensory detail is thin or confined to expected general descriptors. Little that would be hard to invent.',
+    SA: score >= 7
+      ? 'The witness elaborates spontaneously — adding context, comparisons, qualifications — beyond the interviewer\'s questions. A strong indicator of genuine episodic memory.'
+      : score >= 5
+      ? 'Some spontaneous elaboration is present, though much of the detail appears in direct response to prompting.'
+      : 'Elaboration is largely reactive rather than volunteered. The account remains close to minimum required disclosure.',
+    EA: score >= 7
+      ? 'Emotional responses are appropriate and proportionate. Signs of ongoing impact — behavioural change, relationship effects, continued distress — add credibility.'
+      : score >= 5
+      ? 'Some emotional markers are present, though the overall emotional profile is moderate.'
+      : 'The emotional response is either flat, absent, or difficult to distinguish from performance.',
+    CP: score >= 7
+      ? 'The setting, time, and circumstances are coherent and plausible. There is nothing in the situational context that undermines the account.'
+      : score >= 5
+      ? 'The contextual details are broadly plausible, though some elements are underspecified or generic.'
+      : 'Some contextual elements are implausible, vague, or inconsistent with stated circumstances.',
+    CO: score >= 7
+      ? 'Independent corroboration is present — animal reactions, a secondary witness, or physical evidence mentioned by the witness.'
+      : score >= 5
+      ? 'Partial corroboration — typically animal behaviour or a secondary witness with limited detail.'
+      : 'No independent corroboration is reported. The account rests entirely on the single witness narrative.'
+  };
+
+  return `${lead} ${ctx[d] || ''}`;
+}
+
+function fmt(val) {
+  if (val === null || val === undefined || val === '') return '—';
+  if (val === true) return 'Yes';
+  if (val === false) return 'No';
+  return String(val);
+}
+
+function episodeNumber(episodeTitle) {
+  const m = (episodeTitle || '').match(/Episode\s+(\d+)/i);
+  return m ? m[1] : null;
+}
+
+function renderAccount(a, allAccounts) {
+  const idx = allAccounts.findIndex(x => x.video_id === a.video_id);
+  const prev = idx > 0 ? allAccounts[idx - 1] : null;
+  const next = idx < allAccounts.length - 1 ? allAccounts[idx + 1] : null;
+
+  const title = a.display_title || a.episode_title || 'Witness Account';
+  const epNum = episodeNumber(a.episode_title);
+  const loc = [a.location_state_region, a.location_country].filter(Boolean).join(', ') || '—';
+  const ytUrl = a.video_id ? `https://youtu.be/${a.video_id}` : null;
+
+  // Source credit text
+  const sourceCredit = `
+    <div class="source-credit">
+      <strong>Source:</strong> This account was recorded by <strong>Vic Cundiff</strong> on the
+      <em>Dogman Encounters</em> podcast${epNum ? `, <strong>Episode ${epNum}</strong>` : ''}.
+      The interview is used here for academic research purposes — credibility scoring, descriptor
+      frequency analysis, and cross-account pattern research. No transcript or audio is reproduced
+      in full. ${ytUrl
+        ? `Full interview: <a href="${ytUrl}" target="_blank" rel="noopener">YouTube ↗</a>.`
+        : ''}
+      All witness quotes are reproduced verbatim as extracted from the original recording.
+    </div>`;
+
+  // Profile items
+  const profileItems = [
+    ['Location', loc],
+    ['Terrain', (a.terrain_type || '').split(',')[0].trim() || '—'],
+    ['Time of day', fmt(a.time_of_day)],
+    ['Season', fmt(a.season)],
+    ['Distance', a.distance_metres ? `~${a.distance_metres}` : '—'],
+    ['Duration', a.duration_seconds ? `~${Math.round(a.duration_seconds / 60)} min` : '—'],
+    ['Witness age', fmt(a.approximate_age)],
+    ['Profession', fmt(a.profession_category)],
+    ['Prior outdoor exp.', fmt(a.prior_outdoor_experience)],
+    ['Stated skeptic', fmt(a.stated_skeptic_before)],
+    ['Disclosure delay', a.disclosure_delay_years ? `${a.disclosure_delay_years} yrs` : '—'],
+    ['Narrator profile', fmt(a.narrator_profile)],
+  ].map(([label, val]) => `
+    <div class="profile-item">
+      <div class="profile-label">${label}</div>
+      <div class="profile-value">${val}</div>
+    </div>`).join('');
+
+  // Creature description items
+  const creatureItems = [
+    ['Height estimate', fmt(a.height_estimate_ft)],
+    ['Build', fmt(a.build)],
+    ['Face type', fmt(a.face_type)],
+    ['Eyes glow', fmt(a.eyes_glow)],
+    ['Smell reported', a.smell_reported ? (a.smell_description || 'Yes') : 'No'],
+    ['Bipedal', fmt(a.bipedal)],
+    ['Hands described', fmt(a.hands_described)],
+    ['Vocalisation', fmt(a.vocalisation_type)],
+    ['Departure type', fmt(a.departure_type)],
+    ['Eye contact', fmt(a.eye_contact_made)],
+  ].map(([label, val]) => `
+    <div class="profile-item">
+      <div class="profile-label">${label}</div>
+      <div class="profile-value">${val}</div>
+    </div>`).join('');
+
+  // WCS dimensions
+  const dimHTML = DIMS.map(d => {
+    const info = a[d] || {};
+    const score = info.score ?? 0;
+    const quotes = (info.evidence_quotes || [])
+      .map(q => `<div class="evidence-quote">"${q}"</div>`).join('');
+    const fillPct = score * 10;
+    const color = barColor(score);
+    const commentary = dim_commentary(d, score, a);
+    return `
+    <div class="dim-section">
+      <div class="dim-header">
+        <div class="dim-name-lg">${DIM_FULL[d]}</div>
+        <div class="dim-score-lg">${score} / 10</div>
+      </div>
+      <div class="dim-score-bar">
+        <div class="dim-score-fill" style="width:${fillPct}%;background:${color}"></div>
+      </div>
+      <p class="dim-commentary">${DIM_DESC[d]}</p>
+      ${quotes ? `<div class="evidence-quotes">${quotes}</div>` : '<p style="font-family:var(--sans);font-size:0.8rem;color:var(--ink-faint)">No evidence quotes extracted.</p>'}
+      <p style="font-family:var(--sans);font-size:0.78rem;color:var(--ink-mid);line-height:1.65;margin-top:0.75rem">${commentary}</p>
+    </div>`;
+  }).join('');
+
+  // Flags
+  const flagDefs = [
+    ['paralysis_or_freeze','🧊 Paralysis / freeze response'],
+    ['self_illuminated_eyes','✨ Self-illuminated eyes'],
+    ['specific_smell_reported','👃 Specific smell described'],
+    ['disclosure_delay_indicated','⏳ Disclosure delay indicated'],
+    ['post_encounter_life_change','🔄 Post-encounter life change'],
+    ['minimisation_phrases','🤐 Minimisation phrases present'],
+    ['watches_then_leaves','👁 Creature watches then leaves'],
+    ['silent_departure','🌫 Silent departure'],
+    ['felt_known_by_creature','🎯 Witness felt known by creature'],
+    ['bipedal','🦶 Confirmed bipedal'],
+    ['eyes_glow','💡 Eyes glow / reflect'],
+    ['near_water','💧 Near water'],
+  ];
+  const flagHTML = flagDefs.map(([k, label]) =>
+    `<span class="flag-pill ${a[k] ? 'active' : ''}">${label}</span>`
+  ).join('');
+
+  // Notable patterns
+  const patternsHTML = (a.notable_patterns || []).length
+    ? `<div class="patterns-list">${(a.notable_patterns).map(p =>
+        `<div class="pattern-row"><span class="pattern-bullet">◆</span><span>${p}</span></div>`
+      ).join('')}</div>`
+    : '<p style="font-family:var(--sans);font-size:0.82rem;color:var(--ink-faint)">No notable patterns flagged.</p>';
+
+  // Nav
+  const prevLink = prev ? `<a class="nav-btn" href="account.html?id=${prev.video_id}">← ${prev.display_title || 'Previous'}</a>` : '';
+  const nextLink = next ? `<a class="nav-btn" href="account.html?id=${next.video_id}">${next.display_title || 'Next'} →</a>` : '';
+
+  document.title = `Kryptovox — ${title}`;
+  document.getElementById('account-root').innerHTML = `
+  <div class="account-hero">
+    <a href="index.html" class="account-back">← Back to Dashboard</a>
+    <h1 class="account-title">${title}</h1>
+    <div class="hero-meta">
+      <span class="wcs-badge-lg band-${a.WCS_band}">WCS ${(a.WCS_raw||0).toFixed(1)} — ${a.WCS_band}</span>
+      <span class="hero-loc">${loc}</span>
+      ${ytUrl ? `<a href="${ytUrl}" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:0.75rem;color:var(--accent);text-decoration:none">▶ Watch interview</a>` : ''}
+    </div>
+    ${(prev || next) ? `<div class="hero-nav">${prevLink}${nextLink}</div>` : ''}
+  </div>
+
+  ${sourceCredit}
+
+  <div class="section-heading">Witness & Encounter Profile</div>
+  <div class="profile-grid">${profileItems}</div>
+
+  <div class="section-heading">Creature Description</div>
+  <div class="profile-grid">${creatureItems}</div>
+  ${a.face_description_quote ? `<div class="evidence-quote" style="margin-top:1rem">"${a.face_description_quote}"</div>` : ''}
+
+  <div class="section-heading">Behavioural Flags</div>
+  <div class="flags-section">${flagHTML}</div>
+
+  <div class="section-heading">Credibility Analysis — WCS Dimensions</div>
+  ${dimHTML}
+
+  <div class="section-heading">Notable Patterns</div>
+  ${patternsHTML}
+
+  <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:0.72rem;color:var(--ink-faint)">
+    Account processed ${a.extracted_at ? new Date(a.extracted_at).toLocaleDateString('en-GB',{year:'numeric',month:'long'}) : ''}.
+    WCS scoring time: ${a.score_time_s ? a.score_time_s + 's' : '—'}.
+    Researcher: Purtilonij Ostimar. Pipeline: Kryptovox v1.
+  </div>`;
+}
+
+// Load
+fetch('dashboard.json')
+  .then(r => r.json())
+  .then(data => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const accounts = data.accounts || [];
+    const account = id ? accounts.find(a => a.video_id === id) : null;
+    if (!account) {
+      document.getElementById('account-root').innerHTML =
+        `<div style="padding:4rem 0;text-align:center;font-family:var(--sans);color:var(--ink-faint)">
+          Account not found. <a href="index.html" style="color:var(--accent)">← Back to dashboard</a>
+        </div>`;
+      return;
+    }
+    renderAccount(account, accounts);
+  })
+  .catch(() => {
+    document.getElementById('account-root').innerHTML =
+      `<div style="padding:4rem 0;text-align:center;font-family:var(--sans);color:var(--ink-faint)">
+        Failed to load account data.
+      </div>`;
+  });
+</script>
+</body>
+</html>
