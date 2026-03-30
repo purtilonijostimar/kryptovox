@@ -86,7 +86,7 @@ fetch('historic.json')
   .then(entries => {
     const entry = entries.find(e => e.slug === id);
     if (!entry) {
-      root.innerHTML = `<div class="not-found"><p>Entry not found.</p><a href="index.html?view=historic" style="color:var(--accent)">← Back to Historic Accounts</a></div>`;
+      root.innerHTML = `<div class="not-found"><p>Entry not found.</p><a href="index.html?view=historic" style="color:var(--accent)">← Back to History &amp; Folklore</a></div>`;
       return;
     }
     document.title = `Kryptovox — ${entry.name}`;
@@ -95,7 +95,7 @@ fetch('historic.json')
     const tags = (entry.descriptors || []).map(d => `<span class="descriptor-tag">${d}</span>`).join('');
 
     root.innerHTML = `
-      <a href="index.html?view=historic" class="back-link">← Historic Accounts</a>
+      <a href="index.html?view=historic" class="back-link">← History &amp; Folklore</a>
       <div class="entry-kicker">Historic Tradition · ${entry.country || ''}</div>
       <h1 class="entry-title">${entry.name}</h1>
       <div class="entry-country">${entry.display_country || entry.country || ''}</div>
