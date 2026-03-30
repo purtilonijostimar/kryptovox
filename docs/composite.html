@@ -144,10 +144,7 @@ input[type=range] {
   fill: transparent;
   stroke: none;
   cursor: pointer;
-  transition: fill 0.2s;
 }
-.zone-overlay:hover { fill: rgba(45,90,61,0.08); }
-.zone-overlay.active { fill: rgba(45,90,61,0.28); stroke: rgba(45,90,61,0.65); stroke-width: 2.5; }
 
 /* Hover zone tooltip */
 #zone-tooltip {
@@ -232,13 +229,18 @@ input[type=range] {
 .panel-content.visible { display: block; }
 
 .panel-zone-tag {
+  display: inline-block;
   font-family: var(--sans);
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent-bg);
   color: var(--accent);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
 }
 .panel-zone-title {
   font-family: var(--serif-display);
@@ -398,10 +400,16 @@ input[type=range] {
   cursor: pointer;
   transition: all 0.15s;
 }
-.zone-dot-btn:hover, .zone-dot-btn.active {
+.zone-dot-btn:hover {
   border-color: var(--accent);
   background: var(--accent-bg);
   color: var(--accent);
+}
+.zone-dot-btn.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
 }
 
 /* Methodology footer */
