@@ -691,9 +691,9 @@ const ZONE_CONFIG = {
       return { value: pct(canine, accounts.length) + '%', label: 'described a canine or wolf-like face' };
     },
     bars: (accounts) => [
-      { label: 'Canine / wolf face', pct: pct(accounts.filter(a => (a.face_type||'').toLowerCase().match(/canine|wolf|dog/)).length, accounts.length) },
-      { label: 'Upright pointed ears', pct: pct(accounts.filter(a => (a.face_type||'').toLowerCase().match(/point|ear|tufted/)).length, accounts.length) || 68 },
-      { label: 'Elongated snout / muzzle', pct: pct(accounts.filter(a => (a.face_type||'').toLowerCase().match(/snout|muzzle|elongat/)).length, accounts.length) || 71 },
+      { label: 'Canine / wolf face', pct: pct(accounts.filter(a => strField(a.face_type).toLowerCase().match(/canine|wolf|dog/)).length, accounts.length) },
+      { label: 'Upright pointed ears', pct: pct(accounts.filter(a => strField(a.face_type).toLowerCase().match(/point|ear|tufted/)).length, accounts.length) || 68 },
+      { label: 'Elongated snout / muzzle', pct: pct(accounts.filter(a => strField(a.face_type).toLowerCase().match(/snout|muzzle|elongat/)).length, accounts.length) || 71 },
     ],
     quotes_field: 'face_description_quote',
     acoustic: 'Voice stress peaks observed on face description segments across high-WCS accounts — higher than on narrative connective segments.',
@@ -707,8 +707,8 @@ const ZONE_CONFIG = {
     },
     bars: (accounts) => [
       { label: 'Glowing / self-illuminated', pct: pct(accounts.filter(a => a.eyes_glow || a.self_illuminated_eyes).length, accounts.length) },
-      { label: 'Amber or yellow', pct: pct(accounts.filter(a => (a.eyes_colour||'').toLowerCase().match(/amber|yellow/)).length, accounts.length) },
-      { label: 'Red or orange', pct: pct(accounts.filter(a => (a.eyes_colour||'').toLowerCase().match(/red|orange|flame/)).length, accounts.length) },
+      { label: 'Amber or yellow', pct: pct(accounts.filter(a => strField(a.eyes_colour).toLowerCase().match(/amber|yellow/)).length, accounts.length) },
+      { label: 'Red or orange', pct: pct(accounts.filter(a => strField(a.eyes_colour).toLowerCase().match(/red|orange|flame/)).length, accounts.length) },
       { label: 'Forward-facing (like human, not prey)', pct: 82 },
     ],
     swatches: [
@@ -729,7 +729,7 @@ const ZONE_CONFIG = {
     },
     bars: (accounts) => [
       { label: 'Bipedal locomotion', pct: pct(accounts.filter(a => a.bipedal).length, accounts.length) },
-      { label: 'Muscular / powerful build', pct: pct(accounts.filter(a => (a.build||'').toLowerCase().match(/muscul|power|thick|massive|large/)).length, accounts.length) || 74 },
+      { label: 'Muscular / powerful build', pct: pct(accounts.filter(a => strField(a.build).toLowerCase().match(/muscul|power|thick|massive|large/)).length, accounts.length) || 74 },
       { label: 'Height 7ft or taller', pct: pct(accounts.filter(a => parseFloat(a.height_estimate_ft) >= 7).length, accounts.length) },
       { label: 'Wide chest / broad shoulders', pct: 68 },
     ],
@@ -813,6 +813,12 @@ function pct(n, total) {
   if (!total) return 0;
   return Math.round(n / total * 100);
 }
+// Safe string field — handles arrays (multi-encounter accounts)
+function strField(val) {
+  if (!val) return '';
+  if (Array.isArray(val)) return val.filter(Boolean).join(' ');
+  return String(val);
+}
 
 // ── RENDER PANEL ────────────────────────────────────────────────────
 let activeZone = null;
@@ -822,6 +828,15 @@ function renderPanel(zoneKey) {
   if (!cfg) return;
 
   activeZone = zoneKey;
+
+  // Set active state immediately — before any rendering that might throw
+  document.querySelectorAll('.zone-overlay').forEach(el => {
+    el.classList.toggle('active', el.dataset.zone === zoneKey);
+  });
+  document.querySelectorAll('.zone-dot-btn').forEach(el => {
+    el.classList.toggle('active', el.dataset.zone === zoneKey);
+  });
+
   const accounts = FILTERED;
   const n = accounts.length;
 
@@ -903,13 +918,6 @@ function renderPanel(zoneKey) {
   void panelContent.offsetWidth; // reflow
   panelContent.classList.add('fade-in');
 
-  // Update active zone visuals
-  document.querySelectorAll('.zone-overlay').forEach(el => {
-    el.classList.toggle('active', el.dataset.zone === zoneKey);
-  });
-  document.querySelectorAll('.zone-dot-btn').forEach(el => {
-    el.classList.toggle('active', el.dataset.zone === zoneKey);
-  });
 }
 
 // ── WCS FILTER ──────────────────────────────────────────────────────
