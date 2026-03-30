@@ -611,7 +611,6 @@ function renderHistoric() {
         <span class="hcard-country">${e.country || ''}</span>
         <span class="hcard-continent">${e.continent || ''}</span>
       </div>
-      <div class="hcard-tradition">${tradition}</div>
       <div class="hcard-name">${e.name}</div>
       ${e.period ? `<div class="hcard-period">${e.period}</div>` : ''}
       <div class="hcard-desc">${desc}${(e.desc||'').length > 220 ? '…' : ''}</div>
