@@ -490,28 +490,44 @@ function renderAccount(a, allAccounts) {
 }
 
 // Load
-fetch('dashboard.json')
-  .then(r => r.json())
-  .then(data => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
-    const accounts = data.accounts || [];
-    const account = id ? accounts.find(a => a.video_id === id) : null;
-    if (!account) {
-      document.getElementById('account-root').innerHTML =
-        `<div style="padding:4rem 0;text-align:center;font-family:var(--sans);color:var(--ink-faint)">
-          Account not found. <a href="index.html" style="color:var(--accent)">← Back to dashboard</a>
-        </div>`;
-      return;
-    }
-    renderAccount(account, accounts);
-  })
-  .catch(() => {
+async function loadAccount() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  let data, accounts, account;
+  try {
+    const resp = await fetch('dashboard.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    data = await resp.json();
+    accounts = data.accounts || [];
+  } catch(e) {
     document.getElementById('account-root').innerHTML =
       `<div style="padding:4rem 0;text-align:center;font-family:var(--sans);color:var(--ink-faint)">
-        Failed to load account data.
+        Could not load dashboard.json (${e.message}).<br>
+        <a href="index.html" style="color:var(--accent)">← Back to dashboard</a>
       </div>`;
-  });
+    return;
+  }
+  account = id ? accounts.find(a => a.video_id === id) : null;
+  if (!account) {
+    document.getElementById('account-root').innerHTML =
+      `<div style="padding:4rem 0;text-align:center;font-family:var(--sans);color:var(--ink-faint)">
+        Account <strong>${id || '?'}</strong> not found in corpus.<br>
+        <a href="index.html" style="color:var(--accent)">← Back to dashboard</a>
+      </div>`;
+    return;
+  }
+  try {
+    renderAccount(account, accounts);
+  } catch(e) {
+    document.getElementById('account-root').innerHTML =
+      `<div style="padding:4rem 0;text-align:center;font-family:var(--sans);color:var(--ink-faint)">
+        Render error: ${e.message}<br>
+        <a href="index.html" style="color:var(--accent)">← Back to dashboard</a>
+      </div>`;
+    console.error(e);
+  }
+}
+loadAccount();
 </script>
 </body>
 </html>

@@ -333,8 +333,7 @@ function renderCards() {
     ).join('');
 
     const idx = allAccounts.indexOf(a);
-    const accountUrl = a.video_id ? `account.html?id=${a.video_id}` : null;
-    return `<div class="account-card" ${accountUrl ? `onclick="window.location='${accountUrl}'"` : `onclick="openModal(${idx})"`} style="cursor:pointer">
+    return `<div class="account-card" data-vid="${a.video_id || ''}" data-idx="${idx}" style="cursor:pointer">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem">
         <div class="card-title">${title}</div>
         <span class="wcs-badge band-${a.WCS_band}" style="margin-left:0.75rem;flex-shrink:0">${(a.WCS_raw||0).toFixed(1)} ${a.WCS_band}</span>
@@ -346,6 +345,16 @@ function renderCards() {
       </div>
     </div>`;
   }).join('');
+
+  // click delegation — route to subpage or modal
+  grid.querySelectorAll('.account-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const vid = card.dataset.vid;
+      const idx = parseInt(card.dataset.idx);
+      if (vid) window.location = 'account.html?id=' + vid;
+      else openModal(idx);
+    });
+  });
 }
 
 function openModal(idx) {
