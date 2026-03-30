@@ -201,6 +201,7 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
 const map = L.map('main-map', {
   center: [25, 10],
@@ -223,141 +224,223 @@ Object.values(layers).forEach(l => l.addTo(map));
 
 // ── HISTORICAL TERRITORIES ─────────────────────────────────────────
 // Documented regional traditions — rendered as filled polygons
-const TERRITORIES = [
+// ── TERRITORY DEFINITIONS (country/state codes, not hand-drawn polygons) ──
+// World countries: ISO 3166-1 numeric codes
+// US regions: FIPS state codes (strings)
+const TERRITORY_DEFS = [
   {
     id: 'great_lakes', name: 'Great Lakes — Rugaru / Michigan Dogman',
+    type: 'us_states', codes: ['26','55','27','39','18','17'],
     period: 'Ojibwe oral tradition; modern accounts 1887–present',
     desc: 'The Rugaru (Ojibwe/Chippewa) is described as a tall, bipedal, wolf-headed being that travels alone at night. The Michigan Dogman first documented in print in 1887 (Traverse City Record-Eagle). Highest density modern encounter area.',
     refs: ['Luther Sunderland, 1887 (newspaper account)', 'Ojibwe oral tradition (documented by Schoolcraft, 1851)'],
-    coords: [[49,-97],[49,-76],[45,-76],[42,-79],[41,-83],[41,-91],[44,-93],[47,-95]]
   },
   {
     id: 'pacific_nw', name: 'Pacific Northwest — Canine Cryptid Accounts',
+    type: 'us_states', codes: ['53','41','16'],
     period: 'Pre-colonial oral tradition; modern accounts ongoing',
-    desc: 'Highest density region for modern dogman-type accounts in the Kryptovox corpus. Multiple Indigenous traditions including Quileute and Quinault describe wolf-people. Overlaps with Sasquatch territory but described as distinct.',
+    desc: 'Highest density region for modern dogman-type accounts. Multiple Indigenous traditions including Quileute and Quinault describe wolf-people. Overlaps with Sasquatch territory but described as distinct.',
     refs: ['Kryptovox corpus — highest encounter density region'],
-    coords: [[55,-130],[55,-120],[50,-117],[46,-117],[42,-122],[42,-128],[47,-130]]
   },
   {
     id: 'southwest', name: 'American Southwest — Navajo Yee Naaldlooshii',
+    type: 'us_states', codes: ['04','35','49','08'],
     period: 'Pre-colonial, oral tradition — strongest behavioural match',
-    desc: 'Skin-walker (Yee Naaldlooshii) tradition. Critical behavioural parallels: watches-then-leaves, felt-known by target, specific disclosure taboo. Not simply shapeshifting — accounts specifically describe canine-bipedal form. Strongest Old World–New World parallel in the corpus.',
-    refs: ['Washington Matthews, "Navaho Legends" (1897)', 'Gladys Reichard, "Navaho Religion" (1950)'],
-    coords: [[38,-115],[38,-107],[35,-104],[32,-106],[31,-114],[33,-115]]
-  },
-  {
-    id: 'mesoamerica', name: 'Mesoamerica — Huay Chivo / Xolotl / Nagual',
-    period: 'Pre-colonial Mayan and Aztec traditions',
-    desc: 'Huay Chivo (Yucatan): half-man half-dog with glowing eyes. Xolotl: dog-headed psychopomp with anatomically reversed feet. Nagual shapeshifting traditions include canine forms across multiple cultures.',
-    refs: ['Codex Borgia', 'Florentine Codex (Sahagún)', 'Diego de Landa, Relación de las cosas de Yucatán (1566)'],
-    coords: [[30,-118],[30,-99],[26,-97],[22,-90],[18,-88],[15,-90],[12,-85],[9,-79],[10,-77],[15,-84],[19,-87],[24,-90],[28,-95],[32,-100],[32,-109]]
-  },
-  {
-    id: 'louisiana', name: 'Louisiana / Gulf Coast — Rougarou',
-    period: 'French colonial period (17th century) to present',
-    desc: 'Rougarou — swamp-dwelling werewolf. Strongly maintained in Cajun and Louisiana Creole tradition. Distinct from French source tradition — adapted to bayou environment.',
-    refs: ['Barry Jean Ancelet, "Cajun and Creole Folktales" (1994)', 'Multiple 19th-century newspaper accounts'],
-    coords: [[33,-95],[33,-88],[30,-88],[29,-89],[28,-91],[29,-95]]
+    desc: 'Skin-walker (Yee Naaldlooshii) tradition. Behavioural parallels: watches-then-leaves, felt-known by target, disclosure taboo. Strongest Old World–New World parallel in the corpus.',
+    refs: ['Washington Matthews, Navaho Legends (1897)', 'Gladys Reichard, Navaho Religion (1950)'],
   },
   {
     id: 'appalachia', name: 'Appalachian Region — Dense Modern Corpus',
+    type: 'us_states', codes: ['54','21','47','51','37','42'],
     period: 'Modern accounts (primary corpus region)',
-    desc: 'Second highest density region. High proportion of accounts with long disclosure delays (10–40 years). Terrain: dense mixed forest, isolated rural communities.',
+    desc: 'Second highest density region. High proportion of accounts with long disclosure delays. Terrain: dense mixed forest, isolated rural communities.',
     refs: ['Kryptovox corpus — multiple high-WCS accounts'],
-    coords: [[44,-80],[44,-73],[41,-74],[38,-76],[34,-77],[35,-84],[38,-84],[40,-82]]
+  },
+  {
+    id: 'louisiana', name: 'Louisiana / Gulf Coast — Rougarou',
+    type: 'us_states', codes: ['22','28','01'],
+    period: 'French colonial period (17th century) to present',
+    desc: 'Rougarou — swamp-dwelling werewolf. Strongly maintained in Cajun and Louisiana Creole tradition. Distinct from French source tradition — adapted to bayou environment.',
+    refs: ['Barry Jean Ancelet, Cajun and Creole Folktales (1994)'],
+  },
+  {
+    id: 'mesoamerica', name: 'Mesoamerica — Huay Chivo / Xolotl / Nagual',
+    type: 'countries', codes: [484,320,84,340,222,558,188,591],
+    period: 'Pre-colonial Mayan and Aztec traditions',
+    desc: 'Huay Chivo (Yucatan): half-man half-dog with glowing eyes. Xolotl: dog-headed psychopomp with anatomically reversed feet. Nagual shapeshifting traditions include canine forms across multiple cultures.',
+    refs: ['Codex Borgia', 'Florentine Codex (Sahagún)', 'Diego de Landa, Relación de las cosas de Yucatán (1566)'],
   },
   {
     id: 'british_isles', name: 'British Isles — Werewolf & Barghest Traditions',
+    type: 'countries', codes: [826,372],
     period: 'Medieval to 19th century documented',
     desc: 'Black Shuck (East Anglia), Barghest (Yorkshire), Werewolf of Ossory (Ireland, 1188). Modern corpus includes multi-encounter UK witness with WCS 7.3.',
-    refs: ['Gerald of Wales, Topographia Hibernica (1188)', 'Elliott O\'Donnell, Werewolves (1912)'],
-    coords: [[58,-5],[61,-2],[60,1],[57,1],[53,2],[51,2],[50,1],[50,-5],[52,-5],[54,-4],[56,-6]]
+    refs: ['Gerald of Wales, Topographia Hibernica (1188)'],
   },
   {
     id: 'france', name: 'France — Loup-Garou / Beast of Gévaudan',
+    type: 'countries', codes: [250],
     period: '16th–18th century peak documentation',
     desc: 'Richest documented werewolf trial record. Jean Grenier (1603), Gilles Garnier (1573). Beast of Gévaudan (1764–1767): 113 documented attacks.',
-    refs: ['Procès de Gilles Garnier (1573)', 'Procès de Jean Grenier (1603)', 'Mémoires sur le loup du Gévaudan (Marin, 1767)'],
-    coords: [[51,-2],[51,3],[50,6],[47,8],[44,7],[43,5],[43,2],[43,-2],[45,-2],[47,-2]]
+    refs: ['Procès de Gilles Garnier (1573)', 'Procès de Jean Grenier (1603)'],
   },
   {
     id: 'central_europe', name: 'Central Europe — Werewolf Trial Records',
-    period: 'Peak 1580–1650 (thousands of documented trials)',
-    desc: 'Germany, Austria, Switzerland hold the most extensive legal records. Peter Stumpp execution (1589, Bedburg). Malleus Maleficarum (1487) provided the theological framework.',
-    refs: ['Peter Stumpp trial transcript (1589)', 'Malleus Maleficarum (Kramer, 1487)', 'Johann Weyer, De Praestigiis Daemonum (1563)'],
-    coords: [[55,7],[55,15],[52,18],[50,18],[48,17],[47,16],[46,14],[46,8],[48,7],[52,7]]
+    type: 'countries', codes: [276,40,756,616,203,703],
+    period: 'Peak 1580–1650',
+    desc: 'Germany, Austria, Switzerland, Poland, Czech Republic, Slovakia. Thousands of documented trials. Peter Stumpp execution (1589, Bedburg). Malleus Maleficarum (1487) provided the theological framework.',
+    refs: ['Peter Stumpp trial transcript (1589)', 'Malleus Maleficarum (Kramer, 1487)'],
   },
   {
     id: 'scandinavia', name: 'Scandinavia — Ulfhednar / Werewolf Tradition',
+    type: 'countries', codes: [578,752,246,208,352],
     period: 'Viking Age (8th–11th century) and medieval',
     desc: 'Ulfhednar wolf-warriors documented in Norse sagas. Livonian werewolf tradition documented by Olaus Magnus (1555). Thiess of Kaltenbrun (1692) — the most extraordinary werewolf testimony on record.',
-    refs: ['Egil\'s Saga (13th century)', 'Olaus Magnus, Historia de Gentibus Septentrionalibus (1555)', 'Thiess of Kaltenbrun trial transcript (1692)'],
-    coords: [[71,26],[70,30],[65,28],[61,25],[60,25],[57,13],[55,8],[57,5],[62,5],[65,14],[70,20]]
+    refs: ['Olaus Magnus, Historia de Gentibus Septentrionalibus (1555)', 'Thiess of Kaltenbrun trial transcript (1692)'],
   },
   {
     id: 'balkans', name: 'Balkans / Slavic — Psoglav, Pasjeglavci, Vrykolakas',
+    type: 'countries', codes: [705,191,688,100,300,807,70,642],
     period: 'Medieval documented; oral tradition older',
-    desc: 'Serbian Psoglav (iron teeth, cave-dwelling); Slovenian Pasjeglavci (eyes anatomically cannot look upward — unique globally); Croatian/Greek Vrykolakas (wolf-vampire hybrid).',
-    refs: ['Valvasor, Die Ehre des Herzogthums Crain (1689)', 'Bolhar, Deklica in Pasjeglavci (1965)', 'Monika Kropej, Supernatural Beings from Slovenian Myth (2012)'],
-    coords: [[47,14],[47,22],[44,28],[42,28],[40,27],[37,22],[38,21],[41,20],[43,17],[45,17]]
+    desc: 'Slovenian Pasjeglavci (eyes anatomically cannot look upward — unique globally); Serbian Psoglav (iron teeth); Greek/Croatian Vrykolakas (wolf-vampire hybrid).',
+    refs: ['Valvasor, Die Ehre des Herzogthums Crain (1689)', 'Monika Kropej, Supernatural Beings from Slovenian Myth (2012)'],
   },
   {
     id: 'russia_east', name: 'Russia / Eastern Europe — Volkolak / Oborot',
+    type: 'countries', codes: [643,804,112,440,428,233],
     period: 'Medieval documented; pre-Christian oral tradition',
-    desc: 'Volkolak and Oborot — not cursed humans but a structural intermediate category of being. Reported in church records from the 12th century as a pastoral problem.',
+    desc: 'Russia, Ukraine, Belarus, Lithuania, Latvia, Estonia. Volkolak and Oborot — not cursed humans but a structural intermediate category. Church records from the 12th century.',
     refs: ['Russian Primary Chronicle references', 'Alexander Afanasyev, Russian Folk Legends (1859)'],
-    coords: [[70,30],[68,58],[62,58],[55,58],[50,40],[48,37],[50,30],[55,28],[60,30],[65,30]]
   },
   {
     id: 'india', name: 'Ancient India — Cynocephali (Ctesias, Megasthenes)',
+    type: 'countries', codes: [356,524,64,586,144],
     period: '400 BCE – 1300 CE (continuous documentation)',
-    desc: 'Cynocephali documented for over 1,600 years as a real species. Ctesias (400 BCE), Megasthenes (300 BCE), Pliny (77 CE), Isidore (7th century), Mandeville (14th century). Treated as zoology, not mythology.',
+    desc: 'India, Nepal, Bhutan, Pakistan, Sri Lanka. Cynocephali documented for over 1,600 years as a real species. Ctesias (400 BCE), Megasthenes (300 BCE), Pliny (77 CE). Treated as zoology, not mythology.',
     refs: ['Ctesias, Indica (~400 BCE)', 'Megasthenes, Indica (~300 BCE)', 'Pliny, Naturalis Historia (77 CE)'],
-    coords: [[36,66],[36,78],[33,78],[28,89],[22,92],[12,80],[8,77],[8,80],[12,76],[20,72],[24,68],[28,67],[32,74]]
   },
   {
     id: 'egypt_nile', name: 'Egypt / Nile Valley — Anubis / Wepwawet',
+    type: 'countries', codes: [818,729],
     period: 'Pre-3000 BCE to Ptolemaic period',
-    desc: 'Oldest documented canine-headed humanoid traditions. Anubis and Wepwawet — bipedal, upright, psychopomp functions. Continuous documentation for over 3,000 years.',
+    desc: 'Oldest documented canine-headed humanoid traditions. Anubis and Wepwawet — bipedal, upright, psychopomp functions. Continuous Egyptian documentation for over 3,000 years.',
     refs: ['Book of the Dead (New Kingdom, ~1550 BCE)', 'Pyramid Texts (~2400 BCE)'],
-    coords: [[32,25],[31,32],[30,34],[25,35],[22,36],[20,37],[22,33],[24,32],[29,25]]
   },
   {
     id: 'west_africa', name: 'West Africa — Iron-Dog / Canine Deity Tradition',
+    type: 'countries', codes: [566,288,768,204,686,466,324,694],
     period: 'Pre-colonial oral tradition',
-    desc: 'Ogun (Yoruba): dogs sacred to deity of iron. Structural iron-dog connection parallels Slavic psoglav (iron teeth) independently. Three separate cultural lineages associate canine beings with iron — no documented contact.',
+    desc: 'Nigeria, Ghana, Togo, Benin, Senegal, Mali, Guinea, Sierra Leone. Ogun (Yoruba): dogs sacred to deity of iron. Structural iron-dog connection parallels Slavic psoglav independently.',
     refs: ['Samuel Johnson, History of the Yorubas (1921)', 'Wande Abimbola, Ifá (1975)'],
-    coords: [[17,-18],[17,5],[12,10],[6,8],[4,2],[5,-3],[8,-14],[14,-17]]
   },
   {
     id: 'china', name: 'China — Shanhaijing (Classic of Mountains and Seas)',
+    type: 'countries', codes: [156,496],
     period: '~4th century BCE compilation; older oral sources',
-    desc: 'Multiple dog-headed beings as geographic taxonomy — not mythology. Each associated with a specific mountain region. Treated as natural history alongside known animals.',
-    refs: ['Shanhaijing (~4th century BCE)', 'Edward Schafer, "The Vermilion Bird" (1967)'],
-    coords: [[53,73],[52,135],[40,135],[23,120],[22,110],[22,100],[25,97],[30,97],[36,78],[40,73],[50,73]]
+    desc: 'China and Mongolia. Multiple dog-headed beings described as geographic taxonomy. Treated as natural history alongside known animals.',
+    refs: ['Shanhaijing (~4th century BCE)', 'Edward Schafer, The Vermilion Bird (1967)'],
   },
   {
     id: 'philippines', name: 'Philippines — Aswang (Weredog Variant)',
+    type: 'countries', codes: [608],
     period: 'Documented by Spanish colonists from 1589',
-    desc: 'Explicit weredog category — distinct from other shapeshifter forms. First documented 1589. Described as the most feared creature in Philippine culture. Bipedal canine form, nocturnal.',
-    refs: ['Francisco Colin, Labor Evangélica (1663)', 'W.H. Scott, "Cracks in the Parchment Curtain" (1982)'],
-    coords: [[20,118],[19,122],[16,122],[10,126],[5,120],[6,116],[10,118],[14,122],[18,121]]
+    desc: 'Explicit weredog category. First documented 1589. Described as most feared creature in Philippine culture. Bipedal canine form, nocturnal.',
+    refs: ['Francisco Colin, Labor Evangélica (1663)'],
   },
   {
     id: 'central_asia', name: 'Central Asia / Siberia — Shamanic Encounter Tradition',
-    period: 'Pre-modern oral tradition, documented by early ethnographers',
-    desc: 'Animal-headed spirit beings in shamanic accounts. Behavioural parallels: paralysis, watched-then-withdrew. Buryat and Evenk peoples have the most extensively documented canine spirit traditions.',
+    type: 'countries', codes: [398,860,762,417,795,4,104],
+    period: 'Pre-modern oral tradition',
+    desc: 'Kazakhstan, Uzbekistan, Tajikistan, Kyrgyzstan, Turkmenistan, Afghanistan, Myanmar. Shamanic traditions document animal-headed spirit beings with behavioural parallels: paralysis, watched-then-withdrew.',
     refs: ['Mircea Eliade, Shamanism (1951)', 'Waldemar Bogoras, The Chukchee (1907)'],
-    coords: [[72,58],[70,140],[60,140],[52,130],[45,80],[48,60],[56,58],[65,60]]
   },
   {
     id: 'canada_north', name: 'Northern Canada / Alaska — Waheela & Algonquin Traditions',
+    type: 'us_states_canada', codes_us: ['02'], codes_ca: 'north',
     period: 'Pre-colonial oral tradition',
     desc: 'Waheela (Algonquin): large wolf-like creature, bipedal movement reported. Métis Rougarou bridges French-Canadian and Algonquin canine traditions.',
-    refs: ['Ivan Sanderson, "Abominable Snowmen: Legend Come to Life" (1961)', 'Henry Schoolcraft, Algic Researches (1839)'],
+    refs: ['Henry Schoolcraft, Algic Researches (1839)'],
+    // fallback polygon for northern Canada (no state-level data)
     coords: [[74,-145],[70,-135],[69,-100],[72,-80],[67,-76],[60,-78],[57,-130],[62,-143]]
   },
 ];
+
+// ── LOAD TOPOJSON & RENDER TERRITORIES ─────────────────────────────
+const TERRITORY_COLOR = '#9a6820';
+
+async function buildTerritoryLayers() {
+  // Fetch world countries + US states in parallel
+  const [world, usAtlas] = await Promise.all([
+    fetch('https://unpkg.com/world-atlas@2/countries-110m.json').then(r => r.json()),
+    fetch('https://unpkg.com/us-atlas@3/states-10m.json').then(r => r.json()),
+  ]);
+
+  // Build lookup maps
+  const countryFeatures = topojson.feature(world, world.objects.countries).features;
+  const countryMap = {};
+  countryFeatures.forEach(f => { countryMap[+f.id] = f; });
+
+  const stateFeatures = topojson.feature(usAtlas, usAtlas.objects.states).features;
+  const stateMap = {};
+  stateFeatures.forEach(f => { stateMap[f.id] = f; });
+
+  // Render each territory
+  TERRITORY_DEFS.forEach(def => {
+    let features = [];
+
+    if (def.type === 'countries') {
+      features = def.codes.map(c => countryMap[c]).filter(Boolean);
+    } else if (def.type === 'us_states') {
+      features = def.codes.map(c => stateMap[c]).filter(Boolean);
+    } else if (def.type === 'us_states_canada') {
+      // Alaska + fallback polygon for northern Canada
+      features = (def.codes_us || []).map(c => stateMap[c]).filter(Boolean);
+    }
+
+    // Also handle fallback polygon
+    if (def.coords && features.length === 0) {
+      const poly = L.polygon(def.coords, polyStyle());
+      bindTerritory(poly, def);
+      poly.addTo(layers.historical);
+      return;
+    }
+
+    if (!features.length) return;
+
+    const geojson = { type: 'FeatureCollection', features };
+    const layer = L.geoJSON(geojson, {
+      style: polyStyle,
+      onEachFeature: (feature, layer) => {
+        layer.on('mouseover', function() { this.setStyle({ fillOpacity: 0.28, weight: 1.5 }); });
+        layer.on('mouseout',  function() { this.setStyle(polyStyle()); });
+      }
+    });
+    layer.bindTooltip(def.name, { sticky: true, className: 'leaflet-tooltip' });
+    layer.on('click', () => openSidebar('territory', def));
+    layer.addTo(layers.historical);
+  });
+
+  // Update count
+  document.getElementById('c-historic').textContent = TERRITORY_DEFS.length;
+}
+
+function polyStyle() {
+  return {
+    color:       TERRITORY_COLOR,
+    fillColor:   TERRITORY_COLOR,
+    fillOpacity: 0.12,
+    weight:      1,
+    opacity:     0.5,
+    dashArray:   '3,3',
+  };
+}
+
+function bindTerritory(layer, def) {
+  layer.bindTooltip(def.name, { sticky: true, className: 'leaflet-tooltip' });
+  layer.on('click', () => openSidebar('territory', def));
+  layer.on('mouseover', function() { this.setStyle({ fillOpacity: 0.28, weight: 1.5 }); });
+  layer.on('mouseout',  function() { this.setStyle(polyStyle()); });
+}
 
 // ── PRIMARY SOURCE PINS ────────────────────────────────────────────
 // Specific datable primary text records — rendered as diamond markers
@@ -545,26 +628,7 @@ const MODERN_ACCOUNTS = [
     descriptors:['bipedal','canine head','nocturnal','suburban','paralysis'] },
 ];
 
-// ── RENDERING ─────────────────────────────────────────────────────
-// Territory polygons
-const TERRITORY_COLOR = '#9a6820';
-TERRITORIES.forEach(t => {
-  const poly = L.polygon(t.coords, {
-    color:       TERRITORY_COLOR,
-    fillColor:   TERRITORY_COLOR,
-    fillOpacity: 0.10,
-    weight:      1,
-    opacity:     0.4,
-    dashArray:   '4,3',
-  });
-  poly.bindTooltip(t.name, { sticky: true, className: 'leaflet-tooltip' });
-  poly.on('click', () => openSidebar('territory', t));
-  poly.on('mouseover', function() { this.setStyle({ fillOpacity: 0.22, weight: 1.5 }); });
-  poly.on('mouseout',  function() { this.setStyle({ fillOpacity: 0.10, weight: 1 }); });
-  poly.addTo(layers.historical);
-});
-
-// Primary source pins — custom diamond-ish marker
+// ── SOURCE ICON ───────────────────────────────────────────────────
 function sourceIcon(type) {
   const colors = { primary_text:'#8a2020', trial_record:'#c06010', encounter_record:'#7a4010' };
   const c = colors[type] || '#8a2020';
@@ -573,28 +637,6 @@ function sourceIcon(type) {
     className: '', iconSize:[14,14], iconAnchor:[7,7]
   });
 }
-
-PRIMARY_SOURCES.forEach(s => {
-  const marker = L.marker([s.lat, s.lng], { icon: sourceIcon(s.type) });
-  marker.bindTooltip(`${s.name} (${s.date})`, { direction:'top', className:'leaflet-tooltip' });
-  marker.on('click', () => openSidebar('source', s));
-  marker.addTo(layers.historical);
-});
-
-// Modern account circles
-MODERN_ACCOUNTS.forEach(item => {
-  const marker = L.circleMarker([item.lat, item.lng], {
-    color:'#2d5a3d', fillColor:'#2d5a3d', fillOpacity:0.8, radius:9, weight:1.5
-  });
-  marker.bindTooltip(item.title, { direction:'top', className:'leaflet-tooltip' });
-  marker.on('click', () => openSidebar('modern', item));
-  marker.addTo(layers.modern);
-});
-
-// Update counts
-document.getElementById('c-modern').textContent = MODERN_ACCOUNTS.length;
-document.getElementById('c-historic').textContent = TERRITORIES.length;
-document.getElementById('c-source').textContent = PRIMARY_SOURCES.length;
 
 // ── SIDEBAR ────────────────────────────────────────────────────────
 function openSidebar(type, item) {
