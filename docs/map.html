@@ -789,6 +789,33 @@ const MODERN_ACCOUNTS = [
     descriptors:['bipedal','canine head','nocturnal','suburban','paralysis'] },
 ];
 
+// ── RENDERING ─────────────────────────────────────────────────────
+// Primary source diamond pins
+PRIMARY_SOURCES.forEach(s => {
+  const marker = L.marker([s.lat, s.lng], { icon: sourceIcon(s.type) });
+  marker.bindTooltip(`${s.name} (${s.date})`, { direction:'top', className:'leaflet-tooltip' });
+  marker.on('click', () => openSidebar('source', s));
+  marker.addTo(layers.historical);
+});
+
+// Modern account circles
+MODERN_ACCOUNTS.forEach(item => {
+  const marker = L.circleMarker([item.lat, item.lng], {
+    color:'#2d5a3d', fillColor:'#2d5a3d', fillOpacity:0.8, radius:9, weight:1.5
+  });
+  marker.bindTooltip(item.title, { direction:'top', className:'leaflet-tooltip' });
+  marker.on('click', () => openSidebar('modern', item));
+  marker.addTo(layers.modern);
+});
+
+// Update counts
+document.getElementById('c-modern').textContent = MODERN_ACCOUNTS.length;
+document.getElementById('c-source').textContent = PRIMARY_SOURCES.length;
+document.getElementById('c-historic').textContent = TERRITORY_DEFS.length;
+
+// Load TopoJSON territories async
+buildTerritoryLayers().catch(e => console.warn('Territory load failed:', e));
+
 // ── SOURCE ICON ───────────────────────────────────────────────────
 function sourceIcon(type) {
   const colors = { primary_text:'#8a2020', trial_record:'#c06010', encounter_record:'#7a4010' };
