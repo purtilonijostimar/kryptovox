@@ -104,8 +104,8 @@ input[type=range] {
 .figure-pane {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 3rem 0 3rem 0;
+  align-items: center;
+  padding: 2rem 0 2rem 0;
   position: relative;
 }
 .figure-instructions { align-self: center; }
@@ -135,7 +135,7 @@ input[type=range] {
 /* SVG figure */
 #figure-svg {
   width: 100%;
-  max-width: 680px;
+  max-width: 520px;
   cursor: crosshair;
 }
 
@@ -470,7 +470,7 @@ input[type=range] {
   <div class="figure-pane">
     <div class="figure-instructions"><span></span> Click a body region to explore the data</div>
 
-    <svg id="figure-svg" viewBox="0 -110 640 622" xmlns="http://www.w3.org/2000/svg">
+    <svg id="figure-svg" viewBox="0 -90 620 610" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="pencil" x="-3%" y="-3%" width="106%" height="106%">
           <feTurbulence type="fractalNoise" baseFrequency="0.06 0.04" numOctaves="3" seed="7" result="noise"/>
