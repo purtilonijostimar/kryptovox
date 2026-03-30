@@ -541,44 +541,50 @@ input[type=range] {
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.15"/>
       <text x="602" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.45">5.75 ft</text>
 
-      <g transform="translate(50,0)"><!-- zones layer -->
-      <!-- ── ZONE OVERLAYS — recalibrated v3 ──────────────────────────
-     Dogman: img x=17 y=-27 w=387 h=580 in translate(50,0)
-     x_svg=17+px*(387/853) | y_svg=-27+px*(580/1280)
-     Center at translate x≈210                          -->
-      <!-- LEFT EAR: pointed ear, move inward from cx=152 to 176 -->
+      <g transform="translate(50,0)"><!-- zones layer — v5
+     Scale: 1ft = 66.5 SVG units; ground y=495; center x=210
+     Render order matters for click priority — later = on top
+     Legs rendered before Hands so hand clicks win in overlap -->
+
+      <!-- EARS: pointed, outer edge of skull top -->
       <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
-        cx="176" cy="22" rx="16" ry="45"/>
-      <!-- RIGHT EAR: move inward from cx=271 to 247 -->
+        cx="168" cy="8" rx="20" ry="52"/>
       <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
-        cx="247" cy="22" rx="16" ry="45"/>
-      <!-- HEAD: skull + muzzle, full head -->
+        cx="252" cy="8" rx="20" ry="52"/>
+
+      <!-- HEAD: full skull + snout (7.6ft to 6.0ft) -->
       <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="210" cy="82" rx="54" ry="68"/>
-      <!-- EYES: ~y=62 -->
+        cx="210" cy="55" rx="58" ry="70"/>
+
+      <!-- EYES: horizontal band at ~6.7ft (y≈50) -->
       <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-        cx="210" cy="62" rx="34" ry="14"/>
-      <!-- TEETH: snout ~y=104-144 -->
+        cx="210" cy="48" rx="36" ry="14"/>
+
+      <!-- TEETH: lower snout/jaw ~6.3–5.9ft (y=93–129) -->
       <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
-        x="180" y="104" width="60" height="44" rx="8"/>
-      <!-- TORSO: shoulders to waist -->
+        x="178" y="88" width="64" height="44" rx="8"/>
+
+      <!-- TORSO: shoulders to waist ~6.0–4.3ft (y=96–209) -->
       <rect class="zone-overlay" id="zone-torso" data-zone="torso"
-        x="120" y="146" width="178" height="148" rx="10"/>
-      <!-- LEFT ARM -->
-      <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
-        x="76" y="146" width="54" height="218" rx="8" transform="rotate(-4,103,255)"/>
-      <!-- RIGHT ARM -->
-      <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
-        x="290" y="146" width="54" height="218" rx="8" transform="rotate(4,317,255)"/>
-      <!-- LEFT HAND -->
-      <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
-        x="68" y="348" width="58" height="76" rx="6"/>
-      <!-- RIGHT HAND -->
-      <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
-        x="294" y="348" width="58" height="76" rx="6"/>
-      <!-- LEGS: hips to feet -->
+        x="122" y="100" width="176" height="162" rx="10"/>
+
+      <!-- LEGS: hips to feet ~4.0–0ft (y=229–495) — rendered before hands -->
       <rect class="zone-overlay" id="zone-legs" data-zone="legs"
-        x="130" y="310" width="158" height="188" rx="8"/>
+        x="132" y="222" width="156" height="275" rx="8"/>
+
+      <!-- ARMS: shoulder to wrist on outer sides ~6.0–2.5ft (y=96–329) -->
+      <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
+        x="52" y="96" width="68" height="234" rx="8" transform="rotate(-5,86,213)"/>
+      <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
+        x="298" y="96" width="68" height="234" rx="8" transform="rotate(5,332,213)"/>
+
+      <!-- HANDS: wrist to claw tips on outer sides ~2.5–0.3ft (y=329–475)
+           Rendered LAST so they're on top where arms/legs overlap -->
+      <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
+        x="50" y="320" width="70" height="160" rx="6"/>
+      <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
+        x="298" y="320" width="70" height="160" rx="6"/>
+
       </g><!-- /zones layer -->
 
     </svg>
