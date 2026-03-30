@@ -125,8 +125,8 @@
       "Diego de Landa, Relación de las cosas de Yucatán (1566)"
     ],
     "slug": "mesoamerica_huay_chivo_xolotl_nagual",
-    "country": "Mesoamerica",
-    "display_country": "Mesoamerica",
+    "country": "Mexico / Guatemala",
+    "display_country": "Mexico / Guatemala",
     "continent": "Americas"
   },
   {
@@ -184,8 +184,8 @@
       "Malleus Maleficarum (Kramer, 1487)"
     ],
     "slug": "central_europe_werewolf_trial_records",
-    "country": "Central Europe",
-    "display_country": "Central Europe",
+    "country": "Germany / Hungary / Austria",
+    "display_country": "Germany / Hungary / Austria",
     "continent": "Europe"
   },
   {
@@ -206,8 +206,8 @@
       "Thiess of Kaltenbrun trial transcript (1692)"
     ],
     "slug": "scandinavia_ulfhednar_werewolf_tradition",
-    "country": "Scandinavia",
-    "display_country": "Scandinavia",
+    "country": "Norway / Sweden / Denmark",
+    "display_country": "Norway / Sweden / Denmark",
     "continent": "Europe"
   },
   {
@@ -231,8 +231,8 @@
       "Monika Kropej, Supernatural Beings from Slovenian Myth (2012)"
     ],
     "slug": "balkans_slavic_psoglav_pasjeglavci_vrykolakas",
-    "country": "Balkans / Slavic",
-    "display_country": "Balkans / Slavic",
+    "country": "Slovenia / Serbia / Greece",
+    "display_country": "Slovenia / Serbia / Greece",
     "continent": "Europe"
   },
   {
@@ -389,8 +389,8 @@
       "Alexander Afanasyev, Russian Folk Legends (1859)"
     ],
     "slug": "russia_eastern_europe_volkolak_oborot",
-    "country": "Russia",
-    "display_country": "Russia",
+    "country": "Russia / Ukraine / Belarus",
+    "display_country": "Russia / Ukraine / Belarus",
     "continent": "Europe"
   },
   {
@@ -456,8 +456,8 @@
       "Wande Abimbola, Ifá (1975)"
     ],
     "slug": "west_africa_iron_dog_canine_deity_tradition",
-    "country": "West Africa",
-    "display_country": "West Africa",
+    "country": "Nigeria / Ghana / Benin",
+    "display_country": "Nigeria / Ghana / Benin",
     "continent": "Africa"
   },
   {
@@ -516,8 +516,8 @@
       "Waldemar Bogoras, The Chukchee (1907)"
     ],
     "slug": "central_asia_siberia_shamanic_encounter_tradition",
-    "country": "Central Asia",
-    "display_country": "Central Asia",
+    "country": "Kazakhstan / Mongolia",
+    "display_country": "Kazakhstan / Mongolia",
     "continent": "Asia"
   },
   {
@@ -568,8 +568,8 @@
       ]
     ],
     "slug": "northern_canada_alaska_waheela_algonquin_traditions",
-    "country": "Canada",
-    "display_country": "Canada",
+    "country": "Canada / USA (Alaska)",
+    "display_country": "Canada / USA (Alaska)",
     "continent": "Americas"
   },
   {
@@ -595,8 +595,8 @@
       "Multiple 19th-century Argentine newspaper accounts of lobizón attacks"
     ],
     "slug": "south_america_lobiz_n_lobishomem",
-    "country": "South America",
-    "display_country": "South America",
+    "country": "Argentina / Brazil",
+    "display_country": "Argentina / Brazil",
     "continent": "Americas"
   },
   {
@@ -618,8 +618,8 @@
       "Lewis, A Pastoral Democracy (1961) — Somalia documentation"
     ],
     "slug": "horn_of_africa_were_hyena_buda",
-    "country": "Ethiopia / Horn of Africa",
-    "display_country": "Ethiopia / Horn of Africa",
+    "country": "Ethiopia / Eritrea",
+    "display_country": "Ethiopia / Eritrea",
     "continent": "Africa"
   },
   {
@@ -639,8 +639,8 @@
       "Doutte, Magie et Religion dans l'Afrique du Nord (1909)"
     ],
     "slug": "north_africa_bouda_were_hyena_tradition",
-    "country": "North Africa",
-    "display_country": "North Africa",
+    "country": "Morocco / Algeria / Tunisia",
+    "display_country": "Morocco / Algeria / Tunisia",
     "continent": "Africa"
   },
   {
@@ -706,8 +706,8 @@
       "Ottley, Creole Talk of Trinidad and Tobago (1971)"
     ],
     "slug": "caribbean_loup_garou_jumbee",
-    "country": "Caribbean",
-    "display_country": "Caribbean",
+    "country": "Haiti / Trinidad & Tobago",
+    "display_country": "Haiti / Trinidad & Tobago",
     "continent": "Americas"
   },
   {
@@ -727,8 +727,8 @@
       "Pliny the Elder, Versipellis accounts, Naturalis Historia (77 CE)"
     ],
     "slug": "italy_iberia_benandanti_hombre_lobo",
-    "country": "Italy / Iberia",
-    "display_country": "Italy / Iberia",
+    "country": "Italy / Spain / Portugal",
+    "display_country": "Italy / Spain / Portugal",
     "continent": "Europe"
   },
   {
@@ -790,8 +790,8 @@
       "Pre-Islamic Arabian poetry — ghul references (documented by Goldziher, 1889)"
     ],
     "slug": "middle_east_cynocephali_in_islamic_scholarship",
-    "country": "Middle East",
-    "display_country": "Middle East",
+    "country": "Saudi Arabia / Iraq / Egypt",
+    "display_country": "Saudi Arabia / Iraq / Egypt",
     "continent": "Asia"
   },
   {
@@ -818,8 +818,8 @@
       "Turnbull, The Forest People (1961) — Congo basin documentation"
     ],
     "slug": "sub_saharan_africa_therianthropic_spirit_traditions",
-    "country": "Sub-Saharan Africa",
-    "display_country": "Sub-Saharan Africa",
+    "country": "DR Congo / Tanzania / Kenya",
+    "display_country": "DR Congo / Tanzania / Kenya",
     "continent": "Africa"
   },
   {
@@ -839,8 +839,8 @@
       "Codrington, The Melanesians (1891)"
     ],
     "slug": "new_guinea_melanesia_canine_spirit_traditions",
-    "country": "Papua New Guinea",
-    "display_country": "Papua New Guinea",
+    "country": "Papua New Guinea / Solomon Islands",
+    "display_country": "Papua New Guinea / Solomon Islands",
     "continent": "Oceania"
   },
   {
