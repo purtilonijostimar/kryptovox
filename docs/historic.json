@@ -19,7 +19,8 @@
     ],
     "slug": "great_lakes_rugaru_michigan_dogman",
     "country": "USA",
-    "display_country": "USA"
+    "display_country": "USA",
+    "continent": "Americas"
   },
   {
     "id": "pacific_nw",
@@ -37,7 +38,8 @@
     ],
     "slug": "pacific_northwest_canine_cryptid_accounts",
     "country": "USA",
-    "display_country": "USA"
+    "display_country": "USA",
+    "continent": "Americas"
   },
   {
     "id": "southwest",
@@ -57,7 +59,8 @@
     ],
     "slug": "american_southwest_navajo_yee_naaldlooshii",
     "country": "USA",
-    "display_country": "USA"
+    "display_country": "USA",
+    "continent": "Americas"
   },
   {
     "id": "appalachia",
@@ -78,7 +81,8 @@
     ],
     "slug": "appalachian_region_dense_modern_corpus",
     "country": "USA",
-    "display_country": "USA"
+    "display_country": "USA",
+    "continent": "Americas"
   },
   {
     "id": "louisiana",
@@ -96,7 +100,8 @@
     ],
     "slug": "louisiana_gulf_coast_rougarou",
     "country": "USA",
-    "display_country": "USA"
+    "display_country": "USA",
+    "continent": "Americas"
   },
   {
     "id": "mesoamerica",
@@ -121,7 +126,8 @@
     ],
     "slug": "mesoamerica_huay_chivo_xolotl_nagual",
     "country": "Mesoamerica",
-    "display_country": "Mesoamerica"
+    "display_country": "Mesoamerica",
+    "continent": "Americas"
   },
   {
     "id": "british_isles",
@@ -138,7 +144,8 @@
     ],
     "slug": "british_isles_werewolf_barghest_traditions",
     "country": "United Kingdom",
-    "display_country": "United Kingdom"
+    "display_country": "United Kingdom",
+    "continent": "Europe"
   },
   {
     "id": "france",
@@ -155,7 +162,8 @@
     ],
     "slug": "france_loup_garou_beast_of_g_vaudan",
     "country": "France",
-    "display_country": "France"
+    "display_country": "France",
+    "continent": "Europe"
   },
   {
     "id": "central_europe",
@@ -177,7 +185,8 @@
     ],
     "slug": "central_europe_werewolf_trial_records",
     "country": "Central Europe",
-    "display_country": "Central Europe"
+    "display_country": "Central Europe",
+    "continent": "Europe"
   },
   {
     "id": "scandinavia",
@@ -198,7 +207,8 @@
     ],
     "slug": "scandinavia_ulfhednar_werewolf_tradition",
     "country": "Scandinavia",
-    "display_country": "Scandinavia"
+    "display_country": "Scandinavia",
+    "continent": "Europe"
   },
   {
     "id": "balkans",
@@ -222,7 +232,8 @@
     ],
     "slug": "balkans_slavic_psoglav_pasjeglavci_vrykolakas",
     "country": "Balkans / Slavic",
-    "display_country": "Balkans / Slavic"
+    "display_country": "Balkans / Slavic",
+    "continent": "Europe"
   },
   {
     "id": "russia_east",
@@ -379,7 +390,8 @@
     ],
     "slug": "russia_eastern_europe_volkolak_oborot",
     "country": "Russia",
-    "display_country": "Russia"
+    "display_country": "Russia",
+    "continent": "Europe"
   },
   {
     "id": "india",
@@ -401,7 +413,8 @@
     ],
     "slug": "ancient_india_cynocephali_ctesias_megasthenes",
     "country": "India",
-    "display_country": "India"
+    "display_country": "India",
+    "continent": "Asia"
   },
   {
     "id": "egypt_nile",
@@ -419,7 +432,8 @@
     ],
     "slug": "egypt_nile_valley_anubis_wepwawet",
     "country": "Egypt",
-    "display_country": "Egypt"
+    "display_country": "Egypt",
+    "continent": "Africa"
   },
   {
     "id": "west_africa",
@@ -443,7 +457,8 @@
     ],
     "slug": "west_africa_iron_dog_canine_deity_tradition",
     "country": "West Africa",
-    "display_country": "West Africa"
+    "display_country": "West Africa",
+    "continent": "Africa"
   },
   {
     "id": "china",
@@ -461,7 +476,8 @@
     ],
     "slug": "china_shanhaijing_classic_of_mountains_and_seas",
     "country": "China",
-    "display_country": "China"
+    "display_country": "China",
+    "continent": "Asia"
   },
   {
     "id": "philippines",
@@ -477,7 +493,8 @@
     ],
     "slug": "philippines_aswang_weredog_variant",
     "country": "Philippines",
-    "display_country": "Philippines"
+    "display_country": "Philippines",
+    "continent": "Asia"
   },
   {
     "id": "central_asia",
@@ -500,7 +517,8 @@
     ],
     "slug": "central_asia_siberia_shamanic_encounter_tradition",
     "country": "Central Asia",
-    "display_country": "Central Asia"
+    "display_country": "Central Asia",
+    "continent": "Asia"
   },
   {
     "id": "canada_north",
@@ -551,7 +569,8 @@
     ],
     "slug": "northern_canada_alaska_waheela_algonquin_traditions",
     "country": "Canada",
-    "display_country": "Canada"
+    "display_country": "Canada",
+    "continent": "Americas"
   },
   {
     "id": "south_america",
@@ -577,7 +596,8 @@
     ],
     "slug": "south_america_lobiz_n_lobishomem",
     "country": "South America",
-    "display_country": "South America"
+    "display_country": "South America",
+    "continent": "Americas"
   },
   {
     "id": "horn_africa",
@@ -599,7 +619,8 @@
     ],
     "slug": "horn_of_africa_were_hyena_buda",
     "country": "Ethiopia / Horn of Africa",
-    "display_country": "Ethiopia / Horn of Africa"
+    "display_country": "Ethiopia / Horn of Africa",
+    "continent": "Africa"
   },
   {
     "id": "north_africa",
@@ -619,7 +640,8 @@
     ],
     "slug": "north_africa_bouda_were_hyena_tradition",
     "country": "North Africa",
-    "display_country": "North Africa"
+    "display_country": "North Africa",
+    "continent": "Africa"
   },
   {
     "id": "japan",
@@ -637,7 +659,8 @@
     ],
     "slug": "japan_inugami_dog_god_dog_spirit",
     "country": "Japan",
-    "display_country": "Japan"
+    "display_country": "Japan",
+    "continent": "Asia"
   },
   {
     "id": "indonesia_malay",
@@ -659,7 +682,8 @@
     ],
     "slug": "indonesia_malaysia_barong_anjing_shapeshifter",
     "country": "Indonesia / Malaysia",
-    "display_country": "Indonesia / Malaysia"
+    "display_country": "Indonesia / Malaysia",
+    "continent": "Asia"
   },
   {
     "id": "caribbean",
@@ -683,7 +707,8 @@
     ],
     "slug": "caribbean_loup_garou_jumbee",
     "country": "Caribbean",
-    "display_country": "Caribbean"
+    "display_country": "Caribbean",
+    "continent": "Americas"
   },
   {
     "id": "benandanti_italy",
@@ -703,7 +728,8 @@
     ],
     "slug": "italy_iberia_benandanti_hombre_lobo",
     "country": "Italy / Iberia",
-    "display_country": "Italy / Iberia"
+    "display_country": "Italy / Iberia",
+    "continent": "Europe"
   },
   {
     "id": "native_na_extra",
@@ -721,7 +747,8 @@
     ],
     "slug": "native_north_america_amarok_bear_walker_wechuge",
     "country": "USA / Canada",
-    "display_country": "USA / Canada"
+    "display_country": "USA / Canada",
+    "continent": "Americas"
   },
   {
     "id": "australia",
@@ -739,7 +766,8 @@
     ],
     "slug": "australia_aboriginal_canine_headed_spirit_traditions",
     "country": "Australia",
-    "display_country": "Australia"
+    "display_country": "Australia",
+    "continent": "Oceania"
   },
   {
     "id": "middle_east",
@@ -763,7 +791,8 @@
     ],
     "slug": "middle_east_cynocephali_in_islamic_scholarship",
     "country": "Middle East",
-    "display_country": "Middle East"
+    "display_country": "Middle East",
+    "continent": "Asia"
   },
   {
     "id": "sub_saharan",
@@ -790,7 +819,8 @@
     ],
     "slug": "sub_saharan_africa_therianthropic_spirit_traditions",
     "country": "Sub-Saharan Africa",
-    "display_country": "Sub-Saharan Africa"
+    "display_country": "Sub-Saharan Africa",
+    "continent": "Africa"
   },
   {
     "id": "new_guinea",
@@ -810,7 +840,8 @@
     ],
     "slug": "new_guinea_melanesia_canine_spirit_traditions",
     "country": "Papua New Guinea",
-    "display_country": "Papua New Guinea"
+    "display_country": "Papua New Guinea",
+    "continent": "Oceania"
   },
   {
     "id": "new_zealand",
@@ -828,7 +859,8 @@
     ],
     "slug": "new_zealand_moehau_patupaiarehe",
     "country": "New Zealand",
-    "display_country": "New Zealand"
+    "display_country": "New Zealand",
+    "continent": "Oceania"
   },
   {
     "id": "canada_french",
@@ -847,6 +879,7 @@
     ],
     "slug": "canada_loup_garou_rugaru_french_canadian",
     "country": "Canada",
-    "display_country": "Canada"
+    "display_country": "Canada",
+    "continent": "Americas"
   }
 ]
