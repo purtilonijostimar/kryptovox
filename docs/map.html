@@ -45,8 +45,7 @@
   }
   .layer-btn.active { border-color: currentColor; }
   .layer-btn.modern.active  { color: #2d5a3d; background: var(--accent-bg); border-color: #b8d4c0; }
-  .layer-btn.historic.active { color: #8a6420; background: var(--amber-bg);  border-color: #e8d090; }
-  .layer-btn.folklore.active { color: #7a2020; background: var(--flag-bg);   border-color: #f0a0a0; }
+  .layer-btn.historic.active { color: #8a4a0a; background: #fdf3e0;  border-color: #e8c080; }
   #main-map {
     width: 100%;
     height: calc(100vh - 200px);
@@ -172,27 +171,25 @@
       The same thing, independently, across the world
     </div>
     <p style="font-family:var(--sans);font-size:0.8rem;color:var(--ink-soft);margin-top:0.4rem;max-width:480px">
-      Modern encounter accounts, historical traditions, and folklore primary sources — mapped.
-      Click any marker for details. Green = modern accounts. Amber = historical traditions. Red = folklore sources.
+      Modern encounter accounts mapped against 5,000 years of historical and folklore documentation.
+      Territories show documented regional traditions. Pins mark specific primary sources and records.
+      Green = modern accounts. Amber = historical territory. ◆ = specific primary source.
     </p>
   </div>
   <div class="map-controls">
     <button class="layer-btn modern active"  onclick="toggleLayer('modern',this)">
       <span class="dot" style="background:#2d5a3d"></span> Modern accounts
     </button>
-    <button class="layer-btn historic active" onclick="toggleLayer('historic',this)">
-      <span class="dot" style="background:#8a6420"></span> Historic traditions
-    </button>
-    <button class="layer-btn folklore active" onclick="toggleLayer('folklore',this)">
-      <span class="dot" style="background:#7a2020"></span> Folklore sources
+    <button class="layer-btn historic active" onclick="toggleLayer('historical',this)">
+      <span class="dot" style="background:#8a4a0a"></span> Historical &amp; folklore
     </button>
   </div>
 </div>
 
 <div class="map-count-bar">
   <div>Modern accounts: <span id="c-modern">8</span> regions</div>
-  <div>Historical traditions: <span id="c-historic">9</span> entries</div>
-  <div>Folklore sources: <span id="c-folklore">5</span> entries</div>
+  <div>Historical territories: <span id="c-historic">—</span> regions</div>
+  <div>Primary sources: <span id="c-source">—</span> records</div>
 </div>
 
 <div class="map-wrapper">
@@ -218,127 +215,433 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19,
 }).addTo(map);
 
-const layers = { modern: L.layerGroup(), historic: L.layerGroup(), folklore: L.layerGroup() };
+const layers = {
+  modern:     L.layerGroup(),
+  historical: L.layerGroup(),   // territories + primary source pins
+};
 Object.values(layers).forEach(l => l.addTo(map));
 
-function makeIcon(color, size=10) {
-  return L.circleMarker.bind(null, undefined, {
-    color, fillColor: color, fillOpacity: 0.85, radius: size, weight: 1.5
+// ── HISTORICAL TERRITORIES ─────────────────────────────────────────
+// Documented regional traditions — rendered as filled polygons
+const TERRITORIES = [
+  {
+    id: 'great_lakes', name: 'Great Lakes — Rugaru / Michigan Dogman',
+    period: 'Ojibwe oral tradition; modern accounts 1887–present',
+    desc: 'The Rugaru (Ojibwe/Chippewa) is described as a tall, bipedal, wolf-headed being that travels alone at night. The Michigan Dogman first documented in print in 1887 (Traverse City Record-Eagle). Highest density modern encounter area.',
+    refs: ['Luther Sunderland, 1887 (newspaper account)', 'Ojibwe oral tradition (documented by Schoolcraft, 1851)'],
+    coords: [[48.5,-95],[48.5,-79],[41.5,-79],[41.5,-95]]
+  },
+  {
+    id: 'pacific_nw', name: 'Pacific Northwest — Canine Cryptid Accounts',
+    period: 'Pre-colonial oral tradition; modern accounts ongoing',
+    desc: 'Highest density region for modern dogman-type accounts in the Kryptovox corpus. Multiple Indigenous traditions including Quileute and Quinault describe wolf-people. Overlaps with Sasquatch territory but described as distinct.',
+    refs: ['Kryptovox corpus — highest encounter density region'],
+    coords: [[50,-125],[50,-112],[42,-112],[42,-125]]
+  },
+  {
+    id: 'southwest', name: 'American Southwest — Navajo Yee Naaldlooshii',
+    period: 'Pre-colonial, oral tradition — strongest behavioural match',
+    desc: 'Skin-walker (Yee Naaldlooshii) tradition. Critical behavioural parallels: watches-then-leaves, felt-known by target, specific disclosure taboo. Not simply shapeshifting — accounts specifically describe canine-bipedal form. Strongest Old World–New World parallel in the corpus.',
+    refs: ['Washington Matthews, "Navaho Legends" (1897)', 'Gladys Reichard, "Navaho Religion" (1950)'],
+    coords: [[38,-115],[38,-102],[31,-102],[31,-115]]
+  },
+  {
+    id: 'mesoamerica', name: 'Mesoamerica — Huay Chivo / Xolotl / Nagual',
+    period: 'Pre-colonial Mayan and Aztec traditions',
+    desc: 'Huay Chivo (Yucatan): half-man, half-dog with glowing eyes — one of very few pre-modern traditions specifically describing luminescent eyes. Xolotl: dog-headed psychopomp, guide of the dead, with anatomically reversed feet. Nagual shapeshifting traditions include canine forms across multiple cultures.',
+    refs: ['Codex Borgia', 'Florentine Codex (Sahagún)', 'Diego de Landa, Relación de las cosas de Yucatán (1566)'],
+    coords: [[25,-117],[25,-85],[7,-85],[7,-117]]
+  },
+  {
+    id: 'louisiana', name: 'Louisiana / Gulf Coast — Rougarou',
+    period: 'French colonial period (17th century) to present',
+    desc: 'Rougarou (from French loup-garou) — a swamp-dwelling werewolf. Strongly maintained in Cajun and Louisiana Creole tradition. Accounts describe bipedal canine form, enormous size, red eyes. Distinct from French source tradition — adapted to bayou environment.',
+    refs: ['Barry Jean Ancelet, "Cajun and Creole Folktales" (1994)', 'Multiple 19th-century newspaper accounts'],
+    coords: [[33.5,-95],[33.5,-87.5],[28.5,-87.5],[28.5,-95]]
+  },
+  {
+    id: 'appalachia', name: 'Appalachian Region — Dense Modern Corpus',
+    period: 'Modern accounts (primary corpus region)',
+    desc: 'Second highest density region for Kryptovox corpus. High proportion of accounts with long disclosure delays (10–40 years). Several accounts from professional witnesses (law enforcement, military). Terrain: dense mixed forest, isolated rural communities.',
+    refs: ['Kryptovox corpus — multiple high-WCS accounts'],
+    coords: [[44,-82],[44,-72],[34,-72],[34,-82]]
+  },
+  {
+    id: 'british_isles', name: 'British Isles — Werewolf & Barghest Traditions',
+    period: 'Medieval to 19th century documented',
+    desc: 'Multiple regional traditions: Black Shuck (East Anglia) — large black dog, glowing eyes, supernatural. Barghest (Yorkshire) — wolf-like creature, nocturnal. Werewolf of Ossory (Ireland, 12th century) — documented by Gerald of Wales as claimed shapeshifter. Shug Monkey (East Anglia).',
+    refs: ['Gerald of Wales, Topographia Hibernica (1188)', 'Elliott O'Donnell, "Werewolves" (1912)'],
+    coords: [[62,-9],[62,3],[49.5,3],[49.5,-9]]
+  },
+  {
+    id: 'france', name: 'France — Loup-Garou / Beast of Gévaudan',
+    period: '16th–18th century peak documentation',
+    desc: 'France has the richest documented werewolf trial record. Jean Grenier (1603) and Gilles Garnier (1573) — formally tried and convicted. Beast of Gévaudan (1764–1767) — 113 documented attacks, described as "wolf walking upright." Loup-garou traditions persist in French folklore to present.',
+    refs: ['Procès de Gilles Garnier (1573)', 'Procès de Jean Grenier (1603)', 'Mémoires sur le loup du Gévaudan (Marin, 1767)'],
+    coords: [[51,-5],[51,8],[43,8],[43,-5]]
+  },
+  {
+    id: 'central_europe', name: 'Central Europe — Werewolf Trial Records',
+    period: 'Peak 1580–1650 (thousands of documented trials)',
+    desc: 'Germany, Austria, and Switzerland hold the most extensive legal records of werewolf trials. Peter Stumpp execution (1589, Bedburg) is the most documented single case. Lycanthropy was treated as a form of witchcraft and prosecuted under secular law. The Malleus Maleficarum (1487) provided the theological framework.',
+    refs: ['Peter Stumpp trial transcript (1589)', 'Malleus Maleficarum (Kramer, 1487)', 'Johann Weyer, De Praestigiis Daemonum (1563)'],
+    coords: [[56,7],[56,22],[46,22],[46,7]]
+  },
+  {
+    id: 'scandinavia', name: 'Scandinavia — Ulfhednar / Werewolf Tradition',
+    period: 'Viking Age (8th–11th century) and medieval',
+    desc: 'Ulfhednar: wolf-warriors believed to transform into wolves or wolf-men in battle frenzy (related to berserker tradition). Documented in Norse sagas and Egil's Saga. Livonian werewolf tradition documented by Olaus Magnus (1555). Thiess of Kaltenbrun (Latvia, 1692) — the most extraordinary werewolf testimony: a self-declared benevolent werewolf who fought demons.',
+    refs: ['Egil's Saga (13th century composition)', 'Olaus Magnus, Historia de Gentibus Septentrionalibus (1555)', 'Thiess of Kaltenbrun trial transcript (1692, Jürgensburg)'],
+    coords: [[72,4],[72,32],[54,32],[54,4]]
+  },
+  {
+    id: 'balkans', name: 'Balkans / Slavic — Psoglav, Pasjeglavci, Vrykolakas',
+    period: 'Medieval documented; oral tradition older',
+    desc: 'Three distinct but overlapping traditions: Serbian Psoglav (dog-headed, iron teeth, cave-dwelling); Slovenian Pasjeglavci (pack-dwelling, unique descriptor: eyes anatomically cannot look upward); Croatian/Greek Vrykolakas (wolf-vampire hybrid). The Pasjeglavci eye-orientation descriptor (oči obrnjene v tla) has no parallel in any other tradition worldwide.',
+    refs: ['Valvasor, Die Ehre des Herzogthums Crain (1689)', 'Bolhar, Deklica in Pasjeglavci (1965 collection)', 'Monika Kropej, Supernatural Beings from Slovenian Myth (2012)'],
+    coords: [[51,13],[51,30],[38,30],[38,13]]
+  },
+  {
+    id: 'russia_east', name: 'Russia / Eastern Europe — Volkolak / Oborot',
+    period: 'Medieval documented; pre-Christian oral tradition',
+    desc: 'Volkolak (Russian) and Oborot (Eastern Slavic) — werewolf traditions. The Volkolak is distinguished from werewolf by being a structural intermediate: not a cursed human but a separate category of being. Reported in church records as a pastoral problem from the 12th century.',
+    refs: ['Russian Primary Chronicle references', 'Alexander Afanasyev, Russian Folk Legends (1859)'],
+    coords: [[72,30],[72,65],[48,65],[48,30]]
+  },
+  {
+    id: 'india', name: 'Ancient India — Cynocephali (Ctesias, Megasthenes)',
+    period: '400 BCE – 1300 CE (continuous documentation)',
+    desc: 'Cynocephali documented for over 1,600 years as a real species inhabiting Indian mountain regions. Ctesias (400 BCE): 120,000 in number, communicate by barking, fast and strong. Megasthenes (300 BCE): adds that they trade with Indians using sign language. Repeated in Pliny (77 CE), Solinus (3rd century CE), Isidore of Seville (7th century), Mandeville (14th century). Treated as zoology, not mythology.',
+    refs: ['Ctesias, Indica (~400 BCE)', 'Megasthenes, Indica (~300 BCE)', 'Pliny, Naturalis Historia (77 CE)', 'Isidore of Seville, Etymologiae (636 CE)'],
+    coords: [[38,60],[38,100],[5,100],[5,60]]
+  },
+  {
+    id: 'egypt_nile', name: 'Egypt / Nile Valley — Anubis / Wepwawet',
+    period: 'Pre-3000 BCE to Ptolemaic period',
+    desc: 'Anubis (jackal-headed) and Wepwawet (wolf-headed) — the oldest documented canine-headed humanoid traditions. Depicted as bipedal, upright, fully intelligent. Psychopomp and threshold functions: exist at the boundary between living and dead. The jackal-headed figure appears in Egyptian iconography continuously for over 3,000 years.',
+    refs: ['Book of the Dead (New Kingdom, ~1550 BCE)', 'Pyramid Texts (~2400 BCE)'],
+    coords: [[32,22],[32,38],[16,38],[16,22]]
+  },
+  {
+    id: 'west_africa', name: 'West Africa — Iron-Dog / Canine Deity Tradition',
+    period: 'Pre-colonial oral tradition',
+    desc: 'Ogun (Yoruba deity of iron, war, hunting) — dogs are sacred to him. Structural iron-dog connection is a notable parallel to Slavic psoglav (iron teeth) and pasjeglavci (killed by iron axe). These traditions had no documented contact. The association of canine beings with iron appears independently in at least three separate cultural lineages.',
+    refs: ['Samuel Johnson, History of the Yorubas (1921)', 'Wande Abimbola, Ifá (1975)'],
+    coords: [[17,-18],[17,12],[0,12],[0,-18]]
+  },
+  {
+    id: 'china', name: 'China — Shanhaijing (Classic of Mountains and Seas)',
+    period: '~4th century BCE compilation; older oral sources',
+    desc: 'The Shanhaijing describes multiple dog-headed or dog-featured beings as part of a geographic taxonomy — not mythology. Each being is associated with a specific mountain or region, described alongside known animals. Treated as natural history. The Tiangou (Heavenly Dog) is a separate celestial tradition.',
+    refs: ['Shanhaijing (Classic of Mountains and Seas, ~4th century BCE)', 'Edward Schafer, "The Vermilion Bird" (1967)'],
+    coords: [[54,73],[54,135],[18,135],[18,73]]
+  },
+  {
+    id: 'philippines', name: 'Philippines — Aswang (Weredog Variant)',
+    period: 'Documented by Spanish colonists from 1589',
+    desc: 'The Aswang tradition includes an explicit weredog category — distinct from vampire and other shapeshifter forms. First documented in writing by Spanish missionaries in 1589. Described as the most feared creature in Philippine culture. Large, bipedal canine form, nocturnal, forest-dwelling. Still strongly maintained in rural areas.',
+    refs: ['Francisco Colin, Labor Evangélica (1663)', 'W.H. Scott, "Cracks in the Parchment Curtain" (1982)'],
+    coords: [[21,116],[21,127],[4,116],[4,127]]
+  },
+  {
+    id: 'andaman', name: 'Andaman Islands — Cynocephali (Marco Polo)',
+    period: 'Documented 1298 CE',
+    desc: 'Marco Polo describes the Andaman Islands as inhabited by dog-headed people: "They are a most cruel generation, and eat everybody that they can catch, if not of their own race." Treated as first-hand geographic report.',
+    refs: ['Marco Polo, Il Milione (1298)'],
+    coords: [[13.5,92],[13.5,94.5],[10.5,94.5],[10.5,92]]
+  },
+  {
+    id: 'central_asia', name: 'Central Asia / Siberia — Shamanic Encounter Tradition',
+    period: 'Pre-modern oral tradition, documented by early ethnographers',
+    desc: 'Shamanic traditions across the steppe and Siberia document animal-headed spirit beings that appear during altered states and sometimes in waking encounters. Behavioural parallels: paralysis of witness, territory-marking behaviour, watched-then-withdrew pattern. The Buryat and Evenk peoples have the most extensively documented canine spirit traditions.',
+    refs: ['Mircea Eliade, Shamanism (1951)', 'Waldemar Bogoras, The Chukchee (1907)'],
+    coords: [[75,58],[75,140],[48,140],[48,58]]
+  },
+  {
+    id: 'canada_north', name: 'Northern Canada / Alaska — Waheela & Algonquin Traditions',
+    period: 'Pre-colonial oral tradition',
+    desc: 'Waheela (Algonquin): large wolf-like creature, larger than a horse, bipedal movement reported. Said to travel alone, to decapitate large prey. Nanabozho (Ojibwe) and related trickster traditions include wolf-man forms. The Métis Rougarou tradition bridges French-Canadian and Algonquin canine traditions.',
+    refs: ['Ivan Sanderson, "Abominable Snowmen: Legend Come to Life" (1961)', 'Henry Schoolcraft, Algic Researches (1839)'],
+    coords: [[74,-145],[74,-75],[57,-75],[57,-145]]
+  },
+];
+
+// ── PRIMARY SOURCE PINS ────────────────────────────────────────────
+// Specific datable primary text records — rendered as diamond markers
+const PRIMARY_SOURCES = [
+  {
+    lat:37.9, lng:23.7, name:'Ctesias of Cnidus — Indica',
+    date:'~400 BCE', region:'Greece (written about India)',
+    desc:'First systematic description of cynocephali. Dog-headed people in Indian mountains, estimated 120,000 in number. Communicate by barking and gestures. Trade with Indians using sign language. Fast, strong, eat raw meat. Treated as zoology.',
+    source:'Indica (~400 BCE), preserved in Photius, Bibliotheca Codex 72',
+    type:'primary_text'
+  },
+  {
+    lat:40.4, lng:22.9, name:'Herodotus — Histories',
+    date:'~440 BCE', region:'Greece (written about Libya)',
+    desc:'Mentions dog-headed men in Libya. "Beyond [the lake] the country is full of wild beasts, and to the west of the wild beasts it is all sand, most terribly waterless and desolate." Also mentions them in his survey of distant peoples.',
+    source:'Historiae, Book IV (~440 BCE)',
+    type:'primary_text'
+  },
+  {
+    lat:25.6, lng:85.2, name:'Megasthenes — Indica',
+    date:'~300 BCE', region:'Pataliputra, India',
+    desc:'Greek ambassador to India. Describes cynocephali living in mountain regions. Extends Ctesias account: adds that they trade with Indians using sign language, wear animal skins, and have a structured social organisation. The most detailed ancient account.',
+    source:'Indica (~300 BCE), preserved in Strabo, Arrian, Diodorus Siculus',
+    type:'primary_text'
+  },
+  {
+    lat:41.9, lng:12.5, name:'Pliny the Elder — Naturalis Historia',
+    date:'77 CE', region:'Rome',
+    desc:'"In many mountains there is a race of men with the heads of dogs, who are clothed in the skins of wild beasts. Instead of speaking they bark, and their teeth and nails resemble those of dogs." Treated as natural history. 37 volumes; Book VII covers monstrous races.',
+    source:'Naturalis Historia, Book VII (77 CE)',
+    type:'primary_text'
+  },
+  {
+    lat:31.2, lng:29.9, name:'Physiologus',
+    date:'~200 CE', region:'Alexandria, Egypt',
+    desc:'Influential early Christian natural history that includes cynocephali. Widely copied manuscript — over 50 languages. Its taxonomy of real and monstrous animals directly shaped medieval European understanding of what creatures existed in the world.',
+    source:'Physiologus (~200 CE, Alexandria)',
+    type:'primary_text'
+  },
+  {
+    lat:36.4, lng:2.8, name:'Saint Augustine — City of God',
+    date:'426 CE', region:'Hippo Regius (Algeria)',
+    desc:'"What shall I say of the Cynocephali, whose dog's head and actual barking prove them to be rather beasts than men?" Augustine wrestles with whether monstrous races have souls. His discussion legitimised continued scholarly treatment of cynocephali for 1,000 years.',
+    source:'De Civitate Dei, Book XVI, Chapter 8 (426 CE)',
+    type:'primary_text'
+  },
+  {
+    lat:51.5, lng:-1.8, name:'Wonders of the East (Old English)',
+    date:'~1000 CE', region:'England',
+    desc:'Illustrated Old English manuscript. Includes cynocephali among catalogue of wonders. Notably: they are depicted as fully dressed, socially organised, and living in specific geographic regions. Two surviving manuscripts (British Library): Cotton Vitellius A.xv and Tiberius B.v.',
+    source:'Wonders of the East (~1000 CE); Cotton Vitellius A.xv',
+    type:'primary_text'
+  },
+  {
+    lat:51.8, lng:-4.1, name:'Gerald of Wales — Werewolf of Ossory',
+    date:'1188 CE', region:'Wales',
+    desc:'"I am going to tell you something amazing that happened in our time in Meath... a priest was accosted by a wolf who spoke to him." Gerald documents the Werewolf of Ossory — a man cursed to become a wolf for seven years, who retains full human speech and intelligence. First first-person clerical encounter record in the British Isles.',
+    source:'Topographia Hibernica (1188)',
+    type:'primary_text'
+  },
+  {
+    lat:50.5, lng:4.5, name:'John Mandeville — Travels',
+    date:'1357 CE', region:'Belgium (written about Asia)',
+    desc:'"In another isle toward the south dwell folk of foul stature and of cursed kind that have no heads and their eyes be in their shoulders." Also documents cynocephali in the Andaman Islands: intelligent, warlike, speak their own language. The most widely read travel book of the 14th century.',
+    source:'The Travels of Sir John Mandeville (1357)',
+    type:'primary_text'
+  },
+  {
+    lat:47.6, lng:7.6, name:'Sebastian Münster — Cosmographia',
+    date:'1544 CE', region:'Basel, Switzerland',
+    desc:'Illustrated world geography. Includes multiple woodcut illustrations of cynocephali placed geographically. The most widely distributed printed reference work of the 16th century. Cynocephali depicted alongside real peoples in the section on Africa and Asia.',
+    source:'Cosmographia Universalis (1544), Sebastian Münster',
+    type:'primary_text'
+  },
+  {
+    lat:60.8, lng:17.1, name:'Olaus Magnus — Historia',
+    date:'1555 CE', region:'Sweden',
+    desc:'"There are some in Russia and the Livonian country who change their nature into that of wolves and bears... they gnaw and devour everything that comes in their way." First Scandinavian primary source documenting werewolves as a documented social problem. Includes testimony of witnesses.',
+    source:'Historia de Gentibus Septentrionalibus (1555)',
+    type:'primary_text'
+  },
+  {
+    lat:47.1, lng:5.5, name:'Gilles Garnier — Trial',
+    date:'1573 CE', region:'Dole, France',
+    desc:'Tried and executed as a werewolf. Confessed to killing and eating four children in wolf form over several weeks. Multiple witnesses claimed to have seen a wolf-like figure near the scenes. One of the most documented werewolf trials — formal legal proceedings with named witnesses.',
+    source:'Procès de Gilles Garnier (1573), Parlement de Dole',
+    type:'trial_record'
+  },
+  {
+    lat:50.9, lng:6.7, name:'Peter Stumpp — Trial',
+    date:'1589 CE', region:'Bedburg, Germany',
+    desc:'"Likewise he confessed that he wore a girdle given to him by the Devil, and as oft as he put it on, he became transformed into the likeness of a wolf." The most internationally publicised werewolf trial. A broadsheet with woodcut illustrations was distributed across Europe within weeks of the execution.',
+    source:'True Discourse of Peter Stubbe (broadsheet, 1590)',
+    type:'trial_record'
+  },
+  {
+    lat:44.2, lng:0.6, name:'Jean Grenier — Trial',
+    date:'1603 CE', region:'Landes, France',
+    desc:'A 13-year-old boy who confessed to being a werewolf. Claimed a wolf-skin given to him by a man in the forest allowed him to transform. The court partially believed him — he was sentenced to a monastery rather than execution. The Bordeaux parliament recorded the trial as "lycanthropy" — a clinical rather than theological framing.',
+    source:'Procès de Jean Grenier (1603), Parlement de Bordeaux',
+    type:'trial_record'
+  },
+  {
+    lat:57.3, lng:25.2, name:'Thiess of Kaltenbrun — Trial',
+    date:'1692 CE', region:'Jürgensburg, Latvia',
+    desc:'"I am a hound of God." Thiess, an 80-year-old Livonian, claimed to be a benevolent werewolf who fought demons in hell to protect the harvest. He was not afraid of the court. Refused to renounce his identity. Sentenced to flogging rather than death — his confidence apparently impressed the court. The most extraordinary werewolf testimony on record.',
+    source:'Trial transcript (1692), Jürgensburg court',
+    type:'trial_record'
+  },
+  {
+    lat:44.7, lng:3.3, name:'Beast of Gévaudan',
+    date:'1764–1767 CE', region:'Gévaudan, France',
+    desc:'113 documented attacks over three years. The creature was described by multiple witnesses as wolf-like but much larger, with a reddish coat and a tail like a lion. Walking upright was reported in several accounts. The attacks were documented by French royal officials — among the best-evidenced historical encounter series in Europe.',
+    source:'Mémoires sur les attaques du loup (1767); Jean Chastel account',
+    type:'encounter_record'
+  },
+  {
+    lat:53.4, lng:-7.9, name:'Werewolf of Ossory',
+    date:'1185 CE', region:'County Ossory, Ireland',
+    desc:'Gerald of Wales documents a priest's encounter with a wolf who identified itself as a man under curse. The wolf opened a satchel, produced a church vessel, and asked for last rites for his dying wolf-companion. The priest administered rites. One of the few medieval accounts where the entity explicitly requests human religious ritual.',
+    source:'Gerald of Wales, Topographia Hibernica (1188)',
+    type:'encounter_record'
+  },
+  {
+    lat:30.0, lng:31.2, name:'Book of the Dead — Anubis',
+    date:'~1550 BCE', region:'Ancient Egypt',
+    desc:'The earliest mass-produced document featuring a bipedal canine-headed humanoid. Anubis: jackal head, fully bipedal, performs rituals, weighs hearts against feather of Ma'at. A recurring figure across 1,500 years of Egyptian documentation. Not feared — honoured. A counterpoint to the terror-association of most traditions.',
+    source:'Book of the Dead (New Kingdom, ~1550 BCE)',
+    type:'primary_text'
+  },
+  {
+    lat:20.7, lng:-103.4, name:'Xolotl — Codex Borgia',
+    date:'Pre-colonial (~1400 CE)', region:'Mexico',
+    desc:'"Xolotl guided the dead to Mictlan." Dog-headed man, psychopomp. Notably: depicted with reversed feet in several codices — an anatomically anomalous descriptor that does not appear anywhere in the modern corpus but appears independently in the Aztec tradition. Companion of Quetzalcóatl.',
+    source:'Codex Borgia; Florentine Codex (Sahagún, 1569)',
+    type:'primary_text'
+  },
+  {
+    lat:51.5, lng:0.1, name:'Matthew Paris — Chronica Majora',
+    date:'1240 CE', region:'St Albans, England',
+    desc:'"When the Tartars crossed the great sea-ocean, they came to a certain country... where they found a race of monsters with heads like dogs." Matthew Paris compiles reports from Mongol envoys including eyewitness accounts of dog-headed peoples encountered during the Mongol expansion. Among the most geographically specific medieval sightings.',
+    source:'Chronica Majora, Matthew Paris (1240)',
+    type:'primary_text'
+  },
+  {
+    lat:14.2, lng:40.5, name:'Cosmas Indicopleustes — Christian Topography',
+    date:'547 CE', region:'Alexandria / Ethiopia',
+    desc:'"There are also found in India dog-headed men, who dwell in the forests." Cosmas, a Christian merchant who travelled to India and Ethiopia, documents cynocephali from personal accounts. Notable because it predates the Islamic expansion and represents an independent Byzantine documentation.',
+    source:'Christian Topography (547 CE)',
+    type:'primary_text'
+  },
+];
+
+// ── MODERN ACCOUNTS ────────────────────────────────────────────────
+const MODERN_ACCOUNTS = [
+  { lat:47.5, lng:-121.5, title:'Pacific Northwest', region:'USA',
+    desc:'Highest density of modern accounts in the corpus. Consistent reporting across multiple decades and witnesses. Forest and mountain terrain.',
+    descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes','paralysis','watches-then-leaves','silent departure'] },
+  { lat:37.0, lng:-85.0, title:'Appalachia', region:'USA',
+    desc:'Multi-decade reporting from isolated rural communities. High proportion of accounts with professional witnesses. Long disclosure delays documented.',
+    descriptors:['bipedal','canine head','large','nocturnal','forest','smell','paralysis','disclosure delay'] },
+  { lat:33.5, lng:-84.0, title:'Georgia', region:'USA',
+    desc:'Multiple high-credibility accounts. WCS range 6.8–8.2. Disclosure delays 10–40 years.',
+    descriptors:['bipedal','canine head','paralysis','disclosure delay','watches-then-leaves'] },
+  { lat:40.0, lng:-105.0, title:'Colorado Rockies', region:'USA',
+    desc:'Mountain terrain encounters. Multiple accounts from hunters and hikers.',
+    descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes'] },
+  { lat:44.0, lng:-89.0, title:'Great Lakes Region', region:'USA',
+    desc:'Extensive corpus including Wisconsin and Michigan accounts. Dense reporting area.',
+    descriptors:['bipedal','canine head','smell','nocturnal','paralysis'] },
+  { lat:35.5, lng:-97.0, title:'Oklahoma', region:'USA',
+    desc:'Multiple accounts including law enforcement witnesses.',
+    descriptors:['bipedal','canine head','large','glowing eyes','disclosure delay','career risk'] },
+  { lat:30.5, lng:-92.0, title:'Louisiana/Mississippi', region:'USA',
+    desc:'Swamp and river terrain. Distinct environmental context from forest encounters.',
+    descriptors:['bipedal','canine head','smell','nocturnal','large'] },
+  { lat:46.0, lng:-93.0, title:'Minnesota/Wisconsin', region:'USA',
+    desc:'Northern forest accounts. Cold climate reporting.',
+    descriptors:['bipedal','canine head','large','forest','paralysis','silent departure'] },
+  { lat:51.5, lng:-0.5, title:'United Kingdom (multiple counties)', region:'England',
+    desc:'Kryptovox corpus includes accounts from Cheshire, Yorkshire, and Greater London. WCS 7.3 (Ep.450). Multi-encounter witness.',
+    descriptors:['bipedal','canine head','glowing eyes','smell','paralysis','disclosure delay 12yr'] },
+  { lat:38.8, lng:-77.0, title:'Mid-Atlantic USA', region:'USA',
+    desc:'Several accounts from Virginia, Maryland and Washington DC area.',
+    descriptors:['bipedal','canine head','nocturnal','suburban','paralysis'] },
+];
+
+// ── RENDERING ─────────────────────────────────────────────────────
+// Territory polygons
+const TERRITORY_COLOR = '#9a6820';
+TERRITORIES.forEach(t => {
+  const poly = L.polygon(t.coords, {
+    color:       TERRITORY_COLOR,
+    fillColor:   TERRITORY_COLOR,
+    fillOpacity: 0.10,
+    weight:      1,
+    opacity:     0.4,
+    dashArray:   '4,3',
+  });
+  poly.bindTooltip(t.name, { sticky: true, className: 'leaflet-tooltip' });
+  poly.on('click', () => openSidebar('territory', t));
+  poly.on('mouseover', function() { this.setStyle({ fillOpacity: 0.22, weight: 1.5 }); });
+  poly.on('mouseout',  function() { this.setStyle({ fillOpacity: 0.10, weight: 1 }); });
+  poly.addTo(layers.historical);
+});
+
+// Primary source pins — custom diamond-ish marker
+function sourceIcon(type) {
+  const colors = { primary_text:'#8a2020', trial_record:'#c06010', encounter_record:'#7a4010' };
+  const c = colors[type] || '#8a2020';
+  return L.divIcon({
+    html: `<svg width="14" height="14" viewBox="0 0 14 14"><polygon points="7,0 14,7 7,14 0,7" fill="${c}" opacity="0.9" stroke="white" stroke-width="1"/></svg>`,
+    className: '', iconSize:[14,14], iconAnchor:[7,7]
   });
 }
 
-const DATA = {
-  modern: [
-    { lat:47.5, lng:-121.5, title:'Pacific Northwest', region:'USA', desc:'Highest density of modern accounts. Consistent reporting across multiple decades and witnesses.',
-      descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes','paralysis','watches-then-leaves','silent departure'] },
-    { lat:37.0, lng:-85.0,  title:'Appalachia', region:'USA', desc:'Multi-decade reporting from isolated rural communities. High proportion of witness accounts with professional referrals.',
-      descriptors:['bipedal','canine head','large','nocturnal','forest','smell','paralysis','disclosure delay'] },
-    { lat:33.5, lng:-84.0,  title:'Georgia', region:'USA', desc:'Multiple high-credibility accounts. Includes James\'s Dogman Encounter (Episode 600) — WCS 6.8 (Moderate), 40-year disclosure delay.',
-      descriptors:['bipedal','canine head','paralysis','disclosure delay','curiosity not fear','watches-then-leaves'] },
-    { lat:40.0, lng:-105.0, title:'Colorado Rockies', region:'USA', desc:'Documented encounters in mountain terrain. Episode 603 scored WCS 7.1 (Strong).',
-      descriptors:['bipedal','canine head','large','nocturnal','forest','glowing eyes'] },
-    { lat:44.0, lng:-89.0,  title:'Great Lakes Region', region:'USA', desc:'Extensive corpus including Wisconsin and Michigan accounts. Dense reporting area.',
-      descriptors:['bipedal','canine head','smell','nocturnal','paralysis'] },
-    { lat:35.5, lng:-97.0,  title:'Oklahoma', region:'USA', desc:'Multiple accounts including law enforcement witnesses. Professional referrals documented.',
-      descriptors:['bipedal','canine head','large','glowing eyes','disclosure delay','career risk'] },
-    { lat:30.5, lng:-92.0,  title:'Louisiana/Mississippi', region:'USA', desc:'Swamp and river terrain accounts. Distinct environmental context from forest encounters.',
-      descriptors:['bipedal','canine head','smell','nocturnal','large'] },
-    { lat:46.0, lng:-93.0,  title:'Minnesota/Wisconsin', region:'USA', desc:'Northern forest accounts. Cold climate reporting. Some accounts dating pre-2010.',
-      descriptors:['bipedal','canine head','large','forest','paralysis','silent departure'] },
-  ],
-  historic: [
-    { lat:46.1, lng:14.9,  title:'Slovenian Pasjeglavci', region:'Slovenia', date:'Medieval / 19th century collected',
-      desc:'Pack-dwelling canine humanoids. Key unique descriptor: oči obrnjene v tla (eyes turned toward ground — anatomically cannot look upward). Equated with historical Avar/Hun invaders. Killed by iron axe.',
-      descriptors:['bipedal','canine head','pack behaviour','iron association','downward gaze limitation ← UNIQUE','territorial','intelligent'] },
-    { lat:44.0, lng:21.0,  title:'Serbian Psoglav', region:'Serbia', date:'Medieval folk tradition',
-      desc:'Dog-headed humanoid with iron teeth, single cyclopean eye. Cave-dwelling, anthropophagous. Associated with underworld and death.',
-      descriptors:['bipedal','canine head','iron teeth','cyclopean eye','cave-dwelling','underworld'] },
-    { lat:36.5, lng:-108.5, title:'Navajo Skin-Walker (Yee Naaldlooshii)', region:'Navajo Nation, USA', date:'Pre-colonial, oral tradition',
-      desc:'Shape-shifting entity that can appear as large canine or bipedal dog-like being. Strong behavioural parallels: watches-then-leaves, felt-known by target, social taboo on disclosure.',
-      descriptors:['canine form','watches-then-leaves ← MATCH','felt-known ← MATCH','disclosure taboo ← MATCH','targeted individual'] },
-    { lat:60.0, lng:90.0,  title:'Siberian Shamanic Encounters', region:'Siberia/Central Asia', date:'Pre-modern, oral tradition',
-      desc:'Animal-headed spirit beings in shamanic encounter accounts. Documented behavioural parallels: paralysis, watches-then-withdraws, territorial, felt-known.',
-      descriptors:['animal head','paralysis ← MATCH','watches-then-withdraws ← MATCH','felt-known ← MATCH','territorial'] },
-    { lat:20.5, lng:-88.0, title:'Huay Chivo', region:'Yucatan, Mexico', date:'Pre-colonial Mayan tradition',
-      desc:'Half-man, half-goat or half-dog. Glowing eyes — one of very few pre-modern traditions describing eye luminescence. Nocturnal, forest-dwelling. Associated with sorcery.',
-      descriptors:['bipedal','canine/animal hybrid','glowing eyes ← MATCH','nocturnal','forest'] },
-    { lat:20.0, lng:102.0, title:'Shanhaijing Beings', region:'China', date:'~4th century BCE',
-      desc:'Classic of Mountains and Seas describes multiple dog-headed or dog-featured beings associated with specific mountain territories. Treated as geographic taxonomy rather than supernatural.',
-      descriptors:['canine head','territorial','mountain dwelling','organised'] },
-    { lat:13.0, lng:122.0, title:'Aswang (Weredog variant)', region:'Philippines', date:'Documented by Spanish colonists 1589',
-      desc:'Shape-shifting beings including explicit weredog category. Documented as most feared creature in Philippines by 16th-century Spanish accounts. Nocturnal, forest-dwelling.',
-      descriptors:['canine form','nocturnal','forest','shape-shifting','documented 1589'] },
-    { lat:30.0, lng:75.0,  title:'Indian Cynocephali', region:'India', date:'4th century BCE onwards',
-      desc:'Described by Ctesias of Cnidus and Megasthenes as mountain-dwelling, bark to communicate, wear animal skins, strong hunters. Treated as a real species.',
-      descriptors:['bipedal','canine head','mountain dwelling','fast','strong','real species taxonomy'] },
-    { lat:9.0,  lng:7.0,   title:'Yoruba Iron-Dog Association', region:'West Africa (Nigeria)', date:'Pre-colonial, oral tradition',
-      desc:'Ogun (deity of iron, war, hunting) — dogs sacred to him. Structural iron-dog connection parallels Slavic psoglav (iron teeth) and pasjeglavci (iron axe). Independent convergence on iron association.',
-      descriptors:['canine association','iron association ← PARALLEL','hunting','warrior'] },
-  ],
-  folklore: [
-    { lat:41.9, lng:12.5,  title:'Pliny the Elder — Naturalis Historia', region:'Rome', date:'77 CE',
-      desc:'Describes cynocephali as a real species. "In many mountains there is a race of men with the heads of dogs, who are clothed in the skins of wild beasts." Treated as natural history not mythology.',
-      source:'Naturalis Historia, Book VII', descriptors:['bipedal','canine head','mountain','wild animal skins','real species'] },
-    { lat:37.9, lng:23.7,  title:'Ctesias of Cnidus — Indika', region:'Greece', date:'4th century BCE',
-      desc:'First systematic description of cynocephali. Dog-headed people in India, 120,000 in number. Communicate by barking. Strong, fast, eat raw meat. Trade with Indians via sign language.',
-      source:'Indika (preserved in Photius, Bibliotheca Codex 72)', descriptors:['bipedal','canine head','fast','strong','organised','trade behaviour'] },
-    { lat:51.5, lng:10.5,  title:'Nuremberg Chronicle', region:'Germany', date:'1493',
-      desc:'Illustrated compendium of world history. Cynocephalus depicted as bipedal, well-dressed figure with dog head. Placed among known peoples of the world, not mythological creatures.',
-      source:'Schedel\'sche Weltchronik (1493)', descriptors:['bipedal','canine head','intelligent','cultural behaviour'] },
-    { lat:29.5, lng:31.2,  title:'Anubis / Wepwawet', region:'Egypt', date:'Ancient, pre-3000 BCE',
-      desc:'Jackal-headed psychopomps — guides of the dead. Boundary beings existing between the living and dead worlds. Dog-headed deity as threshold guardian is one of the oldest recorded forms.',
-      source:'Egyptian religious texts and iconography', descriptors:['canine head','psychopomp','boundary being','underworld','ancient'] },
-    { lat:19.4, lng:-99.1, title:'Xolotl', region:'Mexico (Aztec)', date:'Pre-colonial',
-      desc:'Dog-headed man. Psychopomp, guide of the dead. Depicted with reversed feet — anatomically unusual feature. Empty eye sockets (wept his eyes out). Twin of Quetzalcóatl. Master transformer.',
-      source:'Codex Borgia, Florentine Codex', descriptors:['dog-headed man','reversed feet','unusual eyes','psychopomp','transformer'] },
-  ],
-};
+PRIMARY_SOURCES.forEach(s => {
+  const marker = L.marker([s.lat, s.lng], { icon: sourceIcon(s.type) });
+  marker.bindTooltip(`${s.name} (${s.date})`, { direction:'top', className:'leaflet-tooltip' });
+  marker.on('click', () => openSidebar('source', s));
+  marker.addTo(layers.historical);
+});
 
+// Modern account circles
+MODERN_ACCOUNTS.forEach(item => {
+  const marker = L.circleMarker([item.lat, item.lng], {
+    color:'#2d5a3d', fillColor:'#2d5a3d', fillOpacity:0.8, radius:9, weight:1.5
+  });
+  marker.bindTooltip(item.title, { direction:'top', className:'leaflet-tooltip' });
+  marker.on('click', () => openSidebar('modern', item));
+  marker.addTo(layers.modern);
+});
+
+// Update counts
+document.getElementById('c-modern').textContent = MODERN_ACCOUNTS.length;
+document.getElementById('c-historic').textContent = TERRITORIES.length;
+document.getElementById('c-source').textContent = PRIMARY_SOURCES.length;
+
+// ── SIDEBAR ────────────────────────────────────────────────────────
 function openSidebar(type, item) {
-  const colors = { modern:'var(--accent)', historic:'var(--amber)', folklore:'var(--flag)' };
-  const labels = { modern:'Modern Account Region', historic:'Historical Tradition', folklore:'Folklore Primary Source' };
+  let html = '';
 
-  const matchTags = (item.descriptors||[]).map(d => {
-    const isMatch = d.includes('← MATCH') || d.includes('← PARALLEL') || d.includes('← UNIQUE');
-    return `<span class="descriptor-tag ${isMatch?'match':''}">${d}</span>`;
-  }).join('');
+  if (type === 'modern') {
+    const tags = (item.descriptors||[]).map(d => `<span class="descriptor-tag">${d}</span>`).join('');
+    html = `
+      <div class="sidebar-type" style="color:#2d5a3d">Modern Account Region</div>
+      <div class="sidebar-title">${item.title}</div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Region</div><div class="sidebar-field-value">${item.region}</div></div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Description</div><div class="sidebar-field-value">${item.desc}</div></div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Recurring descriptors</div><div class="descriptor-tags">${tags}</div></div>`;
+  } else if (type === 'territory') {
+    const refs = (item.refs||[]).map(r => `<div style="margin-bottom:0.3rem">• ${r}</div>`).join('');
+    html = `
+      <div class="sidebar-type" style="color:#9a6820">Historical Territory</div>
+      <div class="sidebar-title">${item.name}</div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Period</div><div class="sidebar-field-value">${item.period}</div></div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Description</div><div class="sidebar-field-value">${item.desc}</div></div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Key sources</div><div class="sidebar-field-value" style="font-size:0.78rem">${refs}</div></div>`;
+  } else if (type === 'source') {
+    const typeLabel = { primary_text:'Primary Text', trial_record:'Trial Record', encounter_record:'Encounter Record' }[item.type] || 'Historical Record';
+    const typeColor = { primary_text:'#8a2020', trial_record:'#c06010', encounter_record:'#7a4010' }[item.type] || '#8a2020';
+    html = `
+      <div class="sidebar-type" style="color:${typeColor}">◆ ${typeLabel}</div>
+      <div class="sidebar-title">${item.name}</div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Date</div><div class="sidebar-field-value">${item.date}</div></div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Region</div><div class="sidebar-field-value">${item.region}</div></div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Account</div><div class="sidebar-field-value">${item.desc}</div></div>
+      <div class="sidebar-field"><div class="sidebar-field-label">Source</div><div class="sidebar-field-value" style="font-style:italic;font-size:0.78rem">${item.source}</div></div>`;
+  }
 
-  let extra = '';
-  if (item.date) extra += `<div class="sidebar-field"><div class="sidebar-field-label">Period</div><div class="sidebar-field-value">${item.date}</div></div>`;
-  if (item.source) extra += `<div class="sidebar-field"><div class="sidebar-field-label">Source</div><div class="sidebar-field-value">${item.source}</div></div>`;
-  if (item.region) extra += `<div class="sidebar-field"><div class="sidebar-field-label">Region</div><div class="sidebar-field-value">${item.region}</div></div>`;
-
-  document.getElementById('sidebar-content').innerHTML = `
-    <div class="sidebar-type" style="color:${colors[type]}">${labels[type]}</div>
-    <div class="sidebar-title">${item.title}</div>
-    ${extra}
-    <div class="sidebar-field"><div class="sidebar-field-label">Description</div><div class="sidebar-field-value">${item.desc}</div></div>
-    <div class="sidebar-field">
-      <div class="sidebar-field-label">Descriptors <span style="color:var(--accent);font-weight:600">← matched to modern accounts</span></div>
-      <div class="descriptor-tags">${matchTags}</div>
-    </div>
-  `;
+  document.getElementById('sidebar-content').innerHTML = html;
   document.getElementById('map-sidebar').classList.add('open');
 }
 
 function closeSidebar() {
   document.getElementById('map-sidebar').classList.remove('open');
 }
-
-function addMarkers(type, color, size) {
-  DATA[type].forEach(item => {
-    const marker = L.circleMarker([item.lat, item.lng], {
-      color, fillColor: color, fillOpacity: 0.85, radius: size, weight: 1.5
-    });
-    marker.on('click', () => openSidebar(type, item));
-    marker.bindTooltip(item.title, { permanent: false, direction: 'top', className: 'leaflet-tooltip' });
-    marker.addTo(layers[type]);
-  });
-}
-
-addMarkers('modern',  '#2d5a3d', 9);
-addMarkers('historic','#8a6420', 9);
-addMarkers('folklore','#7a2020', 8);
 
 function toggleLayer(type, btn) {
   btn.classList.toggle('active');
