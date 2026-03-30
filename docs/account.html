@@ -379,19 +379,22 @@ function renderAccount(a, allAccounts) {
       <div class="profile-value">${val}</div>
     </div>`).join('');
 
-  // Creature description items
-  const creatureItems = [
-    ['Height estimate', fmt(a.height_estimate_ft)],
+  // Creature description — only show fields with meaningful text
+  const creatureRaw = [
+    ['Height', fmt(a.height_estimate_ft)],
     ['Build', fmt(a.build)],
     ['Face type', fmt(a.face_type)],
-    ['Eyes glow', fmt(a.eyes_glow)],
-    ['Smell reported', a.smell_reported ? (a.smell_description || 'Yes') : 'No'],
-    ['Bipedal', fmt(a.bipedal)],
-    ['Hands described', fmt(a.hands_described)],
-    ['Vocalisation', fmt(a.vocalisation_type)],
-    ['Departure type', fmt(a.departure_type)],
-    ['Eye contact', fmt(a.eye_contact_made)],
-  ].map(([label, val]) => `
+    ['Eyes', a.eyes_description_quote || (a.eyes_glow ? 'Glowing / self-illuminated' : fmt(a.eyes_colour)) || null],
+    ['Smell', a.smell_description_quote || a.smell_description || null],
+    ['Hands & claws', a.hands_description_quote || null],
+    ['Vocalisation', a.vocalisation_description_quote || a.vocalisation_type || null],
+    ['Movement', a.movement_description || null],
+    ['Departure', a.departure_description_quote || a.departure_type || null],
+    ['Locomotion', a.bipedal && a.quadrupedal_also_observed ? 'Bipedal (quadrupedal also observed)' : a.bipedal ? 'Bipedal' : a.quadrupedal_also_observed ? 'Quadrupedal observed' : null],
+    ['Size comparison', a.size_comparison || null],
+  ].filter(([, val]) => val && val !== '—');
+
+  const creatureItems = creatureRaw.map(([label, val]) => `
     <div class="profile-item">
       <div class="profile-label">${label}</div>
       <div class="profile-value">${val}</div>
@@ -471,7 +474,7 @@ function renderAccount(a, allAccounts) {
 
   <div class="section-heading">Creature Description</div>
   <div class="profile-grid">${creatureItems}</div>
-  ${a.face_description_quote ? `<div class="evidence-quote" style="margin-top:1rem">"${a.face_description_quote}"</div>` : ''}
+  ${a.face_description_quote && a.face_description_quote !== a.face_type ? `<div class="evidence-quote" style="margin-top:1rem">"${a.face_description_quote}"</div>` : ''}
 
   <div class="section-heading">Behavioural Flags</div>
   <div class="flags-section">${flagHTML}</div>
