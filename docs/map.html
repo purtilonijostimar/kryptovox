@@ -207,12 +207,17 @@ const map = L.map('main-map', {
   zoom: 2,
   scrollWheelZoom: true,
   zoomControl: true,
+  worldCopyJump: false,
+  maxBounds: [[-85, -180], [85, 180]],
+  maxBoundsViscosity: 1.0,
+  minZoom: 2,
 });
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '© OpenStreetMap © CARTO',
   subdomains: 'abcd',
   maxZoom: 19,
+  noWrap: true,
 }).addTo(map);
 
 const layers = {
