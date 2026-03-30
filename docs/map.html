@@ -478,15 +478,14 @@ async function buildTerritoryLayers() {
       // Alaska + fallback polygon for northern Canada
       features = (def.codes_us || []).map(c => stateMap[c]).filter(Boolean);
     }
-    // coords_only: skip TopoJSON entirely, always use polygon coords
-    if (def.type === 'coords_only') features = [];
-
-    // Also handle fallback polygon
-    if (def.coords && features.length === 0) {
-      const poly = L.polygon(def.coords, polyStyle());
-      bindTerritory(poly, def);
-      poly.addTo(layers.historical);
-      return;
+    // coords_only: build a GeoJSON Feature from explicit [lat,lng] coords
+    // (avoids antimeridian issues; uses same L.geoJSON path as all other territories)
+    if (def.type === 'coords_only') {
+      const ring = def.coords.map(([lat, lng]) => [lng, lat]); // GeoJSON is [lng,lat]
+      ring.push(ring[0]); // close ring
+      features = [{ type: 'Feature',
+        geometry: { type: 'Polygon', coordinates: [ring] },
+        properties: {} }];
     }
 
     if (!features.length) return;
