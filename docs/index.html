@@ -311,7 +311,7 @@ function renderCards() {
   }
 
   grid.innerHTML = accounts.map(a => {
-    const title = cleanTitle(a.audio_file);
+    const title = a.display_title || cleanTitle(a.audio_file);
     const bars = DIMS.map(d => {
       const score = a[d]?.score ?? 0;
       return `<div class="dim-bar">
