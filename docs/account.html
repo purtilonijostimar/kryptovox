@@ -107,6 +107,19 @@
   border-bottom: 1px solid var(--rule);
 }
 
+/* Executive summary */
+.exec-summary {
+  font-family: var(--serif-display);
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 400;
+  max-width: 660px;
+}
+
 /* Profile grid */
 .profile-grid {
   display: grid;
@@ -491,6 +504,8 @@ function renderAccount(a, allAccounts) {
   </div>
 
   ${sourceCredit}
+
+  ${a.summary ? `<div class="exec-summary">${a.summary}</div>` : ''}
 
   <div class="section-heading">Witness & Encounter Profile</div>
   <div class="profile-grid">${profileItems}</div>
