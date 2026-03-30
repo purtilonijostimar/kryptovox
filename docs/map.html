@@ -363,6 +363,90 @@ const TERRITORY_DEFS = [
     // fallback polygon for northern Canada (no state-level data)
     coords: [[74,-145],[70,-135],[69,-100],[72,-80],[67,-76],[60,-78],[57,-130],[62,-143]]
   },
+  {
+    id: 'south_america', name: 'South America — Lobizón / Lobishomem',
+    type: 'countries', codes: [76,32,858,600,68,152,604,170,218],
+    period: 'Colonial period (16th century) to present — deeply embedded',
+    desc: 'Brazil (Lobishomem) and Argentina/Uruguay/Paraguay (Lobizón): the seventh son is cursed to transform into a wolf-man on Friday nights. So embedded in Argentina that presidents formally became godparents of seventh sons until 2009 to break the curse. Described as bipedal, enormous, black fur, glowing eyes, foul smell — closely matching modern corpus descriptors.',
+    refs: ['João de Barros, Décadas da Ásia (1552) — early colonial documentation', 'Decree 1183/2009, Argentina — presidential godparent tradition to lift lobizón curse', 'Multiple 19th-century Argentine newspaper accounts of lobizón attacks'],
+  },
+  {
+    id: 'horn_africa', name: 'Horn of Africa — Were-Hyena / Buda',
+    type: 'countries', codes: [231,706,262,232,729],
+    period: 'Documented by Leo Africanus 1526; tradition far older',
+    desc: 'Ethiopia, Somalia, Eritrea, Djibouti, Sudan. The Buda (Ethiopia) and Qori Ismaris (Somalia) — practitioners believed to transform into hyenas or dog-like creatures at night. In Ethiopia, blacksmiths and potters are hereditary buda — their caste status as were-hyenas is documented in church and colonial records. A distinct canine-hybrid tradition with a unique daytime social identity for the practitioner.',
+    refs: ['Leo Africanus, Description of Africa (1526)', 'Reminick, The Evil Eye Belief Among the Amhara of Ethiopia (1974)', 'Lewis, A Pastoral Democracy (1961) — Somalia documentation'],
+  },
+  {
+    id: 'north_africa', name: 'North Africa — Bouda / Were-Hyena Tradition',
+    type: 'countries', codes: [504,12,788,434],
+    period: 'Medieval Islamic documentation; pre-Islamic origin',
+    desc: 'Morocco, Algeria, Tunisia, Libya. The Bouda (from Arabic) — blacksmiths and Jewish communities in North Africa are believed to transform into hyenas at night. Documented by multiple European travellers. The Moroccan tradition specifies the transformation occurs at crossroads, at night, and the bouda retains human intelligence while in animal form — a direct parallel to the medieval European werewolf structural model.',
+    refs: ['Westermarck, Ritual and Belief in Morocco (1926)', 'Doutte, Magie et Religion dans l\'Afrique du Nord (1909)'],
+  },
+  {
+    id: 'japan', name: 'Japan — Inugami (Dog God / Dog Spirit)',
+    type: 'countries', codes: [392],
+    period: 'Documented from Heian period (794–1185 CE); Edo period court records',
+    desc: 'Inugami (犬神) — a vengeful spirit taking the form of a dog or dog-headed entity that can possess humans. Documented especially in Shikoku and Kyushu. Inugami-mochi (dog-god keepers) were hereditary practitioner families who could send the spirit against enemies. Documented in Edo-period court records as a real legal matter. The Tono Monogatari (1910) records multiple contemporary accounts.',
+    refs: ['Yanagita Kunio, Tono Monogatari (1910)', 'Edo period court records, Shikoku domain', 'Komatsu Kazuhiko, Nihon Yōkai Taizen (1994)'],
+  },
+  {
+    id: 'indonesia_malay', name: 'Indonesia / Malaysia — Barong / Anjing Shapeshifter',
+    type: 'countries', codes: [360,458,764,116,104],
+    period: 'Pre-Hindu documented; continuous to present',
+    desc: 'Indonesia, Malaysia, Thailand, Cambodia, Myanmar. The Balinese Barong Ket — a dog-lion headed protective supernatural being, the subject of the famous sacred Barong dance. Depicted as upright, bipedal in some forms, with enormous canine head. The Malay Bajang — a shapeshifting spirit that takes the form of a wailing dog. Across the Malay Archipelago, dog-spirit possession accounts are documented in colonial ethnographies and persist in contemporary folk belief.',
+    refs: ['Covarrubias, Island of Bali (1937)', 'Skeat, Malay Magic (1900)', 'Endicott, An Analysis of Malay Magic (1970)'],
+  },
+  {
+    id: 'caribbean', name: 'Caribbean — Loup-Garou / Jumbee',
+    type: 'countries', codes: [332,214,192,388,780,388,630],
+    period: 'French and Spanish colonial period; syncretic with African traditions',
+    desc: 'Haiti, Dominican Republic, Cuba, Jamaica, Trinidad. The Haitian Loup-garou is distinct from European werewolf — it is syncretic with West African traditions brought by enslaved peoples. Described as a being that removes its skin at night and flies or runs in a luminescent dog-like form. In Trinidad, the Soucouyant and Lagahoo (from loup-garou) are contemporaneous traditions. Still reported in Caribbean rural communities.',
+    refs: ['Hurston, Tell My Horse (1938) — Haiti documentation', 'Mathers, Haitian Lore (1928)', 'Ottley, Creole Talk of Trinidad and Tobago (1971)'],
+  },
+  {
+    id: 'benandanti_italy', name: 'Italy / Iberia — Benandanti / Hombre Lobo',
+    type: 'countries', codes: [380,724,620],
+    period: 'Italy: Inquisition records 1575–1644; Spain/Portugal: medieval and colonial',
+    desc: 'Carlo Ginzburg\'s discovery: the Benandanti of Friuli — a documented society of spirit warriors who left their bodies at night in animal forms (including wolf) to fight witches and protect harvests. Inquisition trial transcripts 1575–1644 provide extraordinary first-person testimony. Spain (Hombre Lobo) and Portugal (Lobisomem — a distinct tradition from Brazil) add Iberian documentation. The Roman Versipellis (skin-turner) predates all medieval European accounts.',
+    refs: ['Ginzburg, The Night Battles: Witchcraft and Agrarian Cults in the 16th and 17th centuries (1966)', 'Inquisition transcripts, Friuli, 1575 (Archivo di Stato, Udine)', 'Pliny the Elder, Versipellis accounts, Naturalis Historia (77 CE)'],
+  },
+  {
+    id: 'native_na_extra', name: 'Native North America — Amarok / Bear-Walker / Wechuge',
+    type: 'us_states', codes: ['02'],
+    period: 'Pre-colonial oral tradition',
+    desc: 'Amarok (Inuit): a giant wolf with humanoid intelligence that hunts the sick and weak — in some traditions it can take a bipedal form and speak. Bear-Walker (Ojibwe): a shapeshifting medicine person who travels in animal form, sometimes wolf. Wechuge (Athabascan): a cannibal giant related to the Wendigo tradition. Across Northwest Coast cultures — Kwakwaka\'wakw dog-human hybrid figures in potlatch tradition. The Tlingit Wolf Clan sacred narratives describe wolf-men as ancestors.',
+    refs: ['Boas, The Social Organization of the Kwakiutl (1897)', 'Lowie, Myths and Traditions of the Crow Indians (1918)', 'Petitot, Traditions Indiennes du Canada Nord-Ouest (1886)'],
+  },
+  {
+    id: 'australia', name: 'Australia — Aboriginal Canine-Headed Spirit Traditions',
+    type: 'countries', codes: [36],
+    period: 'Pre-colonial; first recorded by European ethnographers 1880s',
+    desc: 'The Quinkan figures of Queensland rock art (some of the oldest rock art on Earth, some panels dated 30,000+ years) include tall bipedal figures with animal heads — some interpreted as canine. The Bunyip in some regional traditions is described with a dog-like head. The Yara-ma-yha-who of eastern Australia has animal-human hybrid characteristics. Ngurunderi (Ngarrindjeri tradition) involves ancestral beings with animal transformative abilities. The Mimi spirits of Arnhem Land rock art also show elongated animal-headed humanoids.',
+    refs: ['Flood, Rock Art of the Dreamtime (1997)', 'Massola, Bunjil\'s Cave: Myths, Legends and Superstitions of the Aborigines of South-East Australia (1968)', 'Mountford, The Dreamtime: Australian Aboriginal Myths in Paintings (1965)'],
+  },
+  {
+    id: 'middle_east', name: 'Middle East — Cynocephali in Islamic Scholarship',
+    type: 'countries', codes: [682,368,760,400,784,50,586],
+    period: '8th–14th century CE Islamic golden age documentation',
+    desc: 'Saudi Arabia, Iraq, Syria, Jordan, UAE, Bangladesh, Pakistan. Islamic scholars inherited Greek accounts of cynocephali and added new documentation. Al-Biruni (1030 CE) discusses dog-headed peoples in his survey of India. Al-Idrisi\'s world map (1154 CE) places cynocephali geographically. Ibn Battuta\'s travels mention dog-headed beings in the Indian Ocean region. The Ghul — an Arabian shapeshifting desert being that can take animal forms — is documented from pre-Islamic poetry.',
+    refs: ['Al-Biruni, Kitab al-Hind (1030 CE)', 'Al-Idrisi, Tabula Rogeriana (1154 CE)', 'Pre-Islamic Arabian poetry — ghul references (documented by Goldziher, 1889)'],
+  },
+  {
+    id: 'sub_saharan', name: 'Sub-Saharan Africa — Therianthropic Spirit Traditions',
+    type: 'countries', codes: [516,508,716,454,894,818,148,120,178,706],
+    period: 'Pre-colonial; extensively documented from 1880s',
+    desc: 'Namibia, Mozambique, Zimbabwe, Malawi, Zambia, Tanzania, Chad, Cameroon, Congo, Somalia. Rock art across southern and central Africa depicts therianthropic (part-human, part-animal) figures. The San/Bushmen traditions of southern Africa include shape-shifting spirits. The Bwiti religion of Gabon and Cameroon involves animal-human transformation. Across the Congo basin, forest spirits described as large canine-headed bipedal beings appear in multiple ethnographic records.',
+    refs: ['Lewis-Williams, The Mind in the Cave (2002) — San rock art', 'Fernandez, Bwiti: An Ethnography of the Religious Imagination in Africa (1982)', 'Turnbull, The Forest People (1961) — Congo basin documentation'],
+  },
+  {
+    id: 'new_guinea', name: 'New Guinea & Melanesia — Canine Spirit Traditions',
+    type: 'countries', codes: [598,540,242,090],
+    period: 'Pre-colonial; documented from 1870s colonial ethnography',
+    desc: 'Papua New Guinea, Vanuatu, Fiji, Solomon Islands. Highland Papua New Guinea traditions describe the Masalai — shape-shifting spirits that can take the form of large dog-like bipedal creatures. The Sanguma of Papua New Guinea is a category of supernatural practitioner who can transform into an animal, often described as a large dog-shaped being. Melanesian traditions across multiple islands document encounters with large canine humanoids in forest areas.',
+    refs: ['Seligmann, The Melanesians of British New Guinea (1910)', 'Lawrence, Road Belong Cargo (1964)', 'Codrington, The Melanesians (1891)'],
+  },
 ];
 
 // ── LOAD TOPOJSON & RENDER TERRITORIES ─────────────────────────────
@@ -590,6 +674,83 @@ const PRIMARY_SOURCES = [
     date:'547 CE', region:'Alexandria / Ethiopia',
     desc:'"There are also found in India dog-headed men, who dwell in the forests." Cosmas, a Christian merchant who travelled to India and Ethiopia, documents cynocephali from personal accounts. Notable because it predates the Islamic expansion and represents an independent Byzantine documentation.',
     source:'Christian Topography (547 CE)',
+    type:'primary_text'
+  },
+  {
+    lat:-14.2, lng:-51.9, name:'Lobizón Decree — Argentina',
+    date:'19th century to 2009 CE', region:'Buenos Aires, Argentina',
+    desc:'"The seventh son is condemned to become a lobizón." The Argentine government formally responded to this belief: every seventh son was at risk of becoming a werewolf unless the President became their godfather. Presidential Decree 1183/2009 formalised the tradition. The belief was so embedded that families emigrated, abandoned children, and sought church intervention for centuries.',
+    source:'Argentine Presidential Decree 1183/2009; 19th-century newspaper archive, La Nación',
+    type:'encounter_record'
+  },
+  {
+    lat:9.0, lng:38.7, name:'Leo Africanus — Were-Hyena Documentation',
+    date:'1526 CE', region:'Ethiopia / North Africa',
+    desc:'"There are in these parts certain men... who are transformed into the shape of a wolf." Leo Africanus (Hassan ibn Muhammad al-Wazzan), a Moroccan diplomat, documents were-hyena traditions in North and East Africa. His Description of Africa was the primary European reference for African peoples for over 200 years.',
+    source:'Description of Africa (Descrittione dell\'Africa), Leo Africanus (1526)',
+    type:'primary_text'
+  },
+  {
+    lat:35.7, lng:139.7, name:'Inugami — Japanese Court Records',
+    date:'8th–17th century CE', region:'Shikoku / Kyushu, Japan',
+    desc:'"The family are inugami-mochi — they keep the dog god." Inugami (dog spirit) cases appear in Heian-period court records as legal disputes about possession and harm. The Ritsuryō legal codes (701 CE) include provisions against inugami use. Documented in Edo-period domain records from Shikoku as an ongoing social problem — families accused of being inugami-mochi faced discrimination and legal sanction.',
+    source:'Ritsuryō Code (701 CE); Edo domain records, Shikoku; Tono Monogatari (Yanagita, 1910)',
+    type:'primary_text'
+  },
+  {
+    lat:46.1, lng:13.2, name:'Benandanti — Inquisition Transcripts',
+    date:'1575–1644 CE', region:'Friuli, Italy',
+    desc:'"We go forth in spirit and the body remains behind... we fight with fennel stalks against the witches who go armed with sorghum stalks." Friulian grain fertility cult documented by Carlo Ginzburg from Inquisition archives. Practitioners (Benandanti) described leaving their bodies in animal forms to fight evil at night. The transcripts contain extraordinary first-person testimony — not confessions of witchcraft but claims of being its opponents.',
+    source:'Inquisition transcripts, Friuli 1575–1644, Archivio di Stato, Udine; Ginzburg, The Night Battles (1966)',
+    type:'trial_record'
+  },
+  {
+    lat:18.5, lng:-72.3, name:'Zora Neale Hurston — Haitian Loup-Garou',
+    date:'1938 CE', region:'Haiti',
+    desc:'"The loup-garou takes off the human skin and goes about doing evil in its true shape." Hurston documents the loup-garou in Haiti as a living tradition — not folklore but reported contemporary encounters. Distinct from European werewolf: the Haitian version removes its skin entirely, travels as a luminescent form, and is associated with West African spiritual traditions brought through the Middle Passage.',
+    source:'Hurston, Tell My Horse: Voodoo and Life in Haiti and Jamaica (1938)',
+    type:'primary_text'
+  },
+  {
+    lat:9.1, lng:40.5, name:'Buda / Were-Hyena — Ethiopian Church Records',
+    date:'15th–19th century CE', region:'Addis Ababa / Ethiopian Highlands',
+    desc:'"The buda are known to transform at night into hyenas that dig up graves." Ethiopian Orthodox Church records document the buda as a pastoral problem from the 15th century. Blacksmiths, potters, and weavers are the hereditary buda castes — their transformation is believed automatic rather than chosen. The church issued formal rulings on whether buda could receive sacraments. The tradition persists: in 2021, a man in Amhara region was killed after being accused of being buda.',
+    source:'Ethiopian church records (15th century); Reminick, The Evil Eye Among the Amhara (1974)',
+    type:'primary_text'
+  },
+  {
+    lat:32.0, lng:-6.8, name:'Westermarck — Moroccan Bouda Records',
+    date:'1926 CE (historical tradition far older)', region:'Morocco',
+    desc:'"The bouda is by day a smith and by night he transforms himself into a hyena." Westermarck\'s extensive fieldwork documents the Moroccan were-hyena tradition with specific case studies, named individuals, and community accounts. The transformation is described consistently: occurs at crossroads at night, the bouda retains human intelligence in animal form, recognises people it knows, and returns to human form before dawn.',
+    source:'Westermarck, Ritual and Belief in Morocco, Vol. 2 (1926)',
+    type:'primary_text'
+  },
+  {
+    lat:-4.0, lng:22.0, name:'Congo Basin — Forest Spirit Accounts',
+    date:'1880s–1960s (ethnographic documentation)', region:'Democratic Republic of Congo',
+    desc:'"It stood upright like a man but its head was that of a dog and its eyes burned in the dark." Multiple ethnographers working in the Congo basin 1880–1960 documented accounts of bipedal dog-headed beings in deep forest areas, treated as spirit encounters rather than cryptid sightings. Structurally identical to modern corpus: watcher behaviour, territorial, self-illuminated eyes, disclosure delay among informants.',
+    source:'Johnston, The River Congo (1884); Torday, Notes Ethnographiques (1910); Turnbull, The Forest People (1961)',
+    type:'encounter_record'
+  },
+  {
+    lat:25.2, lng:55.3, name:'Al-Biruni — Kitab al-Hind',
+    date:'1030 CE', region:'Ghazni (Afghanistan) — written about India',
+    desc:'"The people of India relate... that in the mountains of the east there live dog-headed folk who bark instead of speaking." Al-Biruni, the most rigorous Islamic scholar of the medieval period, discusses cynocephali in his survey of Indian knowledge. He notes the Greek tradition, the Indian sources, and evaluates the claims empirically — unusual for the period. His scepticism itself documents how seriously the claims were taken.',
+    source:'Kitab al-Hind (Book of India), Al-Biruni (1030 CE)',
+    type:'primary_text'
+  },
+  {
+    lat:-6.2, lng:106.8, name:'Colonial Ethnography — Balinese Barong Records',
+    date:'1920s–1930s (tradition pre-Hindu)', region:'Bali, Indonesia',
+    desc:'"The Barong is the lord of the earth — his face is that of a lion-dog, and he walks upright in the dance." The sacred Barong dance of Bali is among the best-documented living traditions of a dog-headed bipedal supernatural being. Covarrubias\'s fieldwork in the 1930s documents the Barong as cosmologically central — not a monster but a protector, in eternal combat with Rangda. Pre-Hindu Balinese sources indicate the tradition predates Indic influence.',
+    source:'Covarrubias, Island of Bali (1937); McPhee, A House in Bali (1944)',
+    type:'primary_text'
+  },
+  {
+    lat:-25.3, lng:131.0, name:'Quinkan Rock Art — Canine-Headed Figures',
+    date:'Panels up to 30,000+ years old', region:'Queensland, Australia',
+    desc:'The Quinkan rock art galleries of Laura, Queensland contain some of the oldest continuous rock art traditions on Earth. Among the thousands of figures, specific panels show tall bipedal figures with elongated, pointed heads consistent with canine morphology. The Laura tradition is still sacred to the Ang-Gnarra Aboriginal Corporation. Exact interpretation remains with custodians, but the physical descriptions of the figures in archaeological literature note the canine head morphology explicitly.',
+    source:'Flood, Rock Art of the Dreamtime (1997); Cole, Quinkan Country (1976)',
     type:'primary_text'
   },
 ];
