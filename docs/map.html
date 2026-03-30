@@ -217,6 +217,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '© OpenStreetMap © CARTO',
   subdomains: 'abcd',
   maxZoom: 19,
+  noWrap: true,
 }).addTo(map);
 
 const layers = {
@@ -494,22 +495,29 @@ async function buildTerritoryLayers() {
     } else if (def.type === 'countries_plus') {
       features = (def.codes || []).map(c => countryMap[c]).filter(Boolean);
       if (def.clip_russia) {
-        // Add Russia (643) with antimeridian rings removed entirely
         var russiaFeat = countryMap[643];
         if (russiaFeat) {
           var rf = JSON.parse(JSON.stringify(russiaFeat));
-          var hasJump = function(ring) {
-            for (var i=1; i<ring.length; i++) {
-              if (Math.abs(ring[i][0] - ring[i-1][0]) > 170) return true;
+          // For rings crossing the antimeridian: split, keep longer half, close it
+          var fixRing = function(ring) {
+            var idx = -1;
+            for (var i = 0; i < ring.length - 1; i++) {
+              if (Math.abs(ring[i+1][0] - ring[i][0]) > 170) { idx = i; break; }
             }
-            return false;
+            if (idx === -1) return ring; // no crossing — keep as-is
+            var seg1 = ring.slice(0, idx + 1);
+            var seg2 = ring.slice(idx + 1);
+            var keep = seg1.length >= seg2.length ? seg1 : seg2;
+            if (keep.length < 4) return null;
+            keep.push(keep[0]); // close ring
+            return keep;
           };
           if (rf.geometry.type === 'MultiPolygon') {
             rf.geometry.coordinates = rf.geometry.coordinates.map(function(poly) {
-              return poly.filter(function(ring) { return !hasJump(ring); });
-            }).filter(function(poly) { return poly.length > 0 && poly[0].length >= 4; });
+              return poly.map(fixRing).filter(Boolean);
+            }).filter(function(poly) { return poly.length > 0; });
           } else if (rf.geometry.type === 'Polygon') {
-            rf.geometry.coordinates = rf.geometry.coordinates.filter(function(ring) { return !hasJump(ring); });
+            rf.geometry.coordinates = rf.geometry.coordinates.map(fixRing).filter(Boolean);
           }
           if (rf.geometry.coordinates.length) features.push(rf);
         }
