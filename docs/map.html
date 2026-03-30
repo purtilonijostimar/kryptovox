@@ -305,10 +305,7 @@ const TERRITORY_DEFS = [
   },
   {
     id: 'russia_east', name: 'Russia / Eastern Europe — Volkolak / Oborot',
-    type: 'countries_plus', codes: [804,112,440,428,233,616,703],
-    extra_coords: [
-      [[55,28],[69,28],[72,55],[73,90],[68,120],[60,130],[54,130],[50,80],[45,50],[50,30]],
-    ],
+    type: 'countries', codes: [804,112,440,428,233,616,703,498,642,100,688,348,203],
     period: 'Medieval documented; pre-Christian oral tradition',
     desc: 'Russia, Ukraine, Belarus, Lithuania, Latvia, Estonia. Volkolak and Oborot — not cursed humans but a structural intermediate category. Church records from the 12th century.',
     refs: ['Russian Primary Chronicle references', 'Alexander Afanasyev, Russian Folk Legends (1859)'],
@@ -487,15 +484,7 @@ async function buildTerritoryLayers() {
       ring.push(ring[0]);
       features = [{ type: 'Feature', geometry: { type: 'Polygon', coordinates: [ring] }, properties: {} }];
     }
-    // countries_plus: TopoJSON countries + extra hand-drawn polygons (antimeridian fix)
-    if (def.type === 'countries_plus') {
-      features = (def.codes || []).map(c => countryMap[c]).filter(Boolean);
-      (def.extra_coords || []).forEach(coords => {
-        const ring = coords.map(([lat, lng]) => [lng, lat]);
-        ring.push(ring[0]);
-        features.push({ type: 'Feature', geometry: { type: 'Polygon', coordinates: [ring] }, properties: {} });
-      });
-    }
+
 
     if (!features.length) return;
 
