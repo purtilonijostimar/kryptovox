@@ -328,6 +328,16 @@ function fmt(val) {
   if (val === null || val === undefined || val === '') return '—';
   if (val === true) return 'Yes';
   if (val === false) return 'No';
+  if (Array.isArray(val)) {
+    const parts = val.filter(v => v !== null && v !== undefined && v !== '');
+    if (!parts.length) return '—';
+    if (parts.length === 1) return fmt(parts[0]);
+    // Short items: join with slash. Long items: bullet list.
+    const allShort = parts.every(p => String(p).length < 40);
+    return allShort
+      ? parts.map(p => fmt(p)).join(' / ')
+      : parts.map((p,i) => `<span style="display:block;margin-bottom:0.15rem">${i+1}. ${fmt(p)}</span>`).join('');
+  }
   return String(val);
 }
 
@@ -380,18 +390,31 @@ function renderAccount(a, allAccounts) {
     </div>`).join('');
 
   // Creature description — only show fields with meaningful text
+  // For multi-encounter accounts many fields are arrays — fmt() handles gracefully
+  function firstNonNull(val) {
+    if (Array.isArray(val)) return val.find(v => v !== null && v !== undefined && v !== '') ?? null;
+    return val || null;
+  }
+  const eyesVal = fmt(a.eyes_description_quote) !== '—' ? fmt(a.eyes_description_quote)
+    : Array.isArray(a.eyes_glow) ? (a.eyes_glow.some(Boolean) ? 'Glowing / self-illuminated (at least one encounter)' : null)
+    : a.eyes_glow ? 'Glowing / self-illuminated' : null;
+
+  const bipedVal = Array.isArray(a.bipedal)
+    ? (a.bipedal.some(Boolean) ? 'Bipedal (at least one encounter)' : null)
+    : (a.bipedal ? 'Bipedal' : null);
+
   const creatureRaw = [
     ['Height', fmt(a.height_estimate_ft)],
     ['Build', fmt(a.build)],
     ['Face type', fmt(a.face_type)],
-    ['Eyes', a.eyes_description_quote || (a.eyes_glow ? 'Glowing / self-illuminated' : fmt(a.eyes_colour)) || null],
-    ['Smell', a.smell_description_quote || a.smell_description || null],
-    ['Hands & claws', a.hands_description_quote || null],
-    ['Vocalisation', a.vocalisation_description_quote || a.vocalisation_type || null],
-    ['Movement', a.movement_description || null],
-    ['Departure', a.departure_description_quote || a.departure_type || null],
-    ['Locomotion', a.bipedal && a.quadrupedal_also_observed ? 'Bipedal (quadrupedal also observed)' : a.bipedal ? 'Bipedal' : a.quadrupedal_also_observed ? 'Quadrupedal observed' : null],
-    ['Size comparison', a.size_comparison || null],
+    ['Eyes', eyesVal],
+    ['Smell', fmt(firstNonNull(a.smell_description_quote) || firstNonNull(a.smell_description))],
+    ['Hands & claws', fmt(a.hands_description_quote)],
+    ['Vocalisation', fmt(firstNonNull(a.vocalisation_description_quote) || firstNonNull(a.vocalisation_type))],
+    ['Movement', fmt(a.movement_description)],
+    ['Departure', fmt(firstNonNull(a.departure_description_quote) || firstNonNull(a.departure_type))],
+    ['Locomotion', bipedVal],
+    ['Size comparison', fmt(a.size_comparison)],
   ].filter(([, val]) => val && val !== '—');
 
   const creatureItems = creatureRaw.map(([label, val]) => `
