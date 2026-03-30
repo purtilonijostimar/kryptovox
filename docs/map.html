@@ -160,7 +160,6 @@
     <a href="composite.html">Composite</a>
     <a href="framework.html">Framework</a>
     <a href="submit.html" class="nav-submit">Submit</a>
-    <a href="index.html">Dashboard</a>
   </nav>
 </header>
 
@@ -189,7 +188,6 @@
 <div class="map-count-bar">
   <div>Modern accounts: <span id="c-modern">8</span> regions</div>
   <div>Historical territories: <span id="c-historic">—</span> regions</div>
-  <div>Primary sources: <span id="c-source">—</span> records</div>
 </div>
 
 <div class="map-wrapper">
@@ -528,232 +526,6 @@ function bindTerritory(layer, def) {
 
 // ── PRIMARY SOURCE PINS ────────────────────────────────────────────
 // Specific datable primary text records — rendered as diamond markers
-const PRIMARY_SOURCES = [
-  {
-    lat:37.9, lng:23.7, name:'Ctesias of Cnidus — Indica',
-    date:'~400 BCE', region:'Greece (written about India)',
-    desc:'First systematic description of cynocephali. Dog-headed people in Indian mountains, estimated 120,000 in number. Communicate by barking and gestures. Trade with Indians using sign language. Fast, strong, eat raw meat. Treated as zoology.',
-    source:'Indica (~400 BCE), preserved in Photius, Bibliotheca Codex 72',
-    type:'primary_text'
-  },
-  {
-    lat:40.4, lng:22.9, name:'Herodotus — Histories',
-    date:'~440 BCE', region:'Greece (written about Libya)',
-    desc:'Mentions dog-headed men in Libya. "Beyond [the lake] the country is full of wild beasts, and to the west of the wild beasts it is all sand, most terribly waterless and desolate." Also mentions them in his survey of distant peoples.',
-    source:'Historiae, Book IV (~440 BCE)',
-    type:'primary_text'
-  },
-  {
-    lat:25.6, lng:85.2, name:'Megasthenes — Indica',
-    date:'~300 BCE', region:'Pataliputra, India',
-    desc:'Greek ambassador to India. Describes cynocephali living in mountain regions. Extends Ctesias account: adds that they trade with Indians using sign language, wear animal skins, and have a structured social organisation. The most detailed ancient account.',
-    source:'Indica (~300 BCE), preserved in Strabo, Arrian, Diodorus Siculus',
-    type:'primary_text'
-  },
-  {
-    lat:41.9, lng:12.5, name:'Pliny the Elder — Naturalis Historia',
-    date:'77 CE', region:'Rome',
-    desc:'"In many mountains there is a race of men with the heads of dogs, who are clothed in the skins of wild beasts. Instead of speaking they bark, and their teeth and nails resemble those of dogs." Treated as natural history. 37 volumes; Book VII covers monstrous races.',
-    source:'Naturalis Historia, Book VII (77 CE)',
-    type:'primary_text'
-  },
-  {
-    lat:31.2, lng:29.9, name:'Physiologus',
-    date:'~200 CE', region:'Alexandria, Egypt',
-    desc:'Influential early Christian natural history that includes cynocephali. Widely copied manuscript — over 50 languages. Its taxonomy of real and monstrous animals directly shaped medieval European understanding of what creatures existed in the world.',
-    source:'Physiologus (~200 CE, Alexandria)',
-    type:'primary_text'
-  },
-  {
-    lat:36.4, lng:2.8, name:'Saint Augustine — City of God',
-    date:'426 CE', region:'Hippo Regius (Algeria)',
-    desc:'"What shall I say of the Cynocephali, whose dog\'s head and actual barking prove them to be rather beasts than men?" Augustine wrestles with whether monstrous races have souls. His discussion legitimised continued scholarly treatment of cynocephali for 1,000 years.',
-    source:'De Civitate Dei, Book XVI, Chapter 8 (426 CE)',
-    type:'primary_text'
-  },
-  {
-    lat:51.5, lng:-1.8, name:'Wonders of the East (Old English)',
-    date:'~1000 CE', region:'England',
-    desc:'Illustrated Old English manuscript. Includes cynocephali among catalogue of wonders. Notably: they are depicted as fully dressed, socially organised, and living in specific geographic regions. Two surviving manuscripts (British Library): Cotton Vitellius A.xv and Tiberius B.v.',
-    source:'Wonders of the East (~1000 CE); Cotton Vitellius A.xv',
-    type:'primary_text'
-  },
-  {
-    lat:51.8, lng:-4.1, name:'Gerald of Wales — Werewolf of Ossory',
-    date:'1188 CE', region:'Wales',
-    desc:'"I am going to tell you something amazing that happened in our time in Meath... a priest was accosted by a wolf who spoke to him." Gerald documents the Werewolf of Ossory — a man cursed to become a wolf for seven years, who retains full human speech and intelligence. First first-person clerical encounter record in the British Isles.',
-    source:'Topographia Hibernica (1188)',
-    type:'primary_text'
-  },
-  {
-    lat:50.5, lng:4.5, name:'John Mandeville — Travels',
-    date:'1357 CE', region:'Belgium (written about Asia)',
-    desc:'"In another isle toward the south dwell folk of foul stature and of cursed kind that have no heads and their eyes be in their shoulders." Also documents cynocephali in the Andaman Islands: intelligent, warlike, speak their own language. The most widely read travel book of the 14th century.',
-    source:'The Travels of Sir John Mandeville (1357)',
-    type:'primary_text'
-  },
-  {
-    lat:47.6, lng:7.6, name:'Sebastian Münster — Cosmographia',
-    date:'1544 CE', region:'Basel, Switzerland',
-    desc:'Illustrated world geography. Includes multiple woodcut illustrations of cynocephali placed geographically. The most widely distributed printed reference work of the 16th century. Cynocephali depicted alongside real peoples in the section on Africa and Asia.',
-    source:'Cosmographia Universalis (1544), Sebastian Münster',
-    type:'primary_text'
-  },
-  {
-    lat:60.8, lng:17.1, name:'Olaus Magnus — Historia',
-    date:'1555 CE', region:'Sweden',
-    desc:'"There are some in Russia and the Livonian country who change their nature into that of wolves and bears... they gnaw and devour everything that comes in their way." First Scandinavian primary source documenting werewolves as a documented social problem. Includes testimony of witnesses.',
-    source:'Historia de Gentibus Septentrionalibus (1555)',
-    type:'primary_text'
-  },
-  {
-    lat:47.1, lng:5.5, name:'Gilles Garnier — Trial',
-    date:'1573 CE', region:'Dole, France',
-    desc:'Tried and executed as a werewolf. Confessed to killing and eating four children in wolf form over several weeks. Multiple witnesses claimed to have seen a wolf-like figure near the scenes. One of the most documented werewolf trials — formal legal proceedings with named witnesses.',
-    source:'Procès de Gilles Garnier (1573), Parlement de Dole',
-    type:'trial_record'
-  },
-  {
-    lat:50.9, lng:6.7, name:'Peter Stumpp — Trial',
-    date:'1589 CE', region:'Bedburg, Germany',
-    desc:'"Likewise he confessed that he wore a girdle given to him by the Devil, and as oft as he put it on, he became transformed into the likeness of a wolf." The most internationally publicised werewolf trial. A broadsheet with woodcut illustrations was distributed across Europe within weeks of the execution.',
-    source:'True Discourse of Peter Stubbe (broadsheet, 1590)',
-    type:'trial_record'
-  },
-  {
-    lat:44.2, lng:0.6, name:'Jean Grenier — Trial',
-    date:'1603 CE', region:'Landes, France',
-    desc:'A 13-year-old boy who confessed to being a werewolf. Claimed a wolf-skin given to him by a man in the forest allowed him to transform. The court partially believed him — he was sentenced to a monastery rather than execution. The Bordeaux parliament recorded the trial as "lycanthropy" — a clinical rather than theological framing.',
-    source:'Procès de Jean Grenier (1603), Parlement de Bordeaux',
-    type:'trial_record'
-  },
-  {
-    lat:57.3, lng:25.2, name:'Thiess of Kaltenbrun — Trial',
-    date:'1692 CE', region:'Jürgensburg, Latvia',
-    desc:'"I am a hound of God." Thiess, an 80-year-old Livonian, claimed to be a benevolent werewolf who fought demons in hell to protect the harvest. He was not afraid of the court. Refused to renounce his identity. Sentenced to flogging rather than death — his confidence apparently impressed the court. The most extraordinary werewolf testimony on record.',
-    source:'Trial transcript (1692), Jürgensburg court',
-    type:'trial_record'
-  },
-  {
-    lat:44.7, lng:3.3, name:'Beast of Gévaudan',
-    date:'1764–1767 CE', region:'Gévaudan, France',
-    desc:'113 documented attacks over three years. The creature was described by multiple witnesses as wolf-like but much larger, with a reddish coat and a tail like a lion. Walking upright was reported in several accounts. The attacks were documented by French royal officials — among the best-evidenced historical encounter series in Europe.',
-    source:'Mémoires sur les attaques du loup (1767); Jean Chastel account',
-    type:'encounter_record'
-  },
-  {
-    lat:53.4, lng:-7.9, name:'Werewolf of Ossory',
-    date:'1185 CE', region:'County Ossory, Ireland',
-    desc:'Gerald of Wales documents a priest\'s encounter with a wolf who identified itself as a man under curse. The wolf opened a satchel, produced a church vessel, and asked for last rites for his dying wolf-companion. The priest administered rites. One of the few medieval accounts where the entity explicitly requests human religious ritual.',
-    source:'Gerald of Wales, Topographia Hibernica (1188)',
-    type:'encounter_record'
-  },
-  {
-    lat:30.0, lng:31.2, name:'Book of the Dead — Anubis',
-    date:'~1550 BCE', region:'Ancient Egypt',
-    desc:'The earliest mass-produced document featuring a bipedal canine-headed humanoid. Anubis: jackal head, fully bipedal, performs rituals, weighs hearts against feather of Ma\'at. A recurring figure across 1,500 years of Egyptian documentation. Not feared — honoured. A counterpoint to the terror-association of most traditions.',
-    source:'Book of the Dead (New Kingdom, ~1550 BCE)',
-    type:'primary_text'
-  },
-  {
-    lat:20.7, lng:-103.4, name:'Xolotl — Codex Borgia',
-    date:'Pre-colonial (~1400 CE)', region:'Mexico',
-    desc:'"Xolotl guided the dead to Mictlan." Dog-headed man, psychopomp. Notably: depicted with reversed feet in several codices — an anatomically anomalous descriptor that does not appear anywhere in the modern corpus but appears independently in the Aztec tradition. Companion of Quetzalcóatl.',
-    source:'Codex Borgia; Florentine Codex (Sahagún, 1569)',
-    type:'primary_text'
-  },
-  {
-    lat:51.5, lng:0.1, name:'Matthew Paris — Chronica Majora',
-    date:'1240 CE', region:'St Albans, England',
-    desc:'"When the Tartars crossed the great sea-ocean, they came to a certain country... where they found a race of monsters with heads like dogs." Matthew Paris compiles reports from Mongol envoys including eyewitness accounts of dog-headed peoples encountered during the Mongol expansion. Among the most geographically specific medieval sightings.',
-    source:'Chronica Majora, Matthew Paris (1240)',
-    type:'primary_text'
-  },
-  {
-    lat:14.2, lng:40.5, name:'Cosmas Indicopleustes — Christian Topography',
-    date:'547 CE', region:'Alexandria / Ethiopia',
-    desc:'"There are also found in India dog-headed men, who dwell in the forests." Cosmas, a Christian merchant who travelled to India and Ethiopia, documents cynocephali from personal accounts. Notable because it predates the Islamic expansion and represents an independent Byzantine documentation.',
-    source:'Christian Topography (547 CE)',
-    type:'primary_text'
-  },
-  {
-    lat:-14.2, lng:-51.9, name:'Lobizón Decree — Argentina',
-    date:'19th century to 2009 CE', region:'Buenos Aires, Argentina',
-    desc:'"The seventh son is condemned to become a lobizón." The Argentine government formally responded to this belief: every seventh son was at risk of becoming a werewolf unless the President became their godfather. Presidential Decree 1183/2009 formalised the tradition. The belief was so embedded that families emigrated, abandoned children, and sought church intervention for centuries.',
-    source:'Argentine Presidential Decree 1183/2009; 19th-century newspaper archive, La Nación',
-    type:'encounter_record'
-  },
-  {
-    lat:9.0, lng:38.7, name:'Leo Africanus — Were-Hyena Documentation',
-    date:'1526 CE', region:'Ethiopia / North Africa',
-    desc:'"There are in these parts certain men... who are transformed into the shape of a wolf." Leo Africanus (Hassan ibn Muhammad al-Wazzan), a Moroccan diplomat, documents were-hyena traditions in North and East Africa. His Description of Africa was the primary European reference for African peoples for over 200 years.',
-    source:'Description of Africa (Descrittione dell\'Africa), Leo Africanus (1526)',
-    type:'primary_text'
-  },
-  {
-    lat:35.7, lng:139.7, name:'Inugami — Japanese Court Records',
-    date:'8th–17th century CE', region:'Shikoku / Kyushu, Japan',
-    desc:'"The family are inugami-mochi — they keep the dog god." Inugami (dog spirit) cases appear in Heian-period court records as legal disputes about possession and harm. The Ritsuryō legal codes (701 CE) include provisions against inugami use. Documented in Edo-period domain records from Shikoku as an ongoing social problem — families accused of being inugami-mochi faced discrimination and legal sanction.',
-    source:'Ritsuryō Code (701 CE); Edo domain records, Shikoku; Tono Monogatari (Yanagita, 1910)',
-    type:'primary_text'
-  },
-  {
-    lat:46.1, lng:13.2, name:'Benandanti — Inquisition Transcripts',
-    date:'1575–1644 CE', region:'Friuli, Italy',
-    desc:'"We go forth in spirit and the body remains behind... we fight with fennel stalks against the witches who go armed with sorghum stalks." Friulian grain fertility cult documented by Carlo Ginzburg from Inquisition archives. Practitioners (Benandanti) described leaving their bodies in animal forms to fight evil at night. The transcripts contain extraordinary first-person testimony — not confessions of witchcraft but claims of being its opponents.',
-    source:'Inquisition transcripts, Friuli 1575–1644, Archivio di Stato, Udine; Ginzburg, The Night Battles (1966)',
-    type:'trial_record'
-  },
-  {
-    lat:18.5, lng:-72.3, name:'Zora Neale Hurston — Haitian Loup-Garou',
-    date:'1938 CE', region:'Haiti',
-    desc:'"The loup-garou takes off the human skin and goes about doing evil in its true shape." Hurston documents the loup-garou in Haiti as a living tradition — not folklore but reported contemporary encounters. Distinct from European werewolf: the Haitian version removes its skin entirely, travels as a luminescent form, and is associated with West African spiritual traditions brought through the Middle Passage.',
-    source:'Hurston, Tell My Horse: Voodoo and Life in Haiti and Jamaica (1938)',
-    type:'primary_text'
-  },
-  {
-    lat:9.1, lng:40.5, name:'Buda / Were-Hyena — Ethiopian Church Records',
-    date:'15th–19th century CE', region:'Addis Ababa / Ethiopian Highlands',
-    desc:'"The buda are known to transform at night into hyenas that dig up graves." Ethiopian Orthodox Church records document the buda as a pastoral problem from the 15th century. Blacksmiths, potters, and weavers are the hereditary buda castes — their transformation is believed automatic rather than chosen. The church issued formal rulings on whether buda could receive sacraments. The tradition persists: in 2021, a man in Amhara region was killed after being accused of being buda.',
-    source:'Ethiopian church records (15th century); Reminick, The Evil Eye Among the Amhara (1974)',
-    type:'primary_text'
-  },
-  {
-    lat:32.0, lng:-6.8, name:'Westermarck — Moroccan Bouda Records',
-    date:'1926 CE (historical tradition far older)', region:'Morocco',
-    desc:'"The bouda is by day a smith and by night he transforms himself into a hyena." Westermarck\'s extensive fieldwork documents the Moroccan were-hyena tradition with specific case studies, named individuals, and community accounts. The transformation is described consistently: occurs at crossroads at night, the bouda retains human intelligence in animal form, recognises people it knows, and returns to human form before dawn.',
-    source:'Westermarck, Ritual and Belief in Morocco, Vol. 2 (1926)',
-    type:'primary_text'
-  },
-  {
-    lat:-4.0, lng:22.0, name:'Congo Basin — Forest Spirit Accounts',
-    date:'1880s–1960s (ethnographic documentation)', region:'Democratic Republic of Congo',
-    desc:'"It stood upright like a man but its head was that of a dog and its eyes burned in the dark." Multiple ethnographers working in the Congo basin 1880–1960 documented accounts of bipedal dog-headed beings in deep forest areas, treated as spirit encounters rather than cryptid sightings. Structurally identical to modern corpus: watcher behaviour, territorial, self-illuminated eyes, disclosure delay among informants.',
-    source:'Johnston, The River Congo (1884); Torday, Notes Ethnographiques (1910); Turnbull, The Forest People (1961)',
-    type:'encounter_record'
-  },
-  {
-    lat:25.2, lng:55.3, name:'Al-Biruni — Kitab al-Hind',
-    date:'1030 CE', region:'Ghazni (Afghanistan) — written about India',
-    desc:'"The people of India relate... that in the mountains of the east there live dog-headed folk who bark instead of speaking." Al-Biruni, the most rigorous Islamic scholar of the medieval period, discusses cynocephali in his survey of Indian knowledge. He notes the Greek tradition, the Indian sources, and evaluates the claims empirically — unusual for the period. His scepticism itself documents how seriously the claims were taken.',
-    source:'Kitab al-Hind (Book of India), Al-Biruni (1030 CE)',
-    type:'primary_text'
-  },
-  {
-    lat:-6.2, lng:106.8, name:'Colonial Ethnography — Balinese Barong Records',
-    date:'1920s–1930s (tradition pre-Hindu)', region:'Bali, Indonesia',
-    desc:'"The Barong is the lord of the earth — his face is that of a lion-dog, and he walks upright in the dance." The sacred Barong dance of Bali is among the best-documented living traditions of a dog-headed bipedal supernatural being. Covarrubias\'s fieldwork in the 1930s documents the Barong as cosmologically central — not a monster but a protector, in eternal combat with Rangda. Pre-Hindu Balinese sources indicate the tradition predates Indic influence.',
-    source:'Covarrubias, Island of Bali (1937); McPhee, A House in Bali (1944)',
-    type:'primary_text'
-  },
-  {
-    lat:-25.3, lng:131.0, name:'Quinkan Rock Art — Canine-Headed Figures',
-    date:'Panels up to 30,000+ years old', region:'Queensland, Australia',
-    desc:'The Quinkan rock art galleries of Laura, Queensland contain some of the oldest continuous rock art traditions on Earth. Among the thousands of figures, specific panels show tall bipedal figures with elongated, pointed heads consistent with canine morphology. The Laura tradition is still sacred to the Ang-Gnarra Aboriginal Corporation. Exact interpretation remains with custodians, but the physical descriptions of the figures in archaeological literature note the canine head morphology explicitly.',
-    source:'Flood, Rock Art of the Dreamtime (1997); Cole, Quinkan Country (1976)',
-    type:'primary_text'
-  },
-];
 
 // ── MODERN ACCOUNTS ────────────────────────────────────────────────
 const MODERN_ACCOUNTS = [
@@ -790,14 +562,6 @@ const MODERN_ACCOUNTS = [
 ];
 
 // ── RENDERING ─────────────────────────────────────────────────────
-// Primary source diamond pins
-PRIMARY_SOURCES.forEach(s => {
-  const marker = L.marker([s.lat, s.lng], { icon: sourceIcon(s.type) });
-  marker.bindTooltip(`${s.name} (${s.date})`, { direction:'top', className:'leaflet-tooltip' });
-  marker.on('click', () => openSidebar('source', s));
-  marker.addTo(layers.historical);
-});
-
 // Modern account circles
 MODERN_ACCOUNTS.forEach(item => {
   const marker = L.circleMarker([item.lat, item.lng], {
@@ -810,21 +574,10 @@ MODERN_ACCOUNTS.forEach(item => {
 
 // Update counts
 document.getElementById('c-modern').textContent = MODERN_ACCOUNTS.length;
-document.getElementById('c-source').textContent = PRIMARY_SOURCES.length;
 document.getElementById('c-historic').textContent = TERRITORY_DEFS.length;
 
 // Load TopoJSON territories async
 buildTerritoryLayers().catch(e => console.warn('Territory load failed:', e));
-
-// ── SOURCE ICON ───────────────────────────────────────────────────
-function sourceIcon(type) {
-  const colors = { primary_text:'#8a2020', trial_record:'#c06010', encounter_record:'#7a4010' };
-  const c = colors[type] || '#8a2020';
-  return L.divIcon({
-    html: `<svg width="14" height="14" viewBox="0 0 14 14"><polygon points="7,0 14,7 7,14 0,7" fill="${c}" opacity="0.9" stroke="white" stroke-width="1"/></svg>`,
-    className: '', iconSize:[14,14], iconAnchor:[7,7]
-  });
-}
 
 // ── SIDEBAR ────────────────────────────────────────────────────────
 function openSidebar(type, item) {
