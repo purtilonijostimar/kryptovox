@@ -541,52 +541,55 @@ input[type=range] {
         stroke="var(--ink)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.15"/>
       <text x="602" y="116" font-family="var(--sans)" font-size="8" fill="var(--ink-faint)" opacity="0.45">5.75 ft</text>
 
-      <g transform="translate(50,0)"><!-- zones layer — v5
-     Scale: 1ft = 66.5 SVG units; ground y=495; center x=210
-     Render order matters for click priority — later = on top
-     Legs rendered before Hands so hand clicks win in overlap -->
+      <g transform="translate(50,0)"><!-- zones layer — v6
+     Scale: 1ft=66.5 SVG; ground y=495; figure center x=210
+     RENDER ORDER = back to front (later = on top = wins clicks)
+     Non-overlapping design: arms are OUTSIDE torso x-range (130–298)
+     Face zones stack: head → eyes → teeth (eyes/teeth on top) -->
 
-      <!-- EARS: pointed, outer edge of skull top -->
-      <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
-        cx="168" cy="8" rx="20" ry="52"/>
-      <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
-        cx="252" cy="8" rx="20" ry="52"/>
-
-      <!-- HEAD: full skull + snout (7.6ft to 6.0ft) -->
-      <ellipse class="zone-overlay" id="zone-head" data-zone="head"
-        cx="210" cy="55" rx="58" ry="70"/>
-
-      <!-- EYES: horizontal band at ~6.7ft (y≈50) -->
-      <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
-        cx="210" cy="48" rx="36" ry="14"/>
-
-      <!-- TEETH: lower snout/jaw ~6.3–5.9ft (y=93–129) -->
-      <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
-        x="178" y="88" width="64" height="44" rx="8"/>
-
-      <!-- TORSO: shoulders to waist ~6.0–4.3ft (y=96–209) -->
-      <rect class="zone-overlay" id="zone-torso" data-zone="torso"
-        x="122" y="100" width="176" height="162" rx="10"/>
-
-      <!-- LEGS: hips to feet ~4.0–0ft (y=229–495) — rendered before hands -->
+      <!-- LEGS: hips to feet, centre column only (y=240–498, x=130–298) -->
       <rect class="zone-overlay" id="zone-legs" data-zone="legs"
-        x="132" y="222" width="156" height="275" rx="8"/>
+        x="130" y="240" width="158" height="258" rx="8"/>
 
-      <!-- ARMS: shoulder to wrist on outer sides ~6.0–2.5ft (y=96–329) -->
+      <!-- TORSO: chest to waist, centre column (y=96–240, x=125–293) -->
+      <rect class="zone-overlay" id="zone-torso" data-zone="torso"
+        x="125" y="96" width="168" height="148" rx="10"/>
+
+      <!-- LEFT ARM: narrow outer strip left of torso (x=55–122, y=96–310) -->
       <rect class="zone-overlay" id="zone-arms-l" data-zone="arms"
-        x="52" y="96" width="68" height="234" rx="8" transform="rotate(-5,86,213)"/>
-      <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
-        x="298" y="96" width="68" height="234" rx="8" transform="rotate(5,332,213)"/>
+        x="55" y="96" width="64" height="218" rx="8"/>
 
-      <!-- HANDS: wrist to claw tips on outer sides ~2.5–0.3ft (y=329–475)
-           Rendered LAST so they're on top where arms/legs overlap -->
+      <!-- RIGHT ARM: narrow outer strip right of torso (x=298–362, y=96–310) -->
+      <rect class="zone-overlay" id="zone-arms-r" data-zone="arms"
+        x="298" y="96" width="64" height="218" rx="8"/>
+
+      <!-- LEFT HAND/CLAW: wrist to claw tips (x=52–118, y=300–475) -->
       <rect class="zone-overlay" id="zone-hands-l" data-zone="hands"
-        x="50" y="320" width="70" height="160" rx="6"/>
+        x="52" y="300" width="68" height="175" rx="6"/>
+
+      <!-- RIGHT HAND/CLAW: wrist to claw tips (x=298–366, y=300–475) -->
       <rect class="zone-overlay" id="zone-hands-r" data-zone="hands"
-        x="298" y="320" width="70" height="160" rx="6"/>
+        x="298" y="300" width="68" height="175" rx="6"/>
+
+      <!-- HEAD: full skull ellipse — rendered above torso/arms -->
+      <ellipse class="zone-overlay" id="zone-head" data-zone="head"
+        cx="210" cy="38" rx="58" ry="65"/>
+
+      <!-- EARS: pointed, outer top — rendered above head -->
+      <ellipse class="zone-overlay" id="zone-ears-l" data-zone="ears"
+        cx="165" cy="2" rx="20" ry="54"/>
+      <ellipse class="zone-overlay" id="zone-ears-r" data-zone="ears"
+        cx="255" cy="2" rx="20" ry="54"/>
+
+      <!-- TEETH: lower snout rect — above head ellipse -->
+      <rect class="zone-overlay" id="zone-teeth" data-zone="teeth"
+        x="179" y="78" width="62" height="42" rx="8"/>
+
+      <!-- EYES: horizontal band — topmost face zone -->
+      <ellipse class="zone-overlay" id="zone-eyes" data-zone="eyes"
+        cx="210" cy="38" rx="37" ry="13"/>
 
       </g><!-- /zones layer -->
-
     </svg>
 
     <!-- Zone nav buttons -->
