@@ -207,11 +207,12 @@ const map = L.map('main-map', {
   scrollWheelZoom: true,
   zoomControl: true,
   worldCopyJump: false,
-  maxBounds: [[-85, -190], [85, 190]],
-  maxBoundsViscosity: 0.9,
-  minZoom: 2,
+  maxBounds: [[-75, -185], [82, 185]],
+  maxBoundsViscosity: 1.0,
+  minZoom: 1,
+  zoomSnap: 0.25,
 });
-map.fitWorld({ padding: [10, 10] });
+map.fitBounds([[-55, -170], [75, 175]], { padding: [0, 0] });
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '© OpenStreetMap © CARTO',
@@ -504,12 +505,24 @@ async function buildTerritoryLayers() {
             for (var i = 0; i < ring.length - 1; i++) {
               if (Math.abs(ring[i+1][0] - ring[i][0]) > 170) { idx = i; break; }
             }
-            if (idx === -1) return ring; // no crossing — keep as-is
+            if (idx === -1) return ring;
             var seg1 = ring.slice(0, idx + 1);
             var seg2 = ring.slice(idx + 1);
             var keep = seg1.length >= seg2.length ? seg1 : seg2;
             if (keep.length < 4) return null;
-            keep.push(keep[0]); // close ring
+            // The split point is near the antimeridian (~lng 175°E).
+            // Close via Arctic coast waypoints so the border follows the coastline
+            // instead of a chord that bisects Russia.
+            var lastLng = keep[keep.length - 1][0];
+            var firstLng = keep[0][0];
+            // Only add waypoints if last point is in eastern Russia (lng > 140)
+            // and first point is in western Russia (lng < 80)
+            if (lastLng > 140 && firstLng < 80) {
+              // Arctic coast east→west: [lng, lat] (GeoJSON order)
+              [[173,68],[162,72],[148,73],[120,74],[100,73],[80,72],[60,71],[45,70],[33,69]]
+                .forEach(function(p) { keep.push(p); });
+            }
+            keep.push(keep[0]);
             return keep;
           };
           if (rf.geometry.type === 'MultiPolygon') {
