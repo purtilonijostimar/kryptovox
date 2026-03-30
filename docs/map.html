@@ -305,7 +305,7 @@ const TERRITORY_DEFS = [
   },
   {
     id: 'russia_east', name: 'Russia / Eastern Europe — Volkolak / Oborot',
-    type: 'countries', codes: [643,804,112,440,428,233],
+    type: 'coords_only', coords: [[55,24],[68,24],[72,55],[73,90],[70,120],[62,130],[55,130],[50,80],[45,40],[50,24]],
     period: 'Medieval documented; pre-Christian oral tradition',
     desc: 'Russia, Ukraine, Belarus, Lithuania, Latvia, Estonia. Volkolak and Oborot — not cursed humans but a structural intermediate category. Church records from the 12th century.',
     refs: ['Russian Primary Chronicle references', 'Alexander Afanasyev, Russian Folk Legends (1859)'],
@@ -440,7 +440,7 @@ const TERRITORY_DEFS = [
   },
   {
     id: 'new_guinea', name: 'New Guinea & Melanesia — Canine Spirit Traditions',
-    type: 'countries', codes: [598,540,242,090],
+    type: 'coords_only', coords: [[-1,130],[6,130],[8,147],[3,155],[-8,162],[-13,166],[-20,170],[-22,176],[-17,176],[-10,160],[-3,144],[-1,130]],
     period: 'Pre-colonial; documented from 1870s colonial ethnography',
     desc: 'Papua New Guinea, Vanuatu, Fiji, Solomon Islands. Highland Papua New Guinea traditions describe the Masalai — shape-shifting spirits that can take the form of large dog-like bipedal creatures. The Sanguma of Papua New Guinea is a category of supernatural practitioner who can transform into an animal, often described as a large dog-shaped being. Melanesian traditions across multiple islands document encounters with large canine humanoids in forest areas.',
     refs: ['Seligmann, The Melanesians of British New Guinea (1910)', 'Lawrence, Road Belong Cargo (1964)', 'Codrington, The Melanesians (1891)'],
@@ -478,6 +478,8 @@ async function buildTerritoryLayers() {
       // Alaska + fallback polygon for northern Canada
       features = (def.codes_us || []).map(c => stateMap[c]).filter(Boolean);
     }
+    // coords_only: skip TopoJSON entirely, always use polygon coords
+    if (def.type === 'coords_only') features = [];
 
     // Also handle fallback polygon
     if (def.coords && features.length === 0) {
