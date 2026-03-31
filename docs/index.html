@@ -355,11 +355,11 @@
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-strong">—</div>
-      <div class="stat-label">Score Strong or higher</div>
+      <div class="stat-label">Score Strong or higher (WCS ≥ 7)</div>
     </div>
     <div class="stat-card">
       <div class="stat-value" id="s-hours">—</div>
-      <div class="stat-label">Hours of testimony</div>
+      <div class="stat-label">Hours of testimony (~136h)</div>
     </div>
   </div>
 
@@ -450,7 +450,7 @@ function updateStats() {
   const strong     = allAccounts.filter(a => (a.WCS_raw||0) >= 7).length;
   const minimise   = allAccounts.filter(a => a.minimisation_phrases && a.minimisation_phrases.length > 0).length;
   const eyes       = allAccounts.filter(a => a.self_illuminated_eyes).length;
-  const estHours   = Math.round(n * 70 / 60);
+  const estHours   = 136; // real figure: 488,379s across 121 accounts
 
   document.getElementById('s-total').textContent    = n;
   document.getElementById('s-wcs').textContent      = avgWCS.toFixed(1);

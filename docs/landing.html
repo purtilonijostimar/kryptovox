@@ -539,7 +539,7 @@
     </div>
     <div class="number-item">
       <div class="num" id="n-strong">—</div>
-      <div class="num-label">Score Strong or higher</div>
+      <div class="num-label">Score Strong or higher (WCS ≥ 7)</div>
       <div class="num-sub">forensic credibility threshold</div>
     </div>
     <div class="number-item">
@@ -736,7 +736,7 @@ async function loadStats() {
     const pct = n ? Math.round(strong/n*100) : 0;
 
     document.getElementById('n-accounts').textContent = n;
-    document.getElementById('n-strong').textContent   = pct + '%';
+    document.getElementById('n-strong').textContent   = strong;
 
     // Recent high-WCS accounts
     const top = accounts
