@@ -1,0 +1,2708 @@
+{
+  "per_account": {
+    "tKXR9DsjOao": {
+      "flagged_pct": 46.1,
+      "total_segments": 633,
+      "flagged_segments": 292,
+      "flag_summary": {
+        "long_pause": 122,
+        "voice_tremor": 176,
+        "speech_slowdown": 92,
+        "pitch_rise": 23
+      },
+      "pitch_mean_hz": 220.32,
+      "voiced_fraction": 0.527,
+      "top_moments": 10
+    },
+    "uh14ba-ixJU": {
+      "flagged_pct": 71.4,
+      "total_segments": 269,
+      "flagged_segments": 192,
+      "flag_summary": {
+        "long_pause": 52,
+        "voice_tremor": 160,
+        "pitch_rise": 8,
+        "speech_slowdown": 40,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 140.2,
+      "voiced_fraction": 0.518,
+      "top_moments": 10
+    },
+    "St9w43qRAKQ": {
+      "flagged_pct": 61.8,
+      "total_segments": 272,
+      "flagged_segments": 168,
+      "flag_summary": {
+        "long_pause": 52,
+        "voice_tremor": 143,
+        "speech_slowdown": 29,
+        "pitch_rise": 4,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 159.89,
+      "voiced_fraction": 0.54,
+      "top_moments": 10
+    },
+    "rOeKXyBjCjY": {
+      "flagged_pct": 66.2,
+      "total_segments": 829,
+      "flagged_segments": 549,
+      "flag_summary": {
+        "long_pause": 144,
+        "voice_tremor": 486,
+        "speech_slowdown": 102,
+        "pitch_rise": 20,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 167.87,
+      "voiced_fraction": 0.653,
+      "top_moments": 10
+    },
+    "AVrBoQ9MuUs": {
+      "flagged_pct": 51.7,
+      "total_segments": 615,
+      "flagged_segments": 318,
+      "flag_summary": {
+        "long_pause": 100,
+        "voice_tremor": 105,
+        "volume_drop": 3,
+        "speech_slowdown": 178,
+        "pitch_rise": 35
+      },
+      "pitch_mean_hz": 165.59,
+      "voiced_fraction": 0.293,
+      "top_moments": 10
+    },
+    "U-VR6aXWgQQ": {
+      "flagged_pct": 56.6,
+      "total_segments": 449,
+      "flagged_segments": 254,
+      "flag_summary": {
+        "long_pause": 85,
+        "voice_tremor": 144,
+        "speech_slowdown": 90,
+        "pitch_rise": 2,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 98.77,
+      "voiced_fraction": 0.395,
+      "top_moments": 10
+    },
+    "l9muh5mQdbc": {
+      "flagged_pct": 65.7,
+      "total_segments": 665,
+      "flagged_segments": 437,
+      "flag_summary": {
+        "long_pause": 39,
+        "voice_tremor": 311,
+        "pitch_rise": 21,
+        "speech_slowdown": 141,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 153.34,
+      "voiced_fraction": 0.509,
+      "top_moments": 10
+    },
+    "MzN2lbVBcnU": {
+      "flagged_pct": 60.4,
+      "total_segments": 553,
+      "flagged_segments": 334,
+      "flag_summary": {
+        "long_pause": 139,
+        "voice_tremor": 284,
+        "speech_slowdown": 43,
+        "pitch_rise": 5,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 200.27,
+      "voiced_fraction": 0.665,
+      "top_moments": 10
+    },
+    "tfUuPbaiHFk": {
+      "flagged_pct": 88.5,
+      "total_segments": 643,
+      "flagged_segments": 569,
+      "flag_summary": {
+        "long_pause": 184,
+        "voice_tremor": 506,
+        "speech_slowdown": 102,
+        "pitch_rise": 9
+      },
+      "pitch_mean_hz": 151.45,
+      "voiced_fraction": 0.451,
+      "top_moments": 10
+    },
+    "t85J4it5E4c": {
+      "flagged_pct": 42.9,
+      "total_segments": 674,
+      "flagged_segments": 289,
+      "flag_summary": {
+        "long_pause": 126,
+        "voice_tremor": 105,
+        "speech_slowdown": 114,
+        "pitch_rise": 8,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 101.55,
+      "voiced_fraction": 0.449,
+      "top_moments": 10
+    },
+    "3m6oCPZiGNI": {
+      "flagged_pct": 69.7,
+      "total_segments": 554,
+      "flagged_segments": 386,
+      "flag_summary": {
+        "long_pause": 119,
+        "speech_slowdown": 110,
+        "voice_tremor": 308,
+        "pitch_rise": 32,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 291.6,
+      "voiced_fraction": 0.446,
+      "top_moments": 10
+    },
+    "6C-KZMcMtKk": {
+      "flagged_pct": 48.8,
+      "total_segments": 889,
+      "flagged_segments": 434,
+      "flag_summary": {
+        "long_pause": 121,
+        "voice_tremor": 153,
+        "speech_slowdown": 237,
+        "pitch_rise": 28
+      },
+      "pitch_mean_hz": 179.85,
+      "voiced_fraction": 0.374,
+      "top_moments": 10
+    },
+    "qiKggmOOrmk": {
+      "flagged_pct": 45.4,
+      "total_segments": 240,
+      "flagged_segments": 109,
+      "flag_summary": {
+        "long_pause": 29,
+        "voice_tremor": 59,
+        "speech_slowdown": 46,
+        "pitch_rise": 4
+      },
+      "pitch_mean_hz": 144.4,
+      "voiced_fraction": 0.517,
+      "top_moments": 10
+    },
+    "N8tHn6m8RgM": {
+      "flagged_pct": 38.8,
+      "total_segments": 708,
+      "flagged_segments": 275,
+      "flag_summary": {
+        "long_pause": 38,
+        "voice_tremor": 122,
+        "speech_slowdown": 157,
+        "pitch_rise": 27,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 151.97,
+      "voiced_fraction": 0.517,
+      "top_moments": 10
+    },
+    "BOq_Ubz4QnQ": {
+      "flagged_pct": 64.4,
+      "total_segments": 708,
+      "flagged_segments": 456,
+      "flag_summary": {
+        "long_pause": 246,
+        "voice_tremor": 316,
+        "speech_slowdown": 104,
+        "pitch_rise": 11
+      },
+      "pitch_mean_hz": 237.84,
+      "voiced_fraction": 0.522,
+      "top_moments": 10
+    },
+    "0VmezBTs80c": {
+      "flagged_pct": 58.1,
+      "total_segments": 669,
+      "flagged_segments": 389,
+      "flag_summary": {
+        "long_pause": 110,
+        "voice_tremor": 251,
+        "speech_slowdown": 124,
+        "pitch_rise": 15,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 135.07,
+      "voiced_fraction": 0.448,
+      "top_moments": 10
+    },
+    "ydfApETkbHM": {
+      "flagged_pct": 56.0,
+      "total_segments": 527,
+      "flagged_segments": 295,
+      "flag_summary": {
+        "long_pause": 130,
+        "voice_tremor": 180,
+        "speech_slowdown": 99,
+        "pitch_rise": 25,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 219.92,
+      "voiced_fraction": 0.406,
+      "top_moments": 10
+    },
+    "l5OW81rn1-8": {
+      "flagged_pct": 73.2,
+      "total_segments": 585,
+      "flagged_segments": 428,
+      "flag_summary": {
+        "long_pause": 291,
+        "voice_tremor": 324,
+        "speech_slowdown": 72,
+        "pitch_rise": 13
+      },
+      "pitch_mean_hz": 191.48,
+      "voiced_fraction": 0.546,
+      "top_moments": 10
+    },
+    "3mDwTAM-bG8": {
+      "flagged_pct": 48.3,
+      "total_segments": 621,
+      "flagged_segments": 300,
+      "flag_summary": {
+        "long_pause": 114,
+        "voice_tremor": 133,
+        "speech_slowdown": 120,
+        "pitch_rise": 21
+      },
+      "pitch_mean_hz": 152.44,
+      "voiced_fraction": 0.451,
+      "top_moments": 10
+    },
+    "QvKf_jfdYxQ": {
+      "flagged_pct": 69.7,
+      "total_segments": 432,
+      "flagged_segments": 301,
+      "flag_summary": {
+        "long_pause": 132,
+        "voice_tremor": 227,
+        "speech_slowdown": 63,
+        "pitch_rise": 13
+      },
+      "pitch_mean_hz": 159.25,
+      "voiced_fraction": 0.55,
+      "top_moments": 10
+    },
+    "VCEKMQjFWV0": {
+      "flagged_pct": 51.4,
+      "total_segments": 2807,
+      "flagged_segments": 1442,
+      "flag_summary": {
+        "long_pause": 819,
+        "voice_tremor": 879,
+        "speech_slowdown": 390,
+        "pitch_rise": 81
+      },
+      "pitch_mean_hz": 182.81,
+      "voiced_fraction": 0.514,
+      "top_moments": 10
+    },
+    "VfjEGKCjEO0": {
+      "flagged_pct": 55.0,
+      "total_segments": 547,
+      "flagged_segments": 301,
+      "flag_summary": {
+        "long_pause": 158,
+        "voice_tremor": 149,
+        "speech_slowdown": 109,
+        "pitch_rise": 21,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 141.22,
+      "voiced_fraction": 0.341,
+      "top_moments": 10
+    },
+    "iMAamSe0cGo": {
+      "flagged_pct": 58.7,
+      "total_segments": 727,
+      "flagged_segments": 427,
+      "flag_summary": {
+        "long_pause": 155,
+        "voice_tremor": 299,
+        "speech_slowdown": 129,
+        "pitch_rise": 21
+      },
+      "pitch_mean_hz": 156.54,
+      "voiced_fraction": 0.487,
+      "top_moments": 10
+    },
+    "tSQe4cxjnpc": {
+      "flagged_pct": 78.5,
+      "total_segments": 689,
+      "flagged_segments": 541,
+      "flag_summary": {
+        "long_pause": 169,
+        "voice_tremor": 452,
+        "speech_slowdown": 114,
+        "pitch_rise": 23
+      },
+      "pitch_mean_hz": 205.94,
+      "voiced_fraction": 0.538,
+      "top_moments": 10
+    },
+    "FcMfEfpNJ4o": {
+      "flagged_pct": 82.1,
+      "total_segments": 692,
+      "flagged_segments": 568,
+      "flag_summary": {
+        "long_pause": 173,
+        "voice_tremor": 501,
+        "speech_slowdown": 104,
+        "pitch_rise": 37
+      },
+      "pitch_mean_hz": 210.15,
+      "voiced_fraction": 0.54,
+      "top_moments": 10
+    },
+    "Z6Nm6EAbWvs": {
+      "flagged_pct": 64.3,
+      "total_segments": 910,
+      "flagged_segments": 585,
+      "flag_summary": {
+        "long_pause": 223,
+        "voice_tremor": 300,
+        "speech_slowdown": 269,
+        "pitch_rise": 43,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 162.42,
+      "voiced_fraction": 0.419,
+      "top_moments": 10
+    },
+    "3d04U4zEWFw": {
+      "flagged_pct": 95.1,
+      "total_segments": 636,
+      "flagged_segments": 605,
+      "flag_summary": {
+        "long_pause": 263,
+        "voice_tremor": 560,
+        "pitch_drop": 2,
+        "speech_slowdown": 108,
+        "pitch_rise": 6
+      },
+      "pitch_mean_hz": 161.43,
+      "voiced_fraction": 0.443,
+      "top_moments": 10
+    },
+    "PjUfbF-qzcE": {
+      "flagged_pct": 80.9,
+      "total_segments": 628,
+      "flagged_segments": 508,
+      "flag_summary": {
+        "long_pause": 91,
+        "voice_tremor": 458,
+        "speech_slowdown": 94,
+        "pitch_rise": 13,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 143.04,
+      "voiced_fraction": 0.53,
+      "top_moments": 10
+    },
+    "VpWJAU5vkSQ": {
+      "flagged_pct": 97.4,
+      "total_segments": 576,
+      "flagged_segments": 561,
+      "flag_summary": {
+        "long_pause": 218,
+        "voice_tremor": 534,
+        "pitch_drop": 1,
+        "speech_slowdown": 101,
+        "pitch_rise": 14
+      },
+      "pitch_mean_hz": 113.5,
+      "voiced_fraction": 0.438,
+      "top_moments": 10
+    },
+    "D69JTxnhYiA": {
+      "flagged_pct": 81.9,
+      "total_segments": 630,
+      "flagged_segments": 516,
+      "flag_summary": {
+        "long_pause": 179,
+        "voice_tremor": 391,
+        "pitch_rise": 16,
+        "speech_slowdown": 139
+      },
+      "pitch_mean_hz": 105.21,
+      "voiced_fraction": 0.35,
+      "top_moments": 10
+    },
+    "s-4g4fHwqes": {
+      "flagged_pct": 95.4,
+      "total_segments": 607,
+      "flagged_segments": 579,
+      "flag_summary": {
+        "long_pause": 98,
+        "voice_tremor": 556,
+        "speech_slowdown": 93,
+        "pitch_rise": 10,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 129.62,
+      "voiced_fraction": 0.557,
+      "top_moments": 10
+    },
+    "IC5LBpdX_fM": {
+      "flagged_pct": 63.0,
+      "total_segments": 506,
+      "flagged_segments": 319,
+      "flag_summary": {
+        "long_pause": 86,
+        "voice_tremor": 212,
+        "pitch_rise": 11,
+        "speech_slowdown": 107,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 146.21,
+      "voiced_fraction": 0.492,
+      "top_moments": 10
+    },
+    "vc3dlogOIzU": {
+      "flagged_pct": 95.2,
+      "total_segments": 498,
+      "flagged_segments": 474,
+      "flag_summary": {
+        "long_pause": 251,
+        "voice_tremor": 436,
+        "pitch_rise": 16,
+        "speech_slowdown": 71
+      },
+      "pitch_mean_hz": 99.03,
+      "voiced_fraction": 0.359,
+      "top_moments": 10
+    },
+    "e93jdK1Dao0": {
+      "flagged_pct": 45.9,
+      "total_segments": 862,
+      "flagged_segments": 396,
+      "flag_summary": {
+        "long_pause": 159,
+        "voice_tremor": 241,
+        "speech_slowdown": 122,
+        "pitch_rise": 21
+      },
+      "pitch_mean_hz": 162.01,
+      "voiced_fraction": 0.566,
+      "top_moments": 10
+    },
+    "MdD5jXdN8e4": {
+      "flagged_pct": 93.9,
+      "total_segments": 753,
+      "flagged_segments": 707,
+      "flag_summary": {
+        "long_pause": 181,
+        "voice_tremor": 675,
+        "pitch_drop": 2,
+        "speech_slowdown": 100,
+        "pitch_rise": 9,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 161.11,
+      "voiced_fraction": 0.614,
+      "top_moments": 10
+    },
+    "hQmu-aEbXXI": {
+      "flagged_pct": 57.6,
+      "total_segments": 526,
+      "flagged_segments": 303,
+      "flag_summary": {
+        "long_pause": 160,
+        "voice_tremor": 179,
+        "speech_slowdown": 65,
+        "pitch_rise": 11,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 156.34,
+      "voiced_fraction": 0.566,
+      "top_moments": 10
+    },
+    "CdZWXA2UCJ0": {
+      "flagged_pct": 60.8,
+      "total_segments": 926,
+      "flagged_segments": 563,
+      "flag_summary": {
+        "long_pause": 162,
+        "voice_tremor": 329,
+        "speech_slowdown": 188,
+        "pitch_rise": 50,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 159.39,
+      "voiced_fraction": 0.362,
+      "top_moments": 10
+    },
+    "-Sxtr2zgsnU": {
+      "flagged_pct": 66.7,
+      "total_segments": 637,
+      "flagged_segments": 425,
+      "flag_summary": {
+        "long_pause": 80,
+        "voice_tremor": 302,
+        "speech_slowdown": 137,
+        "pitch_rise": 22,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 131.37,
+      "voiced_fraction": 0.409,
+      "top_moments": 10
+    },
+    "KW5QoQ0lWpM": {
+      "flagged_pct": 49.7,
+      "total_segments": 644,
+      "flagged_segments": 320,
+      "flag_summary": {
+        "long_pause": 46,
+        "voice_tremor": 204,
+        "speech_slowdown": 132,
+        "pitch_rise": 31,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 248.25,
+      "voiced_fraction": 0.572,
+      "top_moments": 10
+    },
+    "r-Rxuq6MRH4": {
+      "flagged_pct": 84.5,
+      "total_segments": 811,
+      "flagged_segments": 685,
+      "flag_summary": {
+        "long_pause": 113,
+        "voice_tremor": 610,
+        "speech_slowdown": 140,
+        "pitch_rise": 18,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 131.32,
+      "voiced_fraction": 0.528,
+      "top_moments": 10
+    },
+    "FUuRWj-eUJk": {
+      "flagged_pct": 65.1,
+      "total_segments": 802,
+      "flagged_segments": 522,
+      "flag_summary": {
+        "long_pause": 176,
+        "voice_tremor": 422,
+        "speech_slowdown": 124,
+        "pitch_rise": 10,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 234.24,
+      "voiced_fraction": 0.555,
+      "top_moments": 10
+    },
+    "kwpM_xdr_KI": {
+      "flagged_pct": 59.1,
+      "total_segments": 1077,
+      "flagged_segments": 637,
+      "flag_summary": {
+        "long_pause": 145,
+        "voice_tremor": 478,
+        "speech_slowdown": 179,
+        "pitch_rise": 13
+      },
+      "pitch_mean_hz": 222.27,
+      "voiced_fraction": 0.575,
+      "top_moments": 10
+    },
+    "Aiq65sY2GMM": {
+      "flagged_pct": 49.6,
+      "total_segments": 1379,
+      "flagged_segments": 684,
+      "flag_summary": {
+        "long_pause": 281,
+        "voice_tremor": 336,
+        "pitch_rise": 37,
+        "speech_slowdown": 230
+      },
+      "pitch_mean_hz": 102.28,
+      "voiced_fraction": 0.51,
+      "top_moments": 10
+    },
+    "gxllO0Kv1xQ": {
+      "flagged_pct": 81.1,
+      "total_segments": 840,
+      "flagged_segments": 681,
+      "flag_summary": {
+        "long_pause": 142,
+        "voice_tremor": 579,
+        "speech_slowdown": 156,
+        "pitch_rise": 23
+      },
+      "pitch_mean_hz": 188.21,
+      "voiced_fraction": 0.616,
+      "top_moments": 10
+    },
+    "EXQZuDXEqVk": {
+      "flagged_pct": 55.6,
+      "total_segments": 662,
+      "flagged_segments": 368,
+      "flag_summary": {
+        "long_pause": 216,
+        "voice_tremor": 141,
+        "speech_slowdown": 123,
+        "pitch_rise": 29,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 162.08,
+      "voiced_fraction": 0.357,
+      "top_moments": 10
+    },
+    "ahscEVRp57w": {
+      "flagged_pct": 54.9,
+      "total_segments": 455,
+      "flagged_segments": 250,
+      "flag_summary": {
+        "long_pause": 140,
+        "voice_tremor": 81,
+        "speech_slowdown": 97,
+        "pitch_rise": 16,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 165.01,
+      "voiced_fraction": 0.38,
+      "top_moments": 10
+    },
+    "A9zefBDMM2s": {
+      "flagged_pct": 67.4,
+      "total_segments": 1066,
+      "flagged_segments": 718,
+      "flag_summary": {
+        "long_pause": 222,
+        "voice_tremor": 448,
+        "speech_slowdown": 207,
+        "pitch_rise": 32
+      },
+      "pitch_mean_hz": 166.0,
+      "voiced_fraction": 0.479,
+      "top_moments": 10
+    },
+    "-FSQ0Y6BXB8": {
+      "flagged_pct": 80.5,
+      "total_segments": 1272,
+      "flagged_segments": 1024,
+      "flag_summary": {
+        "long_pause": 270,
+        "voice_tremor": 945,
+        "speech_slowdown": 170,
+        "pitch_rise": 35
+      },
+      "pitch_mean_hz": 168.56,
+      "voiced_fraction": 0.62,
+      "top_moments": 10
+    },
+    "gDhcJsl4E0c": {
+      "flagged_pct": 89.1,
+      "total_segments": 658,
+      "flagged_segments": 586,
+      "flag_summary": {
+        "long_pause": 225,
+        "voice_tremor": 553,
+        "pitch_rise": 12,
+        "speech_slowdown": 91,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 148.68,
+      "voiced_fraction": 0.592,
+      "top_moments": 10
+    },
+    "zGGrkDH7n1o": {
+      "flagged_pct": 57.9,
+      "total_segments": 1060,
+      "flagged_segments": 614,
+      "flag_summary": {
+        "voice_tremor": 293,
+        "speech_slowdown": 211,
+        "long_pause": 259,
+        "pitch_rise": 27
+      },
+      "pitch_mean_hz": 158.62,
+      "voiced_fraction": 0.456,
+      "top_moments": 10
+    },
+    "SkloaR4cN8Y": {
+      "flagged_pct": 61.8,
+      "total_segments": 996,
+      "flagged_segments": 616,
+      "flag_summary": {
+        "long_pause": 294,
+        "voice_tremor": 258,
+        "speech_slowdown": 216,
+        "pitch_rise": 32
+      },
+      "pitch_mean_hz": 145.8,
+      "voiced_fraction": 0.523,
+      "top_moments": 10
+    },
+    "sJxm9BtMyh4": {
+      "flagged_pct": 69.4,
+      "total_segments": 1052,
+      "flagged_segments": 730,
+      "flag_summary": {
+        "long_pause": 227,
+        "voice_tremor": 552,
+        "pitch_rise": 31,
+        "speech_slowdown": 187
+      },
+      "pitch_mean_hz": 146.67,
+      "voiced_fraction": 0.527,
+      "top_moments": 10
+    },
+    "gx2eBop3g9E": {
+      "flagged_pct": 73.0,
+      "total_segments": 1030,
+      "flagged_segments": 752,
+      "flag_summary": {
+        "long_pause": 379,
+        "voice_tremor": 472,
+        "pitch_rise": 23,
+        "speech_slowdown": 220
+      },
+      "pitch_mean_hz": 102.49,
+      "voiced_fraction": 0.564,
+      "top_moments": 10
+    },
+    "oWwZYNmqaUQ": {
+      "flagged_pct": 71.9,
+      "total_segments": 1120,
+      "flagged_segments": 805,
+      "flag_summary": {
+        "long_pause": 177,
+        "voice_tremor": 616,
+        "speech_slowdown": 261,
+        "pitch_rise": 34
+      },
+      "pitch_mean_hz": 166.69,
+      "voiced_fraction": 0.593,
+      "top_moments": 10
+    },
+    "0gg4mbdbRtU": {
+      "flagged_pct": 68.5,
+      "total_segments": 1208,
+      "flagged_segments": 827,
+      "flag_summary": {
+        "long_pause": 428,
+        "voice_tremor": 566,
+        "speech_slowdown": 206,
+        "pitch_rise": 88
+      },
+      "pitch_mean_hz": 376.49,
+      "voiced_fraction": 0.475,
+      "top_moments": 10
+    },
+    "VjHAuH4MjKo": {
+      "flagged_pct": 69.2,
+      "total_segments": 825,
+      "flagged_segments": 571,
+      "flag_summary": {
+        "voice_tremor": 356,
+        "long_pause": 279,
+        "speech_slowdown": 158,
+        "pitch_rise": 11
+      },
+      "pitch_mean_hz": 176.37,
+      "voiced_fraction": 0.601,
+      "top_moments": 10
+    },
+    "w1TedFpxQ1Y": {
+      "flagged_pct": 57.0,
+      "total_segments": 263,
+      "flagged_segments": 150,
+      "flag_summary": {
+        "long_pause": 43,
+        "voice_tremor": 112,
+        "speech_slowdown": 44,
+        "pitch_rise": 3,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 164.59,
+      "voiced_fraction": 0.531,
+      "top_moments": 10
+    },
+    "Pd8pgZ3j00o": {
+      "flagged_pct": 61.2,
+      "total_segments": 459,
+      "flagged_segments": 281,
+      "flag_summary": {
+        "long_pause": 82,
+        "voice_tremor": 218,
+        "speech_slowdown": 87,
+        "pitch_rise": 20
+      },
+      "pitch_mean_hz": 226.7,
+      "voiced_fraction": 0.502,
+      "top_moments": 10
+    },
+    "PTaHNecD158": {
+      "flagged_pct": 62.0,
+      "total_segments": 1110,
+      "flagged_segments": 688,
+      "flag_summary": {
+        "long_pause": 303,
+        "voice_tremor": 453,
+        "speech_slowdown": 194,
+        "pitch_rise": 54
+      },
+      "pitch_mean_hz": 294.03,
+      "voiced_fraction": 0.497,
+      "top_moments": 10
+    },
+    "YLZbZ3tHkbo": {
+      "flagged_pct": 81.3,
+      "total_segments": 642,
+      "flagged_segments": 522,
+      "flag_summary": {
+        "long_pause": 169,
+        "voice_tremor": 435,
+        "speech_slowdown": 121,
+        "pitch_rise": 20
+      },
+      "pitch_mean_hz": 186.7,
+      "voiced_fraction": 0.595,
+      "top_moments": 10
+    },
+    "wQudMUQvf_4": {
+      "flagged_pct": 44.0,
+      "total_segments": 745,
+      "flagged_segments": 328,
+      "flag_summary": {
+        "long_pause": 148,
+        "voice_tremor": 196,
+        "speech_slowdown": 105,
+        "pitch_rise": 13
+      },
+      "pitch_mean_hz": 222.72,
+      "voiced_fraction": 0.611,
+      "top_moments": 10
+    },
+    "TRsIaCO-_fA": {
+      "flagged_pct": 64.2,
+      "total_segments": 738,
+      "flagged_segments": 474,
+      "flag_summary": {
+        "long_pause": 231,
+        "voice_tremor": 206,
+        "speech_slowdown": 154,
+        "pitch_rise": 21
+      },
+      "pitch_mean_hz": 132.55,
+      "voiced_fraction": 0.47,
+      "top_moments": 10
+    },
+    "eMnNaSRKw8c": {
+      "flagged_pct": 69.1,
+      "total_segments": 833,
+      "flagged_segments": 576,
+      "flag_summary": {
+        "long_pause": 207,
+        "voice_tremor": 433,
+        "speech_slowdown": 146,
+        "pitch_rise": 17
+      },
+      "pitch_mean_hz": 143.93,
+      "voiced_fraction": 0.551,
+      "top_moments": 10
+    },
+    "w9w1z7Xg0Vo": {
+      "flagged_pct": 96.3,
+      "total_segments": 931,
+      "flagged_segments": 897,
+      "flag_summary": {
+        "long_pause": 96,
+        "voice_tremor": 883,
+        "pitch_drop": 2,
+        "speech_slowdown": 92,
+        "pitch_rise": 10
+      },
+      "pitch_mean_hz": 166.91,
+      "voiced_fraction": 0.788,
+      "top_moments": 10
+    },
+    "OC5_9LBfzkk": {
+      "flagged_pct": 63.3,
+      "total_segments": 793,
+      "flagged_segments": 502,
+      "flag_summary": {
+        "long_pause": 137,
+        "voice_tremor": 361,
+        "pitch_rise": 21,
+        "speech_slowdown": 156
+      },
+      "pitch_mean_hz": 121.72,
+      "voiced_fraction": 0.52,
+      "top_moments": 10
+    },
+    "6QZ-L9VfvAk": {
+      "flagged_pct": 71.7,
+      "total_segments": 704,
+      "flagged_segments": 505,
+      "flag_summary": {
+        "long_pause": 108,
+        "voice_tremor": 476,
+        "speech_slowdown": 68,
+        "pitch_rise": 13
+      },
+      "pitch_mean_hz": 241.9,
+      "voiced_fraction": 0.709,
+      "top_moments": 10
+    },
+    "hWwNacGYVuc": {
+      "flagged_pct": 87.4,
+      "total_segments": 879,
+      "flagged_segments": 768,
+      "flag_summary": {
+        "long_pause": 180,
+        "voice_tremor": 728,
+        "pitch_drop": 3,
+        "speech_slowdown": 106,
+        "pitch_rise": 9
+      },
+      "pitch_mean_hz": 220.44,
+      "voiced_fraction": 0.663,
+      "top_moments": 10
+    },
+    "g1EANfSSLn0": {
+      "flagged_pct": 56.7,
+      "total_segments": 870,
+      "flagged_segments": 493,
+      "flag_summary": {
+        "long_pause": 203,
+        "voice_tremor": 259,
+        "pitch_rise": 27,
+        "speech_slowdown": 159
+      },
+      "pitch_mean_hz": 141.64,
+      "voiced_fraction": 0.487,
+      "top_moments": 10
+    },
+    "owOKbSVApnc": {
+      "flagged_pct": 79.3,
+      "total_segments": 938,
+      "flagged_segments": 744,
+      "flag_summary": {
+        "long_pause": 289,
+        "voice_tremor": 646,
+        "speech_slowdown": 139,
+        "pitch_rise": 33
+      },
+      "pitch_mean_hz": 188.06,
+      "voiced_fraction": 0.55,
+      "top_moments": 10
+    },
+    "-mEXOiGcDRo": {
+      "flagged_pct": 62.9,
+      "total_segments": 841,
+      "flagged_segments": 529,
+      "flag_summary": {
+        "long_pause": 177,
+        "voice_tremor": 337,
+        "speech_slowdown": 173,
+        "pitch_rise": 49
+      },
+      "pitch_mean_hz": 162.53,
+      "voiced_fraction": 0.484,
+      "top_moments": 10
+    },
+    "fRTW3UrUKq0": {
+      "flagged_pct": 92.7,
+      "total_segments": 766,
+      "flagged_segments": 710,
+      "flag_summary": {
+        "long_pause": 91,
+        "voice_tremor": 691,
+        "pitch_drop": 3,
+        "speech_slowdown": 89,
+        "pitch_rise": 15
+      },
+      "pitch_mean_hz": 190.16,
+      "voiced_fraction": 0.742,
+      "top_moments": 10
+    },
+    "pSnG4ZXAFns": {
+      "flagged_pct": 44.5,
+      "total_segments": 825,
+      "flagged_segments": 367,
+      "flag_summary": {
+        "long_pause": 189,
+        "voice_tremor": 217,
+        "speech_slowdown": 104,
+        "pitch_rise": 21
+      },
+      "pitch_mean_hz": 166.3,
+      "voiced_fraction": 0.624,
+      "top_moments": 10
+    },
+    "obKgByIw7kY": {
+      "flagged_pct": 76.1,
+      "total_segments": 493,
+      "flagged_segments": 375,
+      "flag_summary": {
+        "long_pause": 70,
+        "voice_tremor": 188,
+        "pitch_rise": 12,
+        "speech_slowdown": 187
+      },
+      "pitch_mean_hz": 137.82,
+      "voiced_fraction": 0.419,
+      "top_moments": 10
+    },
+    "CpGJQnkjTsk": {
+      "flagged_pct": 72.0,
+      "total_segments": 1369,
+      "flagged_segments": 986,
+      "flag_summary": {
+        "long_pause": 561,
+        "voice_tremor": 632,
+        "pitch_rise": 73,
+        "speech_slowdown": 328
+      },
+      "pitch_mean_hz": 215.13,
+      "voiced_fraction": 0.433,
+      "top_moments": 10
+    },
+    "YQoIxRsHYao": {
+      "flagged_pct": 67.1,
+      "total_segments": 1262,
+      "flagged_segments": 847,
+      "flag_summary": {
+        "long_pause": 204,
+        "voice_tremor": 536,
+        "speech_slowdown": 329,
+        "pitch_rise": 77,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 199.02,
+      "voiced_fraction": 0.418,
+      "top_moments": 10
+    },
+    "JdZvUdGs-8U": {
+      "flagged_pct": 95.6,
+      "total_segments": 774,
+      "flagged_segments": 740,
+      "flag_summary": {
+        "long_pause": 195,
+        "voice_tremor": 685,
+        "speech_slowdown": 184,
+        "pitch_rise": 20
+      },
+      "pitch_mean_hz": 153.5,
+      "voiced_fraction": 0.489,
+      "top_moments": 10
+    },
+    "T4dkZtKcBic": {
+      "flagged_pct": 76.3,
+      "total_segments": 751,
+      "flagged_segments": 573,
+      "flag_summary": {
+        "long_pause": 160,
+        "voice_tremor": 540,
+        "speech_slowdown": 70,
+        "pitch_rise": 19
+      },
+      "pitch_mean_hz": 208.97,
+      "voiced_fraction": 0.698,
+      "top_moments": 10
+    },
+    "eEO6RuxhiJc": {
+      "flagged_pct": 79.4,
+      "total_segments": 835,
+      "flagged_segments": 663,
+      "flag_summary": {
+        "long_pause": 228,
+        "voice_tremor": 496,
+        "speech_slowdown": 235,
+        "pitch_rise": 56
+      },
+      "pitch_mean_hz": 229.9,
+      "voiced_fraction": 0.411,
+      "top_moments": 10
+    },
+    "x67e5CvX10k": {
+      "flagged_pct": 50.2,
+      "total_segments": 1037,
+      "flagged_segments": 521,
+      "flag_summary": {
+        "long_pause": 154,
+        "speech_slowdown": 261,
+        "voice_tremor": 294,
+        "pitch_rise": 59,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 234.57,
+      "voiced_fraction": 0.505,
+      "top_moments": 10
+    },
+    "o77zBd6wuzc": {
+      "flagged_pct": 69.4,
+      "total_segments": 869,
+      "flagged_segments": 603,
+      "flag_summary": {
+        "long_pause": 223,
+        "voice_tremor": 327,
+        "speech_slowdown": 243,
+        "pitch_rise": 71
+      },
+      "pitch_mean_hz": 178.03,
+      "voiced_fraction": 0.392,
+      "top_moments": 10
+    },
+    "WRWVDbT5K3Q": {
+      "flagged_pct": 63.6,
+      "total_segments": 833,
+      "flagged_segments": 530,
+      "flag_summary": {
+        "voice_tremor": 351,
+        "long_pause": 226,
+        "speech_slowdown": 132,
+        "pitch_rise": 29
+      },
+      "pitch_mean_hz": 152.34,
+      "voiced_fraction": 0.658,
+      "top_moments": 10
+    },
+    "Jdu_0c8OvEs": {
+      "flagged_pct": 55.0,
+      "total_segments": 544,
+      "flagged_segments": 299,
+      "flag_summary": {
+        "long_pause": 102,
+        "speech_slowdown": 148,
+        "voice_tremor": 196,
+        "pitch_rise": 55,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 280.08,
+      "voiced_fraction": 0.377,
+      "top_moments": 10
+    },
+    "5637NXEhPd4": {
+      "flagged_pct": 63.5,
+      "total_segments": 635,
+      "flagged_segments": 403,
+      "flag_summary": {
+        "long_pause": 183,
+        "voice_tremor": 238,
+        "speech_slowdown": 122,
+        "pitch_rise": 32,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 174.69,
+      "voiced_fraction": 0.423,
+      "top_moments": 10
+    },
+    "7sVqji27Dq8": {
+      "flagged_pct": 84.4,
+      "total_segments": 945,
+      "flagged_segments": 798,
+      "flag_summary": {
+        "long_pause": 189,
+        "voice_tremor": 605,
+        "speech_slowdown": 259,
+        "pitch_rise": 7
+      },
+      "pitch_mean_hz": 124.86,
+      "voiced_fraction": 0.458,
+      "top_moments": 10
+    },
+    "AHuMNKA5WAw": {
+      "flagged_pct": 94.7,
+      "total_segments": 731,
+      "flagged_segments": 692,
+      "flag_summary": {
+        "long_pause": 219,
+        "voice_tremor": 676,
+        "speech_slowdown": 68,
+        "pitch_rise": 12
+      },
+      "pitch_mean_hz": 148.09,
+      "voiced_fraction": 0.649,
+      "top_moments": 10
+    },
+    "sZlmPsgnew0": {
+      "flagged_pct": 97.7,
+      "total_segments": 903,
+      "flagged_segments": 882,
+      "flag_summary": {
+        "long_pause": 294,
+        "voice_tremor": 847,
+        "pitch_rise": 24,
+        "speech_slowdown": 154,
+        "pitch_drop": 1
+      },
+      "pitch_mean_hz": 113.87,
+      "voiced_fraction": 0.595,
+      "top_moments": 10
+    },
+    "JCgforQwzTU": {
+      "flagged_pct": 75.0,
+      "total_segments": 888,
+      "flagged_segments": 666,
+      "flag_summary": {
+        "long_pause": 217,
+        "voice_tremor": 488,
+        "pitch_rise": 15,
+        "speech_slowdown": 188
+      },
+      "pitch_mean_hz": 116.51,
+      "voiced_fraction": 0.497,
+      "top_moments": 10
+    },
+    "2n0xLPepXX0": {
+      "flagged_pct": 94.9,
+      "total_segments": 797,
+      "flagged_segments": 756,
+      "flag_summary": {
+        "long_pause": 152,
+        "voice_tremor": 736,
+        "pitch_drop": 3,
+        "speech_slowdown": 85,
+        "pitch_rise": 30
+      },
+      "pitch_mean_hz": 179.87,
+      "voiced_fraction": 0.646,
+      "top_moments": 10
+    },
+    "TNwfHH7_MBg": {
+      "flagged_pct": 75.3,
+      "total_segments": 983,
+      "flagged_segments": 740,
+      "flag_summary": {
+        "long_pause": 254,
+        "voice_tremor": 677,
+        "speech_slowdown": 85,
+        "pitch_rise": 21
+      },
+      "pitch_mean_hz": 205.5,
+      "voiced_fraction": 0.611,
+      "top_moments": 10
+    },
+    "Qd6dGO2beMs": {
+      "flagged_pct": 55.9,
+      "total_segments": 997,
+      "flagged_segments": 557,
+      "flag_summary": {
+        "long_pause": 101,
+        "voice_tremor": 497,
+        "speech_slowdown": 81,
+        "pitch_rise": 13,
+        "volume_drop": 3
+      },
+      "pitch_mean_hz": 285.85,
+      "voiced_fraction": 0.726,
+      "top_moments": 10
+    },
+    "8q9sEC_L6hQ": {
+      "flagged_pct": 77.9,
+      "total_segments": 1271,
+      "flagged_segments": 990,
+      "flag_summary": {
+        "long_pause": 189,
+        "voice_tremor": 930,
+        "pitch_rise": 21,
+        "speech_slowdown": 103
+      },
+      "pitch_mean_hz": 150.93,
+      "voiced_fraction": 0.677,
+      "top_moments": 10
+    },
+    "ZlKClOm10WY": {
+      "flagged_pct": 69.6,
+      "total_segments": 1583,
+      "flagged_segments": 1102,
+      "flag_summary": {
+        "long_pause": 328,
+        "voice_tremor": 682,
+        "pitch_rise": 200,
+        "speech_slowdown": 455
+      },
+      "pitch_mean_hz": 209.37,
+      "voiced_fraction": 0.426,
+      "top_moments": 10
+    },
+    "3pInQTJ58To": {
+      "flagged_pct": 94.1,
+      "total_segments": 1133,
+      "flagged_segments": 1066,
+      "flag_summary": {
+        "long_pause": 284,
+        "voice_tremor": 1035,
+        "speech_slowdown": 122,
+        "pitch_rise": 22
+      },
+      "pitch_mean_hz": 149.69,
+      "voiced_fraction": 0.619,
+      "top_moments": 10
+    },
+    "qk_2eiAG5YM": {
+      "flagged_pct": 67.7,
+      "total_segments": 858,
+      "flagged_segments": 581,
+      "flag_summary": {
+        "long_pause": 191,
+        "voice_tremor": 508,
+        "speech_slowdown": 77,
+        "pitch_rise": 25
+      },
+      "pitch_mean_hz": 177.63,
+      "voiced_fraction": 0.637,
+      "top_moments": 10
+    },
+    "GgJk2XYRHNU": {
+      "flagged_pct": 98.1,
+      "total_segments": 901,
+      "flagged_segments": 884,
+      "flag_summary": {
+        "long_pause": 214,
+        "voice_tremor": 878,
+        "pitch_drop": 3,
+        "speech_slowdown": 93,
+        "pitch_rise": 15
+      },
+      "pitch_mean_hz": 155.85,
+      "voiced_fraction": 0.81,
+      "top_moments": 10
+    },
+    "5fqdLWGvtUI": {
+      "flagged_pct": 44.1,
+      "total_segments": 824,
+      "flagged_segments": 363,
+      "flag_summary": {
+        "long_pause": 188,
+        "voice_tremor": 137,
+        "speech_slowdown": 176,
+        "pitch_rise": 36
+      },
+      "pitch_mean_hz": 186.75,
+      "voiced_fraction": 0.475,
+      "top_moments": 10
+    },
+    "P2Tu8Oe5vBM": {
+      "flagged_pct": 69.3,
+      "total_segments": 737,
+      "flagged_segments": 511,
+      "flag_summary": {
+        "long_pause": 281,
+        "voice_tremor": 243,
+        "speech_slowdown": 129,
+        "pitch_rise": 10
+      },
+      "pitch_mean_hz": 116.25,
+      "voiced_fraction": 0.55,
+      "top_moments": 10
+    },
+    "nKv4mBgNk_o": {
+      "flagged_pct": 42.5,
+      "total_segments": 913,
+      "flagged_segments": 388,
+      "flag_summary": {
+        "long_pause": 88,
+        "speech_slowdown": 147,
+        "voice_tremor": 228,
+        "pitch_rise": 49,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 260.64,
+      "voiced_fraction": 0.552,
+      "top_moments": 10
+    },
+    "worV4zHhCW8": {
+      "flagged_pct": 73.3,
+      "total_segments": 1358,
+      "flagged_segments": 996,
+      "flag_summary": {
+        "long_pause": 87,
+        "voice_tremor": 800,
+        "speech_slowdown": 311,
+        "pitch_rise": 38,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 150.2,
+      "voiced_fraction": 0.527,
+      "top_moments": 10
+    },
+    "VURsgS3Ttec": {
+      "flagged_pct": 63.8,
+      "total_segments": 619,
+      "flagged_segments": 395,
+      "flag_summary": {
+        "long_pause": 67,
+        "voice_tremor": 338,
+        "speech_slowdown": 81,
+        "pitch_rise": 12,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 240.24,
+      "voiced_fraction": 0.65,
+      "top_moments": 10
+    },
+    "WbQYXsFEghA": {
+      "flagged_pct": 88.6,
+      "total_segments": 957,
+      "flagged_segments": 848,
+      "flag_summary": {
+        "long_pause": 305,
+        "voice_tremor": 758,
+        "speech_slowdown": 206,
+        "pitch_rise": 28
+      },
+      "pitch_mean_hz": 144.22,
+      "voiced_fraction": 0.5,
+      "top_moments": 10
+    },
+    "QYUfkXp2AIE": {
+      "flagged_pct": 80.6,
+      "total_segments": 993,
+      "flagged_segments": 800,
+      "flag_summary": {
+        "long_pause": 147,
+        "voice_tremor": 722,
+        "speech_slowdown": 140,
+        "pitch_rise": 29
+      },
+      "pitch_mean_hz": 169.01,
+      "voiced_fraction": 0.625,
+      "top_moments": 10
+    },
+    "3npJ96OHJ1g": {
+      "flagged_pct": 58.2,
+      "total_segments": 1176,
+      "flagged_segments": 684,
+      "flag_summary": {
+        "long_pause": 285,
+        "voice_tremor": 324,
+        "speech_slowdown": 304,
+        "pitch_rise": 63
+      },
+      "pitch_mean_hz": 195.19,
+      "voiced_fraction": 0.362,
+      "top_moments": 10
+    },
+    "K3WgNRIwctA": {
+      "flagged_pct": 40.0,
+      "total_segments": 1164,
+      "flagged_segments": 466,
+      "flag_summary": {
+        "long_pause": 88,
+        "voice_tremor": 248,
+        "speech_slowdown": 237,
+        "volume_drop": 4,
+        "pitch_rise": 46
+      },
+      "pitch_mean_hz": 213.82,
+      "voiced_fraction": 0.484,
+      "top_moments": 10
+    },
+    "wsJl6zS08Vk": {
+      "flagged_pct": 91.8,
+      "total_segments": 735,
+      "flagged_segments": 675,
+      "flag_summary": {
+        "long_pause": 266,
+        "voice_tremor": 650,
+        "speech_slowdown": 69,
+        "pitch_rise": 6
+      },
+      "pitch_mean_hz": 124.9,
+      "voiced_fraction": 0.65,
+      "top_moments": 10
+    },
+    "4Dzd8B-CY48": {
+      "flagged_pct": 96.4,
+      "total_segments": 815,
+      "flagged_segments": 786,
+      "flag_summary": {
+        "long_pause": 122,
+        "voice_tremor": 769,
+        "pitch_drop": 3,
+        "speech_slowdown": 107,
+        "pitch_rise": 14
+      },
+      "pitch_mean_hz": 124.21,
+      "voiced_fraction": 0.643,
+      "top_moments": 10
+    },
+    "CJX2ZtEM3FM": {
+      "flagged_pct": 86.0,
+      "total_segments": 731,
+      "flagged_segments": 629,
+      "flag_summary": {
+        "long_pause": 182,
+        "voice_tremor": 586,
+        "speech_slowdown": 98,
+        "pitch_rise": 19
+      },
+      "pitch_mean_hz": 142.77,
+      "voiced_fraction": 0.652,
+      "top_moments": 10
+    },
+    "-AOV_oPyasQ": {
+      "flagged_pct": 74.9,
+      "total_segments": 911,
+      "flagged_segments": 682,
+      "flag_summary": {
+        "long_pause": 223,
+        "voice_tremor": 490,
+        "speech_slowdown": 195,
+        "pitch_rise": 108
+      },
+      "pitch_mean_hz": 256.61,
+      "voiced_fraction": 0.457,
+      "top_moments": 10
+    },
+    "8zxgnDhnKVk": {
+      "flagged_pct": 68.9,
+      "total_segments": 1105,
+      "flagged_segments": 761,
+      "flag_summary": {
+        "long_pause": 272,
+        "voice_tremor": 514,
+        "speech_slowdown": 311,
+        "pitch_rise": 55
+      },
+      "pitch_mean_hz": 218.92,
+      "voiced_fraction": 0.421,
+      "top_moments": 10
+    },
+    "eq3NW1E8CN4": {
+      "flagged_pct": 53.7,
+      "total_segments": 835,
+      "flagged_segments": 448,
+      "flag_summary": {
+        "long_pause": 225,
+        "voice_tremor": 237,
+        "speech_slowdown": 146,
+        "pitch_rise": 25
+      },
+      "pitch_mean_hz": 131.99,
+      "voiced_fraction": 0.46,
+      "top_moments": 10
+    },
+    "OTJYftp7R7M": {
+      "flagged_pct": 99.1,
+      "total_segments": 748,
+      "flagged_segments": 741,
+      "flag_summary": {
+        "long_pause": 153,
+        "voice_tremor": 712,
+        "speech_slowdown": 140,
+        "pitch_rise": 10
+      },
+      "pitch_mean_hz": 111.48,
+      "voiced_fraction": 0.569,
+      "top_moments": 10
+    },
+    "ciWWdS8NMhM": {
+      "flagged_pct": 63.6,
+      "total_segments": 951,
+      "flagged_segments": 605,
+      "flag_summary": {
+        "long_pause": 87,
+        "speech_slowdown": 330,
+        "pitch_rise": 136,
+        "voice_tremor": 295,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 321.97,
+      "voiced_fraction": 0.294,
+      "top_moments": 10
+    },
+    "AWylj1NeggU": {
+      "flagged_pct": 67.2,
+      "total_segments": 760,
+      "flagged_segments": 511,
+      "flag_summary": {
+        "long_pause": 213,
+        "voice_tremor": 373,
+        "speech_slowdown": 102,
+        "pitch_rise": 18
+      },
+      "pitch_mean_hz": 140.4,
+      "voiced_fraction": 0.631,
+      "top_moments": 10
+    },
+    "CbSZbwirKhE": {
+      "flagged_pct": 97.7,
+      "total_segments": 1108,
+      "flagged_segments": 1082,
+      "flag_summary": {
+        "pitch_drop": 26,
+        "long_pause": 75,
+        "voice_tremor": 1069,
+        "speech_slowdown": 81,
+        "pitch_rise": 18
+      },
+      "pitch_mean_hz": 236.11,
+      "voiced_fraction": 0.735,
+      "top_moments": 10
+    },
+    "l1JSHfx4YgA": {
+      "flagged_pct": 48.3,
+      "total_segments": 915,
+      "flagged_segments": 442,
+      "flag_summary": {
+        "long_pause": 191,
+        "voice_tremor": 165,
+        "speech_slowdown": 185,
+        "pitch_rise": 36
+      },
+      "pitch_mean_hz": 152.68,
+      "voiced_fraction": 0.406,
+      "top_moments": 10
+    },
+    "dqDJNwNMuoU": {
+      "flagged_pct": 62.6,
+      "total_segments": 927,
+      "flagged_segments": 580,
+      "flag_summary": {
+        "long_pause": 133,
+        "voice_tremor": 395,
+        "speech_slowdown": 193,
+        "pitch_rise": 17
+      },
+      "pitch_mean_hz": 123.2,
+      "voiced_fraction": 0.507,
+      "top_moments": 10
+    },
+    "G7ZfmF5r_c8": {
+      "flagged_pct": 94.9,
+      "total_segments": 739,
+      "flagged_segments": 701,
+      "flag_summary": {
+        "long_pause": 177,
+        "voice_tremor": 680,
+        "pitch_drop": 2,
+        "speech_slowdown": 97,
+        "pitch_rise": 6
+      },
+      "pitch_mean_hz": 153.98,
+      "voiced_fraction": 0.674,
+      "top_moments": 10
+    },
+    "BqcZzh71I6k": {
+      "flagged_pct": 98.8,
+      "total_segments": 830,
+      "flagged_segments": 820,
+      "flag_summary": {
+        "pitch_drop": 1,
+        "long_pause": 47,
+        "voice_tremor": 807,
+        "speech_slowdown": 106,
+        "pitch_rise": 16,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 132.32,
+      "voiced_fraction": 0.691,
+      "top_moments": 10
+    },
+    "wF4Mt5Xk2dI": {
+      "flagged_pct": 83.7,
+      "total_segments": 827,
+      "flagged_segments": 692,
+      "flag_summary": {
+        "long_pause": 94,
+        "voice_tremor": 649,
+        "speech_slowdown": 114,
+        "pitch_rise": 10
+      },
+      "pitch_mean_hz": 135.8,
+      "voiced_fraction": 0.656,
+      "top_moments": 10
+    },
+    "_zfAaTGMGmo": {
+      "flagged_pct": 65.3,
+      "total_segments": 886,
+      "flagged_segments": 579,
+      "flag_summary": {
+        "long_pause": 132,
+        "voice_tremor": 430,
+        "speech_slowdown": 206,
+        "pitch_rise": 38
+      },
+      "pitch_mean_hz": 151.21,
+      "voiced_fraction": 0.54,
+      "top_moments": 10
+    },
+    "n-bxbgah098": {
+      "flagged_pct": 73.7,
+      "total_segments": 876,
+      "flagged_segments": 646,
+      "flag_summary": {
+        "long_pause": 194,
+        "voice_tremor": 533,
+        "speech_slowdown": 159,
+        "pitch_rise": 33
+      },
+      "pitch_mean_hz": 148.66,
+      "voiced_fraction": 0.498,
+      "top_moments": 10
+    },
+    "qXQhqW0poUo": {
+      "flagged_pct": 87.2,
+      "total_segments": 893,
+      "flagged_segments": 779,
+      "flag_summary": {
+        "long_pause": 184,
+        "voice_tremor": 708,
+        "pitch_rise": 13,
+        "speech_slowdown": 145
+      },
+      "pitch_mean_hz": 96.11,
+      "voiced_fraction": 0.597,
+      "top_moments": 10
+    },
+    "NDGKBCntMiI": {
+      "flagged_pct": 43.0,
+      "total_segments": 744,
+      "flagged_segments": 320,
+      "flag_summary": {
+        "long_pause": 98,
+        "voice_tremor": 188,
+        "speech_slowdown": 98,
+        "pitch_rise": 16
+      },
+      "pitch_mean_hz": 111.38,
+      "voiced_fraction": 0.559,
+      "top_moments": 10
+    },
+    "sZSSM81Wpnw": {
+      "flagged_pct": 67.0,
+      "total_segments": 397,
+      "flagged_segments": 266,
+      "flag_summary": {
+        "long_pause": 155,
+        "voice_tremor": 199,
+        "speech_slowdown": 40,
+        "pitch_rise": 4
+      },
+      "pitch_mean_hz": 248.09,
+      "voiced_fraction": 0.578,
+      "top_moments": 10
+    },
+    "86I1E3Pox4w": {
+      "flagged_pct": 91.6,
+      "total_segments": 371,
+      "flagged_segments": 340,
+      "flag_summary": {
+        "long_pause": 118,
+        "voice_tremor": 323,
+        "speech_slowdown": 36,
+        "pitch_rise": 8
+      },
+      "pitch_mean_hz": 190.0,
+      "voiced_fraction": 0.623,
+      "top_moments": 10
+    },
+    "e_iDHFSj6v4": {
+      "flagged_pct": 85.6,
+      "total_segments": 777,
+      "flagged_segments": 665,
+      "flag_summary": {
+        "long_pause": 113,
+        "voice_tremor": 622,
+        "speech_slowdown": 96,
+        "pitch_rise": 20
+      },
+      "pitch_mean_hz": 175.77,
+      "voiced_fraction": 0.661,
+      "top_moments": 10
+    },
+    "qAfG9vpiQbI": {
+      "flagged_pct": 81.9,
+      "total_segments": 739,
+      "flagged_segments": 605,
+      "flag_summary": {
+        "long_pause": 220,
+        "voice_tremor": 555,
+        "speech_slowdown": 74,
+        "pitch_rise": 9
+      },
+      "pitch_mean_hz": 181.81,
+      "voiced_fraction": 0.628,
+      "top_moments": 10
+    },
+    "cfvgTRIuR_8": {
+      "flagged_pct": 96.2,
+      "total_segments": 1135,
+      "flagged_segments": 1092,
+      "flag_summary": {
+        "long_pause": 260,
+        "voice_tremor": 1021,
+        "pitch_drop": 4,
+        "speech_slowdown": 231,
+        "pitch_rise": 49
+      },
+      "pitch_mean_hz": 167.02,
+      "voiced_fraction": 0.48,
+      "top_moments": 10
+    },
+    "4hRAVPO37hw": {
+      "flagged_pct": 49.0,
+      "total_segments": 800,
+      "flagged_segments": 392,
+      "flag_summary": {
+        "long_pause": 114,
+        "voice_tremor": 236,
+        "pitch_rise": 28,
+        "speech_slowdown": 169,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 151.92,
+      "voiced_fraction": 0.501,
+      "top_moments": 10
+    },
+    "UglcA8_8XJE": {
+      "flagged_pct": 85.3,
+      "total_segments": 675,
+      "flagged_segments": 576,
+      "flag_summary": {
+        "long_pause": 95,
+        "voice_tremor": 557,
+        "speech_slowdown": 60,
+        "pitch_rise": 18
+      },
+      "pitch_mean_hz": 175.81,
+      "voiced_fraction": 0.693,
+      "top_moments": 10
+    },
+    "b0BthsMCSPk": {
+      "flagged_pct": 58.7,
+      "total_segments": 593,
+      "flagged_segments": 348,
+      "flag_summary": {
+        "long_pause": 100,
+        "voice_tremor": 292,
+        "speech_slowdown": 73,
+        "pitch_rise": 5,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 193.13,
+      "voiced_fraction": 0.635,
+      "top_moments": 10
+    },
+    "AczSruuSVvE": {
+      "flagged_pct": 56.0,
+      "total_segments": 566,
+      "flagged_segments": 317,
+      "flag_summary": {
+        "long_pause": 231,
+        "voice_tremor": 110,
+        "speech_slowdown": 104,
+        "pitch_rise": 19
+      },
+      "pitch_mean_hz": 176.56,
+      "voiced_fraction": 0.437,
+      "top_moments": 10
+    },
+    "FwIRqfKBWSE": {
+      "flagged_pct": 50.5,
+      "total_segments": 622,
+      "flagged_segments": 314,
+      "flag_summary": {
+        "long_pause": 187,
+        "voice_tremor": 113,
+        "speech_slowdown": 117,
+        "pitch_rise": 18
+      },
+      "pitch_mean_hz": 144.2,
+      "voiced_fraction": 0.517,
+      "top_moments": 10
+    },
+    "S765cKtKkDQ": {
+      "flagged_pct": 82.1,
+      "total_segments": 663,
+      "flagged_segments": 544,
+      "flag_summary": {
+        "long_pause": 94,
+        "voice_tremor": 503,
+        "speech_slowdown": 93,
+        "pitch_rise": 10
+      },
+      "pitch_mean_hz": 162.61,
+      "voiced_fraction": 0.697,
+      "top_moments": 10
+    },
+    "CzgdSInRQn4": {
+      "flagged_pct": 59.5,
+      "total_segments": 983,
+      "flagged_segments": 585,
+      "flag_summary": {
+        "long_pause": 278,
+        "voice_tremor": 414,
+        "speech_slowdown": 158,
+        "pitch_rise": 23,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 168.99,
+      "voiced_fraction": 0.533,
+      "top_moments": 10
+    },
+    "HX76EIV-veM": {
+      "flagged_pct": 73.5,
+      "total_segments": 650,
+      "flagged_segments": 478,
+      "flag_summary": {
+        "long_pause": 252,
+        "voice_tremor": 407,
+        "speech_slowdown": 79,
+        "pitch_rise": 17
+      },
+      "pitch_mean_hz": 188.89,
+      "voiced_fraction": 0.606,
+      "top_moments": 10
+    },
+    "PrrA7nz8iDo": {
+      "flagged_pct": 92.9,
+      "total_segments": 663,
+      "flagged_segments": 616,
+      "flag_summary": {
+        "long_pause": 168,
+        "voice_tremor": 598,
+        "pitch_drop": 1,
+        "speech_slowdown": 49,
+        "pitch_rise": 14
+      },
+      "pitch_mean_hz": 152.57,
+      "voiced_fraction": 0.674,
+      "top_moments": 10
+    },
+    "DkU9lllQ4as": {
+      "flagged_pct": 98.7,
+      "total_segments": 680,
+      "flagged_segments": 671,
+      "flag_summary": {
+        "long_pause": 204,
+        "voice_tremor": 654,
+        "pitch_drop": 2,
+        "speech_slowdown": 102,
+        "pitch_rise": 20
+      },
+      "pitch_mean_hz": 121.88,
+      "voiced_fraction": 0.577,
+      "top_moments": 10
+    },
+    "Y5Z2dWHMBSM": {
+      "flagged_pct": 66.1,
+      "total_segments": 821,
+      "flagged_segments": 543,
+      "flag_summary": {
+        "long_pause": 158,
+        "voice_tremor": 414,
+        "speech_slowdown": 153,
+        "pitch_rise": 68
+      },
+      "pitch_mean_hz": 167.04,
+      "voiced_fraction": 0.502,
+      "top_moments": 10
+    },
+    "FFSs37U7DOw": {
+      "flagged_pct": 62.4,
+      "total_segments": 340,
+      "flagged_segments": 212,
+      "flag_summary": {
+        "long_pause": 68,
+        "speech_slowdown": 67,
+        "voice_tremor": 170,
+        "pitch_rise": 18,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 317.98,
+      "voiced_fraction": 0.483,
+      "top_moments": 10
+    },
+    "abO7ctvZNsM": {
+      "flagged_pct": 75.6,
+      "total_segments": 987,
+      "flagged_segments": 746,
+      "flag_summary": {
+        "long_pause": 210,
+        "voice_tremor": 527,
+        "speech_slowdown": 236,
+        "pitch_rise": 124
+      },
+      "pitch_mean_hz": 194.74,
+      "voiced_fraction": 0.451,
+      "top_moments": 10
+    },
+    "mMLTsC8j-uU": {
+      "flagged_pct": 91.6,
+      "total_segments": 681,
+      "flagged_segments": 624,
+      "flag_summary": {
+        "long_pause": 208,
+        "voice_tremor": 590,
+        "speech_slowdown": 93,
+        "pitch_rise": 15
+      },
+      "pitch_mean_hz": 163.24,
+      "voiced_fraction": 0.618,
+      "top_moments": 10
+    },
+    "JPuXrQI6ON8": {
+      "flagged_pct": 65.8,
+      "total_segments": 723,
+      "flagged_segments": 476,
+      "flag_summary": {
+        "long_pause": 244,
+        "voice_tremor": 331,
+        "speech_slowdown": 87,
+        "pitch_rise": 13
+      },
+      "pitch_mean_hz": 112.34,
+      "voiced_fraction": 0.579,
+      "top_moments": 10
+    },
+    "EXm7-xSjbg0": {
+      "flagged_pct": 55.2,
+      "total_segments": 1162,
+      "flagged_segments": 642,
+      "flag_summary": {
+        "long_pause": 205,
+        "voice_tremor": 272,
+        "speech_slowdown": 306,
+        "pitch_rise": 28,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 132.86,
+      "voiced_fraction": 0.26,
+      "top_moments": 10
+    },
+    "Cn0nrBHliGM": {
+      "flagged_pct": 69.5,
+      "total_segments": 912,
+      "flagged_segments": 634,
+      "flag_summary": {
+        "long_pause": 185,
+        "voice_tremor": 502,
+        "speech_slowdown": 120,
+        "pitch_rise": 14
+      },
+      "pitch_mean_hz": 129.71,
+      "voiced_fraction": 0.619,
+      "top_moments": 10
+    },
+    "HC6HmqLAcnI": {
+      "flagged_pct": 87.0,
+      "total_segments": 823,
+      "flagged_segments": 716,
+      "flag_summary": {
+        "long_pause": 270,
+        "voice_tremor": 625,
+        "speech_slowdown": 188,
+        "pitch_rise": 32
+      },
+      "pitch_mean_hz": 141.95,
+      "voiced_fraction": 0.539,
+      "top_moments": 10
+    },
+    "ic5yE-9JYQg": {
+      "flagged_pct": 96.0,
+      "total_segments": 879,
+      "flagged_segments": 844,
+      "flag_summary": {
+        "long_pause": 126,
+        "voice_tremor": 769,
+        "pitch_rise": 13,
+        "speech_slowdown": 227,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 127.19,
+      "voiced_fraction": 0.555,
+      "top_moments": 10
+    },
+    "SZFpjTzw8H0": {
+      "flagged_pct": 55.7,
+      "total_segments": 734,
+      "flagged_segments": 409,
+      "flag_summary": {
+        "long_pause": 224,
+        "voice_tremor": 231,
+        "speech_slowdown": 143,
+        "pitch_rise": 25
+      },
+      "pitch_mean_hz": 231.33,
+      "voiced_fraction": 0.411,
+      "top_moments": 10
+    },
+    "y8hvIwWLTcs": {
+      "flagged_pct": 61.7,
+      "total_segments": 954,
+      "flagged_segments": 589,
+      "flag_summary": {
+        "long_pause": 161,
+        "voice_tremor": 427,
+        "speech_slowdown": 150,
+        "pitch_rise": 16
+      },
+      "pitch_mean_hz": 122.06,
+      "voiced_fraction": 0.62,
+      "top_moments": 10
+    },
+    "flVlYb4KBYE": {
+      "flagged_pct": 86.8,
+      "total_segments": 971,
+      "flagged_segments": 843,
+      "flag_summary": {
+        "long_pause": 136,
+        "voice_tremor": 736,
+        "speech_slowdown": 192,
+        "pitch_rise": 29
+      },
+      "pitch_mean_hz": 130.9,
+      "voiced_fraction": 0.529,
+      "top_moments": 10
+    },
+    "RDrG3A337qg": {
+      "flagged_pct": 82.9,
+      "total_segments": 280,
+      "flagged_segments": 232,
+      "flag_summary": {
+        "long_pause": 39,
+        "voice_tremor": 195,
+        "speech_slowdown": 64,
+        "pitch_rise": 8
+      },
+      "pitch_mean_hz": 111.12,
+      "voiced_fraction": 0.527,
+      "top_moments": 10
+    },
+    "52DRxyGnL8k": {
+      "flagged_pct": 74.2,
+      "total_segments": 756,
+      "flagged_segments": 561,
+      "flag_summary": {
+        "long_pause": 118,
+        "voice_tremor": 436,
+        "speech_slowdown": 176,
+        "pitch_rise": 21
+      },
+      "pitch_mean_hz": 126.46,
+      "voiced_fraction": 0.6,
+      "top_moments": 10
+    },
+    "1tCTP38ypBg": {
+      "flagged_pct": 63.1,
+      "total_segments": 556,
+      "flagged_segments": 351,
+      "flag_summary": {
+        "long_pause": 227,
+        "voice_tremor": 117,
+        "speech_slowdown": 118,
+        "pitch_rise": 20
+      },
+      "pitch_mean_hz": 138.27,
+      "voiced_fraction": 0.414,
+      "top_moments": 10
+    },
+    "cjDV6iy70qY": {
+      "flagged_pct": 62.4,
+      "total_segments": 777,
+      "flagged_segments": 485,
+      "flag_summary": {
+        "long_pause": 228,
+        "voice_tremor": 256,
+        "pitch_rise": 15,
+        "speech_slowdown": 164,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 126.17,
+      "voiced_fraction": 0.423,
+      "top_moments": 10
+    },
+    "meSH9blgI38": {
+      "flagged_pct": 31.7,
+      "total_segments": 958,
+      "flagged_segments": 304,
+      "flag_summary": {
+        "long_pause": 114,
+        "voice_tremor": 171,
+        "speech_slowdown": 127,
+        "pitch_rise": 41,
+        "volume_drop": 3
+      },
+      "pitch_mean_hz": 242.1,
+      "voiced_fraction": 0.668,
+      "top_moments": 10
+    },
+    "_iuYDcvyH74": {
+      "flagged_pct": 30.3,
+      "total_segments": 836,
+      "flagged_segments": 253,
+      "flag_summary": {
+        "long_pause": 95,
+        "voice_tremor": 126,
+        "speech_slowdown": 94,
+        "pitch_rise": 18,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 158.42,
+      "voiced_fraction": 0.609,
+      "top_moments": 10
+    },
+    "hGXWZzppeAE": {
+      "flagged_pct": 78.7,
+      "total_segments": 728,
+      "flagged_segments": 573,
+      "flag_summary": {
+        "long_pause": 78,
+        "voice_tremor": 531,
+        "pitch_rise": 12,
+        "speech_slowdown": 86,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 177.62,
+      "voiced_fraction": 0.599,
+      "top_moments": 10
+    },
+    "sHIbTh_-Z38": {
+      "flagged_pct": 62.5,
+      "total_segments": 645,
+      "flagged_segments": 403,
+      "flag_summary": {
+        "long_pause": 212,
+        "voice_tremor": 266,
+        "speech_slowdown": 69,
+        "pitch_rise": 12,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 187.88,
+      "voiced_fraction": 0.525,
+      "top_moments": 10
+    },
+    "APUMl-QqEiM": {
+      "flagged_pct": 76.5,
+      "total_segments": 655,
+      "flagged_segments": 501,
+      "flag_summary": {
+        "long_pause": 158,
+        "voice_tremor": 440,
+        "speech_slowdown": 108,
+        "pitch_rise": 10,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 174.07,
+      "voiced_fraction": 0.532,
+      "top_moments": 10
+    },
+    "SR5rnHOaHOg": {
+      "flagged_pct": 75.4,
+      "total_segments": 700,
+      "flagged_segments": 528,
+      "flag_summary": {
+        "long_pause": 253,
+        "voice_tremor": 360,
+        "speech_slowdown": 123,
+        "pitch_rise": 19
+      },
+      "pitch_mean_hz": 104.01,
+      "voiced_fraction": 0.358,
+      "top_moments": 10
+    },
+    "mRhGyZwaXtc": {
+      "flagged_pct": 73.7,
+      "total_segments": 687,
+      "flagged_segments": 506,
+      "flag_summary": {
+        "long_pause": 203,
+        "voice_tremor": 339,
+        "speech_slowdown": 136,
+        "pitch_rise": 9,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 105.56,
+      "voiced_fraction": 0.401,
+      "top_moments": 10
+    },
+    "3dBuxuv8iso": {
+      "flagged_pct": 73.0,
+      "total_segments": 778,
+      "flagged_segments": 568,
+      "flag_summary": {
+        "long_pause": 72,
+        "speech_slowdown": 89,
+        "voice_tremor": 522,
+        "pitch_rise": 7
+      },
+      "pitch_mean_hz": 303.04,
+      "voiced_fraction": 0.641,
+      "top_moments": 10
+    },
+    "T4HHx5c9WzU": {
+      "flagged_pct": 46.4,
+      "total_segments": 726,
+      "flagged_segments": 337,
+      "flag_summary": {
+        "long_pause": 92,
+        "voice_tremor": 254,
+        "speech_slowdown": 85,
+        "pitch_rise": 11,
+        "volume_drop": 3
+      },
+      "pitch_mean_hz": 166.33,
+      "voiced_fraction": 0.624,
+      "top_moments": 10
+    },
+    "1HoCitd3gpo": {
+      "flagged_pct": 53.9,
+      "total_segments": 869,
+      "flagged_segments": 468,
+      "flag_summary": {
+        "long_pause": 51,
+        "voice_tremor": 380,
+        "speech_slowdown": 114,
+        "pitch_rise": 10,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 222.28,
+      "voiced_fraction": 0.615,
+      "top_moments": 10
+    },
+    "hCWhXsMmQkc": {
+      "flagged_pct": 52.3,
+      "total_segments": 901,
+      "flagged_segments": 471,
+      "flag_summary": {
+        "long_pause": 315,
+        "voice_tremor": 156,
+        "speech_slowdown": 183,
+        "pitch_rise": 30
+      },
+      "pitch_mean_hz": 152.35,
+      "voiced_fraction": 0.384,
+      "top_moments": 10
+    },
+    "iQ550YWMQzs": {
+      "flagged_pct": 35.1,
+      "total_segments": 689,
+      "flagged_segments": 242,
+      "flag_summary": {
+        "long_pause": 45,
+        "voice_tremor": 101,
+        "speech_slowdown": 123,
+        "pitch_rise": 21,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 129.22,
+      "voiced_fraction": 0.449,
+      "top_moments": 10
+    },
+    "X08gTwp4a6c": {
+      "flagged_pct": 39.2,
+      "total_segments": 722,
+      "flagged_segments": 283,
+      "flag_summary": {
+        "long_pause": 56,
+        "voice_tremor": 160,
+        "speech_slowdown": 115,
+        "pitch_rise": 21,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 140.96,
+      "voiced_fraction": 0.471,
+      "top_moments": 10
+    },
+    "S7JxpZG9dgY": {
+      "flagged_pct": 53.2,
+      "total_segments": 573,
+      "flagged_segments": 305,
+      "flag_summary": {
+        "long_pause": 120,
+        "voice_tremor": 145,
+        "speech_slowdown": 173,
+        "pitch_rise": 68,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 252.35,
+      "voiced_fraction": 0.386,
+      "top_moments": 10
+    },
+    "Maa3OSjR-cE": {
+      "flagged_pct": 66.9,
+      "total_segments": 674,
+      "flagged_segments": 451,
+      "flag_summary": {
+        "long_pause": 83,
+        "voice_tremor": 410,
+        "speech_slowdown": 79,
+        "pitch_rise": 4,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 212.68,
+      "voiced_fraction": 0.662,
+      "top_moments": 10
+    },
+    "VSv2veW87z4": {
+      "flagged_pct": 58.3,
+      "total_segments": 1019,
+      "flagged_segments": 594,
+      "flag_summary": {
+        "long_pause": 126,
+        "voice_tremor": 391,
+        "speech_slowdown": 222,
+        "pitch_rise": 63,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 172.14,
+      "voiced_fraction": 0.404,
+      "top_moments": 10
+    },
+    "Lp4A3LJ4UCU": {
+      "flagged_pct": 53.6,
+      "total_segments": 1284,
+      "flagged_segments": 688,
+      "flag_summary": {
+        "long_pause": 217,
+        "voice_tremor": 369,
+        "speech_slowdown": 280,
+        "pitch_rise": 59,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 125.88,
+      "voiced_fraction": 0.395,
+      "top_moments": 10
+    },
+    "41ntsyW5Y4k": {
+      "flagged_pct": 85.1,
+      "total_segments": 617,
+      "flagged_segments": 525,
+      "flag_summary": {
+        "long_pause": 70,
+        "voice_tremor": 475,
+        "speech_slowdown": 94,
+        "pitch_rise": 8,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 118.04,
+      "voiced_fraction": 0.537,
+      "top_moments": 10
+    },
+    "aefohXnWruo": {
+      "flagged_pct": 66.0,
+      "total_segments": 1010,
+      "flagged_segments": 667,
+      "flag_summary": {
+        "long_pause": 132,
+        "speech_slowdown": 273,
+        "voice_tremor": 446,
+        "pitch_rise": 87,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 402.24,
+      "voiced_fraction": 0.411,
+      "top_moments": 10
+    },
+    "QiFHDG_pr3U": {
+      "flagged_pct": 65.3,
+      "total_segments": 923,
+      "flagged_segments": 603,
+      "flag_summary": {
+        "long_pause": 124,
+        "speech_slowdown": 306,
+        "voice_tremor": 364,
+        "pitch_rise": 106
+      },
+      "pitch_mean_hz": 372.14,
+      "voiced_fraction": 0.369,
+      "top_moments": 10
+    },
+    "u8yJ7TjSMoU": {
+      "flagged_pct": 76.4,
+      "total_segments": 1000,
+      "flagged_segments": 764,
+      "flag_summary": {
+        "long_pause": 405,
+        "voice_tremor": 637,
+        "speech_slowdown": 120,
+        "pitch_rise": 17
+      },
+      "pitch_mean_hz": 235.48,
+      "voiced_fraction": 0.495,
+      "top_moments": 10
+    },
+    "stl20TFzyB4": {
+      "flagged_pct": 78.5,
+      "total_segments": 932,
+      "flagged_segments": 732,
+      "flag_summary": {
+        "long_pause": 222,
+        "voice_tremor": 669,
+        "speech_slowdown": 94,
+        "pitch_rise": 18
+      },
+      "pitch_mean_hz": 219.31,
+      "voiced_fraction": 0.552,
+      "top_moments": 10
+    },
+    "hFBafwp_GTg": {
+      "flagged_pct": 48.1,
+      "total_segments": 651,
+      "flagged_segments": 313,
+      "flag_summary": {
+        "long_pause": 129,
+        "voice_tremor": 227,
+        "speech_slowdown": 69,
+        "pitch_rise": 12,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 185.48,
+      "voiced_fraction": 0.637,
+      "top_moments": 10
+    },
+    "qsLiIBT4VLM": {
+      "flagged_pct": 50.9,
+      "total_segments": 529,
+      "flagged_segments": 269,
+      "flag_summary": {
+        "long_pause": 95,
+        "voice_tremor": 194,
+        "speech_slowdown": 102,
+        "pitch_rise": 10,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 173.62,
+      "voiced_fraction": 0.561,
+      "top_moments": 10
+    },
+    "kbIv0K1boYM": {
+      "flagged_pct": 64.9,
+      "total_segments": 855,
+      "flagged_segments": 555,
+      "flag_summary": {
+        "long_pause": 205,
+        "voice_tremor": 312,
+        "speech_slowdown": 214,
+        "pitch_rise": 101,
+        "volume_drop": 2
+      },
+      "pitch_mean_hz": 189.06,
+      "voiced_fraction": 0.392,
+      "top_moments": 10
+    },
+    "EycS-XkL_ec": {
+      "flagged_pct": 63.3,
+      "total_segments": 613,
+      "flagged_segments": 388,
+      "flag_summary": {
+        "long_pause": 69,
+        "voice_tremor": 293,
+        "speech_slowdown": 127,
+        "pitch_rise": 17,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 136.28,
+      "voiced_fraction": 0.453,
+      "top_moments": 10
+    },
+    "OxfCoJrXnlg": {
+      "flagged_pct": 60.0,
+      "total_segments": 814,
+      "flagged_segments": 488,
+      "flag_summary": {
+        "long_pause": 163,
+        "voice_tremor": 322,
+        "speech_slowdown": 132,
+        "pitch_rise": 15,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 117.45,
+      "voiced_fraction": 0.548,
+      "top_moments": 10
+    },
+    "kXeeLvOhFz8": {
+      "flagged_pct": 66.4,
+      "total_segments": 560,
+      "flagged_segments": 372,
+      "flag_summary": {
+        "long_pause": 83,
+        "voice_tremor": 335,
+        "speech_slowdown": 59,
+        "pitch_rise": 10,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 186.67,
+      "voiced_fraction": 0.668,
+      "top_moments": 10
+    },
+    "gFsSLpiIlFU": {
+      "flagged_pct": 48.4,
+      "total_segments": 1054,
+      "flagged_segments": 510,
+      "flag_summary": {
+        "long_pause": 321,
+        "voice_tremor": 240,
+        "speech_slowdown": 157,
+        "pitch_rise": 43,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 187.17,
+      "voiced_fraction": 0.431,
+      "top_moments": 10
+    },
+    "zmpOmTm_9SI": {
+      "flagged_pct": 56.1,
+      "total_segments": 618,
+      "flagged_segments": 347,
+      "flag_summary": {
+        "long_pause": 135,
+        "voice_tremor": 213,
+        "speech_slowdown": 125,
+        "pitch_rise": 30
+      },
+      "pitch_mean_hz": 187.12,
+      "voiced_fraction": 0.498,
+      "top_moments": 10
+    },
+    "vz0oV3SlPTY": {
+      "flagged_pct": 57.7,
+      "total_segments": 1037,
+      "flagged_segments": 598,
+      "flag_summary": {
+        "long_pause": 121,
+        "voice_tremor": 271,
+        "speech_slowdown": 340,
+        "pitch_rise": 115
+      },
+      "pitch_mean_hz": 311.55,
+      "voiced_fraction": 0.327,
+      "top_moments": 10
+    },
+    "dUy7eWrYUtQ": {
+      "flagged_pct": 43.9,
+      "total_segments": 668,
+      "flagged_segments": 293,
+      "flag_summary": {
+        "long_pause": 141,
+        "voice_tremor": 121,
+        "speech_slowdown": 140,
+        "pitch_rise": 26,
+        "volume_drop": 1
+      },
+      "pitch_mean_hz": 188.28,
+      "voiced_fraction": 0.457,
+      "top_moments": 10
+    }
+  },
+  "aggregate": {
+    "n": 186,
+    "avg_flagged_pct": 68.6,
+    "above50_pct": 86.6,
+    "above70_pct": 40.9,
+    "flag_type_totals": {
+      "long_pause": 32313,
+      "voice_tremor": 77039,
+      "speech_slowdown": 26693,
+      "pitch_rise": 5161,
+      "volume_drop": 93,
+      "pitch_drop": 59
+    }
+  }
+}
