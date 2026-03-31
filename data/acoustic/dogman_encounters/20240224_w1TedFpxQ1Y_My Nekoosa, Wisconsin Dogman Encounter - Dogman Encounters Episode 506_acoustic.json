@@ -1,0 +1,5561 @@
+{
+  "meta": {
+    "audio_file": "20240224_w1TedFpxQ1Y_My Nekoosa, Wisconsin Dogman Encounter - Dogman Encounters Episode 506.opus",
+    "channel": "dogman_encounters",
+    "analysed_at": "2026-03-30T04:32:22.074632",
+    "total_segments": 263,
+    "flagged_segments": 150,
+    "flagged_pct": 57.0
+  },
+  "baseline": {
+    "duration_seconds": 1470.9,
+    "pitch_mean_hz": 164.59,
+    "pitch_std_hz": 200.65,
+    "pitch_median_hz": 134.65,
+    "voiced_fraction": 0.531,
+    "rms_mean": 0.10569,
+    "rms_std": 0.08494,
+    "zcr_mean": 0.226851,
+    "spectral_centroid_mean": 2070.92,
+    "spectral_centroid_std": 1570.82
+  },
+  "flag_summary": {
+    "long_pause": 43,
+    "voice_tremor": 112,
+    "speech_slowdown": 44,
+    "pitch_rise": 3,
+    "volume_drop": 1
+  },
+  "top_emotional_moments": [
+    {
+      "start_s": 0,
+      "end_s": 29.98,
+      "text": "Thank you.",
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 7.3,
+          "note": "Silence of 7.3s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 31.74,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 60,
+      "end_s": 89.36,
+      "text": "Tonight's guest is Jamie Smith.",
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 5.8,
+          "note": "Silence of 5.8s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 49.77,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 90,
+      "end_s": 91.76,
+      "text": "Jamie, welcome to the show.",
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.222,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 34.18,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 94.36,
+      "end_s": 95.76,
+      "text": "Well, thanks so much for coming on.",
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 35.36,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 97.64,
+      "end_s": 100.6,
+      "text": "Jamie, please give us a brief bio on yourself.",
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 53.99,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 101.74,
+      "end_s": 104.88,
+      "text": "I was born and raised in Upper Michigan.",
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 41.12,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 122.92,
+      "end_s": 128.62,
+      "text": "One time I even walked up on a bear that was at a blueberry patch eating blueberries.",
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 45.93,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 135.2,
+      "end_s": 144.66,
+      "text": "So, yeah, I grew up my whole life in Upper Michigan, married with three kids, been married for 30 years.",
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.4,
+          "note": "Silence of 2.4s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 78.91,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 144.66,
+      "end_s": 153.96,
+      "text": "And with my current job, I've been doing this for 20 years, driving around Upper Michigan and Wisconsin, servicing casinos.",
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 35.57,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    },
+    {
+      "start_s": 163.92,
+      "end_s": 169.34,
+      "text": "Right. There's not a lot in Upper Michigan, just a bunch of small towns.",
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 47.98,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0
+    }
+  ],
+  "segments": [
+    {
+      "start_s": 0,
+      "end_s": 29.98,
+      "duration_s": 29.98,
+      "pitch_mean_hz": 89.12,
+      "pitch_z": -0.376,
+      "rms_mean": 0.071526,
+      "rms_z": -0.402,
+      "voiced_rate": 0.902,
+      "silence_s": 7.3,
+      "pitch_tremor": 31.74,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 7.3,
+          "note": "Silence of 7.3s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 31.74,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Thank you."
+    },
+    {
+      "start_s": 30,
+      "end_s": 59.98,
+      "duration_s": 29.98,
+      "pitch_mean_hz": 67.72,
+      "pitch_z": -0.483,
+      "rms_mean": 0.143171,
+      "rms_z": 0.441,
+      "voiced_rate": 0.878,
+      "silence_s": 0.0,
+      "pitch_tremor": 10.59,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Thank you."
+    },
+    {
+      "start_s": 60,
+      "end_s": 89.36,
+      "duration_s": 29.36,
+      "pitch_mean_hz": 86.51,
+      "pitch_z": -0.389,
+      "rms_mean": 0.100714,
+      "rms_z": -0.059,
+      "voiced_rate": 0.774,
+      "silence_s": 5.76,
+      "pitch_tremor": 49.77,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 5.8,
+          "note": "Silence of 5.8s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 49.77,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Tonight's guest is Jamie Smith."
+    },
+    {
+      "start_s": 90,
+      "end_s": 91.76,
+      "duration_s": 1.76,
+      "pitch_mean_hz": 148.98,
+      "pitch_z": -0.078,
+      "rms_mean": 0.094144,
+      "rms_z": -0.136,
+      "voiced_rate": 0.309,
+      "silence_s": 0.35,
+      "pitch_tremor": 34.18,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.222,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 34.18,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Jamie, welcome to the show."
+    },
+    {
+      "start_s": 92.48,
+      "end_s": 93.78,
+      "duration_s": 1.3,
+      "pitch_mean_hz": 148.74,
+      "pitch_z": -0.079,
+      "rms_mean": 0.129461,
+      "rms_z": 0.28,
+      "voiced_rate": 0.7,
+      "silence_s": 0.32,
+      "pitch_tremor": 8.22,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Thanks for having me, Vic."
+    },
+    {
+      "start_s": 94.36,
+      "end_s": 95.76,
+      "duration_s": 1.4,
+      "pitch_mean_hz": 151.01,
+      "pitch_z": -0.068,
+      "rms_mean": 0.094199,
+      "rms_z": -0.135,
+      "voiced_rate": 0.773,
+      "silence_s": 0.13,
+      "pitch_tremor": 35.36,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 35.36,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Well, thanks so much for coming on."
+    },
+    {
+      "start_s": 95.82,
+      "end_s": 97.08,
+      "duration_s": 1.26,
+      "pitch_mean_hz": 154.84,
+      "pitch_z": -0.049,
+      "rms_mean": 0.107989,
+      "rms_z": 0.027,
+      "voiced_rate": 0.744,
+      "silence_s": 0.0,
+      "pitch_tremor": 27.27,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "We appreciate your time."
+    },
+    {
+      "start_s": 97.64,
+      "end_s": 100.6,
+      "duration_s": 2.96,
+      "pitch_mean_hz": 153.93,
+      "pitch_z": -0.053,
+      "rms_mean": 0.106728,
+      "rms_z": 0.012,
+      "voiced_rate": 0.739,
+      "silence_s": 0.22,
+      "pitch_tremor": 53.99,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 53.99,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Jamie, please give us a brief bio on yourself."
+    },
+    {
+      "start_s": 101.74,
+      "end_s": 104.88,
+      "duration_s": 3.14,
+      "pitch_mean_hz": 175.94,
+      "pitch_z": 0.057,
+      "rms_mean": 0.166584,
+      "rms_z": 0.717,
+      "voiced_rate": 0.622,
+      "silence_s": 0.29,
+      "pitch_tremor": 41.12,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 41.12,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I was born and raised in Upper Michigan."
+    },
+    {
+      "start_s": 105.54,
+      "end_s": 110.66,
+      "duration_s": 5.12,
+      "pitch_mean_hz": 131.78,
+      "pitch_z": -0.164,
+      "rms_mean": 0.177701,
+      "rms_z": 0.848,
+      "voiced_rate": 0.681,
+      "silence_s": 0.48,
+      "pitch_tremor": 9.62,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "And if anyone knows of the area, it's woods and more woods."
+    },
+    {
+      "start_s": 111.92,
+      "end_s": 115.44,
+      "duration_s": 3.52,
+      "pitch_mean_hz": 140.61,
+      "pitch_z": -0.119,
+      "rms_mean": 0.131045,
+      "rms_z": 0.298,
+      "voiced_rate": 0.445,
+      "silence_s": 1.02,
+      "pitch_tremor": 17.51,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Grew up in a country next to the woods."
+    },
+    {
+      "start_s": 115.56,
+      "end_s": 117.34,
+      "duration_s": 1.78,
+      "pitch_mean_hz": 133.01,
+      "pitch_z": -0.157,
+      "rms_mean": 0.196945,
+      "rms_z": 1.074,
+      "voiced_rate": 0.564,
+      "silence_s": 0.0,
+      "pitch_tremor": 20.93,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Spent a lot of time in the woods."
+    },
+    {
+      "start_s": 117.34,
+      "end_s": 122,
+      "duration_s": 4.66,
+      "pitch_mean_hz": 142.88,
+      "pitch_z": -0.108,
+      "rms_mean": 0.159642,
+      "rms_z": 0.635,
+      "voiced_rate": 0.705,
+      "silence_s": 0.54,
+      "pitch_tremor": 21.1,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I would go hunting with my brother every now and then, go for walks in the woods."
+    },
+    {
+      "start_s": 122.92,
+      "end_s": 128.62,
+      "duration_s": 5.7,
+      "pitch_mean_hz": 146.16,
+      "pitch_z": -0.092,
+      "rms_mean": 0.159578,
+      "rms_z": 0.634,
+      "voiced_rate": 0.747,
+      "silence_s": 0.26,
+      "pitch_tremor": 45.93,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 45.93,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "One time I even walked up on a bear that was at a blueberry patch eating blueberries."
+    },
+    {
+      "start_s": 129.58,
+      "end_s": 133.88,
+      "duration_s": 4.3,
+      "pitch_mean_hz": 127.28,
+      "pitch_z": -0.186,
+      "rms_mean": 0.175621,
+      "rms_z": 0.823,
+      "voiced_rate": 0.716,
+      "silence_s": 0.19,
+      "pitch_tremor": 7.5,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Luckily, I had my little dog with me, and it chased the black bear away."
+    },
+    {
+      "start_s": 135.2,
+      "end_s": 144.66,
+      "duration_s": 9.46,
+      "pitch_mean_hz": 171.34,
+      "pitch_z": 0.034,
+      "rms_mean": 0.120688,
+      "rms_z": 0.177,
+      "voiced_rate": 0.546,
+      "silence_s": 2.43,
+      "pitch_tremor": 78.91,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.4,
+          "note": "Silence of 2.4s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 78.91,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "So, yeah, I grew up my whole life in Upper Michigan, married with three kids, been married for 30 years."
+    },
+    {
+      "start_s": 144.66,
+      "end_s": 153.96,
+      "duration_s": 9.3,
+      "pitch_mean_hz": 146.04,
+      "pitch_z": -0.092,
+      "rms_mean": 0.145247,
+      "rms_z": 0.466,
+      "voiced_rate": 0.485,
+      "silence_s": 1.6,
+      "pitch_tremor": 35.57,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 35.57,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "And with my current job, I've been doing this for 20 years, driving around Upper Michigan and Wisconsin, servicing casinos."
+    },
+    {
+      "start_s": 154.78,
+      "end_s": 160.36,
+      "duration_s": 5.58,
+      "pitch_mean_hz": 136.2,
+      "pitch_z": -0.141,
+      "rms_mean": 0.097916,
+      "rms_z": -0.092,
+      "voiced_rate": 0.72,
+      "silence_s": 0.74,
+      "pitch_tremor": 20.13,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Sure sounds to me like you had a great upbringing and obviously you've carved out a really good life for yourself."
+    },
+    {
+      "start_s": 160.5,
+      "end_s": 162.98,
+      "duration_s": 2.48,
+      "pitch_mean_hz": 135.08,
+      "pitch_z": -0.147,
+      "rms_mean": 0.087826,
+      "rms_z": -0.21,
+      "voiced_rate": 0.346,
+      "silence_s": 0.26,
+      "pitch_tremor": 19.59,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.185,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.18,
+      "flagged": true,
+      "text": "So what more could you want? That's great."
+    },
+    {
+      "start_s": 163.92,
+      "end_s": 169.34,
+      "duration_s": 5.42,
+      "pitch_mean_hz": 160.32,
+      "pitch_z": -0.021,
+      "rms_mean": 0.144907,
+      "rms_z": 0.462,
+      "voiced_rate": 0.657,
+      "silence_s": 0.61,
+      "pitch_tremor": 47.98,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 47.98,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Right. There's not a lot in Upper Michigan, just a bunch of small towns."
+    },
+    {
+      "start_s": 169.34,
+      "end_s": 177.14,
+      "duration_s": 7.8,
+      "pitch_mean_hz": 333.74,
+      "pitch_z": 0.843,
+      "rms_mean": 0.12133,
+      "rms_z": 0.184,
+      "voiced_rate": 0.566,
+      "silence_s": 1.89,
+      "pitch_tremor": 506.39,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.9,
+          "note": "Silence of 1.9s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 506.39,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "so you do what you can here and a lot of that involves activities out in the woods nothing"
+    },
+    {
+      "start_s": 177.14,
+      "end_s": 182,
+      "duration_s": 4.86,
+      "pitch_mean_hz": 143.58,
+      "pitch_z": -0.105,
+      "rms_mean": 0.122607,
+      "rms_z": 0.199,
+      "voiced_rate": 0.737,
+      "silence_s": 0.54,
+      "pitch_tremor": 23.22,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "wrong with that like i've said before a bad day in the woods will be a good day in the office"
+    },
+    {
+      "start_s": 182,
+      "end_s": 188.74,
+      "duration_s": 6.74,
+      "pitch_mean_hz": 137.21,
+      "pitch_z": -0.136,
+      "rms_mean": 0.086745,
+      "rms_z": -0.223,
+      "voiced_rate": 0.611,
+      "silence_s": 1.47,
+      "pitch_tremor": 43.79,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 43.79,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "anytime so i like that you mentioned that bear that you walked up on with your dog how close"
+    },
+    {
+      "start_s": 188.74,
+      "end_s": 197.96,
+      "duration_s": 9.22,
+      "pitch_mean_hz": 159.32,
+      "pitch_z": -0.026,
+      "rms_mean": 0.096637,
+      "rms_z": -0.107,
+      "voiced_rate": 0.368,
+      "silence_s": 2.91,
+      "pitch_tremor": 35.36,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.163,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 2.9,
+          "note": "Silence of 2.9s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 35.36,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "did you get to it before it ran off i was about 10 feet away from it oh it didn't really see me"
+    },
+    {
+      "start_s": 197.96,
+      "end_s": 205.64,
+      "duration_s": 7.68,
+      "pitch_mean_hz": 400.47,
+      "pitch_z": 1.176,
+      "rms_mean": 0.140749,
+      "rms_z": 0.413,
+      "voiced_rate": 0.675,
+      "silence_s": 1.57,
+      "pitch_tremor": 564.8,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 564.8,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "it was too busy eating blueberries. But as soon as my little beagle mixed dog seen it, it"
+    },
+    {
+      "start_s": 206.6,
+      "end_s": 212.2,
+      "duration_s": 5.6,
+      "pitch_mean_hz": 117.66,
+      "pitch_z": -0.234,
+      "rms_mean": 0.087331,
+      "rms_z": -0.216,
+      "voiced_rate": 0.566,
+      "silence_s": 0.96,
+      "pitch_tremor": 20.14,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "started barking and chased it away. Well, thank goodness it didn't get frightened and turn on you."
+    },
+    {
+      "start_s": 212.2,
+      "end_s": 218.52,
+      "duration_s": 6.32,
+      "pitch_mean_hz": 144.47,
+      "pitch_z": -0.1,
+      "rms_mean": 0.086757,
+      "rms_z": -0.223,
+      "voiced_rate": 0.249,
+      "silence_s": 2.08,
+      "pitch_tremor": 13.39,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.282,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 2.1,
+          "note": "Silence of 2.1s detected within segment"
+        }
+      ],
+      "emotional_weight": 2.38,
+      "flagged": true,
+      "text": "That wouldn't have been good. Black bears don't get too big, but you always got to be careful"
+    },
+    {
+      "start_s": 218.52,
+      "end_s": 223.72,
+      "duration_s": 5.2,
+      "pitch_mean_hz": 148.28,
+      "pitch_z": -0.081,
+      "rms_mean": 0.107207,
+      "rms_z": 0.018,
+      "voiced_rate": 0.644,
+      "silence_s": 1.09,
+      "pitch_tremor": 32.57,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 32.57,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "around bears. That you doing? They don't get all that big, but they definitely get big enough to"
+    },
+    {
+      "start_s": 223.72,
+      "end_s": 231.48,
+      "duration_s": 7.76,
+      "pitch_mean_hz": 161.63,
+      "pitch_z": -0.015,
+      "rms_mean": 0.084068,
+      "rms_z": -0.255,
+      "voiced_rate": 0.318,
+      "silence_s": 1.44,
+      "pitch_tremor": 54.06,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.213,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 54.06,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "cause some serious problems. Jamie, your encounter happened close to Christmas in 2007. On Christmas"
+    },
+    {
+      "start_s": 231.48,
+      "end_s": 236.2,
+      "duration_s": 4.72,
+      "pitch_mean_hz": 136.34,
+      "pitch_z": -0.141,
+      "rms_mean": 0.100997,
+      "rms_z": -0.055,
+      "voiced_rate": 0.716,
+      "silence_s": 0.16,
+      "pitch_tremor": 32.91,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 32.91,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Eve of that year, what were your thoughts on the existence of dogmen? Did you even know about them?"
+    },
+    {
+      "start_s": 237.72,
+      "end_s": 245.72,
+      "duration_s": 8.0,
+      "pitch_mean_hz": 208.96,
+      "pitch_z": 0.221,
+      "rms_mean": 0.151382,
+      "rms_z": 0.538,
+      "voiced_rate": 0.68,
+      "silence_s": 1.09,
+      "pitch_tremor": 269.56,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 269.56,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Around that time, I still had no clue what a dogman was. Never heard of them before."
+    },
+    {
+      "start_s": 247.32,
+      "end_s": 253.56,
+      "duration_s": 6.24,
+      "pitch_mean_hz": 188.83,
+      "pitch_z": 0.121,
+      "rms_mean": 0.092488,
+      "rms_z": -0.155,
+      "voiced_rate": 0.415,
+      "silence_s": 1.57,
+      "pitch_tremor": 80.89,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 80.89,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Never really heard anything like that. Well, that had to be quite the shock to the senses to"
+    },
+    {
+      "start_s": 253.56,
+      "end_s": 255.34,
+      "duration_s": 1.78,
+      "pitch_mean_hz": 134.52,
+      "pitch_z": -0.15,
+      "rms_mean": 0.107317,
+      "rms_z": 0.019,
+      "voiced_rate": 0.875,
+      "silence_s": 0.13,
+      "pitch_tremor": 26.02,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Just be thrown into the deep end."
+    },
+    {
+      "start_s": 255.44,
+      "end_s": 258.34,
+      "duration_s": 2.9,
+      "pitch_mean_hz": 110.75,
+      "pitch_z": -0.268,
+      "rms_mean": 0.095367,
+      "rms_z": -0.122,
+      "voiced_rate": 0.758,
+      "silence_s": 0.0,
+      "pitch_tremor": 20.8,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "You had your encounter and that was your introduction to them being around."
+    },
+    {
+      "start_s": 258.78,
+      "end_s": 259.66,
+      "duration_s": 0.88,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.068712,
+      "rms_z": -0.435,
+      "voiced_rate": 0.0,
+      "silence_s": 0.1,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.53,
+      "flagged": true,
+      "text": "That's rough."
+    },
+    {
+      "start_s": 259.84,
+      "end_s": 260.7,
+      "duration_s": 0.86,
+      "pitch_mean_hz": 111.63,
+      "pitch_z": -0.264,
+      "rms_mean": 0.091668,
+      "rms_z": -0.165,
+      "voiced_rate": 0.593,
+      "silence_s": 0.06,
+      "pitch_tremor": 11.37,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "That really is."
+    },
+    {
+      "start_s": 261.14,
+      "end_s": 265.12,
+      "duration_s": 3.98,
+      "pitch_mean_hz": 148.91,
+      "pitch_z": -0.078,
+      "rms_mean": 0.110482,
+      "rms_z": 0.056,
+      "voiced_rate": 0.496,
+      "silence_s": 0.06,
+      "pitch_tremor": 43.95,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 43.95,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "If you didn't know about dogmen, I know full well you must have known about Sasquatch."
+    },
+    {
+      "start_s": 265.44,
+      "end_s": 267.12,
+      "duration_s": 1.68,
+      "pitch_mean_hz": 165.15,
+      "pitch_z": 0.003,
+      "rms_mean": 0.115924,
+      "rms_z": 0.12,
+      "voiced_rate": 0.712,
+      "silence_s": 0.03,
+      "pitch_tremor": 27.86,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "What were your beliefs on their existence?"
+    },
+    {
+      "start_s": 267.38,
+      "end_s": 268.36,
+      "duration_s": 0.98,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.072443,
+      "rms_z": -0.391,
+      "voiced_rate": 0.0,
+      "silence_s": 0.03,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.53,
+      "flagged": true,
+      "text": "Did you think it was nonsense?"
+    },
+    {
+      "start_s": 271.1,
+      "end_s": 275.64,
+      "duration_s": 4.54,
+      "pitch_mean_hz": 166.06,
+      "pitch_z": 0.007,
+      "rms_mean": 0.155212,
+      "rms_z": 0.583,
+      "voiced_rate": 0.789,
+      "silence_s": 0.22,
+      "pitch_tremor": 25.56,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "It's kind of one of those things where you have to see it to believe it."
+    },
+    {
+      "start_s": 276.28,
+      "end_s": 282.26,
+      "duration_s": 5.98,
+      "pitch_mean_hz": 143.91,
+      "pitch_z": -0.103,
+      "rms_mean": 0.185195,
+      "rms_z": 0.936,
+      "voiced_rate": 0.818,
+      "silence_s": 0.48,
+      "pitch_tremor": 24.01,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "The more and more you hear people talk about their encounters, you start to believe it more."
+    },
+    {
+      "start_s": 282.26,
+      "end_s": 294.46,
+      "duration_s": 12.2,
+      "pitch_mean_hz": 146.04,
+      "pitch_z": -0.092,
+      "rms_mean": 0.134663,
+      "rms_z": 0.341,
+      "voiced_rate": 0.559,
+      "silence_s": 2.27,
+      "pitch_tremor": 42.72,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.3,
+          "note": "Silence of 2.3s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 42.72,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "But I think at that time, I probably thought it was probably a lot of nonsense or people were seeing something else and were getting screwed up on what they were seeing."
+    },
+    {
+      "start_s": 295.22,
+      "end_s": 297.9,
+      "duration_s": 2.68,
+      "pitch_mean_hz": 115.72,
+      "pitch_z": -0.244,
+      "rms_mean": 0.076982,
+      "rms_z": -0.338,
+      "voiced_rate": 0.786,
+      "silence_s": 0.35,
+      "pitch_tremor": 19.9,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Yeah, that's a pretty common way to look at the phenomenon."
+    },
+    {
+      "start_s": 298.56,
+      "end_s": 305.52,
+      "duration_s": 6.96,
+      "pitch_mean_hz": 130.9,
+      "pitch_z": -0.168,
+      "rms_mean": 0.108226,
+      "rms_z": 0.03,
+      "voiced_rate": 0.59,
+      "silence_s": 0.32,
+      "pitch_tremor": 30.3,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 30.3,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "The more you dig into the existence of Sasquatch or Dogmen, it just gets harder and harder to dismiss their existence."
+    },
+    {
+      "start_s": 305.52,
+      "end_s": 315.3,
+      "duration_s": 9.78,
+      "pitch_mean_hz": 138.31,
+      "pitch_z": -0.131,
+      "rms_mean": 0.098246,
+      "rms_z": -0.088,
+      "voiced_rate": 0.686,
+      "silence_s": 0.93,
+      "pitch_tremor": 21.24,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "But if you don't put any research into the phenomenon, the dogman phenomenon or the Sasquatch phenomenon, it's all too easy to just brush it off as complete nonsense."
+    },
+    {
+      "start_s": 316.04,
+      "end_s": 318.52,
+      "duration_s": 2.48,
+      "pitch_mean_hz": 103.54,
+      "pitch_z": -0.304,
+      "rms_mean": 0.078463,
+      "rms_z": -0.321,
+      "voiced_rate": 0.805,
+      "silence_s": 0.06,
+      "pitch_tremor": 17.92,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "So, yeah, that didn't make any difference for most people."
+    },
+    {
+      "start_s": 319.18,
+      "end_s": 327.44,
+      "duration_s": 8.26,
+      "pitch_mean_hz": 148.71,
+      "pitch_z": -0.079,
+      "rms_mean": 0.100009,
+      "rms_z": -0.067,
+      "voiced_rate": 0.605,
+      "silence_s": 0.58,
+      "pitch_tremor": 40.96,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 40.96,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "But from what I understand, not too long after you had your dogman encounter, you saw a dogman-related documentary that helped you realize what you had seen."
+    },
+    {
+      "start_s": 327.78,
+      "end_s": 329.3,
+      "duration_s": 1.52,
+      "pitch_mean_hz": 174.35,
+      "pitch_z": 0.049,
+      "rms_mean": 0.074706,
+      "rms_z": -0.365,
+      "voiced_rate": 0.319,
+      "silence_s": 0.06,
+      "pitch_tremor": 21.88,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.212,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.21,
+      "flagged": true,
+      "text": "What more can you tell us about that?"
+    },
+    {
+      "start_s": 330.58,
+      "end_s": 331.3,
+      "duration_s": 0.72,
+      "pitch_mean_hz": 99.52,
+      "pitch_z": -0.324,
+      "rms_mean": 0.089367,
+      "rms_z": -0.192,
+      "voiced_rate": 0.304,
+      "silence_s": 0.22,
+      "pitch_tremor": 3.14,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.227,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.23,
+      "flagged": true,
+      "text": "Yes."
+    },
+    {
+      "start_s": 331.3,
+      "end_s": 338.36,
+      "duration_s": 7.06,
+      "pitch_mean_hz": 203.0,
+      "pitch_z": 0.191,
+      "rms_mean": 0.128423,
+      "rms_z": 0.268,
+      "voiced_rate": 0.564,
+      "silence_s": 1.41,
+      "pitch_tremor": 88.41,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 88.41,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I always watch the Discovery Channel because I like the kind of shows they play on there."
+    },
+    {
+      "start_s": 340.24,
+      "end_s": 346.22,
+      "duration_s": 5.98,
+      "pitch_mean_hz": 235.94,
+      "pitch_z": 0.356,
+      "rms_mean": 0.142466,
+      "rms_z": 0.433,
+      "voiced_rate": 0.722,
+      "silence_s": 1.25,
+      "pitch_tremor": 313.22,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 313.22,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "One night they were showing a Wisconsin Dogman episode."
+    },
+    {
+      "start_s": 347.28,
+      "end_s": 349.5,
+      "duration_s": 2.22,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.146837,
+      "rms_z": 0.484,
+      "voiced_rate": 0.0,
+      "silence_s": 0.35,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.53,
+      "flagged": true,
+      "text": "So I'm sitting there watching it."
+    },
+    {
+      "start_s": 350.68,
+      "end_s": 357.2,
+      "duration_s": 6.52,
+      "pitch_mean_hz": 152.66,
+      "pitch_z": -0.059,
+      "rms_mean": 0.163616,
+      "rms_z": 0.682,
+      "voiced_rate": 0.765,
+      "silence_s": 0.7,
+      "pitch_tremor": 26.04,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "And, you know, they'll show recreations of a dogman in people's stories."
+    },
+    {
+      "start_s": 357.2,
+      "end_s": 373.77,
+      "duration_s": 16.57,
+      "pitch_mean_hz": 140.98,
+      "pitch_z": -0.118,
+      "rms_mean": 0.111643,
+      "rms_z": 0.07,
+      "voiced_rate": 0.425,
+      "silence_s": 3.78,
+      "pitch_tremor": 48.59,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 3.8,
+          "note": "Silence of 3.8s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 48.59,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "and I realized by watching this that hey I seen something like this before And now I could finally put a name to what I seen When you finally realized what it was that you had seen did you go and tell your"
+    },
+    {
+      "start_s": 373.77,
+      "end_s": 379.37,
+      "duration_s": 5.6,
+      "pitch_mean_hz": 130.55,
+      "pitch_z": -0.17,
+      "rms_mean": 0.097432,
+      "rms_z": -0.097,
+      "voiced_rate": 0.514,
+      "silence_s": 0.22,
+      "pitch_tremor": 18.08,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "wife at the first opportunity that, okay, I had this experience, I didn't know what it was, but"
+    },
+    {
+      "start_s": 379.37,
+      "end_s": 384.17,
+      "duration_s": 4.8,
+      "pitch_mean_hz": 126.92,
+      "pitch_z": -0.188,
+      "rms_mean": 0.088279,
+      "rms_z": -0.205,
+      "voiced_rate": 0.593,
+      "silence_s": 0.32,
+      "pitch_tremor": 16.07,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I just saw a documentary that gave me an education on that? Or did you just keep it to yourself?"
+    },
+    {
+      "start_s": 384.17,
+      "end_s": 392.47,
+      "duration_s": 8.3,
+      "pitch_mean_hz": 221.9,
+      "pitch_z": 0.286,
+      "rms_mean": 0.09991,
+      "rms_z": -0.068,
+      "voiced_rate": 0.56,
+      "silence_s": 2.75,
+      "pitch_tremor": 257.76,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.8,
+          "note": "Silence of 2.8s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 257.76,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I told my family what I seen, that it was most likely a dog man."
+    },
+    {
+      "start_s": 393.59,
+      "end_s": 395.99,
+      "duration_s": 2.4,
+      "pitch_mean_hz": 151.45,
+      "pitch_z": -0.065,
+      "rms_mean": 0.192904,
+      "rms_z": 1.027,
+      "voiced_rate": 0.907,
+      "silence_s": 0.13,
+      "pitch_tremor": 48.17,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 48.17,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I'm not sure if they really believed me."
+    },
+    {
+      "start_s": 396.73,
+      "end_s": 398.71,
+      "duration_s": 1.98,
+      "pitch_mean_hz": 164.05,
+      "pitch_z": -0.003,
+      "rms_mean": 0.165913,
+      "rms_z": 0.709,
+      "voiced_rate": 0.597,
+      "silence_s": 0.0,
+      "pitch_tremor": 62.5,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 62.5,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I've told a few people since."
+    },
+    {
+      "start_s": 399.15,
+      "end_s": 403.41,
+      "duration_s": 4.26,
+      "pitch_mean_hz": 166.87,
+      "pitch_z": 0.011,
+      "rms_mean": 0.14041,
+      "rms_z": 0.409,
+      "voiced_rate": 0.459,
+      "silence_s": 0.48,
+      "pitch_tremor": 43.64,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 43.64,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Only people that I believe that I could trust with this information,"
+    },
+    {
+      "start_s": 403.85,
+      "end_s": 408.41,
+      "duration_s": 4.56,
+      "pitch_mean_hz": 140.08,
+      "pitch_z": -0.122,
+      "rms_mean": 0.131189,
+      "rms_z": 0.3,
+      "voiced_rate": 0.345,
+      "silence_s": 0.45,
+      "pitch_tremor": 12.05,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.186,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.19,
+      "flagged": true,
+      "text": "because it's not something you want to go around blabbing to everyone about,"
+    },
+    {
+      "start_s": 408.57,
+      "end_s": 410.99,
+      "duration_s": 2.42,
+      "pitch_mean_hz": 139.61,
+      "pitch_z": -0.125,
+      "rms_mean": 0.127353,
+      "rms_z": 0.255,
+      "voiced_rate": 0.684,
+      "silence_s": 0.0,
+      "pitch_tremor": 43.81,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 43.81,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "because a lot of people look at you like you're crazy."
+    },
+    {
+      "start_s": 410.99,
+      "end_s": 416.83,
+      "duration_s": 5.84,
+      "pitch_mean_hz": 128.44,
+      "pitch_z": -0.18,
+      "rms_mean": 0.082255,
+      "rms_z": -0.276,
+      "voiced_rate": 0.615,
+      "silence_s": 1.54,
+      "pitch_tremor": 30.66,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.5,
+          "note": "Silence of 1.5s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 30.66,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "You're right. Unfortunately, they will. But if they do that, that's a them problem."
+    },
+    {
+      "start_s": 416.83,
+      "end_s": 423.15,
+      "duration_s": 6.32,
+      "pitch_mean_hz": 149.53,
+      "pitch_z": -0.075,
+      "rms_mean": 0.090425,
+      "rms_z": -0.18,
+      "voiced_rate": 0.53,
+      "silence_s": 1.57,
+      "pitch_tremor": 40.8,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 40.8,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Because you know the truth and they don't. So, so be it. If you drive that much in Wisconsin,"
+    },
+    {
+      "start_s": 423.15,
+      "end_s": 427.39,
+      "duration_s": 4.24,
+      "pitch_mean_hz": 128.62,
+      "pitch_z": -0.179,
+      "rms_mean": 0.104141,
+      "rms_z": -0.018,
+      "voiced_rate": 0.833,
+      "silence_s": 0.0,
+      "pitch_tremor": 33.94,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 33.94,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "what's the most frightening thing that you've seen or experienced driving from job to job"
+    },
+    {
+      "start_s": 427.39,
+      "end_s": 432.83,
+      "duration_s": 5.44,
+      "pitch_mean_hz": 119.35,
+      "pitch_z": -0.225,
+      "rms_mean": 0.075932,
+      "rms_z": -0.35,
+      "voiced_rate": 0.376,
+      "silence_s": 1.47,
+      "pitch_tremor": 33.0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.155,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 33.0,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "that wasn't Dogman related? One time I was driving through Wisconsin,"
+    },
+    {
+      "start_s": 434.03,
+      "end_s": 440.83,
+      "duration_s": 6.8,
+      "pitch_mean_hz": 204.18,
+      "pitch_z": 0.197,
+      "rms_mean": 0.128133,
+      "rms_z": 0.264,
+      "voiced_rate": 0.722,
+      "silence_s": 1.47,
+      "pitch_tremor": 81.59,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 81.59,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "there was a couple cars ahead of me. And I actually seen a cougar run out in front of the road"
+    },
+    {
+      "start_s": 440.99,
+      "end_s": 444.95,
+      "duration_s": 3.96,
+      "pitch_mean_hz": 238.52,
+      "pitch_z": 0.368,
+      "rms_mean": 0.128913,
+      "rms_z": 0.273,
+      "voiced_rate": 0.508,
+      "silence_s": 0.8,
+      "pitch_tremor": 242.94,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 242.94,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "And the second car in front of us hit it."
+    },
+    {
+      "start_s": 445.47,
+      "end_s": 451.17,
+      "duration_s": 5.7,
+      "pitch_mean_hz": 331.51,
+      "pitch_z": 0.832,
+      "rms_mean": 0.166403,
+      "rms_z": 0.715,
+      "voiced_rate": 0.715,
+      "silence_s": 0.58,
+      "pitch_tremor": 424.36,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 424.36,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "The Cougar did a 360 spin in the air and landed on the side of the road."
+    },
+    {
+      "start_s": 451.91,
+      "end_s": 458.77,
+      "duration_s": 6.86,
+      "pitch_mean_hz": 132.67,
+      "pitch_z": -0.159,
+      "rms_mean": 0.146782,
+      "rms_z": 0.484,
+      "voiced_rate": 0.467,
+      "silence_s": 1.15,
+      "pitch_tremor": 15.14,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Now, in this area, the DNR and all the officials will tell you there's not Cougars in the area."
+    },
+    {
+      "start_s": 459.59,
+      "end_s": 462.67,
+      "duration_s": 3.08,
+      "pitch_mean_hz": 122.81,
+      "pitch_z": -0.208,
+      "rms_mean": 0.119335,
+      "rms_z": 0.161,
+      "voiced_rate": 0.302,
+      "silence_s": 0.8,
+      "pitch_tremor": 12.92,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.229,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.23,
+      "flagged": true,
+      "text": "Well, I've seen one get hit right in front of me."
+    },
+    {
+      "start_s": 462.67,
+      "end_s": 468.57,
+      "duration_s": 5.9,
+      "pitch_mean_hz": 126.81,
+      "pitch_z": -0.188,
+      "rms_mean": 0.08454,
+      "rms_z": -0.249,
+      "voiced_rate": 0.598,
+      "silence_s": 1.18,
+      "pitch_tremor": 38.84,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 38.84,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "It's funny you mention that because mountain lions are in so many places across the country"
+    },
+    {
+      "start_s": 468.57,
+      "end_s": 474.07,
+      "duration_s": 5.5,
+      "pitch_mean_hz": 132.33,
+      "pitch_z": -0.161,
+      "rms_mean": 0.091281,
+      "rms_z": -0.17,
+      "voiced_rate": 0.599,
+      "silence_s": 1.06,
+      "pitch_tremor": 36.03,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 36.03,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "where the authorities are going to poo-poo their existence, but people see them all the"
+    },
+    {
+      "start_s": 474.07,
+      "end_s": 476.91,
+      "duration_s": 2.84,
+      "pitch_mean_hz": 120.8,
+      "pitch_z": -0.218,
+      "rms_mean": 0.07901,
+      "rms_z": -0.314,
+      "voiced_rate": 0.562,
+      "silence_s": 0.22,
+      "pitch_tremor": 32.86,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 32.86,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "time in these areas, so they're definitely there."
+    },
+    {
+      "start_s": 476.91,
+      "end_s": 477.91,
+      "duration_s": 1.0,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.07309,
+      "rms_z": -0.384,
+      "voiced_rate": 0.0,
+      "silence_s": 0.32,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.53,
+      "flagged": true,
+      "text": "Right."
+    },
+    {
+      "start_s": 477.91,
+      "end_s": 483.47,
+      "duration_s": 5.56,
+      "pitch_mean_hz": 150.75,
+      "pitch_z": -0.069,
+      "rms_mean": 0.134006,
+      "rms_z": 0.333,
+      "voiced_rate": 0.69,
+      "silence_s": 1.09,
+      "pitch_tremor": 33.28,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 33.28,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "It was a small one that I seen, but yeah, it was a cougar."
+    },
+    {
+      "start_s": 483.47,
+      "end_s": 490.29,
+      "duration_s": 6.82,
+      "pitch_mean_hz": 137.77,
+      "pitch_z": -0.134,
+      "rms_mean": 0.160002,
+      "rms_z": 0.639,
+      "voiced_rate": 0.728,
+      "silence_s": 0.99,
+      "pitch_tremor": 31.55,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 31.55,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "And you know, I've also had bear run out in front of me, wolves run out in front of me,"
+    },
+    {
+      "start_s": 490.29,
+      "end_s": 491.29,
+      "duration_s": 1.0,
+      "pitch_mean_hz": 154.77,
+      "pitch_z": -0.049,
+      "rms_mean": 0.141299,
+      "rms_z": 0.419,
+      "voiced_rate": 0.71,
+      "silence_s": 0.03,
+      "pitch_tremor": 25.41,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "coyotes."
+    },
+    {
+      "start_s": 491.29,
+      "end_s": 495.93,
+      "duration_s": 4.64,
+      "pitch_mean_hz": 355.14,
+      "pitch_z": 0.95,
+      "rms_mean": 0.141305,
+      "rms_z": 0.419,
+      "voiced_rate": 0.717,
+      "silence_s": 0.9,
+      "pitch_tremor": 521.71,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 521.71,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "about every kind of animal there is in the woods just from driving."
+    },
+    {
+      "start_s": 495.93,
+      "end_s": 499.69,
+      "duration_s": 3.76,
+      "pitch_mean_hz": 121.47,
+      "pitch_z": -0.215,
+      "rms_mean": 0.083187,
+      "rms_z": -0.265,
+      "voiced_rate": 0.508,
+      "silence_s": 0.96,
+      "pitch_tremor": 10.68,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, putting on the kind of miles that you do, I believe it."
+    },
+    {
+      "start_s": 499.69,
+      "end_s": 501.45,
+      "duration_s": 1.76,
+      "pitch_mean_hz": 108.35,
+      "pitch_z": -0.28,
+      "rms_mean": 0.056609,
+      "rms_z": -0.578,
+      "voiced_rate": 0.582,
+      "silence_s": 0.26,
+      "pitch_tremor": 20.44,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Yeah, I can only imagine what you've seen."
+    },
+    {
+      "start_s": 502.49,
+      "end_s": 507.13,
+      "duration_s": 4.64,
+      "pitch_mean_hz": 165.15,
+      "pitch_z": 0.003,
+      "rms_mean": 0.114101,
+      "rms_z": 0.099,
+      "voiced_rate": 0.71,
+      "silence_s": 0.51,
+      "pitch_tremor": 48.97,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 48.97,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Speaking of the driving you do for work, after having that encounter while doing that,"
+    },
+    {
+      "start_s": 507.13,
+      "end_s": 511.45,
+      "duration_s": 4.32,
+      "pitch_mean_hz": 130.71,
+      "pitch_z": -0.169,
+      "rms_mean": 0.11999,
+      "rms_z": 0.168,
+      "voiced_rate": 0.822,
+      "silence_s": 0.0,
+      "pitch_tremor": 23.69,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "did that make it really difficult for you to continue driving from job to job?"
+    },
+    {
+      "start_s": 511.45,
+      "end_s": 516.57,
+      "duration_s": 5.12,
+      "pitch_mean_hz": 116.29,
+      "pitch_z": -0.241,
+      "rms_mean": 0.082558,
+      "rms_z": -0.272,
+      "voiced_rate": 0.325,
+      "silence_s": 0.61,
+      "pitch_tremor": 21.38,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.206,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.21,
+      "flagged": true,
+      "text": "Or do you still feel safe in your vehicle and it's not that much of a problem?"
+    },
+    {
+      "start_s": 516.57,
+      "end_s": 526.23,
+      "duration_s": 9.66,
+      "pitch_mean_hz": 165.56,
+      "pitch_z": 0.005,
+      "rms_mean": 0.134789,
+      "rms_z": 0.343,
+      "voiced_rate": 0.576,
+      "silence_s": 1.98,
+      "pitch_tremor": 182.69,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.0,
+          "note": "Silence of 2.0s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 182.69,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "You feel safe in your vehicle because you're inside a vehicle and you feel like, well, I can go faster than anything that's out there."
+    },
+    {
+      "start_s": 526.55,
+      "end_s": 534.29,
+      "duration_s": 7.74,
+      "pitch_mean_hz": 148.18,
+      "pitch_z": -0.082,
+      "rms_mean": 0.112556,
+      "rms_z": 0.081,
+      "voiced_rate": 0.607,
+      "silence_s": 1.63,
+      "pitch_tremor": 181.99,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 181.99,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "But at the same time, my eyes are now watching because you never know what's going to pop out of the woods."
+    },
+    {
+      "start_s": 535.31,
+      "end_s": 544.01,
+      "duration_s": 8.7,
+      "pitch_mean_hz": 127.52,
+      "pitch_z": -0.185,
+      "rms_mean": 0.10728,
+      "rms_z": 0.019,
+      "voiced_rate": 0.75,
+      "silence_s": 0.45,
+      "pitch_tremor": 25.12,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Yeah, it's always a good idea to keep a watch out anyway because, like you said, you never know if deer are going to run across the road or maybe something else, a mountain lion."
+    },
+    {
+      "start_s": 544.01,
+      "end_s": 552.17,
+      "duration_s": 8.16,
+      "pitch_mean_hz": 139.89,
+      "pitch_z": -0.123,
+      "rms_mean": 0.126311,
+      "rms_z": 0.243,
+      "voiced_rate": 0.549,
+      "silence_s": 1.98,
+      "pitch_tremor": 19.07,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.0,
+          "note": "Silence of 2.0s detected within segment"
+        }
+      ],
+      "emotional_weight": 2.0,
+      "flagged": true,
+      "text": "I've hit deer, I've hit turkeys, so there's a lot of animals that'll run out in front of you."
+    },
+    {
+      "start_s": 552.17,
+      "end_s": 556.17,
+      "duration_s": 4.0,
+      "pitch_mean_hz": 118.73,
+      "pitch_z": -0.229,
+      "rms_mean": 0.060098,
+      "rms_z": -0.537,
+      "voiced_rate": 0.656,
+      "silence_s": 1.34,
+      "pitch_tremor": 25.23,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "That there are. Yeah, definitely. I've done that myself."
+    },
+    {
+      "start_s": 556.17,
+      "end_s": 560.61,
+      "duration_s": 4.44,
+      "pitch_mean_hz": 121.69,
+      "pitch_z": -0.214,
+      "rms_mean": 0.08714,
+      "rms_z": -0.218,
+      "voiced_rate": 0.669,
+      "silence_s": 1.09,
+      "pitch_tremor": 39.86,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 39.86,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "If you've had a dogman encounter and would like to speak with me about it,"
+    },
+    {
+      "start_s": 560.61,
+      "end_s": 566.13,
+      "duration_s": 5.52,
+      "pitch_mean_hz": 123.13,
+      "pitch_z": -0.207,
+      "rms_mean": 0.118399,
+      "rms_z": 0.15,
+      "voiced_rate": 0.797,
+      "silence_s": 0.32,
+      "pitch_tremor": 24.53,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "whether in private or on the show, please go to dogmanencounters.com and submit a report."
+    },
+    {
+      "start_s": 566.13,
+      "end_s": 570.71,
+      "duration_s": 4.58,
+      "pitch_mean_hz": 118.22,
+      "pitch_z": -0.231,
+      "rms_mean": 0.090634,
+      "rms_z": -0.177,
+      "voiced_rate": 0.678,
+      "silence_s": 0.58,
+      "pitch_tremor": 23.2,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "If you've had a Bigfoot sighting and would like to be a guest on one of my two Bigfoot shows,"
+    },
+    {
+      "start_s": 570.71,
+      "end_s": 573.91,
+      "duration_s": 3.2,
+      "pitch_mean_hz": 117.49,
+      "pitch_z": -0.235,
+      "rms_mean": 0.099003,
+      "rms_z": -0.079,
+      "voiced_rate": 0.46,
+      "silence_s": 0.32,
+      "pitch_tremor": 27.69,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Please go to MyBigFootSighting.com."
+    },
+    {
+      "start_s": 575.59,
+      "end_s": 578.69,
+      "duration_s": 3.1,
+      "pitch_mean_hz": 161.33,
+      "pitch_z": -0.016,
+      "rms_mean": 0.10754,
+      "rms_z": 0.022,
+      "voiced_rate": 0.773,
+      "silence_s": 0.45,
+      "pitch_tremor": 42.37,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 42.37,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "All right, Jamie, please tell us about your encounter now."
+    },
+    {
+      "start_s": 578.95,
+      "end_s": 581.01,
+      "duration_s": 2.06,
+      "pitch_mean_hz": 127.63,
+      "pitch_z": -0.184,
+      "rms_mean": 0.093142,
+      "rms_z": -0.148,
+      "voiced_rate": 0.438,
+      "silence_s": 0.0,
+      "pitch_tremor": 30.21,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 30.21,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Give us every last detail that comes to mind."
+    },
+    {
+      "start_s": 581.77,
+      "end_s": 588.35,
+      "duration_s": 6.58,
+      "pitch_mean_hz": 145.77,
+      "pitch_z": -0.094,
+      "rms_mean": 0.126545,
+      "rms_z": 0.246,
+      "voiced_rate": 0.483,
+      "silence_s": 1.38,
+      "pitch_tremor": 21.68,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Okay, so I was scheduled to work at a casino in Nakuska, Wisconsin."
+    },
+    {
+      "start_s": 589.33,
+      "end_s": 595.93,
+      "duration_s": 6.6,
+      "pitch_mean_hz": 156.99,
+      "pitch_z": -0.038,
+      "rms_mean": 0.130552,
+      "rms_z": 0.293,
+      "voiced_rate": 0.51,
+      "silence_s": 1.44,
+      "pitch_tremor": 41.53,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 41.53,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I live in Manistique, Michigan, which is about five hours away."
+    },
+    {
+      "start_s": 596.15,
+      "end_s": 597.87,
+      "duration_s": 1.72,
+      "pitch_mean_hz": 124.63,
+      "pitch_z": -0.199,
+      "rms_mean": 0.128923,
+      "rms_z": 0.274,
+      "voiced_rate": 0.463,
+      "silence_s": 0.13,
+      "pitch_tremor": 5.62,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Five to six hours, I want to say."
+    },
+    {
+      "start_s": 597.87,
+      "end_s": 604.73,
+      "duration_s": 6.86,
+      "pitch_mean_hz": 138.99,
+      "pitch_z": -0.128,
+      "rms_mean": 0.11171,
+      "rms_z": 0.071,
+      "voiced_rate": 0.528,
+      "silence_s": 1.47,
+      "pitch_tremor": 15.23,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I had never drove to Nacuska before, so this was my first time."
+    },
+    {
+      "start_s": 604.83,
+      "end_s": 608.11,
+      "duration_s": 3.28,
+      "pitch_mean_hz": 162.05,
+      "pitch_z": -0.013,
+      "rms_mean": 0.136755,
+      "rms_z": 0.366,
+      "voiced_rate": 0.495,
+      "silence_s": 0.1,
+      "pitch_tremor": 22.52,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I had to be there Monday morning at 8 o'clock to start work."
+    },
+    {
+      "start_s": 608.95,
+      "end_s": 611.33,
+      "duration_s": 2.38,
+      "pitch_mean_hz": 149.93,
+      "pitch_z": -0.073,
+      "rms_mean": 0.146627,
+      "rms_z": 0.482,
+      "voiced_rate": 0.52,
+      "silence_s": 0.42,
+      "pitch_tremor": 23.66,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "So it was a Sunday evening."
+    },
+    {
+      "start_s": 612.67,
+      "end_s": 615.89,
+      "duration_s": 3.22,
+      "pitch_mean_hz": 241.07,
+      "pitch_z": 0.381,
+      "rms_mean": 0.112861,
+      "rms_z": 0.084,
+      "voiced_rate": 0.426,
+      "silence_s": 1.09,
+      "pitch_tremor": 208.86,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 208.86,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I remember I got ready."
+    },
+    {
+      "start_s": 616.05,
+      "end_s": 618.53,
+      "duration_s": 2.48,
+      "pitch_mean_hz": 144.95,
+      "pitch_z": -0.098,
+      "rms_mean": 0.1547,
+      "rms_z": 0.577,
+      "voiced_rate": 0.795,
+      "silence_s": 0.16,
+      "pitch_tremor": 14.05,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I think I left around 5 in the evening."
+    },
+    {
+      "start_s": 619.95,
+      "end_s": 623.21,
+      "duration_s": 3.26,
+      "pitch_mean_hz": 182.53,
+      "pitch_z": 0.089,
+      "rms_mean": 0.113628,
+      "rms_z": 0.093,
+      "voiced_rate": 0.647,
+      "silence_s": 0.99,
+      "pitch_tremor": 40.94,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 40.94,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "For some reason, I mean, I drive a lot."
+    },
+    {
+      "start_s": 623.21,
+      "end_s": 626.91,
+      "duration_s": 3.7,
+      "pitch_mean_hz": 141.17,
+      "pitch_z": -0.117,
+      "rms_mean": 0.116447,
+      "rms_z": 0.127,
+      "voiced_rate": 0.6,
+      "silence_s": 0.58,
+      "pitch_tremor": 16.43,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I couldn't tell you what I did last Wednesday."
+    },
+    {
+      "start_s": 627.87,
+      "end_s": 630.77,
+      "duration_s": 2.9,
+      "pitch_mean_hz": 133.55,
+      "pitch_z": -0.155,
+      "rms_mean": 0.125099,
+      "rms_z": 0.229,
+      "voiced_rate": 0.264,
+      "silence_s": 0.26,
+      "pitch_tremor": 12.7,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.267,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.27,
+      "flagged": true,
+      "text": "Because I just do so much driving, I can't remember."
+    },
+    {
+      "start_s": 631.31,
+      "end_s": 639.99,
+      "duration_s": 8.68,
+      "pitch_mean_hz": 170.42,
+      "pitch_z": 0.029,
+      "rms_mean": 0.109847,
+      "rms_z": 0.049,
+      "voiced_rate": 0.395,
+      "silence_s": 1.38,
+      "pitch_tremor": 121.75,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 121.75,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "But for some reason, I remember almost this whole trip, starting from when I left my house to where I ended up at."
+    },
+    {
+      "start_s": 641.69,
+      "end_s": 645.39,
+      "duration_s": 3.7,
+      "pitch_mean_hz": 155.41,
+      "pitch_z": -0.046,
+      "rms_mean": 0.103106,
+      "rms_z": -0.03,
+      "voiced_rate": 0.526,
+      "silence_s": 0.99,
+      "pitch_tremor": 29.74,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "So I left around between five and six."
+    },
+    {
+      "start_s": 646.03,
+      "end_s": 650.41,
+      "duration_s": 4.38,
+      "pitch_mean_hz": 136.37,
+      "pitch_z": -0.141,
+      "rms_mean": 0.132687,
+      "rms_z": 0.318,
+      "voiced_rate": 0.489,
+      "silence_s": 0.26,
+      "pitch_tremor": 9.57,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I remember driving a couple hours, stopping at McDonald's, getting a bite to eat."
+    },
+    {
+      "start_s": 651.51,
+      "end_s": 652.83,
+      "duration_s": 1.32,
+      "pitch_mean_hz": 154.34,
+      "pitch_z": -0.051,
+      "rms_mean": 0.167747,
+      "rms_z": 0.731,
+      "voiced_rate": 0.854,
+      "silence_s": 0.13,
+      "pitch_tremor": 38.38,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 38.38,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Remember leaving there."
+    },
+    {
+      "start_s": 652.83,
+      "end_s": 659.31,
+      "duration_s": 6.48,
+      "pitch_mean_hz": 147.45,
+      "pitch_z": -0.085,
+      "rms_mean": 0.150665,
+      "rms_z": 0.529,
+      "voiced_rate": 0.591,
+      "silence_s": 0.67,
+      "pitch_tremor": 21.19,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I remember turning into Green Bay, Wisconsin, turning on Mason Street, going west."
+    },
+    {
+      "start_s": 659.83,
+      "end_s": 661.13,
+      "duration_s": 1.3,
+      "pitch_mean_hz": 146.84,
+      "pitch_z": -0.088,
+      "rms_mean": 0.197305,
+      "rms_z": 1.079,
+      "voiced_rate": 0.756,
+      "silence_s": 0.1,
+      "pitch_tremor": 12.45,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I remember being in Green Bay."
+    },
+    {
+      "start_s": 661.85,
+      "end_s": 667.03,
+      "duration_s": 5.18,
+      "pitch_mean_hz": 160.8,
+      "pitch_z": -0.019,
+      "rms_mean": 0.136401,
+      "rms_z": 0.362,
+      "voiced_rate": 0.494,
+      "silence_s": 0.74,
+      "pitch_tremor": 20.78,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "And then I got like probably 45 minutes to an hour past Green Bay."
+    },
+    {
+      "start_s": 668.01,
+      "end_s": 674.21,
+      "duration_s": 6.2,
+      "pitch_mean_hz": 199.41,
+      "pitch_z": 0.174,
+      "rms_mean": 0.133552,
+      "rms_z": 0.328,
+      "voiced_rate": 0.747,
+      "silence_s": 0.58,
+      "pitch_tremor": 298.74,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 298.74,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "There was snow on the ground, but there wasn't a lot of snow for the time of year, which was kind of unusual."
+    },
+    {
+      "start_s": 675.39,
+      "end_s": 677.05,
+      "duration_s": 1.66,
+      "pitch_mean_hz": 136.87,
+      "pitch_z": -0.138,
+      "rms_mean": 0.146596,
+      "rms_z": 0.482,
+      "voiced_rate": 0.115,
+      "silence_s": 0.0,
+      "pitch_tremor": 1.39,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.416,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.42,
+      "flagged": true,
+      "text": "It was pretty dark out."
+    },
+    {
+      "start_s": 677.05,
+      "end_s": 685.93,
+      "duration_s": 8.88,
+      "pitch_mean_hz": 157.2,
+      "pitch_z": -0.037,
+      "rms_mean": 0.089911,
+      "rms_z": -0.186,
+      "voiced_rate": 0.291,
+      "silence_s": 2.46,
+      "pitch_tremor": 48.41,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.24,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 2.5,
+          "note": "Silence of 2.5s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 48.41,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "and I was just thinking to myself, how much longer do I have to drive till I get to this place?"
+    },
+    {
+      "start_s": 686.61,
+      "end_s": 694.11,
+      "duration_s": 7.5,
+      "pitch_mean_hz": 209.4,
+      "pitch_z": 0.223,
+      "rms_mean": 0.10725,
+      "rms_z": 0.018,
+      "voiced_rate": 0.5,
+      "silence_s": 1.7,
+      "pitch_tremor": 238.16,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.7,
+          "note": "Silence of 1.7s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 238.16,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "So I'm driving and I come across this cornfield. I mean, obviously there's no corn in it for that"
+    },
+    {
+      "start_s": 694.11,
+      "end_s": 701.25,
+      "duration_s": 7.14,
+      "pitch_mean_hz": 146.84,
+      "pitch_z": -0.088,
+      "rms_mean": 0.129641,
+      "rms_z": 0.282,
+      "voiced_rate": 0.549,
+      "silence_s": 1.06,
+      "pitch_tremor": 23.73,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "time of year. And about 75 yards ahead of me, I see movement on the side of the road."
+    },
+    {
+      "start_s": 701.67,
+      "end_s": 706.41,
+      "duration_s": 4.74,
+      "pitch_mean_hz": 268.01,
+      "pitch_z": 0.515,
+      "rms_mean": 0.117378,
+      "rms_z": 0.138,
+      "voiced_rate": 0.236,
+      "silence_s": 0.48,
+      "pitch_tremor": 438.86,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.295,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 438.86,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I wasn't close enough to be able to tell what it was, but I could tell there was something up there"
+    },
+    {
+      "start_s": 706.41,
+      "end_s": 713.33,
+      "duration_s": 6.92,
+      "pitch_mean_hz": 158.77,
+      "pitch_z": -0.029,
+      "rms_mean": 0.100724,
+      "rms_z": -0.058,
+      "voiced_rate": 0.287,
+      "silence_s": 2.02,
+      "pitch_tremor": 19.44,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.244,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 2.0,
+          "note": "Silence of 2.0s detected within segment"
+        }
+      ],
+      "emotional_weight": 2.24,
+      "flagged": true,
+      "text": "moving around. I got a little closer and I'm like, okay, I think it looks like it might be some"
+    },
+    {
+      "start_s": 713.33,
+      "end_s": 719.33,
+      "duration_s": 6.0,
+      "pitch_mean_hz": 158.26,
+      "pitch_z": -0.032,
+      "rms_mean": 0.133149,
+      "rms_z": 0.323,
+      "voiced_rate": 0.537,
+      "silence_s": 0.19,
+      "pitch_tremor": 12.73,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "ravens, maybe some hawks on the side of the road. Cause I thought I seen wings flapping around."
+    },
+    {
+      "start_s": 720.61,
+      "end_s": 724.85,
+      "duration_s": 4.24,
+      "pitch_mean_hz": 166.05,
+      "pitch_z": 0.007,
+      "rms_mean": 0.147019,
+      "rms_z": 0.487,
+      "voiced_rate": 0.682,
+      "silence_s": 0.19,
+      "pitch_tremor": 34.42,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 34.42,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "So I'm getting closer. So I'm starting to slow down. Cause I'm thinking, well, I got"
+    },
+    {
+      "start_s": 724.85,
+      "end_s": 741.26,
+      "duration_s": 16.41,
+      "pitch_mean_hz": 332.69,
+      "pitch_z": 0.838,
+      "rms_mean": 0.097565,
+      "rms_z": -0.096,
+      "voiced_rate": 0.382,
+      "silence_s": 4.45,
+      "pitch_tremor": 482.47,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 4.4,
+          "note": "Silence of 4.4s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 482.47,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "a bunch of ravens or hawks on top of a dead deer or something that was dead on the side of the road So right as I get on top of it what I thought was wings that I was looking at"
+    },
+    {
+      "start_s": 741.26,
+      "end_s": 751.08,
+      "duration_s": 9.82,
+      "pitch_mean_hz": 161.36,
+      "pitch_z": -0.016,
+      "rms_mean": 0.110021,
+      "rms_z": 0.051,
+      "voiced_rate": 0.384,
+      "silence_s": 2.3,
+      "pitch_tremor": 44.73,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.3,
+          "note": "Silence of 2.3s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 44.73,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "was actually a big shoulder, the biggest shoulder I've ever seen on any kind of animal or human being."
+    },
+    {
+      "start_s": 751.08,
+      "end_s": 760.68,
+      "duration_s": 9.6,
+      "pitch_mean_hz": 169.96,
+      "pitch_z": 0.027,
+      "rms_mean": 0.094282,
+      "rms_z": -0.134,
+      "voiced_rate": 0.29,
+      "silence_s": 3.26,
+      "pitch_tremor": 62.13,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.241,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 3.3,
+          "note": "Silence of 3.3s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 62.13,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Off the shoulder were these long arms that were waving around."
+    },
+    {
+      "start_s": 762.1,
+      "end_s": 773.1,
+      "duration_s": 11.0,
+      "pitch_mean_hz": 155.04,
+      "pitch_z": -0.048,
+      "rms_mean": 0.092281,
+      "rms_z": -0.158,
+      "voiced_rate": 0.381,
+      "silence_s": 3.17,
+      "pitch_tremor": 25.6,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.15,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 3.2,
+          "note": "Silence of 3.2s detected within segment"
+        }
+      ],
+      "emotional_weight": 3.35,
+      "flagged": true,
+      "text": "So then I looked down a little more and I see that this thing was squatted on top of a deer like a catcher would squat."
+    },
+    {
+      "start_s": 774.3,
+      "end_s": 778.02,
+      "duration_s": 3.72,
+      "pitch_mean_hz": 184.2,
+      "pitch_z": 0.098,
+      "rms_mean": 0.08887,
+      "rms_z": -0.198,
+      "voiced_rate": 0.299,
+      "silence_s": 1.12,
+      "pitch_tremor": 21.82,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.232,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.23,
+      "flagged": true,
+      "text": "And its legs, it just didn't look natural."
+    },
+    {
+      "start_s": 778.02,
+      "end_s": 786.42,
+      "duration_s": 8.4,
+      "pitch_mean_hz": 200.97,
+      "pitch_z": 0.181,
+      "rms_mean": 0.107168,
+      "rms_z": 0.017,
+      "voiced_rate": 0.553,
+      "silence_s": 1.86,
+      "pitch_tremor": 154.75,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.9,
+          "note": "Silence of 1.9s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 154.75,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "the legs and the arms didn't look natural on this thing. It looked like it was unnatural in its own"
+    },
+    {
+      "start_s": 786.42,
+      "end_s": 794.62,
+      "duration_s": 8.2,
+      "pitch_mean_hz": 169.75,
+      "pitch_z": 0.026,
+      "rms_mean": 0.104105,
+      "rms_z": -0.019,
+      "voiced_rate": 0.496,
+      "silence_s": 1.89,
+      "pitch_tremor": 29.2,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.9,
+          "note": "Silence of 1.9s detected within segment"
+        }
+      ],
+      "emotional_weight": 1.9,
+      "flagged": true,
+      "text": "body. So it looks like this thing is squatting on top of this deer, trying to hold it down,"
+    },
+    {
+      "start_s": 794.82,
+      "end_s": 798.88,
+      "duration_s": 4.06,
+      "pitch_mean_hz": 138.67,
+      "pitch_z": -0.129,
+      "rms_mean": 0.120574,
+      "rms_z": 0.175,
+      "voiced_rate": 0.402,
+      "silence_s": 0.32,
+      "pitch_tremor": 36.75,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 36.75,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "and its arms are waving around like it's trying to keep its balance."
+    },
+    {
+      "start_s": 800.34,
+      "end_s": 805.34,
+      "duration_s": 5.0,
+      "pitch_mean_hz": 137.64,
+      "pitch_z": -0.134,
+      "rms_mean": 0.130523,
+      "rms_z": 0.292,
+      "voiced_rate": 0.167,
+      "silence_s": 0.13,
+      "pitch_tremor": 28.03,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.364,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.36,
+      "flagged": true,
+      "text": "And at this time, I still didn't see his face. And I'm like, well, what the heck am I looking at?"
+    },
+    {
+      "start_s": 805.34,
+      "end_s": 815.7,
+      "duration_s": 10.36,
+      "pitch_mean_hz": 207.17,
+      "pitch_z": 0.212,
+      "rms_mean": 0.091715,
+      "rms_z": -0.165,
+      "voiced_rate": 0.281,
+      "silence_s": 2.4,
+      "pitch_tremor": 124.2,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.25,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 2.4,
+          "note": "Silence of 2.4s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 124.2,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "And then when I'm stopped right in front of it, it lifts its head up, looks directly at me, and shows me its teeth."
+    },
+    {
+      "start_s": 816.5,
+      "end_s": 820.62,
+      "duration_s": 4.12,
+      "pitch_mean_hz": 158.55,
+      "pitch_z": -0.03,
+      "rms_mean": 0.123196,
+      "rms_z": 0.206,
+      "voiced_rate": 0.535,
+      "silence_s": 1.02,
+      "pitch_tremor": 20.36,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "It had big white fangs for teeth."
+    },
+    {
+      "start_s": 821.38,
+      "end_s": 826.38,
+      "duration_s": 5.0,
+      "pitch_mean_hz": 177.2,
+      "pitch_z": 0.063,
+      "rms_mean": 0.125366,
+      "rms_z": 0.232,
+      "voiced_rate": 0.686,
+      "silence_s": 1.02,
+      "pitch_tremor": 24.28,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "It had ears, big pointy ears on the side of its head."
+    },
+    {
+      "start_s": 826.38,
+      "end_s": 835.38,
+      "duration_s": 9.0,
+      "pitch_mean_hz": 157.68,
+      "pitch_z": -0.034,
+      "rms_mean": 0.098258,
+      "rms_z": -0.087,
+      "voiced_rate": 0.345,
+      "silence_s": 2.24,
+      "pitch_tremor": 34.33,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.186,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 2.2,
+          "note": "Silence of 2.2s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 34.33,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "um its face had hair like a dog but there was some like under its eyes there wasn't hair"
+    },
+    {
+      "start_s": 835.38,
+      "end_s": 841.9,
+      "duration_s": 6.52,
+      "pitch_mean_hz": 159.65,
+      "pitch_z": -0.025,
+      "rms_mean": 0.109147,
+      "rms_z": 0.041,
+      "voiced_rate": 0.348,
+      "silence_s": 1.34,
+      "pitch_tremor": 21.5,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.183,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.18,
+      "flagged": true,
+      "text": "it had a snout that really wasn't as long as a dog snout but it was long enough"
+    },
+    {
+      "start_s": 841.9,
+      "end_s": 847.9,
+      "duration_s": 6.0,
+      "pitch_mean_hz": 190.85,
+      "pitch_z": 0.131,
+      "rms_mean": 0.083448,
+      "rms_z": -0.262,
+      "voiced_rate": 0.449,
+      "silence_s": 1.76,
+      "pitch_tremor": 52.74,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.8,
+          "note": "Silence of 1.8s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 52.74,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "the only thing i think at the time what i thought i was looking at was the only thing i could"
+    },
+    {
+      "start_s": 847.9,
+      "end_s": 857.96,
+      "duration_s": 10.06,
+      "pitch_mean_hz": 282.44,
+      "pitch_z": 0.587,
+      "rms_mean": 0.126932,
+      "rms_z": 0.25,
+      "voiced_rate": 0.422,
+      "silence_s": 2.69,
+      "pitch_tremor": 390.5,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.7,
+          "note": "Silence of 2.7s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 390.5,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "compare it to was a gargoyle that I've seen from old movies from the 70s and 80s."
+    },
+    {
+      "start_s": 858.92,
+      "end_s": 865.32,
+      "duration_s": 6.4,
+      "pitch_mean_hz": 137.0,
+      "pitch_z": -0.137,
+      "rms_mean": 0.129852,
+      "rms_z": 0.284,
+      "voiced_rate": 0.42,
+      "silence_s": 0.93,
+      "pitch_tremor": 13.44,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I had no idea what I was looking at. All I know is that it's looking at me. It's showing me its"
+    },
+    {
+      "start_s": 865.32,
+      "end_s": 873.8,
+      "duration_s": 8.48,
+      "pitch_mean_hz": 144.0,
+      "pitch_z": -0.103,
+      "rms_mean": 0.093015,
+      "rms_z": -0.149,
+      "voiced_rate": 0.17,
+      "silence_s": 1.89,
+      "pitch_tremor": 24.47,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.361,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 1.9,
+          "note": "Silence of 1.9s detected within segment"
+        }
+      ],
+      "emotional_weight": 2.26,
+      "flagged": true,
+      "text": "teeth. I hurry up and hit the gas pedal and got out of there as fast as I could. I finished driving,"
+    },
+    {
+      "start_s": 873.8,
+      "end_s": 880.54,
+      "duration_s": 6.74,
+      "pitch_mean_hz": 332.72,
+      "pitch_z": 0.838,
+      "rms_mean": 0.133391,
+      "rms_z": 0.326,
+      "voiced_rate": 0.519,
+      "silence_s": 0.93,
+      "pitch_tremor": 476.44,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 476.44,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "got to Nacuska. The whole time there, I'm checking my mirrors, making sure this thing is not"
+    },
+    {
+      "start_s": 880.54,
+      "end_s": 886.5,
+      "duration_s": 5.96,
+      "pitch_mean_hz": 125.67,
+      "pitch_z": -0.194,
+      "rms_mean": 0.108233,
+      "rms_z": 0.03,
+      "voiced_rate": 0.16,
+      "silence_s": 1.6,
+      "pitch_tremor": 36.61,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.371,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 36.61,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "following me. But the whole ride there, I'm wondering, well, what did I just see?"
+    },
+    {
+      "start_s": 887.16,
+      "end_s": 893.94,
+      "duration_s": 6.78,
+      "pitch_mean_hz": 147.96,
+      "pitch_z": -0.083,
+      "rms_mean": 0.114976,
+      "rms_z": 0.109,
+      "voiced_rate": 0.354,
+      "silence_s": 1.18,
+      "pitch_tremor": 35.29,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.177,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 35.29,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "It didn't make sense to my head. I've tried to think of all animals I've seen in the past."
+    },
+    {
+      "start_s": 894.34,
+      "end_s": 898.98,
+      "duration_s": 4.64,
+      "pitch_mean_hz": 142.29,
+      "pitch_z": -0.111,
+      "rms_mean": 0.125079,
+      "rms_z": 0.228,
+      "voiced_rate": 0.476,
+      "silence_s": 0.54,
+      "pitch_tremor": 15.59,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "The only thing I could say it looked like to me at the time was a gargoyle."
+    },
+    {
+      "start_s": 898.98,
+      "end_s": 906.36,
+      "duration_s": 7.38,
+      "pitch_mean_hz": 137.72,
+      "pitch_z": -0.134,
+      "rms_mean": 0.104187,
+      "rms_z": -0.018,
+      "voiced_rate": 0.487,
+      "silence_s": 1.79,
+      "pitch_tremor": 12.24,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.8,
+          "note": "Silence of 1.8s detected within segment"
+        }
+      ],
+      "emotional_weight": 1.8,
+      "flagged": true,
+      "text": "You know, I got to my hotel room, sat in my hotel room the rest of the night and just"
+    },
+    {
+      "start_s": 906.36,
+      "end_s": 908.52,
+      "duration_s": 2.16,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.087187,
+      "rms_z": -0.218,
+      "voiced_rate": 0.0,
+      "silence_s": 0.48,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.53,
+      "flagged": true,
+      "text": "sat there and thought, what was it?"
+    },
+    {
+      "start_s": 908.52,
+      "end_s": 912.1,
+      "duration_s": 3.58,
+      "pitch_mean_hz": 312.6,
+      "pitch_z": 0.738,
+      "rms_mean": 0.112918,
+      "rms_z": 0.085,
+      "voiced_rate": 0.286,
+      "silence_s": 0.99,
+      "pitch_tremor": 263.34,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.245,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 263.34,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Was it my eyes playing tricks on me?"
+    },
+    {
+      "start_s": 912.1,
+      "end_s": 915.22,
+      "duration_s": 3.12,
+      "pitch_mean_hz": 139.54,
+      "pitch_z": -0.125,
+      "rms_mean": 0.079774,
+      "rms_z": -0.305,
+      "voiced_rate": 0.175,
+      "silence_s": 1.34,
+      "pitch_tremor": 10.97,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.356,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.36,
+      "flagged": true,
+      "text": "I had no idea what it was, Vic."
+    },
+    {
+      "start_s": 915.22,
+      "end_s": 917.06,
+      "duration_s": 1.84,
+      "pitch_mean_hz": 130.83,
+      "pitch_z": -0.168,
+      "rms_mean": 0.079469,
+      "rms_z": -0.309,
+      "voiced_rate": 0.638,
+      "silence_s": 0.7,
+      "pitch_tremor": 19.27,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, most people don't."
+    },
+    {
+      "start_s": 917.06,
+      "end_s": 921.08,
+      "duration_s": 4.02,
+      "pitch_mean_hz": 116.62,
+      "pitch_z": -0.239,
+      "rms_mean": 0.063996,
+      "rms_z": -0.491,
+      "voiced_rate": 0.504,
+      "silence_s": 1.25,
+      "pitch_tremor": 22.47,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "They see something like that and they wonder what in the world was that?"
+    },
+    {
+      "start_s": 921.08,
+      "end_s": 923.18,
+      "duration_s": 2.1,
+      "pitch_mean_hz": 180.23,
+      "pitch_z": 0.078,
+      "rms_mean": 0.088472,
+      "rms_z": -0.203,
+      "voiced_rate": 0.515,
+      "silence_s": 0.16,
+      "pitch_tremor": 49.04,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 49.04,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "What can you tell us about the aftermath?"
+    },
+    {
+      "start_s": 923.18,
+      "end_s": 927.48,
+      "duration_s": 4.3,
+      "pitch_mean_hz": 123.53,
+      "pitch_z": -0.205,
+      "rms_mean": 0.096908,
+      "rms_z": -0.103,
+      "voiced_rate": 0.746,
+      "silence_s": 0.0,
+      "pitch_tremor": 21.56,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Did you put research into trying to find out what this was that you saw or just drop it"
+    },
+    {
+      "start_s": 927.48,
+      "end_s": 928.48,
+      "duration_s": 1.0,
+      "pitch_mean_hz": 116.14,
+      "pitch_z": -0.241,
+      "rms_mean": 0.046261,
+      "rms_z": -0.7,
+      "voiced_rate": 0.656,
+      "silence_s": 0.22,
+      "pitch_tremor": 9.84,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "and let it go?"
+    },
+    {
+      "start_s": 928.98,
+      "end_s": 935.22,
+      "duration_s": 6.24,
+      "pitch_mean_hz": 155.43,
+      "pitch_z": -0.046,
+      "rms_mean": 0.10911,
+      "rms_z": 0.04,
+      "voiced_rate": 0.569,
+      "silence_s": 1.18,
+      "pitch_tremor": 38.39,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 38.39,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "And at first I dropped it and let it go because I wasn't sure what I seen."
+    },
+    {
+      "start_s": 936.96,
+      "end_s": 940.38,
+      "duration_s": 3.42,
+      "pitch_mean_hz": 161.45,
+      "pitch_z": -0.016,
+      "rms_mean": 0.16614,
+      "rms_z": 0.712,
+      "voiced_rate": 0.83,
+      "silence_s": 0.19,
+      "pitch_tremor": 56.1,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 56.1,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "You know, I told my family that I seen something."
+    },
+    {
+      "start_s": 941.54,
+      "end_s": 950.66,
+      "duration_s": 9.12,
+      "pitch_mean_hz": 137.19,
+      "pitch_z": -0.137,
+      "rms_mean": 0.113319,
+      "rms_z": 0.09,
+      "voiced_rate": 0.421,
+      "silence_s": 2.08,
+      "pitch_tremor": 20.83,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.1,
+          "note": "Silence of 2.1s detected within segment"
+        }
+      ],
+      "emotional_weight": 2.1,
+      "flagged": true,
+      "text": "I don't know if they believe me or not, but then it wasn't until months later that I've heard of the dog man."
+    },
+    {
+      "start_s": 950.78,
+      "end_s": 953.28,
+      "duration_s": 2.5,
+      "pitch_mean_hz": 139.63,
+      "pitch_z": -0.124,
+      "rms_mean": 0.134418,
+      "rms_z": 0.338,
+      "voiced_rate": 0.253,
+      "silence_s": 0.03,
+      "pitch_tremor": 12.13,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.278,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.28,
+      "flagged": true,
+      "text": "And I'm like, that's exactly what I seen."
+    },
+    {
+      "start_s": 954.34,
+      "end_s": 957.64,
+      "duration_s": 3.3,
+      "pitch_mean_hz": 123.57,
+      "pitch_z": -0.204,
+      "rms_mean": 0.116351,
+      "rms_z": 0.126,
+      "voiced_rate": 0.767,
+      "silence_s": 0.29,
+      "pitch_tremor": 10.51,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, like I told you before, I'm so glad you found out what it was."
+    },
+    {
+      "start_s": 957.64,
+      "end_s": 960.48,
+      "duration_s": 2.84,
+      "pitch_mean_hz": 146.41,
+      "pitch_z": -0.091,
+      "rms_mean": 0.111763,
+      "rms_z": 0.072,
+      "voiced_rate": 0.674,
+      "silence_s": 0.38,
+      "pitch_tremor": 22.82,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "It took you some time, but better later than never."
+    },
+    {
+      "start_s": 961.22,
+      "end_s": 964.56,
+      "duration_s": 3.34,
+      "pitch_mean_hz": 152.5,
+      "pitch_z": -0.06,
+      "rms_mean": 0.097091,
+      "rms_z": -0.101,
+      "voiced_rate": 0.471,
+      "silence_s": 0.48,
+      "pitch_tremor": 42.74,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 42.74,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "How far were you from Nacusa when you had that encounter?"
+    },
+    {
+      "start_s": 965.44,
+      "end_s": 970.28,
+      "duration_s": 4.84,
+      "pitch_mean_hz": 174.64,
+      "pitch_z": 0.05,
+      "rms_mean": 0.187212,
+      "rms_z": 0.96,
+      "voiced_rate": 0.656,
+      "silence_s": 0.38,
+      "pitch_tremor": 19.17,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I want to say I was somewhere between Green Bay and Nacuska,"
+    },
+    {
+      "start_s": 970.72,
+      "end_s": 975.8,
+      "duration_s": 5.08,
+      "pitch_mean_hz": 244.29,
+      "pitch_z": 0.397,
+      "rms_mean": 0.132241,
+      "rms_z": 0.313,
+      "voiced_rate": 0.69,
+      "silence_s": 0.86,
+      "pitch_tremor": 350.72,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 350.72,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "which I think there might be two hours of drive time between the two places."
+    },
+    {
+      "start_s": 976.6,
+      "end_s": 978.26,
+      "duration_s": 1.66,
+      "pitch_mean_hz": 161.15,
+      "pitch_z": -0.017,
+      "rms_mean": 0.139454,
+      "rms_z": 0.398,
+      "voiced_rate": 0.5,
+      "silence_s": 0.45,
+      "pitch_tremor": 13.93,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "You know, it was dark out."
+    },
+    {
+      "start_s": 978.72,
+      "end_s": 982.3,
+      "duration_s": 3.58,
+      "pitch_mean_hz": 145.72,
+      "pitch_z": -0.094,
+      "rms_mean": 0.120692,
+      "rms_z": 0.177,
+      "voiced_rate": 0.694,
+      "silence_s": 0.61,
+      "pitch_tremor": 16.99,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "That was the first time I've ever gone, drove this way before."
+    },
+    {
+      "start_s": 983.02,
+      "end_s": 985.54,
+      "duration_s": 2.52,
+      "pitch_mean_hz": 135.34,
+      "pitch_z": -0.146,
+      "rms_mean": 0.168887,
+      "rms_z": 0.744,
+      "voiced_rate": 0.608,
+      "silence_s": 0.29,
+      "pitch_tremor": 11.94,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "So I had no clue where I was."
+    },
+    {
+      "start_s": 985.54,
+      "end_s": 989.68,
+      "duration_s": 4.14,
+      "pitch_mean_hz": 138.36,
+      "pitch_z": -0.131,
+      "rms_mean": 0.165186,
+      "rms_z": 0.7,
+      "voiced_rate": 0.736,
+      "silence_s": 0.16,
+      "pitch_tremor": 10.14,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "and with it being dark, you don't really read the signs when you're driving."
+    },
+    {
+      "start_s": 990.82,
+      "end_s": 993.22,
+      "duration_s": 2.4,
+      "pitch_mean_hz": 142.06,
+      "pitch_z": -0.112,
+      "rms_mean": 0.098996,
+      "rms_z": -0.079,
+      "voiced_rate": 0.2,
+      "silence_s": 0.26,
+      "pitch_tremor": 16.89,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.331,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.33,
+      "flagged": true,
+      "text": "It was a complete shock to me."
+    },
+    {
+      "start_s": 994.34,
+      "end_s": 995.3,
+      "duration_s": 0.96,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.15039,
+      "rms_z": 0.526,
+      "voiced_rate": 0.0,
+      "silence_s": 0.0,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.53,
+      "flagged": true,
+      "text": "Oh, I'm sure it was."
+    },
+    {
+      "start_s": 995.62,
+      "end_s": 1000.7,
+      "duration_s": 5.08,
+      "pitch_mean_hz": 126.66,
+      "pitch_z": -0.189,
+      "rms_mean": 0.105045,
+      "rms_z": -0.008,
+      "voiced_rate": 0.842,
+      "silence_s": 0.48,
+      "pitch_tremor": 30.86,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 30.86,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "And your drive from that scene of that encounter to where you're going for work,"
+    },
+    {
+      "start_s": 1000.78,
+      "end_s": 1002.22,
+      "duration_s": 1.44,
+      "pitch_mean_hz": 125.32,
+      "pitch_z": -0.196,
+      "rms_mean": 0.097077,
+      "rms_z": -0.101,
+      "voiced_rate": 0.689,
+      "silence_s": 0.0,
+      "pitch_tremor": 16.17,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "that could go one of two ways."
+    },
+    {
+      "start_s": 1002.6,
+      "end_s": 1005.96,
+      "duration_s": 3.36,
+      "pitch_mean_hz": 118.0,
+      "pitch_z": -0.232,
+      "rms_mean": 0.107238,
+      "rms_z": 0.018,
+      "voiced_rate": 0.771,
+      "silence_s": 0.06,
+      "pitch_tremor": 17.48,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "It could have either gone by in a flash because of what happened to you"
+    },
+    {
+      "start_s": 1005.96,
+      "end_s": 1009.48,
+      "duration_s": 3.52,
+      "pitch_mean_hz": 122.29,
+      "pitch_z": -0.211,
+      "rms_mean": 0.114394,
+      "rms_z": 0.102,
+      "voiced_rate": 0.491,
+      "silence_s": 0.26,
+      "pitch_tremor": 16.84,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "and you're in shock, or it could have seemed like it took forever."
+    },
+    {
+      "start_s": 1010.02,
+      "end_s": 1011.4,
+      "duration_s": 1.38,
+      "pitch_mean_hz": 161.22,
+      "pitch_z": -0.017,
+      "rms_mean": 0.125537,
+      "rms_z": 0.234,
+      "voiced_rate": 0.535,
+      "silence_s": 0.06,
+      "pitch_tremor": 26.35,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Which way did it go for you?"
+    },
+    {
+      "start_s": 1012.6,
+      "end_s": 1014.92,
+      "duration_s": 2.32,
+      "pitch_mean_hz": 146.23,
+      "pitch_z": -0.092,
+      "rms_mean": 0.130657,
+      "rms_z": 0.294,
+      "voiced_rate": 0.589,
+      "silence_s": 0.26,
+      "pitch_tremor": 13.12,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, right now that I think back,"
+    },
+    {
+      "start_s": 1014.92,
+      "end_s": 1018.62,
+      "duration_s": 3.7,
+      "pitch_mean_hz": 129.76,
+      "pitch_z": -0.174,
+      "rms_mean": 0.104391,
+      "rms_z": -0.015,
+      "voiced_rate": 0.322,
+      "silence_s": 0.64,
+      "pitch_tremor": 10.62,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.209,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.21,
+      "flagged": true,
+      "text": "It seemed like a flash, like I was there in no time."
+    },
+    {
+      "start_s": 1019.68,
+      "end_s": 1023.18,
+      "duration_s": 3.5,
+      "pitch_mean_hz": 131.65,
+      "pitch_z": -0.164,
+      "rms_mean": 0.119007,
+      "rms_z": 0.157,
+      "voiced_rate": 0.679,
+      "silence_s": 0.16,
+      "pitch_tremor": 11.03,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, that's a lot better than dragging on, seeming like it took forever."
+    },
+    {
+      "start_s": 1023.86,
+      "end_s": 1025.76,
+      "duration_s": 1.9,
+      "pitch_mean_hz": 116.24,
+      "pitch_z": -0.241,
+      "rms_mean": 0.052261,
+      "rms_z": -0.629,
+      "voiced_rate": 0.317,
+      "silence_s": 0.58,
+      "pitch_tremor": 12.07,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.214,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.21,
+      "flagged": true,
+      "text": "So, that's a good thing."
+    },
+    {
+      "start_s": 1026.88,
+      "end_s": 1031.18,
+      "duration_s": 4.3,
+      "pitch_mean_hz": 159.07,
+      "pitch_z": -0.027,
+      "rms_mean": 0.117075,
+      "rms_z": 0.134,
+      "voiced_rate": 0.739,
+      "silence_s": 0.0,
+      "pitch_tremor": 49.21,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 49.21,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Is Nacusa a small, isolated town, or are there communities around it?"
+    },
+    {
+      "start_s": 1032.22,
+      "end_s": 1037.08,
+      "duration_s": 4.86,
+      "pitch_mean_hz": 147.5,
+      "pitch_z": -0.085,
+      "rms_mean": 0.135962,
+      "rms_z": 0.356,
+      "voiced_rate": 0.572,
+      "silence_s": 0.58,
+      "pitch_tremor": 34.3,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 34.3,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "It's a small town with an Indian reservation on it."
+    },
+    {
+      "start_s": 1037.96,
+      "end_s": 1039.1,
+      "duration_s": 1.14,
+      "pitch_mean_hz": 134.85,
+      "pitch_z": -0.148,
+      "rms_mean": 0.116087,
+      "rms_z": 0.122,
+      "voiced_rate": 0.686,
+      "silence_s": 0.32,
+      "pitch_tremor": 9.13,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Not very big."
+    },
+    {
+      "start_s": 1039.82,
+      "end_s": 1041.9,
+      "duration_s": 2.08,
+      "pitch_mean_hz": 107.53,
+      "pitch_z": -0.284,
+      "rms_mean": 0.066367,
+      "rms_z": -0.463,
+      "voiced_rate": 0.662,
+      "silence_s": 0.35,
+      "pitch_tremor": 13.47,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "So it is pretty isolated then."
+    },
+    {
+      "start_s": 1042.04,
+      "end_s": 1042.98,
+      "duration_s": 0.94,
+      "pitch_mean_hz": 110.92,
+      "pitch_z": -0.267,
+      "rms_mean": 0.096177,
+      "rms_z": -0.112,
+      "voiced_rate": 0.933,
+      "silence_s": 0.06,
+      "pitch_tremor": 12.19,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Yeah, that doesn't help."
+    },
+    {
+      "start_s": 1043.78,
+      "end_s": 1047.0,
+      "duration_s": 3.22,
+      "pitch_mean_hz": 164.8,
+      "pitch_z": 0.001,
+      "rms_mean": 0.137596,
+      "rms_z": 0.376,
+      "voiced_rate": 0.82,
+      "silence_s": 0.38,
+      "pitch_tremor": 35.0,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 35.0,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "When you went driving by it, how fast did you say you were going?"
+    },
+    {
+      "start_s": 1048.2,
+      "end_s": 1051.82,
+      "duration_s": 3.62,
+      "pitch_mean_hz": 185.53,
+      "pitch_z": 0.104,
+      "rms_mean": 0.135232,
+      "rms_z": 0.348,
+      "voiced_rate": 0.717,
+      "silence_s": 0.29,
+      "pitch_tremor": 36.69,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 36.69,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Well, the speed limit was 55 on the highway."
+    },
+    {
+      "start_s": 1052.2,
+      "end_s": 1055.44,
+      "duration_s": 3.24,
+      "pitch_mean_hz": 147.0,
+      "pitch_z": -0.088,
+      "rms_mean": 0.137536,
+      "rms_z": 0.375,
+      "voiced_rate": 0.832,
+      "silence_s": 0.1,
+      "pitch_tremor": 23.3,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "This was Highway 54, if anyone was wondering."
+    },
+    {
+      "start_s": 1056.18,
+      "end_s": 1061.1,
+      "duration_s": 4.92,
+      "pitch_mean_hz": 144.83,
+      "pitch_z": -0.098,
+      "rms_mean": 0.132607,
+      "rms_z": 0.317,
+      "voiced_rate": 0.506,
+      "silence_s": 0.16,
+      "pitch_tremor": 24.12,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "But I almost came to a stop because I wasn't sure what was on the side of the road."
+    },
+    {
+      "start_s": 1062.24,
+      "end_s": 1064.74,
+      "duration_s": 2.5,
+      "pitch_mean_hz": 108.96,
+      "pitch_z": -0.277,
+      "rms_mean": 0.087871,
+      "rms_z": -0.21,
+      "voiced_rate": 0.91,
+      "silence_s": 0.06,
+      "pitch_tremor": 19.52,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Wow, I must have been wondering, what in the heck is this guy doing?"
+    },
+    {
+      "start_s": 1065.2,
+      "end_s": 1067.2,
+      "duration_s": 2.0,
+      "pitch_mean_hz": 121.64,
+      "pitch_z": -0.214,
+      "rms_mean": 0.089201,
+      "rms_z": -0.194,
+      "voiced_rate": 0.524,
+      "silence_s": 0.13,
+      "pitch_tremor": 18.5,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "People don't come close to me and stop."
+    },
+    {
+      "start_s": 1067.94,
+      "end_s": 1071.34,
+      "duration_s": 3.4,
+      "pitch_mean_hz": 131.4,
+      "pitch_z": -0.165,
+      "rms_mean": 0.123812,
+      "rms_z": 0.213,
+      "voiced_rate": 0.358,
+      "silence_s": 0.38,
+      "pitch_tremor": 7.7,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.173,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.17,
+      "flagged": true,
+      "text": "It did not care that I was there in front of it."
+    },
+    {
+      "start_s": 1071.34,
+      "end_s": 1076.92,
+      "duration_s": 5.58,
+      "pitch_mean_hz": 150.67,
+      "pitch_z": -0.069,
+      "rms_mean": 0.065184,
+      "rms_z": -0.477,
+      "voiced_rate": 0.443,
+      "silence_s": 1.5,
+      "pitch_tremor": 45.35,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.5,
+          "note": "Silence of 1.5s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 45.35,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "When you say you stopped right in front of it, how many feet would you say you were from it?"
+    },
+    {
+      "start_s": 1078.2,
+      "end_s": 1080.34,
+      "duration_s": 2.14,
+      "pitch_mean_hz": 168.65,
+      "pitch_z": 0.02,
+      "rms_mean": 0.124545,
+      "rms_z": 0.222,
+      "voiced_rate": 0.642,
+      "silence_s": 0.38,
+      "pitch_tremor": 44.47,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 44.47,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "It was only about five feet away from me."
+    },
+    {
+      "start_s": 1081.5,
+      "end_s": 1083.8,
+      "duration_s": 2.3,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.056402,
+      "rms_z": -0.58,
+      "voiced_rate": 0.0,
+      "silence_s": 0.58,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.53,
+      "flagged": true,
+      "text": "Oh, that's way too close for comfort."
+    },
+    {
+      "start_s": 1084.76,
+      "end_s": 1087.64,
+      "duration_s": 2.88,
+      "pitch_mean_hz": 144.3,
+      "pitch_z": -0.101,
+      "rms_mean": 0.135395,
+      "rms_z": 0.35,
+      "voiced_rate": 0.367,
+      "silence_s": 0.26,
+      "pitch_tremor": 5.16,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.164,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 0.16,
+      "flagged": true,
+      "text": "Yeah, it didn't care if I was there or not."
+    },
+    {
+      "start_s": 1087.8,
+      "end_s": 1093.64,
+      "duration_s": 5.84,
+      "pitch_mean_hz": 276.33,
+      "pitch_z": 0.557,
+      "rms_mean": 0.120778,
+      "rms_z": 0.178,
+      "voiced_rate": 0.563,
+      "silence_s": 1.31,
+      "pitch_tremor": 394.72,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 394.72,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "It was eating its dinner, and I was interrupting its dinner."
+    },
+    {
+      "start_s": 1094.34,
+      "end_s": 1108.27,
+      "duration_s": 13.93,
+      "pitch_mean_hz": 148.69,
+      "pitch_z": -0.079,
+      "rms_mean": 0.10646,
+      "rms_z": 0.009,
+      "voiced_rate": 0.561,
+      "silence_s": 2.75,
+      "pitch_tremor": 35.48,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.8,
+          "note": "Silence of 2.8s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 35.48,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "You said it gave the impression that it didn give two shakes if you were there or not But did it ever do anything that gave you the impression that it was about to come after you Um I didn stay there long enough to find out"
+    },
+    {
+      "start_s": 1108.47,
+      "end_s": 1115.23,
+      "duration_s": 6.76,
+      "pitch_mean_hz": 294.5,
+      "pitch_z": 0.647,
+      "rms_mean": 0.124901,
+      "rms_z": 0.226,
+      "voiced_rate": 0.654,
+      "silence_s": 0.61,
+      "pitch_tremor": 437.92,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 437.92,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "As soon as it lifted its head up and showed me its teeth, that was more than enough message"
+    },
+    {
+      "start_s": 1115.23,
+      "end_s": 1116.83,
+      "duration_s": 1.6,
+      "pitch_mean_hz": 242.03,
+      "pitch_z": 0.386,
+      "rms_mean": 0.126128,
+      "rms_z": 0.241,
+      "voiced_rate": 0.76,
+      "silence_s": 0.1,
+      "pitch_tremor": 186.03,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 186.03,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "that it didn't want me there."
+    },
+    {
+      "start_s": 1117.77,
+      "end_s": 1119.83,
+      "duration_s": 2.06,
+      "pitch_mean_hz": 150.48,
+      "pitch_z": -0.07,
+      "rms_mean": 0.127848,
+      "rms_z": 0.261,
+      "voiced_rate": 0.75,
+      "silence_s": 0.03,
+      "pitch_tremor": 16.7,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Yeah, they're masters at getting a point across."
+    },
+    {
+      "start_s": 1120.33,
+      "end_s": 1122.37,
+      "duration_s": 2.04,
+      "pitch_mean_hz": 117.53,
+      "pitch_z": -0.235,
+      "rms_mean": 0.099409,
+      "rms_z": -0.074,
+      "voiced_rate": 0.562,
+      "silence_s": 0.03,
+      "pitch_tremor": 24.68,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "It sure sounds like it did also that night."
+    },
+    {
+      "start_s": 1123.37,
+      "end_s": 1127.87,
+      "duration_s": 4.5,
+      "pitch_mean_hz": 142.22,
+      "pitch_z": -0.112,
+      "rms_mean": 0.119541,
+      "rms_z": 0.163,
+      "voiced_rate": 0.743,
+      "silence_s": 0.1,
+      "pitch_tremor": 54.86,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 54.86,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Considering how you described what you saw, Jamie, as you were approaching that dog, man,"
+    },
+    {
+      "start_s": 1128.19,
+      "end_s": 1132.37,
+      "duration_s": 4.18,
+      "pitch_mean_hz": 155.75,
+      "pitch_z": -0.044,
+      "rms_mean": 0.111896,
+      "rms_z": 0.073,
+      "voiced_rate": 0.672,
+      "silence_s": 0.42,
+      "pitch_tremor": 33.79,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 33.79,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "It sounded to me like the deer just might have still been fighting for its life."
+    },
+    {
+      "start_s": 1132.47,
+      "end_s": 1135.89,
+      "duration_s": 3.42,
+      "pitch_mean_hz": 149.06,
+      "pitch_z": -0.077,
+      "rms_mean": 0.12072,
+      "rms_z": 0.177,
+      "voiced_rate": 0.692,
+      "silence_s": 0.06,
+      "pitch_tremor": 28.01,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Do you think that it was still alive at that point or already dead?"
+    },
+    {
+      "start_s": 1137.43,
+      "end_s": 1140.09,
+      "duration_s": 2.66,
+      "pitch_mean_hz": 150.37,
+      "pitch_z": -0.071,
+      "rms_mean": 0.110393,
+      "rms_z": 0.055,
+      "voiced_rate": 0.614,
+      "silence_s": 0.74,
+      "pitch_tremor": 40.35,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 40.35,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I think it was alive."
+    },
+    {
+      "start_s": 1140.31,
+      "end_s": 1142.99,
+      "duration_s": 2.68,
+      "pitch_mean_hz": 133.93,
+      "pitch_z": -0.153,
+      "rms_mean": 0.138566,
+      "rms_z": 0.387,
+      "voiced_rate": 0.75,
+      "silence_s": 0.0,
+      "pitch_tremor": 13.12,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Probably by the time I got up on it, it was dead."
+    },
+    {
+      "start_s": 1144.09,
+      "end_s": 1148.17,
+      "duration_s": 4.08,
+      "pitch_mean_hz": 165.82,
+      "pitch_z": 0.006,
+      "rms_mean": 0.137894,
+      "rms_z": 0.379,
+      "voiced_rate": 0.633,
+      "silence_s": 0.26,
+      "pitch_tremor": 41.16,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 41.16,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "The dogman was slashing around on top of it."
+    },
+    {
+      "start_s": 1148.39,
+      "end_s": 1152.79,
+      "duration_s": 4.4,
+      "pitch_mean_hz": 163.41,
+      "pitch_z": -0.006,
+      "rms_mean": 0.120531,
+      "rms_z": 0.175,
+      "voiced_rate": 0.73,
+      "silence_s": 0.35,
+      "pitch_tremor": 101.67,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 101.67,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "So he must have just brought that down right before I got up on him."
+    },
+    {
+      "start_s": 1154.51,
+      "end_s": 1157.03,
+      "duration_s": 2.52,
+      "pitch_mean_hz": 150.86,
+      "pitch_z": -0.068,
+      "rms_mean": 0.136244,
+      "rms_z": 0.36,
+      "voiced_rate": 0.646,
+      "silence_s": 0.16,
+      "pitch_tremor": 20.42,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I don't think it was a roadkill that it was eating."
+    },
+    {
+      "start_s": 1157.03,
+      "end_s": 1161.81,
+      "duration_s": 4.78,
+      "pitch_mean_hz": 460.07,
+      "pitch_z": 1.473,
+      "rms_mean": 0.118276,
+      "rms_z": 0.148,
+      "voiced_rate": 0.624,
+      "silence_s": 0.8,
+      "pitch_tremor": 600.22,
+      "flags": [
+        {
+          "type": "pitch_rise",
+          "severity": 1.47,
+          "note": "Pitch 1.5SD above baseline"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 600.22,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I think it just killed it itself, and it was holding it down."
+    },
+    {
+      "start_s": 1161.93,
+      "end_s": 1171.61,
+      "duration_s": 9.68,
+      "pitch_mean_hz": 220.3,
+      "pitch_z": 0.278,
+      "rms_mean": 0.122413,
+      "rms_z": 0.197,
+      "voiced_rate": 0.629,
+      "silence_s": 1.09,
+      "pitch_tremor": 315.81,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 315.81,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "That's why it was on top of the deer, squatting down on it, holding it down, waving its arms around, trying to get the deer under control."
+    },
+    {
+      "start_s": 1172.43,
+      "end_s": 1178.39,
+      "duration_s": 5.96,
+      "pitch_mean_hz": 114.23,
+      "pitch_z": -0.251,
+      "rms_mean": 0.093312,
+      "rms_z": -0.146,
+      "voiced_rate": 0.758,
+      "silence_s": 0.64,
+      "pitch_tremor": 17.62,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Yeah, it doesn't take these guys long at all to kill an animal like that, so that would make sense. You're probably right."
+    },
+    {
+      "start_s": 1179.25,
+      "end_s": 1185.11,
+      "duration_s": 5.86,
+      "pitch_mean_hz": 134.71,
+      "pitch_z": -0.149,
+      "rms_mean": 0.120703,
+      "rms_z": 0.177,
+      "voiced_rate": 0.546,
+      "silence_s": 0.48,
+      "pitch_tremor": 39.66,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 39.66,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "If you'd like to be able to listen to the show without ads and have full access to bonus content, that's an option."
+    },
+    {
+      "start_s": 1185.11,
+      "end_s": 1191.55,
+      "duration_s": 6.44,
+      "pitch_mean_hz": 133.18,
+      "pitch_z": -0.157,
+      "rms_mean": 0.105804,
+      "rms_z": 0.001,
+      "voiced_rate": 0.721,
+      "silence_s": 1.34,
+      "pitch_tremor": 22.11,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "To find out how, please go to dogmanencounters.com forward slash podcast."
+    },
+    {
+      "start_s": 1193.59,
+      "end_s": 1197.49,
+      "duration_s": 3.9,
+      "pitch_mean_hz": 161.92,
+      "pitch_z": -0.013,
+      "rms_mean": 0.107435,
+      "rms_z": 0.021,
+      "voiced_rate": 0.795,
+      "silence_s": 0.58,
+      "pitch_tremor": 37.48,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 37.48,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Had you driven down that highway before you had that experience that night?"
+    },
+    {
+      "start_s": 1198.85,
+      "end_s": 1201.75,
+      "duration_s": 2.9,
+      "pitch_mean_hz": 139.33,
+      "pitch_z": -0.126,
+      "rms_mean": 0.154468,
+      "rms_z": 0.574,
+      "voiced_rate": 0.678,
+      "silence_s": 0.0,
+      "pitch_tremor": 10.63,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "That was the very first time I've ever driven that way."
+    },
+    {
+      "start_s": 1202.13,
+      "end_s": 1205.47,
+      "duration_s": 3.34,
+      "pitch_mean_hz": 125.74,
+      "pitch_z": -0.194,
+      "rms_mean": 0.109275,
+      "rms_z": 0.042,
+      "voiced_rate": 0.702,
+      "silence_s": 0.35,
+      "pitch_tremor": 11.49,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I have not drove down that highway since."
+    },
+    {
+      "start_s": 1206.11,
+      "end_s": 1209.21,
+      "duration_s": 3.1,
+      "pitch_mean_hz": 125.04,
+      "pitch_z": -0.197,
+      "rms_mean": 0.098572,
+      "rms_z": -0.084,
+      "voiced_rate": 0.608,
+      "silence_s": 0.7,
+      "pitch_tremor": 13.45,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Have you had to do any work in the Cusa since then?"
+    },
+    {
+      "start_s": 1210.09,
+      "end_s": 1212.93,
+      "duration_s": 2.84,
+      "pitch_mean_hz": 135.52,
+      "pitch_z": -0.145,
+      "rms_mean": 0.126533,
+      "rms_z": 0.245,
+      "voiced_rate": 0.404,
+      "silence_s": 0.29,
+      "pitch_tremor": 15.05,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "That was my first and last time in the Cusca."
+    },
+    {
+      "start_s": 1212.93,
+      "end_s": 1220.21,
+      "duration_s": 7.28,
+      "pitch_mean_hz": 136.04,
+      "pitch_z": -0.142,
+      "rms_mean": 0.094333,
+      "rms_z": -0.134,
+      "voiced_rate": 0.573,
+      "silence_s": 1.73,
+      "pitch_tremor": 28.67,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.7,
+          "note": "Silence of 1.7s detected within segment"
+        }
+      ],
+      "emotional_weight": 1.7,
+      "flagged": true,
+      "text": "Huh. If they gave you an assignment where you actually had to go back to work to do a job, what would you do? Refuse it?"
+    },
+    {
+      "start_s": 1221.31,
+      "end_s": 1225.03,
+      "duration_s": 3.72,
+      "pitch_mean_hz": 138.36,
+      "pitch_z": -0.131,
+      "rms_mean": 0.145804,
+      "rms_z": 0.472,
+      "voiced_rate": 0.65,
+      "silence_s": 0.26,
+      "pitch_tremor": 14.99,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I would probably find a different way to get there."
+    },
+    {
+      "start_s": 1225.83,
+      "end_s": 1231.13,
+      "duration_s": 5.3,
+      "pitch_mean_hz": 130.38,
+      "pitch_z": -0.17,
+      "rms_mean": 0.134362,
+      "rms_z": 0.338,
+      "voiced_rate": 0.576,
+      "silence_s": 0.48,
+      "pitch_tremor": 7.17,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I definitely wouldn't go back on that highway, and especially not when it's dark out."
+    },
+    {
+      "start_s": 1232.03,
+      "end_s": 1233.95,
+      "duration_s": 1.92,
+      "pitch_mean_hz": 109.39,
+      "pitch_z": -0.275,
+      "rms_mean": 0.084468,
+      "rms_z": -0.25,
+      "voiced_rate": 0.9,
+      "silence_s": 0.1,
+      "pitch_tremor": 13.7,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Yeah, I don't think anyone could blame you for that."
+    },
+    {
+      "start_s": 1234.69,
+      "end_s": 1242.09,
+      "duration_s": 7.4,
+      "pitch_mean_hz": 140.48,
+      "pitch_z": -0.12,
+      "rms_mean": 0.096023,
+      "rms_z": -0.114,
+      "voiced_rate": 0.758,
+      "silence_s": 0.74,
+      "pitch_tremor": 42.41,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 42.41,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "After having that experience, what kinds of changes have you made in your life that a lot of people wouldn't expect you to necessarily make?"
+    },
+    {
+      "start_s": 1242.09,
+      "end_s": 1247.31,
+      "duration_s": 5.22,
+      "pitch_mean_hz": 110.07,
+      "pitch_z": -0.272,
+      "rms_mean": 0.086136,
+      "rms_z": -0.23,
+      "voiced_rate": 0.693,
+      "silence_s": 0.45,
+      "pitch_tremor": 22.16,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "changes that aren't necessarily related to the threat of dogmen coming around or whatnot?"
+    },
+    {
+      "start_s": 1249.13,
+      "end_s": 1257.65,
+      "duration_s": 8.52,
+      "pitch_mean_hz": 260.0,
+      "pitch_z": 0.475,
+      "rms_mean": 0.125731,
+      "rms_z": 0.236,
+      "voiced_rate": 0.579,
+      "silence_s": 1.44,
+      "pitch_tremor": 379.78,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 379.78,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "I guess when I hear people tell stories, whether it be a dogman or a Sasquatch, even ghosts,"
+    },
+    {
+      "start_s": 1258.35,
+      "end_s": 1261.37,
+      "duration_s": 3.02,
+      "pitch_mean_hz": 126.23,
+      "pitch_z": -0.191,
+      "rms_mean": 0.160311,
+      "rms_z": 0.643,
+      "voiced_rate": 0.67,
+      "silence_s": 0.45,
+      "pitch_tremor": 13.88,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I no longer doubt anyone's stories anymore."
+    },
+    {
+      "start_s": 1262.39,
+      "end_s": 1270.01,
+      "duration_s": 7.62,
+      "pitch_mean_hz": 139.65,
+      "pitch_z": -0.124,
+      "rms_mean": 0.108954,
+      "rms_z": 0.038,
+      "voiced_rate": 0.45,
+      "silence_s": 1.73,
+      "pitch_tremor": 14.52,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.7,
+          "note": "Silence of 1.7s detected within segment"
+        }
+      ],
+      "emotional_weight": 1.7,
+      "flagged": true,
+      "text": "As far as personally, I now know that there are these kind of monsters out in the woods."
+    },
+    {
+      "start_s": 1270.01,
+      "end_s": 1279.59,
+      "duration_s": 9.58,
+      "pitch_mean_hz": 135.58,
+      "pitch_z": -0.145,
+      "rms_mean": 0.137456,
+      "rms_z": 0.374,
+      "voiced_rate": 0.45,
+      "silence_s": 0.83,
+      "pitch_tremor": 15.29,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I've done after I found out what it was I've done research on them watched as much listen to as many people's encounters as I can"
+    },
+    {
+      "start_s": 1279.59,
+      "end_s": 1285.21,
+      "duration_s": 5.62,
+      "pitch_mean_hz": 135.19,
+      "pitch_z": -0.147,
+      "rms_mean": 0.101578,
+      "rms_z": -0.048,
+      "voiced_rate": 0.337,
+      "silence_s": 1.76,
+      "pitch_tremor": 18.02,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.194,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 1.8,
+          "note": "Silence of 1.8s detected within segment"
+        }
+      ],
+      "emotional_weight": 1.99,
+      "flagged": true,
+      "text": "you know just to clarify what match up to what I've seen"
+    },
+    {
+      "start_s": 1285.21,
+      "end_s": 1291.93,
+      "duration_s": 6.72,
+      "pitch_mean_hz": 155.35,
+      "pitch_z": -0.046,
+      "rms_mean": 0.128987,
+      "rms_z": 0.274,
+      "voiced_rate": 0.505,
+      "silence_s": 1.57,
+      "pitch_tremor": 38.29,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.6,
+          "note": "Silence of 1.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 38.29,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "and yeah I think people need to know that these things are out there"
+    },
+    {
+      "start_s": 1291.93,
+      "end_s": 1299.01,
+      "duration_s": 7.08,
+      "pitch_mean_hz": 316.22,
+      "pitch_z": 0.756,
+      "rms_mean": 0.109651,
+      "rms_z": 0.047,
+      "voiced_rate": 0.649,
+      "silence_s": 1.92,
+      "pitch_tremor": 490.26,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 1.9,
+          "note": "Silence of 1.9s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 490.26,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "whether they are some kind of inbred dog or"
+    },
+    {
+      "start_s": 1299.01,
+      "end_s": 1306.17,
+      "duration_s": 7.16,
+      "pitch_mean_hz": 138.49,
+      "pitch_z": -0.13,
+      "rms_mean": 0.122666,
+      "rms_z": 0.2,
+      "voiced_rate": 0.529,
+      "silence_s": 2.27,
+      "pitch_tremor": 17.67,
+      "flags": [
+        {
+          "type": "long_pause",
+          "severity": 2.3,
+          "note": "Silence of 2.3s detected within segment"
+        }
+      ],
+      "emotional_weight": 2.3,
+      "flagged": true,
+      "text": "some kind of demon that people should know one way or the other."
+    },
+    {
+      "start_s": 1306.91,
+      "end_s": 1311.45,
+      "duration_s": 4.54,
+      "pitch_mean_hz": 127.49,
+      "pitch_z": -0.185,
+      "rms_mean": 0.100302,
+      "rms_z": -0.063,
+      "voiced_rate": 0.817,
+      "silence_s": 0.77,
+      "pitch_tremor": 25.51,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, it's admirable that you want to get the word out and warn people about their existence."
+    },
+    {
+      "start_s": 1312.17,
+      "end_s": 1316.05,
+      "duration_s": 3.88,
+      "pitch_mean_hz": 134.09,
+      "pitch_z": -0.152,
+      "rms_mean": 0.126762,
+      "rms_z": 0.248,
+      "voiced_rate": 0.636,
+      "silence_s": 0.0,
+      "pitch_tremor": 26.48,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "What's frightening, though, is if they're out there, just imagine what else is, too."
+    },
+    {
+      "start_s": 1317.13,
+      "end_s": 1320.63,
+      "duration_s": 3.5,
+      "pitch_mean_hz": 141.67,
+      "pitch_z": -0.114,
+      "rms_mean": 0.148926,
+      "rms_z": 0.509,
+      "voiced_rate": 0.55,
+      "silence_s": 0.54,
+      "pitch_tremor": 20.84,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Right. There has to be a lot more of them."
+    },
+    {
+      "start_s": 1321.41,
+      "end_s": 1324.53,
+      "duration_s": 3.12,
+      "pitch_mean_hz": 165.4,
+      "pitch_z": 0.004,
+      "rms_mean": 0.151117,
+      "rms_z": 0.535,
+      "voiced_rate": 0.608,
+      "silence_s": 0.0,
+      "pitch_tremor": 51.58,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 51.58,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Even Bigfoots, there has to be a lot more Bigfoots out there, too."
+    },
+    {
+      "start_s": 1324.53,
+      "end_s": 1327.45,
+      "duration_s": 2.92,
+      "pitch_mean_hz": 766.28,
+      "pitch_z": 2.999,
+      "rms_mean": 0.115104,
+      "rms_z": 0.111,
+      "voiced_rate": 0.418,
+      "silence_s": 0.8,
+      "pitch_tremor": 679.25,
+      "flags": [
+        {
+          "type": "pitch_rise",
+          "severity": 3.0,
+          "note": "Pitch 3.0SD above baseline"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 679.25,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "yeah, you just want to keep"
+    },
+    {
+      "start_s": 1327.45,
+      "end_s": 1329.85,
+      "duration_s": 2.4,
+      "pitch_mean_hz": 157.22,
+      "pitch_z": -0.037,
+      "rms_mean": 0.093592,
+      "rms_z": -0.142,
+      "voiced_rate": 0.48,
+      "silence_s": 0.77,
+      "pitch_tremor": 18.89,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "having people come forward"
+    },
+    {
+      "start_s": 1329.85,
+      "end_s": 1331.15,
+      "duration_s": 1.3,
+      "pitch_mean_hz": 1148.97,
+      "pitch_z": 4.906,
+      "rms_mean": 0.064125,
+      "rms_z": -0.489,
+      "voiced_rate": 0.512,
+      "silence_s": 0.61,
+      "pitch_tremor": 642.33,
+      "flags": [
+        {
+          "type": "pitch_rise",
+          "severity": 4.91,
+          "note": "Pitch 4.9SD above baseline"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 642.33,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "that way"
+    },
+    {
+      "start_s": 1331.15,
+      "end_s": 1333.51,
+      "duration_s": 2.36,
+      "pitch_mean_hz": 138.68,
+      "pitch_z": -0.129,
+      "rms_mean": 0.150784,
+      "rms_z": 0.531,
+      "voiced_rate": 0.676,
+      "silence_s": 0.13,
+      "pitch_tremor": 15.37,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "we can somehow get some evidence"
+    },
+    {
+      "start_s": 1333.51,
+      "end_s": 1335.55,
+      "duration_s": 2.04,
+      "pitch_mean_hz": 139.38,
+      "pitch_z": -0.126,
+      "rms_mean": 0.138508,
+      "rms_z": 0.386,
+      "voiced_rate": 0.524,
+      "silence_s": 0.45,
+      "pitch_tremor": 19.26,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "and prove that these things"
+    },
+    {
+      "start_s": 1335.55,
+      "end_s": 1336.23,
+      "duration_s": 0.68,
+      "pitch_mean_hz": 123.48,
+      "pitch_z": -0.205,
+      "rms_mean": 0.131031,
+      "rms_z": 0.298,
+      "voiced_rate": 0.591,
+      "silence_s": 0.0,
+      "pitch_tremor": 5.41,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "are alive."
+    },
+    {
+      "start_s": 1337.01,
+      "end_s": 1339.59,
+      "duration_s": 2.58,
+      "pitch_mean_hz": 169.51,
+      "pitch_z": 0.025,
+      "rms_mean": 0.1382,
+      "rms_z": 0.383,
+      "voiced_rate": 0.852,
+      "silence_s": 0.26,
+      "pitch_tremor": 27.93,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, proving their existence, that's definitely"
+    },
+    {
+      "start_s": 1339.59,
+      "end_s": 1340.83,
+      "duration_s": 1.24,
+      "pitch_mean_hz": 134.92,
+      "pitch_z": -0.148,
+      "rms_mean": 0.1107,
+      "rms_z": 0.059,
+      "voiced_rate": 1.0,
+      "silence_s": 0.0,
+      "pitch_tremor": 13.14,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "quite the uphill battle."
+    },
+    {
+      "start_s": 1341.37,
+      "end_s": 1343.35,
+      "duration_s": 1.98,
+      "pitch_mean_hz": 167.35,
+      "pitch_z": 0.014,
+      "rms_mean": 0.107405,
+      "rms_z": 0.02,
+      "voiced_rate": 0.532,
+      "silence_s": 0.45,
+      "pitch_tremor": 22.47,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "But, you never know, maybe one day"
+    },
+    {
+      "start_s": 1343.35,
+      "end_s": 1345.25,
+      "duration_s": 1.9,
+      "pitch_mean_hz": 144.05,
+      "pitch_z": -0.102,
+      "rms_mean": 0.131104,
+      "rms_z": 0.299,
+      "voiced_rate": 0.833,
+      "silence_s": 0.16,
+      "pitch_tremor": 18.8,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "that's going to happen. I'll be awfully"
+    },
+    {
+      "start_s": 1345.25,
+      "end_s": 1346.93,
+      "duration_s": 1.68,
+      "pitch_mean_hz": 141.27,
+      "pitch_z": -0.116,
+      "rms_mean": 0.104191,
+      "rms_z": -0.018,
+      "voiced_rate": 0.712,
+      "silence_s": 0.0,
+      "pitch_tremor": 8.85,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "surprised if it ever does, but"
+    },
+    {
+      "start_s": 1346.93,
+      "end_s": 1348.65,
+      "duration_s": 1.72,
+      "pitch_mean_hz": 117.2,
+      "pitch_z": -0.236,
+      "rms_mean": 0.078826,
+      "rms_z": -0.316,
+      "voiced_rate": 0.685,
+      "silence_s": 0.29,
+      "pitch_tremor": 17.89,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "I guess anything's possible."
+    },
+    {
+      "start_s": 1349.55,
+      "end_s": 1351.43,
+      "duration_s": 1.88,
+      "pitch_mean_hz": 180.96,
+      "pitch_z": 0.082,
+      "rms_mean": 0.103055,
+      "rms_z": -0.031,
+      "voiced_rate": 0.729,
+      "silence_s": 0.32,
+      "pitch_tremor": 39.49,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 39.49,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Well, it's about time for us to get out of here"
+    },
+    {
+      "start_s": 1351.43,
+      "end_s": 1353.25,
+      "duration_s": 1.82,
+      "pitch_mean_hz": 150.79,
+      "pitch_z": -0.069,
+      "rms_mean": 0.160528,
+      "rms_z": 0.646,
+      "voiced_rate": 0.877,
+      "silence_s": 0.0,
+      "pitch_tremor": 33.86,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 33.86,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Jamie, but before we do, do you have any"
+    },
+    {
+      "start_s": 1353.25,
+      "end_s": 1354.79,
+      "duration_s": 1.54,
+      "pitch_mean_hz": 142.49,
+      "pitch_z": -0.11,
+      "rms_mean": 0.087626,
+      "rms_z": -0.213,
+      "voiced_rate": 0.479,
+      "silence_s": 0.0,
+      "pitch_tremor": 28.95,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "closing comments you'd like to share?"
+    },
+    {
+      "start_s": 1356.09,
+      "end_s": 1359.89,
+      "duration_s": 3.8,
+      "pitch_mean_hz": 169.8,
+      "pitch_z": 0.026,
+      "rms_mean": 0.126648,
+      "rms_z": 0.247,
+      "voiced_rate": 0.739,
+      "silence_s": 0.83,
+      "pitch_tremor": 27.88,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Well, I hope more people come forward with their sightings."
+    },
+    {
+      "start_s": 1361.09,
+      "end_s": 1365.07,
+      "duration_s": 3.98,
+      "pitch_mean_hz": 134.66,
+      "pitch_z": -0.149,
+      "rms_mean": 0.164662,
+      "rms_z": 0.694,
+      "voiced_rate": 0.629,
+      "silence_s": 0.0,
+      "pitch_tremor": 11.37,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Governments need to know that if they already don't know, these things are out there."
+    },
+    {
+      "start_s": 1367.27,
+      "end_s": 1372.73,
+      "duration_s": 5.46,
+      "pitch_mean_hz": 141.54,
+      "pitch_z": -0.115,
+      "rms_mean": 0.140956,
+      "rms_z": 0.415,
+      "voiced_rate": 0.682,
+      "silence_s": 0.54,
+      "pitch_tremor": 16.45,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "It took me a long time to actually come out and tell a lot of people what I've seen."
+    },
+    {
+      "start_s": 1373.47,
+      "end_s": 1378.41,
+      "duration_s": 4.94,
+      "pitch_mean_hz": 156.66,
+      "pitch_z": -0.039,
+      "rms_mean": 0.154434,
+      "rms_z": 0.574,
+      "voiced_rate": 0.652,
+      "silence_s": 0.0,
+      "pitch_tremor": 49.76,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 49.76,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "And what actually helped me come out and tell my story is hearing other people's stories."
+    },
+    {
+      "start_s": 1378.41,
+      "end_s": 1387.81,
+      "duration_s": 9.4,
+      "pitch_mean_hz": 140.65,
+      "pitch_z": -0.119,
+      "rms_mean": 0.102584,
+      "rms_z": -0.037,
+      "voiced_rate": 0.378,
+      "silence_s": 2.56,
+      "pitch_tremor": 35.53,
+      "flags": [
+        {
+          "type": "speech_slowdown",
+          "severity": 0.153,
+          "note": "Speaking rate significantly reduced"
+        },
+        {
+          "type": "long_pause",
+          "severity": 2.6,
+          "note": "Silence of 2.6s detected within segment"
+        },
+        {
+          "type": "voice_tremor",
+          "severity": 35.53,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "so your story if you've seen it does help a lot of people out a lot yes it does because as you know"
+    },
+    {
+      "start_s": 1387.81,
+      "end_s": 1392.83,
+      "duration_s": 5.02,
+      "pitch_mean_hz": 116.25,
+      "pitch_z": -0.241,
+      "rms_mean": 0.087763,
+      "rms_z": -0.211,
+      "voiced_rate": 0.603,
+      "silence_s": 0.58,
+      "pitch_tremor": 24.46,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "when you have an encounter with a dog man or a sasquatch it's just not easy to come out and"
+    },
+    {
+      "start_s": 1392.83,
+      "end_s": 1399.05,
+      "duration_s": 6.22,
+      "pitch_mean_hz": 131.54,
+      "pitch_z": -0.165,
+      "rms_mean": 0.079656,
+      "rms_z": -0.307,
+      "voiced_rate": 0.533,
+      "silence_s": 1.02,
+      "pitch_tremor": 43.3,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 43.3,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "start telling people about it for the obvious reasons it's not but having said that thanks so"
+    },
+    {
+      "start_s": 1399.05,
+      "end_s": 1403.89,
+      "duration_s": 4.84,
+      "pitch_mean_hz": 135.52,
+      "pitch_z": -0.145,
+      "rms_mean": 0.107632,
+      "rms_z": 0.023,
+      "voiced_rate": 0.563,
+      "silence_s": 0.22,
+      "pitch_tremor": 19.89,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "much for coming on and sharing the details of your experience with us jamie i really appreciate it"
+    },
+    {
+      "start_s": 1404.43,
+      "end_s": 1405.83,
+      "duration_s": 1.4,
+      "pitch_mean_hz": 138.03,
+      "pitch_z": -0.132,
+      "rms_mean": 0.167059,
+      "rms_z": 0.723,
+      "voiced_rate": 0.591,
+      "silence_s": 0.29,
+      "pitch_tremor": 9.12,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Thanks for having me, Vic."
+    },
+    {
+      "start_s": 1406.55,
+      "end_s": 1407.47,
+      "duration_s": 0.92,
+      "pitch_mean_hz": 150.38,
+      "pitch_z": -0.071,
+      "rms_mean": 0.158879,
+      "rms_z": 0.626,
+      "voiced_rate": 0.897,
+      "silence_s": 0.03,
+      "pitch_tremor": 39.98,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 39.98,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "Oh, you know you're welcome."
+    },
+    {
+      "start_s": 1408.13,
+      "end_s": 1410.55,
+      "duration_s": 2.42,
+      "pitch_mean_hz": 134.21,
+      "pitch_z": -0.151,
+      "rms_mean": 0.095256,
+      "rms_z": -0.123,
+      "voiced_rate": 0.853,
+      "silence_s": 0.38,
+      "pitch_tremor": 28.55,
+      "flags": [],
+      "emotional_weight": 0,
+      "flagged": false,
+      "text": "Thanks again so much and have a great night."
+    },
+    {
+      "start_s": 1433.89,
+      "end_s": 1435.95,
+      "duration_s": 2.06,
+      "pitch_mean_hz": 242.07,
+      "pitch_z": 0.386,
+      "rms_mean": 0.04666,
+      "rms_z": -0.695,
+      "voiced_rate": 0.75,
+      "silence_s": 0.0,
+      "pitch_tremor": 60.25,
+      "flags": [
+        {
+          "type": "voice_tremor",
+          "severity": 60.25,
+          "note": "Pitch instability (tremor) detected"
+        }
+      ],
+      "emotional_weight": 10.0,
+      "flagged": true,
+      "text": "you"
+    },
+    {
+      "start_s": 1463.89,
+      "end_s": 1464.51,
+      "duration_s": 0.62,
+      "pitch_mean_hz": null,
+      "pitch_z": 0,
+      "rms_mean": 0.0,
+      "rms_z": -1.244,
+      "voiced_rate": 0.0,
+      "silence_s": 0.61,
+      "pitch_tremor": 0,
+      "flags": [
+        {
+          "type": "volume_drop",
+          "severity": 1.24,
+          "note": "Volume 1.2SD below baseline"
+        },
+        {
+          "type": "speech_slowdown",
+          "severity": 0.531,
+          "note": "Speaking rate significantly reduced"
+        }
+      ],
+      "emotional_weight": 1.77,
+      "flagged": true,
+      "text": "you"
+    }
+  ]
+}
